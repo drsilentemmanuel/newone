@@ -28,9 +28,9 @@ export default function Home() {
                 </div>
               </div>
               <Image
-                src="https://placehold.co/600x400.png"
+                src="/image.png"
                 width="600"
-                height="400"
+                height="600"
                 alt="Hero"
                 className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last lg:aspect-square"
                 data-ai-hint="property management success"
@@ -77,11 +77,11 @@ export default function Home() {
               <Card className="flex flex-col justify-between border-accent/50 bg-accent/5">
                 <CardHeader className="p-0">
                   <Image
-                    src="https://placehold.co/600x400.png"
+                    src="/image.png"
                     width={600}
-                    height={400}
+                    height={600}
                     alt="Confident Property Manager"
-                    className="aspect-video overflow-hidden rounded-t-lg object-cover"
+                    className="aspect-square overflow-hidden rounded-t-lg object-cover"
                     data-ai-hint="confident man tablet"
                   />
                    <div className="p-6 pb-0">
