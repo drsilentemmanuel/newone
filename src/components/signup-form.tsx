@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form"
 import * as z from "zod"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
+import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -17,17 +18,26 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { useToast } from "@/hooks/use-toast"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Loader2 } from "lucide-react"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Checkbox } from "@/components/ui/checkbox"
 
 const formSchema = z.object({
   fullName: z.string().min(2, { message: "Full name must be at least 2 characters." }),
   email: z.string().email({ message: "Invalid email address." }),
   password: z.string().min(6, { message: "Password must be at least 6 characters." }),
-  accountType: z.enum(["tenant", "landlord"], {
+  confirmPassword: z.string().min(6, { message: "Password must be at least 6 characters." }),
+  accountType: z.enum(["tenant", "landlord", "agent", "propertyManager"], {
     required_error: "You need to select an account type.",
   }),
-})
+  terms: z.boolean().refine((val) => val === true, {
+    message: "You must accept the terms and conditions.",
+  }),
+}).refine((data) => data.password === data.confirmPassword, {
+  message: "Passwords don't match",
+  path: ["confirmPassword"],
+});
+
 
 export function SignupForm() {
   const router = useRouter()
@@ -40,6 +50,8 @@ export function SignupForm() {
       fullName: "",
       email: "",
       password: "",
+      confirmPassword: "",
+      terms: false,
     },
   })
 
@@ -87,6 +99,29 @@ export function SignupForm() {
             </FormItem>
           )}
         />
+         <FormField
+          control={form.control}
+          name="accountType"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>I am a...</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select an account type" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  <SelectItem value="tenant">Tenant</SelectItem>
+                  <SelectItem value="landlord">Landlord</SelectItem>
+                  <SelectItem value="agent">Agent</SelectItem>
+                  <SelectItem value="propertyManager">Property Manager</SelectItem>
+                </SelectContent>
+              </Select>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
         <FormField
           control={form.control}
           name="password"
@@ -102,37 +137,44 @@ export function SignupForm() {
         />
         <FormField
           control={form.control}
-          name="accountType"
+          name="confirmPassword"
           render={({ field }) => (
-            <FormItem className="space-y-3">
-              <FormLabel>I am a...</FormLabel>
+            <FormItem>
+              <FormLabel>Confirm Password</FormLabel>
               <FormControl>
-                <RadioGroup
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                  className="flex space-x-4"
-                >
-                  <FormItem className="flex items-center space-x-2 space-y-0">
-                    <FormControl>
-                      <RadioGroupItem value="tenant" />
-                    </FormControl>
-                    <FormLabel className="font-normal">
-                      Tenant
-                    </FormLabel>
-                  </FormItem>
-                  <FormItem className="flex items-center space-x-2 space-y-0">
-                    <FormControl>
-                      <RadioGroupItem value="landlord" />
-                    </FormControl>
-                    <FormLabel className="font-normal">
-                      Landlord / Agent
-                    </FormLabel>
-                  </FormItem>
-                </RadioGroup>
+                <Input type="password" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
+        />
+        <FormField
+            control={form.control}
+            name="terms"
+            render={({ field }) => (
+            <FormItem className="flex flex-row items-start space-x-3 space-y-0 pt-2">
+                <FormControl>
+                <Checkbox
+                    checked={field.value}
+                    onCheckedChange={field.onChange}
+                />
+                </FormControl>
+                <div className="space-y-1 leading-none">
+                <FormLabel className="font-normal">
+                    I agree to the{" "}
+                    <Link href="/terms" className="underline text-primary hover:text-primary/80">
+                    Terms & Conditions
+                    </Link>{" "}
+                    and{" "}
+                    <Link href="/privacy" className="underline text-primary hover:text-primary/80">
+                    Privacy Policy
+                    </Link>
+                    .
+                </FormLabel>
+                <FormMessage />
+                </div>
+            </FormItem>
+            )}
         />
         <Button type="submit" className="w-full" disabled={isLoading}>
            {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}

@@ -5,7 +5,6 @@ import { useForm } from "react-hook-form"
 import * as z from "zod"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
-import Link from "next/link"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -22,10 +21,9 @@ import { Loader2 } from "lucide-react"
 
 const formSchema = z.object({
   email: z.string().email({ message: "Invalid email address." }),
-  password: z.string().min(6, { message: "Password must be at least 6 characters." }),
 })
 
-export function LoginForm() {
+export function ForgotPasswordForm() {
   const router = useRouter()
   const { toast } = useToast()
   const [isLoading, setIsLoading] = useState(false)
@@ -35,21 +33,20 @@ export function LoginForm() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       email: "",
-      password: "",
     },
   })
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);
-    // This is a mock login.
+    // This is a mock action.
     console.log(values)
     
     setTimeout(() => {
         toast({
-            title: "Login Successful",
-            description: "Redirecting to your dashboard...",
+            title: "Password Reset Link Sent",
+            description: "Please check your email for instructions.",
         })
-        router.push("/dashboard")
+        router.push("/login")
         setIsLoading(false)
     }, 1000)
   }
@@ -70,30 +67,9 @@ export function LoginForm() {
             </FormItem>
           )}
         />
-        <FormField
-          control={form.control}
-          name="password"
-          render={({ field }) => (
-            <FormItem>
-              <div className="flex items-center">
-                <FormLabel>Password</FormLabel>
-                <Link
-                  href="/forgot-password"
-                  className="ml-auto inline-block text-sm underline text-primary"
-                >
-                  Forgot your password?
-                </Link>
-              </div>
-              <FormControl>
-                <Input type="password" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
         <Button type="submit" className="w-full" disabled={isLoading}>
           {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-          Login
+          Send Reset Link
         </Button>
       </form>
     </Form>
