@@ -3,6 +3,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Building, Briefcase, Home as HomeIcon, ArrowRight, ShieldCheck, TrendingUp, ClipboardCheck } from "lucide-react";
 import Image from 'next/image';
 import Link from 'next/link';
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
+import Autoplay from "embla-carousel-autoplay"
 
 export default function Home() {
   return (
@@ -119,7 +121,50 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="how-it-works" className="w-full py-12 md:py-24 lg:py-32">
+        <section id="partners" className="w-full py-12 md:py-24 lg:py-32">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
+                Trusted by Leading Organizations
+              </h2>
+            </div>
+            <Carousel
+              plugins={[
+                Autoplay({
+                  delay: 2000,
+                  stopOnInteraction: false,
+                  stopOnMouseEnter: true,
+                }),
+              ]}
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent>
+                {Array.from({ length: 10 }).map((_, index) => (
+                  <CarouselItem key={index} className="basis-1/2 md:basis-1/4 lg:basis-1/6">
+                    <div className="p-1">
+                      <div className="flex aspect-[2.5/1] items-center justify-center p-6 grayscale opacity-60 transition-opacity hover:opacity-100">
+                        <Image
+                          src={`https://placehold.co/150x60.png`}
+                          width="150"
+                          height="60"
+                          alt={`Partner Logo ${index + 1}`}
+                          className="object-contain"
+                          data-ai-hint="company logo"
+                        />
+                      </div>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
+          </div>
+        </section>
+
+        <section id="how-it-works" className="w-full py-12 md:py-24 lg:py-32 bg-secondary/50">
           <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6">
             <div className="space-y-3">
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight font-headline">How It Works</h2>
