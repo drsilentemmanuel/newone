@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Home, User, Building, LogOut } from "lucide-react"
+import { Home, User, LogOut, FilePlus2, BarChart3, LifeBuoy } from "lucide-react"
 import {
   SidebarProvider,
   Sidebar,
@@ -45,13 +45,23 @@ export default function DashboardLayout({
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/tenant-profile')} tooltip="Tenant Profile">
-                  <Link href="/dashboard/tenant-profile"><User /><span>Tenant Profile</span></Link>
+                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/new-enquiry')} tooltip="New Enquiry">
+                  <Link href="/dashboard/new-enquiry"><FilePlus2 /><span>New Enquiry</span></Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord-profile')} tooltip="Landlord Profile">
-                  <Link href="/dashboard/landlord-profile"><Building /><span>Landlord Profile</span></Link>
+                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/reports')} tooltip="Reports">
+                  <Link href="/dashboard/reports"><BarChart3 /><span>Reports</span></Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/profile') || pathname.startsWith('/dashboard/tenant-profile') || pathname.startsWith('/dashboard/landlord-profile')} tooltip="My Profile">
+                  <Link href="/dashboard/profile"><User /><span>My Profile</span></Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/support')} tooltip="Support">
+                  <Link href="/dashboard/support"><LifeBuoy /><span>Support</span></Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
