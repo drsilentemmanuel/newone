@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Building, Briefcase, Home as HomeIcon, ArrowRight } from "lucide-react";
+import { Building, Briefcase, Home as HomeIcon, ArrowRight, ShieldCheck, TrendingUp, ClipboardCheck } from "lucide-react";
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -74,7 +74,37 @@ export default function Home() {
             </div>
         </section>
 
-        <section id="how-it-works" className="w-full py-12 md:py-24 lg:py-32 bg-secondary/50">
+        <section id="challenges" className="w-full py-12 md:py-24 lg:py-32 bg-secondary/50">
+            <div className="container px-4 md:px-6">
+                <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+                  <div className="space-y-3">
+                      <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">We help you solve the most dynamic challenges in your organisation</h2>
+                  </div>
+                </div>
+                <div className="mx-auto grid max-w-5xl items-stretch gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:max-w-none">
+                  <ServiceCard
+                      icon={<ShieldCheck className="h-8 w-8 text-primary" />}
+                      title="Manage and reduce financial and legal risk"
+                      description="Manage and reduce financial and legal risk"
+                      link="#"
+                  />
+                  <ServiceCard
+                      icon={<TrendingUp className="h-8 w-8 text-primary" />}
+                      title="Improve cashflow sustainably and easily"
+                      description="Improve cashflow sustainably and easily"
+                      link="#"
+                  />
+                  <ServiceCard
+                      icon={<ClipboardCheck className="h-8 w-8 text-primary" />}
+                      title="Simplify complex compliance requirements"
+                      description="Simplify complex compliance requirements"
+                      link="#"
+                  />
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" className="w-full py-12 md:py-24 lg:py-32">
           <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6">
             <div className="space-y-3">
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight font-headline">How It Works</h2>
