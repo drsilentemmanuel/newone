@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
-import { Building, Briefcase, Home as HomeIcon, ArrowRight, ShieldCheck, TrendingUp, ClipboardCheck, User } from "lucide-react";
+import { Building, Briefcase, User, ArrowRight, ShieldCheck, TrendingUp, ClipboardCheck, HomeIcon } from "lucide-react";
 import Image from 'next/image';
 import Link from 'next/link';
 import { PartnerCarousel } from "@/components/partner-carousel";
@@ -48,8 +48,18 @@ export default function Home() {
             </div>
             <div className="grid md:grid-cols-2 gap-8 items-stretch">
               <Card className="flex flex-col justify-between border-destructive/50 bg-destructive/5">
-                <CardHeader>
-                  <CardTitle className="text-destructive">The Problem</CardTitle>
+                <CardHeader className="p-0">
+                  <Image
+                    src="https://placehold.co/600x400.png"
+                    width={600}
+                    height={400}
+                    alt="Stressed Landlord"
+                    className="aspect-video overflow-hidden rounded-t-lg object-cover"
+                    data-ai-hint="stressed landlord"
+                  />
+                  <div className="p-6 pb-0">
+                    <CardTitle className="text-destructive">The Problem</CardTitle>
+                  </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p className="text-muted-foreground">
@@ -65,8 +75,18 @@ export default function Home() {
               </Card>
               
               <Card className="flex flex-col justify-between border-accent/50 bg-accent/5">
-                <CardHeader>
-                  <CardTitle className="text-accent">The Solution</CardTitle>
+                <CardHeader className="p-0">
+                  <Image
+                    src="https://placehold.co/600x400.png"
+                    width={600}
+                    height={400}
+                    alt="Confident Property Manager"
+                    className="aspect-video overflow-hidden rounded-t-lg object-cover"
+                    data-ai-hint="confident man tablet"
+                  />
+                   <div className="p-6 pb-0">
+                    <CardTitle className="text-accent">The Solution</CardTitle>
+                  </div>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
