@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Handshake, Users, Home as HomeIcon, BarChart, ShieldCheck, Search } from "lucide-react";
+import { Building, Briefcase, Home as HomeIcon, ArrowRight } from "lucide-react";
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -41,50 +41,37 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="features" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm">Key Features</div>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Fostering Trust and Belonging</h2>
-                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Our platform is built to create a seamless and secure experience for everyone in the rental market.
-                </p>
-              </div>
+        <section id="services" className="w-full py-12 md:py-24 lg:py-32">
+            <div className="container px-4 md:px-6">
+                <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+                  <div className="space-y-3">
+                      <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">Delivering specialised credit bureau data</h2>
+                      <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                      to all leading organisations and ecosystems
+                      </p>
+                  </div>
+                </div>
+                <div className="mx-auto grid max-w-5xl items-stretch gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:max-w-none">
+                  <ServiceCard
+                      icon={<HomeIcon className="h-8 w-8 text-primary" />}
+                      title="Residential Property"
+                      description="Access specialised tenant vetting and property management tools and systems created specifically for the residential rental sector. Gain and retain quality tenants and clients."
+                      link="#"
+                  />
+                  <ServiceCard
+                      icon={<Building className="h-8 w-8 text-primary" />}
+                      title="Commercial Property"
+                      description="Real time tenant risk monitoring and screening. Intuitive scalable collection and compliance tools for commercial real estate management and investor success."
+                      link="#"
+                  />
+                  <ServiceCard
+                      icon={<Briefcase className="h-8 w-8 text-primary" />}
+                      title="Business"
+                      description="Advance your business growth. Screen and proactively manage your debtors. Real time debtor risk monitoring empowers you to easily navigate cashflow and compliance obstacles."
+                      link="#"
+                  />
+                </div>
             </div>
-            <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-3 lg:max-w-none mt-12">
-              <FeatureCard
-                icon={<Users className="h-8 w-8 text-primary" />}
-                title="Tenant Profiles"
-                description="Create detailed tenant profiles to showcase your reliability and rental history."
-              />
-              <FeatureCard
-                icon={<HomeIcon className="h-8 w-8 text-primary" />}
-                title="Landlord Profiles"
-                description="Landlords and agents can build trust by creating comprehensive profiles and listing properties."
-              />
-              <FeatureCard
-                icon={<Handshake className="h-8 w-8 text-primary" />}
-                title="Verified Users"
-                description="We encourage verification to increase trust and safety within the community."
-              />
-              <FeatureCard
-                icon={<Search className="h-8 w-8 text-primary" />}
-                title="Smart Matching"
-                description="Our smart algorithms help tenants find the right properties and landlords find the best tenants."
-              />
-               <FeatureCard
-                icon={<BarChart className="h-8 w-8 text-primary" />}
-                title="AI-Powered Insights"
-                description="Leverage AI to get deep insights into profiles, helping you make informed decisions."
-              />
-               <FeatureCard
-                icon={<ShieldCheck className="h-8 w-8 text-primary" />}
-                title="Secure & Private"
-                description="Your data is your own. We prioritize security and privacy for all our users."
-              />
-            </div>
-          </div>
         </section>
 
         <section id="how-it-works" className="w-full py-12 md:py-24 lg:py-32 bg-secondary/50">
@@ -119,15 +106,20 @@ export default function Home() {
   );
 }
 
-function FeatureCard({ icon, title, description }: { icon: React.ReactNode; title: string; description: string; }) {
+function ServiceCard({ icon, title, description, link }: { icon: React.ReactNode; title: string; description: string; link: string; }) {
   return (
-    <Card className="text-left">
-      <CardHeader className="flex flex-row items-center gap-4">
-        {icon}
-        <CardTitle>{title}</CardTitle>
+    <Card className="text-left flex flex-col">
+      <CardHeader>
+        <div className="flex flex-row items-start gap-4">
+          {icon}
+          <CardTitle className="mt-1">{title}</CardTitle>
+        </div>
       </CardHeader>
-      <CardContent>
-        <p className="text-muted-foreground">{description}</p>
+      <CardContent className="flex flex-col flex-grow">
+        <p className="text-muted-foreground flex-grow">{description}</p>
+        <Button asChild variant="link" className="p-0 mt-4 self-start font-semibold text-primary">
+          <Link href={link}>Learn more <ArrowRight className="ml-1 h-4 w-4" /></Link>
+        </Button>
       </CardContent>
     </Card>
   );
