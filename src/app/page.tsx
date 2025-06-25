@@ -104,6 +104,21 @@ export default function Home() {
             </div>
         </section>
 
+        <section id="stats" className="w-full py-12 md:py-24 lg:py-32 bg-primary text-primary-foreground">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">
+                Credit Bureau – The trusted source of specialised data
+              </h2>
+            </div>
+            <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 text-center md:grid-cols-3 md:gap-12">
+              <StatItem value="23K+" label="Users" />
+              <StatItem value="3.4M+" label="Leases" />
+              <StatItem value="150K" label="Landlords" />
+            </div>
+          </div>
+        </section>
+
         <section id="how-it-works" className="w-full py-12 md:py-24 lg:py-32">
           <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6">
             <div className="space-y-3">
@@ -152,6 +167,15 @@ function ServiceCard({ icon, title, description, link }: { icon: React.ReactNode
         </Button>
       </CardContent>
     </Card>
+  );
+}
+
+function StatItem({ value, label }: { value: string; label: string; }) {
+  return (
+    <div className="flex flex-col items-center space-y-1">
+      <p className="text-5xl font-extrabold tracking-tighter">{value}</p>
+      <p className="text-lg font-medium text-primary-foreground/80">{label}</p>
+    </div>
   );
 }
 
