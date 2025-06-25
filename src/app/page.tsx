@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Building, Briefcase, Home as HomeIcon, ArrowRight, ShieldCheck, TrendingUp, ClipboardCheck } from "lucide-react";
+import { Building, Briefcase, Home as HomeIcon, ArrowRight, ShieldCheck, TrendingUp, ClipboardCheck, User } from "lucide-react";
 import Image from 'next/image';
 import Link from 'next/link';
 import { PartnerCarousel } from "@/components/partner-carousel";
@@ -52,7 +52,13 @@ export default function Home() {
                       </p>
                   </div>
                 </div>
-                <div className="mx-auto grid max-w-5xl items-stretch gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:max-w-none">
+                <div className="mx-auto grid max-w-6xl items-stretch gap-8 sm:grid-cols-2 lg:grid-cols-2">
+                  <ServiceCard
+                      icon={<User className="h-8 w-8 text-primary" />}
+                      title="Tenants"
+                      description="This powerful reputation, built on your payment history and reliability, extends beyond landlords, positively impacting your standing with employers, lenders, and banks. By maintaining an accurate and strong TPN profile, you gain a tangible asset that speaks volumes about your reliability across various aspects of your financial life."
+                      link="#"
+                  />
                   <ServiceCard
                       icon={<HomeIcon className="h-8 w-8 text-primary" />}
                       title="Residential Property"
