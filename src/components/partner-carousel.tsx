@@ -26,9 +26,9 @@ export function PartnerCarousel() {
             <div className="p-1">
               <div className="flex aspect-[2.5/1] items-center justify-center p-6 grayscale opacity-60 transition-opacity hover:opacity-100">
                 <Image
-                  src={`https://placehold.co/150x60.png`}
-                  width="150"
-                  height="60"
+                  src={`https://placehold.co/200x80.png`}
+                  width="200"
+                  height="80"
                   alt={`Partner Logo ${index + 1}`}
                   className="object-contain"
                   data-ai-hint="company logo"
