@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Building, Briefcase, Home as HomeIcon, ArrowRight, ShieldCheck, TrendingUp, ClipboardCheck, User, ShieldAlert } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import { Building, Briefcase, Home as HomeIcon, ArrowRight, ShieldCheck, TrendingUp, ClipboardCheck, User } from "lucide-react";
 import Image from 'next/image';
 import Link from 'next/link';
 import { PartnerCarousel } from "@/components/partner-carousel";
@@ -39,24 +39,44 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="problem-solved" className="w-full py-12 md:py-24 lg:py-32">
+        <section id="problem-solution" className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
-            <div className="max-w-3xl mx-auto text-center space-y-6">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">The Problem We Solve</h2>
-                <p className="text-muted-foreground md:text-xl/relaxed">
-                  Managing rental property—finding the right tenants, vetting, documentation, rent collection, and legal compliance—can be stressful. Zim TPN simplifies these challenges.
-                </p>
-                <div className="flex items-center justify-center gap-8 text-muted-foreground pt-4">
-                    <div className="flex flex-col items-center gap-2">
-                        <ShieldAlert className="h-10 w-10 text-destructive" />
-                        <span className="text-sm font-medium">STRESS & UNCERTAINTY</span>
-                    </div>
-                    <ArrowRight className="h-10 w-10 text-primary shrink-0" />
-                     <div className="flex flex-col items-center gap-2">
-                        <ShieldCheck className="h-10 w-10 text-accent" />
-                        <span className="text-sm font-medium">SIMPLICITY & CONFIDENCE</span>
-                    </div>
-                </div>
+            <div className="text-center space-y-3 mb-12">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
+                Transforming Rental Property Management: From Stress to Success
+              </h2>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8 items-stretch">
+              <Card className="flex flex-col justify-between border-destructive/50 bg-destructive/5">
+                <CardHeader>
+                  <CardTitle className="text-destructive">The Problem</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-muted-foreground">
+                    Are you grappling with the <strong>stress and uncertainty</strong> of managing rental properties in Zimbabwe? The constant worry of finding the right tenants, navigating complex vetting, piles of documentation, consistent rent collection, and ever-changing legal compliance can be overwhelming.
+                  </p>
+                  <blockquote className="border-l-4 border-destructive pl-4 italic text-muted-foreground">
+                    "Consider this: Tatenda stayed at Michelle's place for months, then left without paying for 6. Who wants to inherit <em>that</em> problem?"
+                  </blockquote>
+                </CardContent>
+                <CardFooter className="pt-4">
+                    <p className="w-full text-center font-bold text-lg text-destructive tracking-wider">STRESS & UNCERTAINTY</p>
+                </CardFooter>
+              </Card>
+              
+              <Card className="flex flex-col justify-between border-accent/50 bg-accent/5">
+                <CardHeader>
+                  <CardTitle className="text-accent">The Solution</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    At Zim TPN, we understand these challenges. We bring you <strong>simplicity and confidence</strong> through specialized, AI-powered tools that streamline tenant screening, ensure reliable cash flow, and guarantee effortless compliance. With our system, you'll know the <em>full tenant history</em> and <strong>make decisions based on solid data</strong>, not guesswork, allowing you to focus on growth and peace of mind.
+                  </p>
+                </CardContent>
+                <CardFooter className="pt-4">
+                    <p className="w-full text-center font-bold text-lg text-accent tracking-wider">SIMPLICITY & CONFIDENCE</p>
+                </CardFooter>
+              </Card>
             </div>
           </div>
         </section>
