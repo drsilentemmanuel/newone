@@ -28,7 +28,7 @@ export default function Home() {
                 </div>
               </div>
               <Image
-                src="/image.png"
+                src="https://placehold.co/600x600.png"
                 width="600"
                 height="600"
                 alt="Hero"
@@ -77,7 +77,7 @@ export default function Home() {
               <Card className="flex flex-col justify-between border-accent/50 bg-accent/5">
                 <CardHeader className="p-0">
                   <Image
-                    src="/image.png"
+                    src="https://placehold.co/600x600.png"
                     width={600}
                     height={600}
                     alt="Confident Property Manager"
