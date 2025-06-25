@@ -1,1 +1,5 @@
-// Flows will be imported for their side effects in this file.
+import { config } from 'dotenv';
+config();
+
+import '@/ai/flows/generate-tenant-profile-insights.ts';
+import '@/ai/flows/generate-landlord-profile-insights.ts';
