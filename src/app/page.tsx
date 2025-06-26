@@ -16,7 +16,7 @@ export default function Home() {
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-4">
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none font-headline">
-                    Transform Rental Risk into Reward with Zim TPN: Your Trusted Partner in Tenant Vetting & Property Management.
+                    Zim TPN: Your Partner in Tenant Vetting
                   </h1>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
                     Specialised systems for enhanced tenant selection, renewed confidence in cash flow, and straightforward legal compliance in Zimbabwe.
@@ -57,14 +57,14 @@ export default function Home() {
                   className="aspect-video overflow-hidden rounded-t-lg object-cover"
                   data-ai-hint="man frustrated paperwork"
                 />
-                <CardHeader>
+                 <CardHeader>
                   <CardTitle className="text-destructive">The Problem</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4 flex-grow">
                   <p className="text-muted-foreground">
                     Grappling with the <strong>stress and uncertainty</strong> of managing rental properties in Zimbabwe? The worry of finding good tenants, complex vetting, endless paperwork, rent collection, and legal compliance can be overwhelming.
                   </p>
-                  <blockquote className="border-l-4 border-destructive pl-4 italic text-muted-foreground">
+                   <blockquote className="border-l-4 border-destructive pl-4 italic text-muted-foreground">
                     "Consider this: Tatenda stayed at Michelle's place for months, then left without paying for 6. Who wants to inherit <em>that</em> problem?"
                   </blockquote>
                 </CardContent>
@@ -82,10 +82,8 @@ export default function Home() {
                   className="aspect-video overflow-hidden rounded-t-lg object-cover"
                   data-ai-hint="man report tablet"
                 />
-                <CardHeader>
-                  <CardTitle className="text-accent">The Solution</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4 flex-grow">
+                <CardContent className="space-y-4 flex-grow pt-6">
+                  <CardTitle className="text-accent mb-4">The Solution</CardTitle>
                   <p className="text-muted-foreground">
                     Zim TPN brings you <strong>simplicity and confidence</strong> with AI-powered tools to streamline tenant screening, secure cash flow, and ensure effortless compliance. Make decisions based on solid data, not guesswork, and focus on growth and peace of mind.
                   </p>
