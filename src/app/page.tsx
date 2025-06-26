@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
-import { Building, Briefcase, User, ArrowRight, ShieldCheck, TrendingUp, ClipboardCheck, HomeIcon, Download } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ShieldCheck, TrendingUp, ClipboardCheck } from "lucide-react";
 import Image from 'next/image';
 import Link from 'next/link';
 import { PartnerCarousel } from "@/components/partner-carousel";
@@ -10,6 +10,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
+        {/* Hero Section */}
         <section className="w-full py-12 md:py-20 lg:py-24 bg-secondary/50">
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
@@ -40,11 +41,12 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Problem/Solution Section */}
         <section id="problem-solution" className="w-full py-12 md:py-20 lg:py-24">
           <div className="container px-4 md:px-6">
             <div className="text-center space-y-3 mb-12">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
-                Transforming Rental Property Management: From Stress to Success
+                From Rental Stress to Success
               </h2>
             </div>
             <div className="grid md:grid-cols-2 gap-8 items-stretch">
@@ -62,15 +64,12 @@ export default function Home() {
                 </CardHeader>
                 <CardContent className="space-y-4 flex-grow">
                   <p className="text-muted-foreground">
-                    Grappling with the <strong>stress and uncertainty</strong> of managing rentals? The worry of finding good tenants, complex vetting, paperwork, and rent collection can be overwhelming.
+                    Grappling with the stress of managing rentals? The worry of finding good tenants, complex vetting, and rent collection can be overwhelming.
                   </p>
                    <blockquote className="border-l-4 border-destructive pl-4 italic text-muted-foreground">
-                    "Consider this: Tatenda stayed at Michelle's place for months, then left without paying for 6. Who wants to inherit <em>that</em> problem?"
+                    "A bad tenant can mean months of lost rent and countless headaches. Who wants to inherit that problem?"
                   </blockquote>
                 </CardContent>
-                <CardFooter className="pt-4">
-                    <p className="w-full text-center font-bold text-lg text-destructive tracking-wider">STRESS & UNCERTAINTY</p>
-                </CardFooter>
               </Card>
               
               <Card className="flex flex-col justify-between border-accent/50 bg-accent/5">
@@ -87,145 +86,49 @@ export default function Home() {
                   </CardHeader>
                 <CardContent className="space-y-4 flex-grow">
                   <p className="text-muted-foreground">
-                    Zim TPN brings you <strong>simplicity and confidence</strong> with AI-powered tools to streamline tenant screening, secure cash flow, and ensure effortless compliance. Make decisions based on solid data, not guesswork.
+                    Zim TPN brings simplicity and confidence with AI-powered tools to streamline tenant screening, secure cash flow, and ensure effortless compliance.
                   </p>
                   <blockquote className="border-l-4 border-accent pl-4 italic text-muted-foreground">
-                    "A comprehensive Zim TPN report instantly flags Tatenda's payment history, saving you 6 months of lost rent and countless headaches."
+                    "A comprehensive Zim TPN report instantly flags payment history, saving you from potential financial loss."
                   </blockquote>
                 </CardContent>
-                <CardFooter className="pt-4">
-                    <p className="w-full text-center font-bold text-lg text-accent tracking-wider">SIMPLICITY & CONFIDENCE</p>
-                </CardFooter>
               </Card>
             </div>
           </div>
         </section>
 
-        <section id="services" className="w-full py-12 md:py-20 lg:py-24 bg-secondary/50">
+        {/* Features Section */}
+        <section id="features" className="w-full py-12 md:py-20 lg:py-24 bg-secondary/50">
             <div className="container px-4 md:px-6">
                 <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
                   <div className="space-y-3">
-                      <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">Delivering specialised credit bureau data</h2>
+                      <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">A Comprehensive Toolkit for the Rental Market</h2>
                       <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                      to all leading organisations and ecosystems
+                      We help you manage risk, improve cashflow, and simplify compliance.
                       </p>
                   </div>
                 </div>
-                <div className="mx-auto grid max-w-6xl items-stretch gap-8 sm:grid-cols-2 lg:grid-cols-2">
-                  <ServiceCard
-                      icon={<User className="h-8 w-8 text-primary" />}
-                      title="Tenants"
-                      description="This powerful reputation, built on your payment history and reliability, extends beyond landlords, positively impacting your standing with employers, lenders, and banks."
-                      link="#"
-                  />
-                  <ServiceCard
-                      icon={<HomeIcon className="h-8 w-8 text-primary" />}
-                      title="Residential Property"
-                      description="Access specialised tenant vetting and property management tools and systems created specifically for the residential rental sector. Gain and retain quality tenants and clients."
-                      link="#"
-                  />
-                  <ServiceCard
-                      icon={<Building className="h-8 w-8 text-primary" />}
-                      title="Commercial Property"
-                      description="Real time tenant risk monitoring and screening. Intuitive scalable collection and compliance tools for commercial real estate management and investor success."
-                      link="#"
-                  />
-                  <ServiceCard
-                      icon={<Briefcase className="h-8 w-8 text-primary" />}
-                      title="Business"
-                      description="Advance your business growth. Screen and proactively manage your debtors. Real time debtor risk monitoring empowers you to easily navigate cashflow and compliance obstacles."
-                      link="#"
-                  />
-                </div>
-            </div>
-        </section>
-
-        <section id="challenges" className="w-full py-12 md:py-20 lg:py-24">
-            <div className="container px-4 md:px-6">
-                <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-                  <div className="space-y-3">
-                      <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">We help you solve the most dynamic challenges in your organisation</h2>
-                  </div>
-                </div>
-                <div className="mx-auto grid max-w-5xl items-stretch gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:max-w-none">
-                  <ServiceCard
+                <div className="mx-auto grid max-w-5xl items-stretch gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                  <FeatureCard
                       icon={<ShieldCheck className="h-8 w-8 text-primary" />}
-                      title="Manage and reduce financial and legal risk"
-                      description="Manage and reduce financial and legal risk"
-                      link="#"
+                      title="Manage Risk"
+                      description="Make informed decisions with comprehensive tenant screening and verification."
                   />
-                  <ServiceCard
+                  <FeatureCard
                       icon={<TrendingUp className="h-8 w-8 text-primary" />}
-                      title="Improve cashflow sustainably and easily"
-                      description="Improve cashflow sustainably and easily"
-                      link="#"
+                      title="Improve Cashflow"
+                      description="Ensure reliable tenants and consistent rent collection with our data-driven insights."
                   />
-                  <ServiceCard
+                  <FeatureCard
                       icon={<ClipboardCheck className="h-8 w-8 text-primary" />}
-                      title="Simplify complex compliance requirements"
-                      description="Simplify complex compliance requirements"
-                      link="#"
+                      title="Simplify Compliance"
+                      description="Navigate legal requirements with straightforward tools and up-to-date information."
                   />
                 </div>
             </div>
         </section>
         
-        <section id="reports" className="w-full py-12 md:py-20 lg:py-24 bg-secondary/50">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-              <div className="space-y-3">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">Industry Reports and Resources</h2>
-                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Stay informed with our latest reports, guides, and resources for the property market in Zimbabwe.
-                </p>
-              </div>
-            </div>
-            <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              <ResourceCard
-                title="2024 Rental Market Trends Report"
-                description="An in-depth analysis of rental prices, demand, and vacancy rates across Zimbabwe."
-                link="#"
-              />
-              <ResourceCard
-                title="Guide to Tenancy Agreements"
-                description="A comprehensive guide to creating legally-sound tenancy agreements that protect all parties."
-                link="#"
-              />
-              <ResourceCard
-                title="Landlord's Checklist for Property Maintenance"
-                description="A handy checklist to ensure your property remains in top condition and retains its value."
-                link="#"
-              />
-            </div>
-          </div>
-        </section>
-
-        <section id="stats" className="w-full py-12 md:py-20 lg:py-24 bg-primary text-primary-foreground">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">
-                Credit Bureau – The trusted source of specialised data
-              </h2>
-            </div>
-            <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 text-center md:grid-cols-3 md:gap-12">
-              <StatItem value="23K+" label="Users" />
-              <StatItem value="3.4M+" label="Leases" />
-              <StatItem value="150K" label="Landlords" />
-            </div>
-          </div>
-        </section>
-
-        <section id="partners" className="w-full py-12 md:py-20 lg:py-24 bg-secondary/50">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
-                Trusted by Leading Organizations
-              </h2>
-            </div>
-            <PartnerCarousel />
-          </div>
-        </section>
-
+        {/* How It Works Section */}
         <section id="how-it-works" className="w-full py-12 md:py-20 lg:py-24">
           <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6">
             <div className="space-y-3">
@@ -253,44 +156,50 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* Trust & Social Proof Section */}
+        <section id="trust" className="w-full py-12 md:py-20 lg:py-24 bg-secondary/50">
+          <div className="container px-4 md:px-6">
+            <div className="w-full py-12 md:py-16 bg-primary text-primary-foreground rounded-lg">
+                <div className="container px-4 md:px-6">
+                    <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+                        <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">
+                        The Trusted Source of Specialised Data
+                        </h2>
+                    </div>
+                    <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 text-center md:grid-cols-3 md:gap-12">
+                        <StatItem value="23K+" label="Users" />
+                        <StatItem value="3.4M+" label="Leases" />
+                        <StatItem value="150K" label="Landlords" />
+                    </div>
+                </div>
+            </div>
+
+            <div className="mt-16">
+                 <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
+                        Trusted by Leading Organizations
+                    </h2>
+                </div>
+                <PartnerCarousel />
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   );
 }
 
-function ServiceCard({ icon, title, description, link }: { icon: React.ReactNode; title: string; description: string; link: string; }) {
+function FeatureCard({ icon, title, description }: { icon: React.ReactNode; title: string; description: string; }) {
   return (
-    <Card className="text-left flex flex-col bg-card">
-      <CardHeader>
-        <div className="flex flex-row items-start gap-4">
-          {icon}
-          <CardTitle className="mt-1">{title}</CardTitle>
-        </div>
+    <Card className="text-left flex flex-col bg-card p-4 items-center text-center">
+      <CardHeader className="p-2">
+        {icon}
       </CardHeader>
-      <CardContent className="flex flex-col flex-grow">
+      <CardContent className="flex flex-col flex-grow p-2">
+        <CardTitle className="text-xl mb-2">{title}</CardTitle>
         <p className="text-muted-foreground flex-grow">{description}</p>
-        <Button asChild variant="link" className="p-0 mt-4 self-start font-semibold text-primary">
-          <Link href={link}>Learn more <ArrowRight className="ml-1 h-4 w-4" /></Link>
-        </Button>
       </CardContent>
-    </Card>
-  );
-}
-
-function ResourceCard({ title, description, link }: { title: string; description: string; link: string; }) {
-  return (
-    <Card className="flex flex-col">
-      <CardHeader>
-        <CardTitle className="text-xl">{title}</CardTitle>
-      </CardHeader>
-      <CardContent className="flex-grow">
-        <p className="text-muted-foreground">{description}</p>
-      </CardContent>
-      <CardFooter>
-        <Button asChild variant="secondary" className="w-full">
-          <Link href={link}>Download Now <Download className="ml-2 h-4 w-4" /></Link>
-        </Button>
-      </CardFooter>
     </Card>
   );
 }
