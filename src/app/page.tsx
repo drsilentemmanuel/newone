@@ -50,7 +50,7 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-8 items-stretch">
               <Card className="flex flex-col justify-between border-destructive/50 bg-destructive/5">
                 <Image
-                  src="/Gemini_Generated_Image_lpn7rplpn7rplpn7.png"
+                  src="/Gemini_Generated_Image_e5w6jve5w6jve5w6.png"
                   width={600}
                   height={400}
                   alt="Stressed landlord with paperwork"
@@ -73,7 +73,7 @@ export default function Home() {
               
               <Card className="flex flex-col justify-between border-accent/50 bg-accent/5">
                 <Image
-                  src="/Gemini_Generated_Image_e5w6jve5w6jve5w6.png"
+                  src="/Gemini_Generated_Image_lpn7rplpn7rplpn7.png"
                   width={600}
                   height={400}
                   alt="Confident property manager using Zim TPN"
