@@ -29,7 +29,7 @@ export default function Home() {
                 </div>
               </div>
               <Image
-                src="/images/Black%20guy%20looking%20at%20the%20tnp%20report.png"
+                src="/images/Gemini_Generated_Image_e5w6jve5w6jve5w6.png"
                 width="600"
                 height="600"
                 alt="A confident property manager reviewing a report"
@@ -51,7 +51,7 @@ export default function Home() {
               <Card className="flex flex-col justify-between border-destructive/50 bg-destructive/5">
                 <CardHeader className="p-0">
                   <Image
-                    src="/images/frustrated%20white%20guy.png"
+                    src="/images/Gemini_Generated_Image_lpn7rplpn7rplpn7.png"
                     width={600}
                     height={400}
                     alt="Stressed landlord with paperwork"
@@ -78,7 +78,7 @@ export default function Home() {
               <Card className="flex flex-col justify-between border-accent/50 bg-accent/5">
                 <CardHeader className="p-0">
                   <Image
-                    src="/images/Black%20guy%20looking%20at%20the%20tnp%20report.png"
+                    src="/images/Gemini_Generated_Image_e5w6jve5w6jve5w6.png"
                     width={600}
                     height={400}
                     alt="Confident property manager using Zim TPN"
