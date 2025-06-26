@@ -1,3 +1,5 @@
+"use client"
+
 import {
   Card,
   CardContent,
@@ -9,8 +11,19 @@ import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
 import { GaugeCircle, Receipt, TrendingUp, PiggyBank, Smile, ArrowUpCircle } from 'lucide-react';
-import { ScoreGauge } from '@/components/score-gauge';
-import { ScoreImprovementChart } from '@/components/score-improvement-chart';
+import dynamic from 'next/dynamic';
+import { Skeleton } from '@/components/ui/skeleton';
+
+const ScoreGauge = dynamic(() => import('@/components/score-gauge').then(mod => mod.ScoreGauge), {
+  ssr: false,
+  loading: () => <Skeleton className="h-[120px] w-[240px]" />,
+});
+
+const ScoreImprovementChart = dynamic(() => import('@/components/score-improvement-chart').then(mod => mod.ScoreImprovementChart), {
+  ssr: false,
+  loading: () => <Skeleton className="h-40 w-full" />,
+});
+
 
 export default function TenantDashboardPage() {
   return (
@@ -22,7 +35,7 @@ export default function TenantDashboardPage() {
       <div className="grid gap-6 md:grid-cols-2">
         {/* Score Report Card */}
         <Card className="col-span-1 flex flex-col">
-          <CardHeader className="bg-gradient-to-br from-primary/90 to-accent/90 text-primary-foreground rounded-t-lg">
+          <CardHeader className="bg-gradient-to-br from-primary/90 to-primary/80 text-primary-foreground rounded-t-lg">
             <CardTitle className="flex items-center gap-2">
               <GaugeCircle className="w-6 h-6" />
               <span>Score Report</span>
@@ -39,7 +52,7 @@ export default function TenantDashboardPage() {
 
         {/* Voucher Payments Card */}
         <Card className="col-span-1 flex flex-col">
-          <CardHeader className="bg-gradient-to-br from-primary/90 to-accent/90 text-primary-foreground rounded-t-lg">
+          <CardHeader className="bg-gradient-to-br from-primary/90 to-primary/80 text-primary-foreground rounded-t-lg">
             <CardTitle className="flex items-center gap-2">
               <Receipt className="w-6 h-6" />
               <span>Voucher Payments</span>
@@ -82,7 +95,7 @@ export default function TenantDashboardPage() {
 
         {/* Score Improvement Card */}
         <Card className="col-span-1 flex flex-col">
-           <CardHeader className="bg-gradient-to-br from-primary/90 to-accent/90 text-primary-foreground rounded-t-lg">
+           <CardHeader className="bg-gradient-to-br from-primary/90 to-primary/80 text-primary-foreground rounded-t-lg">
             <CardTitle className="flex items-center gap-2">
               <TrendingUp className="w-6 h-6" />
               <span>Score Improvement</span>
@@ -102,7 +115,7 @@ export default function TenantDashboardPage() {
         
         {/* Savings Available Card */}
         <Card className="col-span-1 flex flex-col">
-          <CardHeader className="bg-gradient-to-br from-primary/90 to-accent/90 text-primary-foreground rounded-t-lg">
+          <CardHeader className="bg-gradient-to-br from-primary/90 to-primary/80 text-primary-foreground rounded-t-lg">
             <CardTitle className="flex items-center gap-2">
               <PiggyBank className="w-6 h-6" />
               <span>Savings Available</span>
