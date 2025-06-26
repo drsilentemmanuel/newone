@@ -27,7 +27,7 @@ const formSchema = z.object({
   email: z.string().email({ message: "Invalid email address." }),
   password: z.string().min(6, { message: "Password must be at least 6 characters." }),
   confirmPassword: z.string().min(6, { message: "Password must be at least 6 characters." }),
-  accountType: z.enum(["tenant", "landlord", "agent", "propertyManager"], {
+  accountType: z.enum(["tenant", "landlord", "propertyProfessional"], {
     required_error: "You need to select an account type.",
   }),
   terms: z.boolean().refine((val) => val === true, {
@@ -114,8 +114,7 @@ export function SignupForm() {
                 <SelectContent>
                   <SelectItem value="tenant">Tenant</SelectItem>
                   <SelectItem value="landlord">Landlord</SelectItem>
-                  <SelectItem value="agent">Agent</SelectItem>
-                  <SelectItem value="propertyManager">Property Manager</SelectItem>
+                  <SelectItem value="propertyProfessional">Property Professional</SelectItem>
                 </SelectContent>
               </Select>
               <FormMessage />
