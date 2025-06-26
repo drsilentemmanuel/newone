@@ -33,13 +33,13 @@ export function PartnerCarousel() {
         {partners.map((partner, index) => (
           <CarouselItem key={index} className="basis-1/2 md:basis-1/4 lg:basis-1/6">
             <div className="p-1">
-              <div className="flex aspect-[2.5/1] items-center justify-center p-6 grayscale opacity-60 transition-opacity hover:opacity-100">
+              <div className="flex h-20 items-center justify-center p-4 grayscale opacity-60 transition-opacity hover:opacity-100">
                 <Image
                   src={partner.logo}
                   width="200"
                   height="80"
                   alt={`${partner.name} Logo`}
-                  className="object-contain"
+                  className="object-contain h-full w-auto"
                   data-ai-hint="company logo"
                 />
               </div>
