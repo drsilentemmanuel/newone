@@ -29,12 +29,12 @@ export default function Home() {
                 </div>
               </div>
               <Image
-                src="/Gemini_Generated_Image_e5w6jve5w6jve5w6.png"
+                src="/Gemini_Generated_Image_swidg9swidg9swid.png"
                 width="600"
                 height="600"
                 alt="A confident property manager reviewing a report"
                 className="mx-auto aspect-square overflow-hidden rounded-xl object-cover sm:w-full lg:order-last"
-                data-ai-hint="man report"
+                data-ai-hint="property management"
               />
             </div>
           </div>
