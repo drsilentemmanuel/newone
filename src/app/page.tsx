@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Building, Briefcase, User, ArrowRight, ShieldCheck, TrendingUp, ClipboardCheck, HomeIcon } from "lucide-react";
@@ -28,7 +29,7 @@ export default function Home() {
                 </div>
               </div>
               <Image
-                src="/Black%20guy%20looking%20at%20the%20tnp%20report.png"
+                src="/images/Black%20guy%20looking%20at%20the%20tnp%20report.png"
                 width="600"
                 height="600"
                 alt="A confident property manager reviewing a report"
@@ -50,7 +51,7 @@ export default function Home() {
               <Card className="flex flex-col justify-between border-destructive/50 bg-destructive/5">
                 <CardHeader className="p-0">
                   <Image
-                    src="/frustrated%20white%20guy.png"
+                    src="/images/frustrated%20white%20guy.png"
                     width={600}
                     height={400}
                     alt="Stressed landlord with paperwork"
@@ -77,7 +78,7 @@ export default function Home() {
               <Card className="flex flex-col justify-between border-accent/50 bg-accent/5">
                 <CardHeader className="p-0">
                   <Image
-                    src="/Black%20guy%20looking%20at%20the%20tnp%20report.png"
+                    src="/images/Black%20guy%20looking%20at%20the%20tnp%20report.png"
                     width={600}
                     height={400}
                     alt="Confident property manager using Zim TPN"
