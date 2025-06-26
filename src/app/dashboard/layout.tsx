@@ -77,7 +77,7 @@ export default function DashboardLayout({
             </SidebarMenu>
           </SidebarFooter>
         </Sidebar>
-        <SidebarInset>
+        <SidebarInset className="overflow-y-auto">
           <header className="flex items-center justify-between p-4 border-b bg-background sticky top-0 z-10 h-16 shrink-0">
             <SidebarTrigger className="md:hidden"/>
             <div className="flex-1" />
@@ -109,7 +109,7 @@ export default function DashboardLayout({
               </DropdownMenuContent>
             </DropdownMenu>
           </header>
-          <div className="flex-1 overflow-y-auto p-6 md:p-8">{children}</div>
+          <div className="p-6 md:p-8">{children}</div>
         </SidebarInset>
       </div>
     </SidebarProvider>
