@@ -8,7 +8,6 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 const navLinks = [
-  { href: '/pricing', label: 'Pricing' },
   { href: '/blog', label: 'Blog' },
 ];
 
