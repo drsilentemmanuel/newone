@@ -19,7 +19,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { useToast } from "@/hooks/use-toast"
 import { Loader2 } from "lucide-react"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Checkbox } from "@/components/ui/checkbox"
 
 const formSchema = z.object({
@@ -103,20 +103,40 @@ export function SignupForm() {
           control={form.control}
           name="accountType"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="space-y-3">
               <FormLabel>I am a...</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select an account type" />
-                  </SelectTrigger>
-                </FormControl>
-                <SelectContent>
-                  <SelectItem value="tenant">Tenant</SelectItem>
-                  <SelectItem value="landlord">Landlord</SelectItem>
-                  <SelectItem value="propertyProfessional">Property Professional</SelectItem>
-                </SelectContent>
-              </Select>
+              <FormControl>
+                <RadioGroup
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                  className="flex flex-col space-y-2"
+                >
+                  <FormItem className="flex items-center space-x-3 space-y-0">
+                    <FormControl>
+                      <RadioGroupItem value="tenant" />
+                    </FormControl>
+                    <FormLabel className="font-normal">
+                      Tenant
+                    </FormLabel>
+                  </FormItem>
+                  <FormItem className="flex items-center space-x-3 space-y-0">
+                    <FormControl>
+                      <RadioGroupItem value="landlord" />
+                    </FormControl>
+                    <FormLabel className="font-normal">
+                      Landlord
+                    </FormLabel>
+                  </FormItem>
+                  <FormItem className="flex items-center space-x-3 space-y-0">
+                    <FormControl>
+                      <RadioGroupItem value="propertyProfessional" />
+                    </FormControl>
+                    <FormLabel className="font-normal">
+                      Property Professional
+                    </FormLabel>
+                  </FormItem>
+                </RadioGroup>
+              </FormControl>
               <FormMessage />
             </FormItem>
           )}

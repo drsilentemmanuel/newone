@@ -36,24 +36,30 @@ export function LoginForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: "",
-      password: "",
+      email: "john.doe@example.com",
+      password: "password123",
       rememberMe: false,
     },
   })
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);
-    // This is a mock login.
-    console.log(values)
-    
+    // This is a mock login action.
     setTimeout(() => {
+      if (values.email === "john.doe@example.com" && values.password === "password123") {
         toast({
             title: "Login Successful",
             description: "Redirecting to your dashboard...",
         })
         router.push("/dashboard")
-        setIsLoading(false)
+      } else {
+        toast({
+          variant: "destructive",
+          title: "Login Failed",
+          description: "Invalid email or password. Please try again.",
+        })
+      }
+      setIsLoading(false)
     }, 1000)
   }
 
