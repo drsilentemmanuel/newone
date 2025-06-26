@@ -8,8 +8,6 @@ const partners = [
   { name: 'CABS', logo: '/partners/cabs.jpg' },
   { name: 'ZELA', logo: '/partners/zela.png' },
   { name: 'Knight Frank', logo: '/partners/knightfrank.png' },
-  { name: 'Old Mutual', logo: '/partners/old-mutual.png' },
-  { name: 'Pam Golding', logo: '/partners/pam-golding.png' },
   { name: 'Rawson', logo: '/partners/rawson.png' },
   { name: 'ZCIA', logo: '/partners/ZCIA.png' },
   { name: 'Seef', logo: '/partners/seef.png' },
