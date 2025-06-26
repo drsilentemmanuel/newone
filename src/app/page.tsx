@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
-import { Building, Briefcase, User, ArrowRight, ShieldCheck, TrendingUp, ClipboardCheck, HomeIcon } from "lucide-react";
+import { Building, Briefcase, User, ArrowRight, ShieldCheck, TrendingUp, ClipboardCheck, HomeIcon, Download } from "lucide-react";
 import Image from 'next/image';
 import Link from 'next/link';
 import { PartnerCarousel } from "@/components/partner-carousel";
@@ -82,8 +82,10 @@ export default function Home() {
                   className="aspect-video w-full overflow-hidden rounded-t-lg object-cover"
                   data-ai-hint="man report tablet"
                 />
-                <CardContent className="space-y-4 flex-grow pt-6">
-                  <CardTitle className="text-accent mb-4">The Solution</CardTitle>
+                 <CardHeader>
+                    <CardTitle className="text-accent">The Solution</CardTitle>
+                  </CardHeader>
+                <CardContent className="space-y-4 flex-grow">
                   <p className="text-muted-foreground">
                     Zim TPN brings you <strong>simplicity and confidence</strong> with AI-powered tools to streamline tenant screening, secure cash flow, and ensure effortless compliance. Make decisions based on solid data, not guesswork.
                   </p>
@@ -167,6 +169,36 @@ export default function Home() {
                 </div>
             </div>
         </section>
+        
+        <section id="reports" className="w-full py-12 md:py-20 lg:py-24 bg-secondary/50">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+              <div className="space-y-3">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">Industry Reports and Resources</h2>
+                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  Stay informed with our latest reports, guides, and resources for the property market in Zimbabwe.
+                </p>
+              </div>
+            </div>
+            <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              <ResourceCard
+                title="2024 Rental Market Trends Report"
+                description="An in-depth analysis of rental prices, demand, and vacancy rates across Zimbabwe."
+                link="#"
+              />
+              <ResourceCard
+                title="Guide to Tenancy Agreements"
+                description="A comprehensive guide to creating legally-sound tenancy agreements that protect all parties."
+                link="#"
+              />
+              <ResourceCard
+                title="Landlord's Checklist for Property Maintenance"
+                description="A handy checklist to ensure your property remains in top condition and retains its value."
+                link="#"
+              />
+            </div>
+          </div>
+        </section>
 
         <section id="stats" className="w-full py-12 md:py-20 lg:py-24 bg-primary text-primary-foreground">
           <div className="container px-4 md:px-6">
@@ -241,6 +273,24 @@ function ServiceCard({ icon, title, description, link }: { icon: React.ReactNode
           <Link href={link}>Learn more <ArrowRight className="ml-1 h-4 w-4" /></Link>
         </Button>
       </CardContent>
+    </Card>
+  );
+}
+
+function ResourceCard({ title, description, link }: { title: string; description: string; link: string; }) {
+  return (
+    <Card className="flex flex-col">
+      <CardHeader>
+        <CardTitle className="text-xl">{title}</CardTitle>
+      </CardHeader>
+      <CardContent className="flex-grow">
+        <p className="text-muted-foreground">{description}</p>
+      </CardContent>
+      <CardFooter>
+        <Button asChild variant="secondary" className="w-full">
+          <Link href={link}>Download Now <Download className="ml-2 h-4 w-4" /></Link>
+        </Button>
+      </CardFooter>
     </Card>
   );
 }
