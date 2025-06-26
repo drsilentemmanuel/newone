@@ -5,14 +5,14 @@ import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carouse
 import Autoplay from 'embla-carousel-autoplay';
 
 const partners = [
-  { name: 'Old Mutual', logo: '/old-mutual.png' },
-  { name: 'CBZ Bank', logo: '/cbz.png' },
-  { name: 'CABS', logo: '/cabs.png' },
-  { name: 'FBC Bank', logo: '/fbc.png' },
-  { name: 'Zimre Properties', logo: '/zimre.png' },
+  { name: 'CABS', logo: '/cabs.jpg' },
+  { name: 'EAC', logo: '/eac.jpg' },
   { name: 'Knight Frank', logo: '/knight-frank.png' },
-  { name: 'Seeff', logo: '/seeff.png' },
+  { name: 'Old Mutual', logo: '/old-mutual.png' },
   { name: 'Pam Golding', logo: '/pam-golding.png' },
+  { name: 'Rawson', logo: '/rawson.png' },
+  { name: 'RBZ', logo: '/RBZ.jpg' },
+  { name: 'Seef', logo: '/seef.png' },
 ];
 
 export function PartnerCarousel() {
