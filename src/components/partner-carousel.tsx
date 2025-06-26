@@ -6,12 +6,12 @@ import Autoplay from 'embla-carousel-autoplay';
 
 const partners = [
   { name: 'CABS', logo: '/partners/cabs.jpg' },
-  { name: 'EAC', logo: '/partners/eac.jpg' },
-  { name: 'Knight Frank', logo: '/partners/knight-frank.png' },
+  { name: 'ZELA', logo: '/partners/zela.png' },
+  { name: 'Knight Frank', logo: '/partners/knightfrank.png' },
   { name: 'Old Mutual', logo: '/partners/old-mutual.png' },
   { name: 'Pam Golding', logo: '/partners/pam-golding.png' },
   { name: 'Rawson', logo: '/partners/rawson.png' },
-  { name: 'RBZ', logo: '/partners/RBZ.jpg' },
+  { name: 'ZCIA', logo: '/partners/ZCIA.png' },
   { name: 'Seef', logo: '/partners/seef.png' },
 ];
 
