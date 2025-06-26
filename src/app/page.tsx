@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-secondary/50">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-secondary/50">
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
               <div className="flex flex-col justify-center space-y-4">
@@ -40,7 +40,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="problem-solution" className="w-full py-12 md:py-24 lg:py-32">
+        <section id="problem-solution" className="w-full py-12 md:py-20 lg:py-24">
           <div className="container px-4 md:px-6">
             <div className="text-center space-y-3 mb-12">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
@@ -62,7 +62,7 @@ export default function Home() {
                 </CardHeader>
                 <CardContent className="space-y-4 flex-grow">
                   <p className="text-muted-foreground">
-                    Grappling with the <strong>stress and uncertainty</strong> of managing rental properties in Zimbabwe? The worry of finding good tenants, complex vetting, endless paperwork, rent collection, and legal compliance can be overwhelming.
+                    Grappling with the <strong>stress and uncertainty</strong> of managing rentals? The worry of finding good tenants, complex vetting, paperwork, and rent collection can be overwhelming.
                   </p>
                    <blockquote className="border-l-4 border-destructive pl-4 italic text-muted-foreground">
                     "Consider this: Tatenda stayed at Michelle's place for months, then left without paying for 6. Who wants to inherit <em>that</em> problem?"
@@ -85,7 +85,7 @@ export default function Home() {
                 <CardContent className="space-y-4 flex-grow pt-6">
                   <CardTitle className="text-accent mb-4">The Solution</CardTitle>
                   <p className="text-muted-foreground">
-                    Zim TPN brings you <strong>simplicity and confidence</strong> with AI-powered tools to streamline tenant screening, secure cash flow, and ensure effortless compliance. Make decisions based on solid data, not guesswork, and focus on growth and peace of mind.
+                    Zim TPN brings you <strong>simplicity and confidence</strong> with AI-powered tools to streamline tenant screening, secure cash flow, and ensure effortless compliance. Make decisions based on solid data, not guesswork.
                   </p>
                   <blockquote className="border-l-4 border-accent pl-4 italic text-muted-foreground">
                     "A comprehensive Zim TPN report instantly flags Tatenda's payment history, saving you 6 months of lost rent and countless headaches."
@@ -99,7 +99,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="services" className="w-full py-12 md:py-24 lg:py-32 bg-secondary/50">
+        <section id="services" className="w-full py-12 md:py-20 lg:py-24 bg-secondary/50">
             <div className="container px-4 md:px-6">
                 <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
                   <div className="space-y-3">
@@ -138,7 +138,7 @@ export default function Home() {
             </div>
         </section>
 
-        <section id="challenges" className="w-full py-12 md:py-24 lg:py-32">
+        <section id="challenges" className="w-full py-12 md:py-20 lg:py-24">
             <div className="container px-4 md:px-6">
                 <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
                   <div className="space-y-3">
@@ -168,7 +168,7 @@ export default function Home() {
             </div>
         </section>
 
-        <section id="stats" className="w-full py-12 md:py-24 lg:py-32 bg-primary text-primary-foreground">
+        <section id="stats" className="w-full py-12 md:py-20 lg:py-24 bg-primary text-primary-foreground">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">
@@ -183,7 +183,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="partners" className="w-full py-12 md:py-24 lg:py-32 bg-secondary/50">
+        <section id="partners" className="w-full py-12 md:py-20 lg:py-24 bg-secondary/50">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
@@ -194,7 +194,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="how-it-works" className="w-full py-12 md:py-24 lg:py-32">
+        <section id="how-it-works" className="w-full py-12 md:py-20 lg:py-24">
           <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6">
             <div className="space-y-3">
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight font-headline">How It Works</h2>
