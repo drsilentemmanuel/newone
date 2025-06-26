@@ -19,10 +19,12 @@ import {
 import { Input } from "@/components/ui/input"
 import { useToast } from "@/hooks/use-toast"
 import { Loader2 } from "lucide-react"
+import { Checkbox } from "@/components/ui/checkbox"
 
 const formSchema = z.object({
   email: z.string().email({ message: "Invalid email address." }),
   password: z.string().min(6, { message: "Password must be at least 6 characters." }),
+  rememberMe: z.boolean().default(false).optional(),
 })
 
 export function LoginForm() {
@@ -36,6 +38,7 @@ export function LoginForm() {
     defaultValues: {
       email: "",
       password: "",
+      rememberMe: false,
     },
   })
 
@@ -90,6 +93,25 @@ export function LoginForm() {
               <FormMessage />
             </FormItem>
           )}
+        />
+        <FormField
+            control={form.control}
+            name="rememberMe"
+            render={({ field }) => (
+            <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                <FormControl>
+                <Checkbox
+                    checked={field.value}
+                    onCheckedChange={field.onChange}
+                />
+                </FormControl>
+                <div className="space-y-1 leading-none">
+                <FormLabel className="font-normal">
+                    Remember me
+                </FormLabel>
+                </div>
+            </FormItem>
+            )}
         />
         <Button type="submit" className="w-full" disabled={isLoading}>
           {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
