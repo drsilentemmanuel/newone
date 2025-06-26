@@ -75,7 +75,7 @@ export default function Home() {
               
               <Card className="flex flex-col justify-between border-accent/50 bg-accent/5">
                 <Image
-                  src="/Gemini_Generated_Image_e5w6jve5w6jve5w6.png"
+                  src="/Gemini_Generated_Image_i83g6ei83g6ei83g.png"
                   width={600}
                   height={400}
                   alt="Confident property manager using Zim TPN"
