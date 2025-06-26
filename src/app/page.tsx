@@ -85,6 +85,9 @@ export default function Home() {
                   <p className="text-muted-foreground">
                     At Zim TPN, we understand these challenges. We bring you <strong>simplicity and confidence</strong> through specialized, AI-powered tools that streamline tenant screening, ensure reliable cash flow, and guarantee effortless compliance. With our system, you'll know the <em>full tenant history</em> and <strong>make decisions based on solid data</strong>, not guesswork, allowing you to focus on growth and peace of mind.
                   </p>
+                  <blockquote className="border-l-4 border-accent pl-4 italic text-muted-foreground">
+                    "A comprehensive Zim TPN report instantly flags Tatenda's payment history, saving you 6 months of lost rent and countless headaches."
+                  </blockquote>
                 </CardContent>
                 <CardFooter className="pt-4">
                     <p className="w-full text-center font-bold text-lg text-accent tracking-wider">SIMPLICITY & CONFIDENCE</p>
