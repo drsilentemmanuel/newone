@@ -9,6 +9,8 @@ const partners = [
   { name: 'Knight Frank', logo: '/partners/knightfrank.png' },
   { name: 'Rawson', logo: '/partners/rawson.png' },
   { name: 'Seef', logo: '/partners/seef.png' },
+  { name: 'Old Mutual', logo: '/partners/oldmutual.png' },
+  { name: 'RBZ', logo: '/partners/RBZ.jpg' },
 ];
 
 export function PartnerCarousel() {
