@@ -50,12 +50,12 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-8 items-stretch">
               <Card className="flex flex-col justify-between border-destructive/50 bg-destructive/5">
                 <Image
-                  src="/Gemini_Generated_Image_e5w6jve5w6jve5w6.png"
+                  src="/Gemini_Generated_Image_lpn7rplpn7rplpn7.png"
                   width={600}
                   height={400}
-                  alt="Confident property manager using Zim TPN"
+                  alt="Stressed landlord with paperwork"
                   className="aspect-video w-full overflow-hidden rounded-t-lg object-cover"
-                  data-ai-hint="man report tablet"
+                  data-ai-hint="man frustrated paperwork"
                 />
                  <CardHeader>
                   <CardTitle className="text-destructive">The Problem</CardTitle>
@@ -75,12 +75,12 @@ export default function Home() {
               
               <Card className="flex flex-col justify-between border-accent/50 bg-accent/5">
                 <Image
-                  src="/Gemini_Generated_Image_lpn7rplpn7rplpn7.png"
+                  src="/Gemini_Generated_Image_e5w6jve5w6jve5w6.png"
                   width={600}
                   height={400}
-                  alt="Stressed landlord with paperwork"
+                  alt="Confident property manager using Zim TPN"
                   className="aspect-video w-full overflow-hidden rounded-t-lg object-cover"
-                  data-ai-hint="man frustrated paperwork"
+                  data-ai-hint="man report tablet"
                 />
                 <CardContent className="space-y-4 flex-grow pt-6">
                   <CardTitle className="text-accent mb-4">The Solution</CardTitle>
@@ -113,7 +113,7 @@ export default function Home() {
                   <ServiceCard
                       icon={<User className="h-8 w-8 text-primary" />}
                       title="Tenants"
-                      description="This powerful reputation, built on your payment history and reliability, extends beyond landlords, positively impacting your standing with employers, lenders, and banks. By maintaining an accurate and strong TPN profile, you gain a tangible asset that speaks volumes about your reliability across various aspects of your financial life."
+                      description="This powerful reputation, built on your payment history and reliability, extends beyond landlords, positively impacting your standing with employers, lenders, and banks."
                       link="#"
                   />
                   <ServiceCard
