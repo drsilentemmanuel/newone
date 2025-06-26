@@ -50,12 +50,12 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-8 items-stretch">
               <Card className="flex flex-col justify-between border-destructive/50 bg-destructive/5">
                 <Image
-                  src="/Gemini_Generated_Image_lpn7rplpn7rplpn7.png"
+                  src="/Gemini_Generated_Image_e5w6jve5w6jve5w6.png"
                   width={600}
                   height={400}
-                  alt="Stressed landlord with paperwork"
-                  className="aspect-video overflow-hidden rounded-t-lg object-cover"
-                  data-ai-hint="man frustrated paperwork"
+                  alt="Confident property manager using Zim TPN"
+                  className="aspect-video w-full overflow-hidden rounded-t-lg object-cover"
+                  data-ai-hint="man report tablet"
                 />
                  <CardHeader>
                   <CardTitle className="text-destructive">The Problem</CardTitle>
@@ -75,12 +75,12 @@ export default function Home() {
               
               <Card className="flex flex-col justify-between border-accent/50 bg-accent/5">
                 <Image
-                  src="/Gemini_Generated_Image_e5w6jve5w6jve5w6.png"
+                  src="/Gemini_Generated_Image_lpn7rplpn7rplpn7.png"
                   width={600}
                   height={400}
-                  alt="Confident property manager using Zim TPN"
-                  className="aspect-video overflow-hidden rounded-t-lg object-cover"
-                  data-ai-hint="man report tablet"
+                  alt="Stressed landlord with paperwork"
+                  className="aspect-video w-full overflow-hidden rounded-t-lg object-cover"
+                  data-ai-hint="man frustrated paperwork"
                 />
                 <CardContent className="space-y-4 flex-grow pt-6">
                   <CardTitle className="text-accent mb-4">The Solution</CardTitle>
