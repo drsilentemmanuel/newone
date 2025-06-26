@@ -26,6 +26,7 @@ export default function DashboardLayout({
   children: React.ReactNode
 }) {
   const pathname = usePathname()
+  const dashboardPaths = ['/dashboard', '/dashboard/tenant', '/dashboard/landlord', '/dashboard/professional'];
 
   return (
     <SidebarProvider>
@@ -40,7 +41,7 @@ export default function DashboardLayout({
           <SidebarContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname === '/dashboard'} tooltip="Dashboard">
+                <SidebarMenuButton asChild isActive={dashboardPaths.includes(pathname)} tooltip="Dashboard">
                   <Link href="/dashboard"><Home /><span>Dashboard</span></Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
