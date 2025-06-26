@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
@@ -6,12 +5,15 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useRouter } from "next/navigation";
-import { LogOut } from "lucide-react";
+import { LogOut, Eye, EyeOff } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useState } from "react";
 
 export default function ProfilePage() {
   const router = useRouter();
   const { toast } = useToast();
+  const [showNewPassword, setShowNewPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const handleLogout = () => {
     // In a real app, this would clear the session/token
@@ -75,11 +77,39 @@ export default function ProfilePage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                     <Label htmlFor="newPassword">New Password</Label>
-                    <Input id="newPassword" type="password" />
+                    <div className="relative">
+                      <Input id="newPassword" type={showNewPassword ? "text" : "password"} />
+                      <Button
+                        type="button"
+                        variant="ghost"
+                        size="icon"
+                        className="absolute top-1/2 right-1 -translate-y-1/2 h-7 w-7 text-muted-foreground"
+                        onClick={() => setShowNewPassword((prev) => !prev)}
+                      >
+                        {showNewPassword ? <EyeOff /> : <Eye />}
+                        <span className="sr-only">
+                          {showNewPassword ? "Hide password" : "Show password"}
+                        </span>
+                      </Button>
+                    </div>
                 </div>
                 <div className="space-y-2">
                     <Label htmlFor="confirmPassword">Confirm New Password</Label>
-                    <Input id="confirmPassword" type="password" />
+                    <div className="relative">
+                      <Input id="confirmPassword" type={showConfirmPassword ? "text" : "password"} />
+                       <Button
+                        type="button"
+                        variant="ghost"
+                        size="icon"
+                        className="absolute top-1/2 right-1 -translate-y-1/2 h-7 w-7 text-muted-foreground"
+                        onClick={() => setShowConfirmPassword((prev) => !prev)}
+                      >
+                        {showConfirmPassword ? <EyeOff /> : <Eye />}
+                        <span className="sr-only">
+                          {showConfirmPassword ? "Hide password" : "Show password"}
+                        </span>
+                      </Button>
+                    </div>
                 </div>
             </div>
         </CardContent>
