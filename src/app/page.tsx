@@ -28,12 +28,12 @@ export default function Home() {
                 </div>
               </div>
               <Image
-                src="https://placehold.co/600x600.png"
+                src="/black-guy-looking-at-the-tnp-report.png"
                 width="600"
                 height="600"
-                alt="Hero"
+                alt="A confident property manager reviewing a report"
                 className="mx-auto aspect-square overflow-hidden rounded-xl object-cover sm:w-full lg:order-last"
-                data-ai-hint="property management success"
+                data-ai-hint="man report"
               />
             </div>
           </div>
@@ -50,12 +50,12 @@ export default function Home() {
               <Card className="flex flex-col justify-between border-destructive/50 bg-destructive/5">
                 <CardHeader className="p-0">
                   <Image
-                    src="https://placehold.co/600x400.png"
+                    src="/frustrated-white-guy.png"
                     width={600}
                     height={400}
-                    alt="Stressed Landlord"
+                    alt="Stressed landlord with paperwork"
                     className="aspect-video overflow-hidden rounded-t-lg object-cover"
-                    data-ai-hint="stressed landlord"
+                    data-ai-hint="man frustrated paperwork"
                   />
                   <div className="p-6 pb-0">
                     <CardTitle className="text-destructive">The Problem</CardTitle>
@@ -77,12 +77,12 @@ export default function Home() {
               <Card className="flex flex-col justify-between border-accent/50 bg-accent/5">
                 <CardHeader className="p-0">
                   <Image
-                    src="https://placehold.co/600x400.png"
+                    src="/black-guy-looking-at-the-tnp-report.png"
                     width={600}
                     height={400}
-                    alt="Confident Property Manager"
+                    alt="Confident property manager using Zim TPN"
                     className="aspect-video overflow-hidden rounded-t-lg object-cover"
-                    data-ai-hint="confident man tablet"
+                    data-ai-hint="man report tablet"
                   />
                    <div className="p-6 pb-0">
                     <CardTitle className="text-accent">The Solution</CardTitle>
