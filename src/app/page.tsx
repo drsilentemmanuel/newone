@@ -50,17 +50,19 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-8 items-stretch">
               <Card className="flex flex-col justify-between border-destructive/50 bg-destructive/5">
                 <Image
-                  src="/Gemini_Generated_Image_e5w6jve5w6jve5w6.png"
+                  src="/Gemini_Generated_Image_lpn7rplpn7rplpn7.png"
                   width={600}
                   height={400}
                   alt="Stressed landlord with paperwork"
                   className="aspect-video overflow-hidden rounded-t-lg object-cover"
                   data-ai-hint="man frustrated paperwork"
                 />
-                <CardContent className="p-6 space-y-4 flex-grow">
+                <CardHeader>
                   <CardTitle className="text-destructive">The Problem</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4 flex-grow">
                   <p className="text-muted-foreground">
-                    Are you grappling with the <strong>stress and uncertainty</strong> of managing rental properties in Zimbabwe? The constant worry of finding the right tenants, navigating complex vetting, piles of documentation, consistent rent collection, and ever-changing legal compliance can be overwhelming.
+                    Grappling with the <strong>stress and uncertainty</strong> of managing rental properties in Zimbabwe? The worry of finding good tenants, complex vetting, endless paperwork, rent collection, and legal compliance can be overwhelming.
                   </p>
                   <blockquote className="border-l-4 border-destructive pl-4 italic text-muted-foreground">
                     "Consider this: Tatenda stayed at Michelle's place for months, then left without paying for 6. Who wants to inherit <em>that</em> problem?"
@@ -73,17 +75,19 @@ export default function Home() {
               
               <Card className="flex flex-col justify-between border-accent/50 bg-accent/5">
                 <Image
-                  src="/Gemini_Generated_Image_lpn7rplpn7rplpn7.png"
+                  src="/Gemini_Generated_Image_e5w6jve5w6jve5w6.png"
                   width={600}
                   height={400}
                   alt="Confident property manager using Zim TPN"
                   className="aspect-video overflow-hidden rounded-t-lg object-cover"
                   data-ai-hint="man report tablet"
                 />
-                <CardContent className="p-6 space-y-4 flex-grow">
+                <CardHeader>
                   <CardTitle className="text-accent">The Solution</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4 flex-grow">
                   <p className="text-muted-foreground">
-                    At Zim TPN, we understand these challenges. We bring you <strong>simplicity and confidence</strong> through specialized, AI-powered tools that streamline tenant screening, ensure reliable cash flow, and guarantee effortless compliance. With our system, you'll know the <em>full tenant history</em> and <strong>make decisions based on solid data</strong>, not guesswork, allowing you to focus on growth and peace of mind.
+                    Zim TPN brings you <strong>simplicity and confidence</strong> with AI-powered tools to streamline tenant screening, secure cash flow, and ensure effortless compliance. Make decisions based on solid data, not guesswork, and focus on growth and peace of mind.
                   </p>
                   <blockquote className="border-l-4 border-accent pl-4 italic text-muted-foreground">
                     "A comprehensive Zim TPN report instantly flags Tatenda's payment history, saving you 6 months of lost rent and countless headaches."
