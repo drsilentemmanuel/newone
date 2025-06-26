@@ -109,7 +109,7 @@ export default function DashboardLayout({
               </DropdownMenuContent>
             </DropdownMenu>
           </header>
-          <div className="p-6 md:p-8">{children}</div>
+          <div className="p-6 md:p-8 pt-20">{children}</div>
         </SidebarInset>
       </div>
     </SidebarProvider>
