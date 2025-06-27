@@ -42,8 +42,8 @@ export default function TenantDashboardPage() {
             </CardTitle>
           </CardHeader>
           <CardContent className="flex-grow flex flex-col justify-center items-center p-6 space-y-4">
-            <Badge variant="outline" className="py-1 px-3 text-base border-green-500 border-2 bg-green-50 text-green-700">
-              <Smile className="w-5 h-5 mr-2 text-green-600" />
+            <Badge variant="outline" className="py-1 px-3 text-base border-primary/50 border-2 bg-primary/10 text-primary">
+              <Smile className="w-5 h-5 mr-2" />
               <span className="font-semibold">VERY GOOD</span>
             </Badge>
             <ScoreGauge score={648} maxScore={999} />
@@ -62,7 +62,7 @@ export default function TenantDashboardPage() {
             <div className="flex justify-between items-center">
               <div className="text-sm">
                 <span className="text-muted-foreground">Voucher status:</span>
-                <span className="font-semibold text-green-600 ml-2">ACTIVE</span>
+                <span className="font-semibold text-primary ml-2">ACTIVE</span>
               </div>
               <Button variant="destructive" size="sm">Pay Now</Button>
             </div>
