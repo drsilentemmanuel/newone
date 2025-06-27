@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState, useEffect } from 'react';
@@ -20,7 +21,7 @@ export function ScoreImprovementChart() {
   }, []);
 
   return (
-    <Card className="overflow-hidden shadow-md text-white bg-gradient-to-br from-primary to-accent">
+    <Card className="overflow-hidden shadow-md text-white bg-gradient-to-br from-emerald-600 to-green-500">
       <CardHeader className="flex flex-row items-center gap-3 p-4">
         <TrendingUp className="h-6 w-6" />
         <CardTitle className="!text-xl font-semibold">Score Improvement</CardTitle>
@@ -74,7 +75,7 @@ export function ScoreImprovementChart() {
                   x="Jun" 
                   y={648} 
                   r={4}
-                  fill="#3b82f6"
+                  fill="#065f46"
                   stroke="none"
                 />
               </AreaChart>

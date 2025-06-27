@@ -1,14 +1,15 @@
+
 "use client"
 
 import { useState, useEffect } from "react"
 import { PieChart, Pie, Cell } from "recharts"
 
 const GAUGE_DATA = [
-  { name: "Poor", value: 1, color: "#93c5fd" }, // blue-300
-  { name: "Fair", value: 1, color: "#60a5fa" }, // blue-400
-  { name: "Good", value: 1, color: "#3b82f6" }, // blue-500
-  { name: "Very Good", value: 1, color: "#2563eb" }, // blue-600
-  { name: "Excellent", value: 1, color: "#1d4ed8" }, // blue-700
+  { name: "Poor", value: 1, color: "#6ee7b7" }, // emerald-300
+  { name: "Fair", value: 1, color: "#34d399" }, // emerald-400
+  { name: "Good", value: 1, color: "#10b981" }, // emerald-500
+  { name: "Very Good", value: 1, color: "#059669" }, // emerald-600
+  { name: "Excellent", value: 1, color: "#047857" }, // emerald-700
 ]
 
 interface ScoreGaugeProps {
@@ -48,7 +49,7 @@ export function ScoreGauge({ score, maxScore }: ScoreGaugeProps) {
         <div className="h-[100px] w-[200px]" /> // Placeholder to prevent layout shift
       )}
       <div className="absolute inset-0 flex flex-col items-center justify-end pb-2">
-        <span className="text-4xl font-bold text-foreground -mb-1">{score}</span>
+        <span className="text-4xl font-bold text-emerald-600 -mb-1">{score}</span>
         <span className="text-xs text-muted-foreground">Credit Score</span>
       </div>
       <div className="absolute bottom-0 left-2 text-xs font-medium text-muted-foreground">0</div>
