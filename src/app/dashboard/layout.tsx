@@ -23,6 +23,7 @@ import {
     SidebarMenuItem,
     SidebarMenuButton,
     SidebarProvider,
+    SidebarMenuSkeleton,
 } from '@/components/ui/sidebar';
 import { DashboardHeader } from '@/components/dashboard-header';
 import { useUser } from '@/context/user-context';
@@ -33,7 +34,7 @@ export default function DashboardLayout({
     children: React.ReactNode;
 }) {
     const pathname = usePathname();
-    const { role } = useUser();
+    const { role, isLoaded } = useUser();
 
     // Tenant specific navigation
     const tenantNav = (
@@ -79,6 +80,11 @@ export default function DashboardLayout({
                     <Link href="/dashboard"><Home /><span>Dashboard</span></Link>
                 </SidebarMenuButton>
             </SidebarMenuItem>
+             <SidebarMenuItem>
+                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord-profile')} tooltip="My Profile">
+                    <Link href="/dashboard/landlord-profile"><FileText /><span>My Profile</span></Link>
+                </SidebarMenuButton>
+            </SidebarMenuItem>
             <SidebarMenuItem>
                 <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/new-enquiry')} tooltip="New Enquiry">
                     <Link href="/dashboard/new-enquiry"><FilePlus2 /><span>New Enquiry</span></Link>
@@ -89,6 +95,15 @@ export default function DashboardLayout({
                     <Link href="/dashboard/reports"><BarChart3 /><span>Reports</span></Link>
                 </SidebarMenuButton>
             </SidebarMenuItem>
+        </>
+    );
+
+    const loadingNav = (
+        <>
+            <SidebarMenuSkeleton showIcon />
+            <SidebarMenuSkeleton showIcon />
+            <SidebarMenuSkeleton showIcon />
+            <SidebarMenuSkeleton showIcon />
         </>
     );
 
@@ -104,14 +119,14 @@ export default function DashboardLayout({
                     </div>
                     <SidebarContent className="bg-background">
                         <SidebarMenu>
-                           {role === 'tenant' ? tenantNav : otherRolesNav}
+                           {!isLoaded ? loadingNav : (role === 'tenant' ? tenantNav : otherRolesNav)}
                         </SidebarMenu>
                     </SidebarContent>
                     <SidebarFooter className="bg-background border-t">
                         <SidebarMenu>
                             <SidebarMenuItem>
-                                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/profile')} tooltip="My Profile">
-                                    <Link href="/dashboard/profile"><User /><span>My Profile</span></Link>
+                                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/profile')} tooltip="My Settings">
+                                    <Link href="/dashboard/profile"><User /><span>My Settings</span></Link>
                                 </SidebarMenuButton>
                             </SidebarMenuItem>
                             <SidebarMenuItem>

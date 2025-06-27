@@ -1,3 +1,4 @@
+
 "use client"
 
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -21,6 +22,7 @@ import { useToast } from "@/hooks/use-toast"
 import { Loader2, Eye, EyeOff } from "lucide-react"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Checkbox } from "@/components/ui/checkbox"
+import { useUser } from "@/context/user-context"
 
 const formSchema = z.object({
   fullName: z.string().min(2, { message: "Full name must be at least 2 characters." }),
@@ -42,6 +44,7 @@ const formSchema = z.object({
 export function SignupForm() {
   const router = useRouter()
   const { toast } = useToast()
+  const { login } = useUser();
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -63,6 +66,12 @@ export function SignupForm() {
     console.log(values)
     
     setTimeout(() => {
+        login({
+            role: values.accountType === 'propertyProfessional' ? 'professional' : values.accountType,
+            userName: values.fullName,
+            userEmail: values.email
+        });
+
         toast({
             title: "Account Created",
             description: "Redirecting to your dashboard...",
