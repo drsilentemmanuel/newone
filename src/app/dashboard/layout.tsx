@@ -11,14 +11,12 @@ import {
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuButton,
-  SidebarFooter,
   SidebarTrigger,
   SidebarInset,
 } from "@/components/ui/sidebar"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Footer } from "@/components/footer"
 
 export default function DashboardLayout({
   children,
@@ -30,10 +28,9 @@ export default function DashboardLayout({
 
   return (
     <SidebarProvider>
-      <div className="flex min-h-screen">
+      <div className="flex h-full">
         <Sidebar>
           <SidebarHeader>
-            {/* The logo is now in the main header within SidebarInset to ensure consistency */}
             <Link href="/dashboard" className="flex items-center gap-2">
               <Landmark className="h-8 w-8 text-primary" />
               <span className="text-lg font-semibold">Zim TPN</span>
@@ -68,15 +65,6 @@ export default function DashboardLayout({
               </SidebarMenuItem>
             </SidebarMenu>
           </SidebarContent>
-          <SidebarFooter>
-            <SidebarMenu>
-              <SidebarMenuItem>
-                <SidebarMenuButton variant="outline" asChild>
-                   <Link href="/"><LogOut /><span>Logout</span></Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            </SidebarMenu>
-          </SidebarFooter>
         </Sidebar>
         <SidebarInset className="flex flex-1 flex-col">
           <header className="sticky top-0 z-10 flex h-16 shrink-0 items-center justify-between border-b bg-background/95 p-4 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -113,7 +101,6 @@ export default function DashboardLayout({
           <div className="flex-1 overflow-y-auto">
             <div className="p-6 md:p-8">{children}</div>
           </div>
-          <Footer />
         </SidebarInset>
       </div>
     </SidebarProvider>
