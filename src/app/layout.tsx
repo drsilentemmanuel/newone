@@ -1,8 +1,9 @@
+
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { ConditionalLayout } from '@/components/conditional-layout';
-import { Footer } from "@/components/footer";
+import { UserProvider } from '@/context/user-context';
 
 export const metadata: Metadata = {
   title: 'Zim TPN - Tenant Profiling Network',
@@ -22,10 +23,12 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased bg-background">
-        <ConditionalLayout>
-            {children}
-        </ConditionalLayout>
-        <Toaster />
+        <UserProvider>
+          <ConditionalLayout>
+              {children}
+          </ConditionalLayout>
+          <Toaster />
+        </UserProvider>
       </body>
     </html>
   );

@@ -10,13 +10,14 @@ import { LogOut, Eye, EyeOff, Camera } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useState, useRef, type ChangeEvent } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { useUser } from "@/context/user-context";
 
 export default function ProfilePage() {
   const router = useRouter();
   const { toast } = useToast();
+  const { avatar, setAvatar, userName, userEmail } = useUser();
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [avatarPreview, setAvatarPreview] = useState<string | null>("https://placehold.co/96x96.png");
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleLogout = () => {
@@ -41,7 +42,7 @@ export default function ProfilePage() {
       const file = event.target.files[0];
       const reader = new FileReader();
       reader.onloadend = () => {
-        setAvatarPreview(reader.result as string);
+        setAvatar(reader.result as string);
       };
       reader.readAsDataURL(file);
     }
@@ -63,8 +64,8 @@ export default function ProfilePage() {
           <div className="flex flex-col md:flex-row items-start gap-8">
             <div className="flex flex-col items-center gap-4 w-full md:w-auto">
               <Avatar className="h-24 w-24">
-                <AvatarImage src={avatarPreview || "https://placehold.co/96x96.png"} alt="User Avatar" data-ai-hint="person avatar" />
-                <AvatarFallback>JD</AvatarFallback>
+                <AvatarImage src={avatar} alt="User Avatar" data-ai-hint="person avatar" />
+                <AvatarFallback>{userName?.split(' ').map(n => n[0]).join('') ?? 'U'}</AvatarFallback>
               </Avatar>
               <Button
                 variant="outline"
@@ -86,7 +87,7 @@ export default function ProfilePage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                       <Label htmlFor="fullName">Full Name</Label>
-                      <Input id="fullName" defaultValue="John Doe" />
+                      <Input id="fullName" defaultValue={userName} />
                   </div>
                   <div className="space-y-2">
                       <Label htmlFor="phone">Phone Number</Label>
@@ -96,7 +97,7 @@ export default function ProfilePage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                     <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" defaultValue="john.doe@example.com" readOnly disabled />
+                    <Input id="email" type="email" defaultValue={userEmail} readOnly disabled />
                 </div>
                 <div className="space-y-2">
                     <Label htmlFor="role">Role</Label>
