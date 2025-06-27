@@ -164,27 +164,27 @@ export default function LandlordDashboardPage() {
                     <CardDescription>Access essential tools for managing your properties and tenants.</CardDescription>
                 </CardHeader>
                 <CardContent className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                    <Button variant="outline" className="h-auto p-4 flex flex-col gap-2 items-start text-left justify-start">
+                    <Button variant="outline" className="h-auto p-4 flex flex-col gap-2 items-start text-left justify-start whitespace-normal">
                         <Users className="h-6 w-6 text-primary" />
                         <span className="font-semibold">Consumer Credit Checks</span>
                         <span className="text-xs text-muted-foreground">By ID, passport, name, etc.</span>
                     </Button>
-                    <Button variant="outline" className="h-auto p-4 flex flex-col gap-2 items-start text-left justify-start">
+                    <Button variant="outline" className="h-auto p-4 flex flex-col gap-2 items-start text-left justify-start whitespace-normal">
                         <Building2 className="h-6 w-6 text-primary" />
                         <span className="font-semibold">Business Credit Checks</span>
                         <span className="text-xs text-muted-foreground">Verify business credentials.</span>
                     </Button>
-                     <Button variant="outline" className="h-auto p-4 flex flex-col gap-2 items-start text-left justify-start">
+                     <Button variant="outline" className="h-auto p-4 flex flex-col gap-2 items-start text-left justify-start whitespace-normal">
                         <Search className="h-6 w-6 text-primary" />
                         <span className="font-semibold">Trace Consumer</span>
                         <span className="text-xs text-muted-foreground">Locate previous tenants.</span>
                     </Button>
-                     <Button variant="outline" className="h-auto p-4 flex flex-col gap-2 items-start text-left justify-start">
+                     <Button variant="outline" className="h-auto p-4 flex flex-col gap-2 items-start text-left justify-start whitespace-normal">
                         <History className="h-6 w-6 text-primary" />
                         <span className="font-semibold">Credit Check History</span>
                         <span className="text-xs text-muted-foreground">View past enquiries.</span>
                     </Button>
-                     <Button variant="outline" className="h-auto p-4 flex flex-col gap-2 items-start text-left justify-start">
+                     <Button variant="outline" className="h-auto p-4 flex flex-col gap-2 items-start text-left justify-start whitespace-normal">
                         <Mail className="h-6 w-6 text-primary" />
                         <span className="font-semibold">View Mailbox</span>
                         <span className="text-xs text-muted-foreground">Check your TPN messages.</span>
