@@ -10,13 +10,13 @@ import {
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
-import { GaugeCircle, Receipt, TrendingUp, PiggyBank, Smile, ArrowUpCircle } from 'lucide-react';
+import { Receipt, TrendingUp, PiggyBank, ArrowUpCircle } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import { Skeleton } from '@/components/ui/skeleton';
 
 const ScoreGauge = dynamic(() => import('@/components/score-gauge').then(mod => mod.ScoreGauge), {
   ssr: false,
-  loading: () => <Skeleton className="h-[120px] w-[240px]" />,
+  loading: () => <Skeleton className="h-[100px] w-[200px]" />,
 });
 
 const ScoreImprovementChart = dynamic(() => import('@/components/score-improvement-chart').then(mod => mod.ScoreImprovementChart), {
@@ -34,14 +34,11 @@ export default function TenantDashboardPage() {
       </div>
       <div className="grid gap-6 md:grid-cols-2">
         {/* Score Report Card */}
-        <Card className="col-span-1 flex flex-col p-6 justify-between">
-          <Badge variant="outline" className="py-1 px-3 text-base bg-card border-border shadow-sm w-fit">
-            <Smile className="w-5 h-5 mr-2 text-lime-400" />
-            <span className="font-semibold text-foreground">VERY GOOD</span>
+        <Card className="col-span-1 flex flex-col items-center justify-center p-6 space-y-4">
+          <ScoreGauge score={648} maxScore={999} />
+          <Badge variant="secondary" className="font-semibold">
+            VERY GOOD
           </Badge>
-          <div className="w-full flex items-center justify-center pt-4">
-            <ScoreGauge score={648} maxScore={999} />
-          </div>
         </Card>
 
         {/* Voucher Payments Card */}
