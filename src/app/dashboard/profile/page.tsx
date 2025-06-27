@@ -19,6 +19,7 @@ export default function ProfilePage() {
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [previewAvatar, setPreviewAvatar] = useState<string | null>(null);
 
   const handleLogout = () => {
     // In a real app, this would clear the session/token
@@ -31,6 +32,10 @@ export default function ProfilePage() {
   
   const handleSaveChanges = () => {
       // In a real app, you would handle form submission and avatar upload here
+      if (previewAvatar) {
+        setAvatar(previewAvatar);
+        setPreviewAvatar(null);
+      }
       toast({
           title: "Profile Updated",
           description: "Your changes have been saved successfully.",
@@ -42,7 +47,7 @@ export default function ProfilePage() {
       const file = event.target.files[0];
       const reader = new FileReader();
       reader.onloadend = () => {
-        setAvatar(reader.result as string);
+        setPreviewAvatar(reader.result as string);
       };
       reader.readAsDataURL(file);
     }
@@ -64,7 +69,7 @@ export default function ProfilePage() {
           <div className="flex flex-col md:flex-row items-start gap-8">
             <div className="flex flex-col items-center gap-4 w-full md:w-auto">
               <Avatar className="h-24 w-24">
-                <AvatarImage src={avatar} alt="User Avatar" data-ai-hint="person avatar" />
+                <AvatarImage src={previewAvatar ?? avatar} alt="User Avatar" data-ai-hint="person avatar" />
                 <AvatarFallback>{userName?.split(' ').map(n => n[0]).join('') ?? 'U'}</AvatarFallback>
               </Avatar>
               <Button
