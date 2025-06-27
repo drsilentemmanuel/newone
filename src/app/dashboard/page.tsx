@@ -1,56 +1,50 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import { ArrowRight, User, Building } from "lucide-react"
+"use client";
+
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { useUser } from '@/context/user-context';
+import { Skeleton } from '@/components/ui/skeleton';
 
 export default function DashboardPage() {
+  const { role } = useUser();
+  const router = useRouter();
+
+  useEffect(() => {
+    // The user context is currently hardcoded to 'tenant'.
+    // This component acts as a router to redirect users from the generic
+    // /dashboard path to their role-specific dashboard.
+    if (role === 'tenant') {
+      router.replace('/dashboard/tenant');
+    } else if (role === 'landlord') {
+        router.replace('/dashboard/landlord');
+    } else if (role === 'professional') {
+        router.replace('/dashboard/professional');
+    }
+    // If no role is found, it will show a loading skeleton.
+  }, [role, router]);
+
+  // Display a loading skeleton while the redirection is happening.
   return (
     <div className="grid gap-6">
       <div className="space-y-2">
-        <h1 className="text-3xl font-bold font-headline">Welcome back, John!</h1>
-        <p className="text-muted-foreground">Here's an overview of your account. What would you like to do today?</p>
+        <Skeleton className="h-8 w-[250px]" />
+        <Skeleton className="h-4 w-[400px]" />
       </div>
-      
       <div className="grid md:grid-cols-2 gap-6">
-        <Card>
-          <CardHeader>
-            <User className="w-8 h-8 text-accent mb-2" />
-            <CardTitle>Tenant Profile</CardTitle>
-            <CardDescription>Create or manage your tenant profile to find your next home.</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Button asChild>
-              <Link href="/dashboard/tenant-profile">
-                Go to Tenant Profile <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader>
-            <Building className="w-8 h-8 text-accent mb-2" />
-            <CardTitle>Landlord Profile</CardTitle>
-            <CardDescription>Manage your properties and find reliable tenants.</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Button asChild>
-              <Link href="/dashboard/landlord-profile">
-                Go to Landlord Profile <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          </CardContent>
-        </Card>
+          <Skeleton className="h-[150px] w-full" />
+          <Skeleton className="h-[150px] w-full" />
       </div>
-
       <Card className="mt-8">
         <CardHeader>
-            <CardTitle>Latest Activity</CardTitle>
-            <CardDescription>No new activity to show right now.</CardDescription>
+            <Skeleton className="h-6 w-1/4" />
+            <Skeleton className="h-4 w-1/2" />
         </CardHeader>
         <CardContent>
-            <p className="text-sm text-muted-foreground">Check back later for updates on profile views and messages.</p>
+            <Skeleton className="h-4 w-3/4" />
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }
+
+import { Card, CardHeader, CardContent } from '@/components/ui/card';
