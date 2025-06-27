@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
@@ -5,15 +6,18 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useRouter } from "next/navigation";
-import { LogOut, Eye, EyeOff } from "lucide-react";
+import { LogOut, Eye, EyeOff, Camera } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { useState } from "react";
+import { useState, useRef, type ChangeEvent } from "react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function ProfilePage() {
   const router = useRouter();
   const { toast } = useToast();
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [avatarPreview, setAvatarPreview] = useState<string | null>("https://placehold.co/96x96.png");
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleLogout = () => {
     // In a real app, this would clear the session/token
@@ -25,12 +29,23 @@ export default function ProfilePage() {
   };
   
   const handleSaveChanges = () => {
-      // In a real app, you would handle form submission here
+      // In a real app, you would handle form submission and avatar upload here
       toast({
           title: "Profile Updated",
           description: "Your changes have been saved successfully.",
       })
   }
+
+  const handleAvatarChange = (event: ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files[0]) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setAvatarPreview(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   return (
     <div className="space-y-6">
@@ -42,29 +57,54 @@ export default function ProfilePage() {
       <Card>
         <CardHeader>
           <CardTitle>Personal Information</CardTitle>
-          <CardDescription>Update your name and phone number. Email and role cannot be changed.</CardDescription>
+          <CardDescription>Update your profile picture, name, and phone number. Email and role cannot be changed.</CardDescription>
         </CardHeader>
-        <CardContent className="grid gap-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                 <div className="space-y-2">
-                    <Label htmlFor="fullName">Full Name</Label>
-                    <Input id="fullName" defaultValue="John Doe" />
-                </div>
-                 <div className="space-y-2">
-                    <Label htmlFor="phone">Phone Number</Label>
-                    <Input id="phone" type="tel" placeholder="+263 12 345 6789" />
-                </div>
+        <CardContent>
+          <div className="flex flex-col md:flex-row items-start gap-8">
+            <div className="flex flex-col items-center gap-4 w-full md:w-auto">
+              <Avatar className="h-24 w-24">
+                <AvatarImage src={avatarPreview || "https://placehold.co/96x96.png"} alt="User Avatar" data-ai-hint="person avatar" />
+                <AvatarFallback>JD</AvatarFallback>
+              </Avatar>
+              <Button
+                variant="outline"
+                className="w-full"
+                onClick={() => fileInputRef.current?.click()}
+              >
+                <Camera className="mr-2 h-4 w-4" />
+                Change Picture
+              </Button>
+              <input
+                type="file"
+                ref={fileInputRef}
+                onChange={handleAvatarChange}
+                className="hidden"
+                accept="image/png, image/jpeg"
+              />
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" defaultValue="john.doe@example.com" readOnly disabled />
+            <div className="grid gap-6 flex-1 w-full">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                      <Label htmlFor="fullName">Full Name</Label>
+                      <Input id="fullName" defaultValue="John Doe" />
+                  </div>
+                  <div className="space-y-2">
+                      <Label htmlFor="phone">Phone Number</Label>
+                      <Input id="phone" type="tel" placeholder="+263 12 345 6789" />
+                  </div>
               </div>
-              <div className="space-y-2">
-                  <Label htmlFor="role">Role</Label>
-                  <Input id="role" defaultValue="Tenant" readOnly disabled />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                    <Label htmlFor="email">Email</Label>
+                    <Input id="email" type="email" defaultValue="john.doe@example.com" readOnly disabled />
+                </div>
+                <div className="space-y-2">
+                    <Label htmlFor="role">Role</Label>
+                    <Input id="role" defaultValue="Tenant" readOnly disabled />
+                </div>
               </div>
             </div>
+          </div>
         </CardContent>
       </Card>
       
