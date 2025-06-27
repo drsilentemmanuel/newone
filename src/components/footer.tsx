@@ -4,9 +4,9 @@ import { Landmark } from 'lucide-react';
 export function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground">
-      <div className="container py-12 md:py-16">
-        <div className="flex flex-col md:flex-row justify-between gap-8">
-          <div className="flex flex-col space-y-4">
+      <div className="container py-12 md:py-16 px-4 md:px-6">
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
               <Landmark className="h-8 w-8" />
               <span className="text-xl font-bold">Zim TPN</span>
