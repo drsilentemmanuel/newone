@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
 
 export function ConditionalLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -17,6 +18,7 @@ export function ConditionalLayout({ children }: { children: React.ReactNode }) {
       <main className="flex-1">
         {children}
       </main>
+      <Footer />
     </>
   );
 }

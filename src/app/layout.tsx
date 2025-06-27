@@ -21,13 +21,10 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </head>
-      <body className="font-body antialiased flex flex-col min-h-screen bg-background">
-        <div className="flex flex-col flex-1">
-            <ConditionalLayout>
-                {children}
-            </ConditionalLayout>
-        </div>
-        <Footer />
+      <body className="font-body antialiased bg-background">
+        <ConditionalLayout>
+            {children}
+        </ConditionalLayout>
         <Toaster />
       </body>
     </html>
