@@ -8,7 +8,6 @@ import {
   CardFooter,
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
 import { Receipt, TrendingUp, PiggyBank, ArrowUpCircle, Smile } from 'lucide-react';
 import dynamic from 'next/dynamic';
@@ -42,18 +41,18 @@ export default function TenantDashboardPage() {
                 </CardTitle>
             </CardHeader>
             <CardContent className="flex flex-col items-center justify-center p-6 space-y-6 bg-card">
-                <Badge variant="outline" className="py-2 px-4 text-base font-semibold border-gray-200 shadow-sm bg-white hover:bg-gray-50">
-                    <Smile className="w-6 h-6 mr-2 text-green-500" />
+                <ScoreGauge score={648} maxScore={999} />
+                <Badge variant="outline" className="py-2 px-4 text-base font-semibold border-gray-200 shadow-sm bg-white hover:bg-gray-50 text-green-600">
+                    <Smile className="w-6 h-6 mr-2" />
                     VERY GOOD
                 </Badge>
-                <ScoreGauge score={648} maxScore={999} />
             </CardContent>
         </Card>
 
         {/* Voucher Payments Card */}
         <Card className="col-span-1 flex flex-col">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
+          <CardHeader className="bg-gradient-to-r from-red-500 to-orange-400 text-white p-4">
+            <CardTitle className="flex items-center gap-2 text-base font-semibold">
               <Receipt className="w-6 h-6" />
               <span>Voucher Payments</span>
             </CardTitle>
@@ -62,7 +61,7 @@ export default function TenantDashboardPage() {
             <div className="flex justify-between items-center">
               <div className="text-sm">
                 <span className="text-muted-foreground">Voucher status:</span>
-                <span className="font-semibold text-primary ml-2">ACTIVE</span>
+                <span className="font-semibold ml-2">ACTIVE</span>
               </div>
               <Button variant="destructive" size="sm">Pay Now</Button>
             </div>
@@ -76,12 +75,20 @@ export default function TenantDashboardPage() {
                 <span className="font-medium">2025-06-28</span>
               </div>
             </div>
-             <div className="space-y-2">
-              <Progress value={25} />
-              <div className="flex justify-between text-sm font-medium">
-                <span>Paid <span className="text-primary">R300</span></span>
-                <span>Goal <span className="text-muted-foreground">R1200</span></span>
-              </div>
+            <div className="relative pt-8 pb-10 mt-4">
+                <div className="absolute top-0 right-0 text-right">
+                    <p className="text-xs text-muted-foreground">Goal</p>
+                    <p className="font-bold text-2xl">R1200</p>
+                </div>
+                <div className="flex items-center gap-1">
+                    {Array.from({ length: 18 }).map((_, i) => (
+                        <div key={i} className={`h-2.5 flex-1 rounded-sm ${i < 3 ? 'bg-orange-400' : 'bg-gray-200 dark:bg-gray-700'}`} />
+                    ))}
+                </div>
+                <div className="absolute bottom-0 left-0">
+                    <p className="text-xs text-orange-500 font-semibold">Paid</p>
+                    <p className="font-bold text-2xl text-orange-500">R300</p>
+                </div>
             </div>
           </CardContent>
            <CardFooter className="p-6 border-t flex-col items-stretch space-y-2">
@@ -89,7 +96,7 @@ export default function TenantDashboardPage() {
                 <span className="text-muted-foreground">Monthly contribution:</span>
                 <span className="font-semibold">R 100</span>
               </div>
-              <Button variant="outline" className="w-full">View Payments</Button>
+              <Button className="w-full bg-orange-500 text-primary-foreground hover:bg-orange-600">View Payments</Button>
            </CardFooter>
         </Card>
 
