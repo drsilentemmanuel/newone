@@ -1,6 +1,6 @@
-
 "use client"
 
+import { useState, useEffect } from "react"
 import { PieChart, Pie, Cell } from "recharts"
 
 const GAUGE_DATA = [
@@ -17,26 +17,36 @@ interface ScoreGaugeProps {
 }
 
 export function ScoreGauge({ score, maxScore }: ScoreGaugeProps) {
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
   return (
     <div className="relative h-[100px] w-[200px]">
-      <PieChart width={200} height={100} margin={{ top: 0, right: 0, bottom: 0, left: 0 }}>
-        <Pie
-          data={GAUGE_DATA}
-          cx="50%"
-          cy="100%"
-          dataKey="value"
-          innerRadius={60}
-          outerRadius={80}
-          startAngle={180}
-          endAngle={0}
-          paddingAngle={2}
-          stroke="none"
-        >
-          {GAUGE_DATA.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={entry.color} />
-          ))}
-        </Pie>
-      </PieChart>
+      {isMounted ? (
+        <PieChart width={200} height={100} margin={{ top: 0, right: 0, bottom: 0, left: 0 }}>
+          <Pie
+            data={GAUGE_DATA}
+            cx="50%"
+            cy="100%"
+            dataKey="value"
+            innerRadius={60}
+            outerRadius={80}
+            startAngle={180}
+            endAngle={0}
+            paddingAngle={2}
+            stroke="none"
+          >
+            {GAUGE_DATA.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={entry.color} />
+            ))}
+          </Pie>
+        </PieChart>
+      ) : (
+        <div className="h-[100px] w-[200px]" /> // Placeholder to prevent layout shift
+      )}
       <div className="absolute inset-0 flex flex-col items-center justify-end pb-2">
         <span className="text-4xl font-bold text-foreground -mb-1">{score}</span>
         <span className="text-xs text-muted-foreground">Credit Score</span>
