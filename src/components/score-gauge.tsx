@@ -1,13 +1,14 @@
+
 "use client"
 
 import { PieChart, Pie, Cell } from "recharts"
 
 const GAUGE_DATA = [
-  { name: "Poor", value: 1, color: "#ef4444" }, // red-500
-  { name: "Fair", value: 1, color: "#f97316" }, // orange-500
-  { name: "Good", value: 1, color: "#facc15" }, // yellow-400
-  { name: "Very Good", value: 1, color: "#a3e635" }, // lime-400
-  { name: "Excellent", value: 1, color: "#22c55e" }, // green-500
+  { name: "Poor", value: 1, color: "#93c5fd" }, // blue-300
+  { name: "Fair", value: 1, color: "#60a5fa" }, // blue-400
+  { name: "Good", value: 1, color: "#3b82f6" }, // blue-500
+  { name: "Very Good", value: 1, color: "#2563eb" }, // blue-600
+  { name: "Excellent", value: 1, color: "#1d4ed8" }, // blue-700
 ]
 
 interface ScoreGaugeProps {

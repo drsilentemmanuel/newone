@@ -1,3 +1,4 @@
+
 "use client"
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -12,7 +13,7 @@ const data = [
 
 export function ScoreImprovementChart() {
   return (
-    <Card className="overflow-hidden shadow-md text-white bg-gradient-to-br from-orange-500 to-yellow-400">
+    <Card className="overflow-hidden shadow-md text-white bg-gradient-to-br from-primary to-accent">
       <CardHeader className="flex flex-row items-center gap-3 p-4">
         <TrendingUp className="h-6 w-6" />
         <CardTitle className="!text-xl font-semibold">Score Improvement</CardTitle>
@@ -65,7 +66,7 @@ export function ScoreImprovementChart() {
                 x="Jun" 
                 y={648} 
                 r={4}
-                fill="#facc15"
+                fill="#3b82f6"
                 stroke="none"
               />
             </AreaChart>

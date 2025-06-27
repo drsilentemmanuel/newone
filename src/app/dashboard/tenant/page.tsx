@@ -1,3 +1,4 @@
+
 "use client"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -29,13 +30,13 @@ export default function TenantDashboardPage() {
 
             <div className="grid md:grid-cols-2 gap-8">
                 <Card className="overflow-hidden shadow-md">
-                    <CardHeader className="bg-gradient-to-r from-orange-400 to-yellow-500 p-4 flex flex-row items-center gap-3">
+                    <CardHeader className="bg-gradient-to-r from-primary to-accent p-4 flex flex-row items-center gap-3">
                         <FileText className="h-6 w-6 text-white" />
                         <CardTitle className="text-white !text-xl">Score Report</CardTitle>
                     </CardHeader>
                     <CardContent className="flex flex-col items-center justify-center gap-4 py-8 bg-card">
-                        <Badge variant="outline" className="py-2 px-4 border-gray-200 bg-gray-50 text-gray-700 shadow-sm rounded-full">
-                            <Smile className="h-5 w-5 mr-2 text-green-500" />
+                        <Badge variant="outline" className="py-2 px-4 border-primary/20 bg-primary/5 text-primary shadow-sm rounded-full">
+                            <Smile className="h-5 w-5 mr-2" />
                             <span className="font-semibold">VERY GOOD</span>
                         </Badge>
                         <ScoreGauge score={648} maxScore={999} />
