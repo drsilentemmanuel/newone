@@ -34,25 +34,19 @@ export default function TenantDashboardPage() {
       </div>
       <div className="grid gap-6 md:grid-cols-2">
         {/* Score Report Card */}
-        <Card className="col-span-1 flex flex-col">
-          <CardHeader className="bg-gradient-to-br from-primary/90 to-primary/80 text-primary-foreground rounded-t-lg">
-            <CardTitle className="flex items-center gap-2">
-              <GaugeCircle className="w-6 h-6" />
-              <span>Score Report</span>
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="flex-grow flex flex-col justify-center items-center p-6 space-y-4">
-            <Badge variant="outline" className="py-1 px-3 text-base border-primary/50 border-2 bg-primary/10 text-primary">
-              <Smile className="w-5 h-5 mr-2" />
-              <span className="font-semibold">VERY GOOD</span>
-            </Badge>
+        <Card className="col-span-1 flex flex-col p-6 justify-between">
+          <Badge variant="outline" className="py-1 px-3 text-base bg-card border-border shadow-sm w-fit">
+            <Smile className="w-5 h-5 mr-2 text-lime-400" />
+            <span className="font-semibold text-foreground">VERY GOOD</span>
+          </Badge>
+          <div className="w-full flex items-center justify-center pt-4">
             <ScoreGauge score={648} maxScore={999} />
-          </CardContent>
+          </div>
         </Card>
 
         {/* Voucher Payments Card */}
         <Card className="col-span-1 flex flex-col">
-          <CardHeader className="bg-gradient-to-br from-primary/90 to-primary/80 text-primary-foreground rounded-t-lg">
+          <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Receipt className="w-6 h-6" />
               <span>Voucher Payments</span>
@@ -95,7 +89,7 @@ export default function TenantDashboardPage() {
 
         {/* Score Improvement Card */}
         <Card className="col-span-1 flex flex-col">
-           <CardHeader className="bg-gradient-to-br from-primary/90 to-primary/80 text-primary-foreground rounded-t-lg">
+           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <TrendingUp className="w-6 h-6" />
               <span>Score Improvement</span>
@@ -115,7 +109,7 @@ export default function TenantDashboardPage() {
         
         {/* Savings Available Card */}
         <Card className="col-span-1 flex flex-col">
-          <CardHeader className="bg-gradient-to-br from-primary/90 to-primary/80 text-primary-foreground rounded-t-lg">
+          <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <PiggyBank className="w-6 h-6" />
               <span>Savings Available</span>
