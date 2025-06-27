@@ -72,27 +72,38 @@ export default function DashboardLayout({
         </>
     );
 
-    // Navigation for other roles (Landlord, Professional)
-    const otherRolesNav = (
+    // Landlord specific navigation
+    const landlordNav = (
         <>
             <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname.endsWith('/dashboard') || pathname.endsWith('/landlord') || pathname.endsWith('/professional')} tooltip="Dashboard">
-                    <Link href="/dashboard"><Home /><span>Dashboard</span></Link>
+                <SidebarMenuButton asChild isActive={pathname === '/dashboard/landlord'} tooltip="Dashboard">
+                    <Link href="/dashboard/landlord"><Home /><span>Dashboard</span></Link>
                 </SidebarMenuButton>
             </SidebarMenuItem>
              <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord-profile')} tooltip="My Profile">
-                    <Link href="/dashboard/landlord-profile"><FileText /><span>My Profile</span></Link>
+                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/profile')} tooltip="My Profile">
+                    <Link href="/dashboard/landlord/profile"><FileText /><span>My Profile</span></Link>
                 </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/new-enquiry')} tooltip="New Enquiry">
-                    <Link href="/dashboard/new-enquiry"><FilePlus2 /><span>New Enquiry</span></Link>
+                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/new-enquiry')} tooltip="New Enquiry">
+                    <Link href="/dashboard/landlord/new-enquiry"><FilePlus2 /><span>New Enquiry</span></Link>
                 </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/reports')} tooltip="Reports">
-                    <Link href="/dashboard/reports"><BarChart3 /><span>Reports</span></Link>
+                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/reports')} tooltip="Reports">
+                    <Link href="/dashboard/landlord/reports"><BarChart3 /><span>Reports</span></Link>
+                </SidebarMenuButton>
+            </SidebarMenuItem>
+        </>
+    );
+
+    // Navigation for Professionals
+    const professionalNav = (
+        <>
+            <SidebarMenuItem>
+                <SidebarMenuButton asChild isActive={pathname === '/dashboard/professional'} tooltip="Dashboard">
+                    <Link href="/dashboard/professional"><Home /><span>Dashboard</span></Link>
                 </SidebarMenuButton>
             </SidebarMenuItem>
         </>
@@ -107,6 +118,20 @@ export default function DashboardLayout({
         </>
     );
 
+    const getNavForRole = () => {
+        if (!isLoaded) return loadingNav;
+        switch (role) {
+            case 'tenant':
+                return tenantNav;
+            case 'landlord':
+                return landlordNav;
+            case 'professional':
+                return professionalNav;
+            default:
+                return loadingNav;
+        }
+    }
+
     return (
         <SidebarProvider>
             <div className="flex min-h-screen w-full bg-secondary/50">
@@ -119,7 +144,7 @@ export default function DashboardLayout({
                     </div>
                     <SidebarContent className="bg-background">
                         <SidebarMenu>
-                           {!isLoaded ? loadingNav : (role === 'tenant' ? tenantNav : otherRolesNav)}
+                           {getNavForRole()}
                         </SidebarMenu>
                     </SidebarContent>
                     <SidebarFooter className="bg-background border-t">
