@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useState, useEffect } from "react"
@@ -48,12 +47,12 @@ export function ScoreGauge({ score, maxScore }: ScoreGaugeProps) {
       ) : (
         <div className="h-[100px] w-[200px]" /> // Placeholder to prevent layout shift
       )}
-      <div className="absolute inset-0 flex flex-col items-center justify-end pb-2">
-        <span className="text-4xl font-bold text-emerald-600 -mb-1">{score}</span>
+      <div className="absolute inset-0 flex flex-col items-center justify-end pb-3">
+        <span className="text-3xl font-bold text-emerald-600">{score}</span>
         <span className="text-xs text-muted-foreground">Credit Score</span>
       </div>
-      <div className="absolute bottom-0 left-2 text-xs font-medium text-muted-foreground">0</div>
-      <div className="absolute bottom-0 right-2 text-xs font-medium text-muted-foreground">{maxScore}</div>
+      <div className="absolute bottom-1 left-3 text-xs font-medium text-muted-foreground">0</div>
+      <div className="absolute bottom-1 right-3 text-xs font-medium text-muted-foreground">{maxScore}</div>
     </div>
   )
 }
