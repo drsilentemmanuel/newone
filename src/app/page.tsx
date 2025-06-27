@@ -50,7 +50,7 @@ export default function Home() {
               </h2>
             </div>
             <div className="grid md:grid-cols-2 gap-8 items-stretch">
-              <Card className="flex flex-col justify-between border-destructive/50 bg-destructive/5">
+              <Card className="flex flex-col justify-between">
                 <Image
                   src="/Gemini_Generated_Image_9i81uk9i81uk9i81.png"
                   width={600}
@@ -60,19 +60,19 @@ export default function Home() {
                   data-ai-hint="man frustrated paperwork"
                 />
                  <CardHeader>
-                  <CardTitle className="text-destructive">The Problem</CardTitle>
+                  <CardTitle>The Problem</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4 flex-grow">
                   <p className="text-muted-foreground">
                     Grappling with the stress of managing rentals? The worry of finding good tenants, complex vetting, and rent collection can be overwhelming.
                   </p>
-                   <blockquote className="border-l-4 border-destructive pl-4 italic text-muted-foreground">
+                   <blockquote className="border-l-4 border-border pl-4 italic text-muted-foreground">
                     "A bad tenant can mean months of lost rent and countless headaches. Who wants to inherit that problem?"
                   </blockquote>
                 </CardContent>
               </Card>
               
-              <Card className="flex flex-col justify-between border-accent/50 bg-accent/5">
+              <Card className="flex flex-col justify-between border-primary/50 bg-primary/5">
                 <Image
                   src="/Gemini_Generated_Image_i83g6ei83g6ei83g.png"
                   width={600}
@@ -82,14 +82,14 @@ export default function Home() {
                   data-ai-hint="man report tablet"
                 />
                  <CardHeader>
-                    <CardTitle className="text-accent">The Solution</CardTitle>
+                    <CardTitle className="text-primary">The Solution</CardTitle>
                   </CardHeader>
                 <CardContent className="space-y-4 flex-grow">
                   <p className="text-muted-foreground">
                     Zim TPN brings simplicity and confidence with AI-powered tools to streamline tenant screening, secure cash flow, and ensure effortless compliance.
                   </p>
-                  <blockquote className="border-l-4 border-accent pl-4 italic text-muted-foreground">
-                    "A comprehensive Zim TPN report instantly flags payment history, saving you from potential financial loss."
+                  <blockquote className="border-l-4 border-primary pl-4 italic text-muted-foreground">
+                    "A comprehensive Zim TPN report instantly flags payment history, saving you from a potential financial loss."
                   </blockquote>
                 </CardContent>
               </Card>
