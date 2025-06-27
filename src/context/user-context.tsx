@@ -3,25 +3,47 @@
 
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 
-interface UserContextType {
+type Role = 'tenant' | 'landlord' | 'professional';
+
+interface UserState {
   avatar: string;
-  setAvatar: (newAvatar: string) => void;
   userName: string;
   userEmail: string;
-  role: 'tenant' | 'landlord' | 'professional';
+  role: Role;
+}
+
+interface UserContextType extends UserState {
+  setAvatar: (newAvatar: string) => void;
+  login: (user: Omit<UserState, 'avatar'>) => void;
+  logout: () => void;
+}
+
+const defaultState: UserState = {
+    avatar: "https://placehold.co/96x96.png",
+    userName: "Jane Tenant",
+    userEmail: "tenant@example.com",
+    role: 'tenant',
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
 
 export function UserProvider({ children }: { children: ReactNode }) {
-  const [avatar, setAvatar] = useState("https://placehold.co/96x96.png");
-  // Default to a tenant user for demonstration purposes
-  const [userName] = useState("Jane Tenant");
-  const [userEmail] = useState("tenant@example.com");
-  const [role] = useState<'tenant' | 'landlord' | 'professional'>('tenant');
+  const [state, setState] = useState<UserState>(defaultState);
+
+  const setAvatar = (newAvatar: string) => {
+    setState(s => ({ ...s, avatar: newAvatar }));
+  };
+
+  const login = (user: Omit<UserState, 'avatar'>) => {
+    setState(s => ({ ...s, ...user }));
+  }
+
+  const logout = () => {
+    setState(defaultState); // Reset to default state on logout
+  }
 
   return (
-    <UserContext.Provider value={{ avatar, setAvatar, userName, userEmail, role }}>
+    <UserContext.Provider value={{ ...state, setAvatar, login, logout }}>
       {children}
     </UserContext.Provider>
   );

@@ -1,3 +1,4 @@
+
 "use client"
 
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -20,6 +21,7 @@ import { Input } from "@/components/ui/input"
 import { useToast } from "@/hooks/use-toast"
 import { Loader2, Eye, EyeOff } from "lucide-react"
 import { Checkbox } from "@/components/ui/checkbox"
+import { useUser } from "@/context/user-context"
 
 const formSchema = z.object({
   email: z.string().email({ message: "Invalid email address." }),
@@ -28,15 +30,16 @@ const formSchema = z.object({
 })
 
 const mockUsers = {
-  "tenant@example.com": { password: "password123", redirect: "/dashboard/tenant" },
-  "landlord@example.com": { password: "password123", redirect: "/dashboard/landlord" },
-  "prof@example.com": { password: "password123", redirect: "/dashboard/professional" },
+  "tenant@example.com": { password: "password123", role: 'tenant', userName: 'Jane Tenant', redirect: "/dashboard/tenant" },
+  "landlord@example.com": { password: "password123", role: 'landlord', userName: 'John Landlord', redirect: "/dashboard/landlord" },
+  "prof@example.com": { password: "password123", role: 'professional', userName: 'Peter Professional', redirect: "/dashboard/professional" },
 };
 
 
 export function LoginForm() {
   const router = useRouter()
   const { toast } = useToast()
+  const { login } = useUser()
   const [isLoading, setIsLoading] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
 
@@ -57,6 +60,11 @@ export function LoginForm() {
     
     setTimeout(() => {
       if (user && user.password === values.password) {
+        login({
+          role: user.role as 'tenant' | 'landlord' | 'professional',
+          userName: user.userName,
+          userEmail: values.email
+        });
         toast({
             title: "Login Successful",
             description: "Redirecting to your dashboard...",

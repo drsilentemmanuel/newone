@@ -15,14 +15,14 @@ import { useUser } from "@/context/user-context";
 export default function ProfilePage() {
   const router = useRouter();
   const { toast } = useToast();
-  const { avatar, setAvatar, userName, userEmail } = useUser();
+  const { avatar, setAvatar, userName, userEmail, role, logout } = useUser();
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [previewAvatar, setPreviewAvatar] = useState<string | null>(null);
 
   const handleLogout = () => {
-    // In a real app, this would clear the session/token
+    logout();
     toast({
         title: "Logged Out",
         description: "You have been successfully logged out.",
@@ -106,7 +106,7 @@ export default function ProfilePage() {
                 </div>
                 <div className="space-y-2">
                     <Label htmlFor="role">Role</Label>
-                    <Input id="role" defaultValue="Tenant" readOnly disabled />
+                    <Input id="role" value={role.charAt(0).toUpperCase() + role.slice(1)} readOnly disabled />
                 </div>
               </div>
             </div>
