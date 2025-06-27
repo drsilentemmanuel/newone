@@ -81,8 +81,8 @@ export default function DashboardLayout({
                 </SidebarMenuButton>
             </SidebarMenuItem>
              <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/profile')} tooltip="My Profile">
-                    <Link href="/dashboard/landlord/profile"><FileText /><span>My Profile</span></Link>
+                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/profile')} tooltip="My TPN Profile">
+                    <Link href="/dashboard/landlord/profile"><FileText /><span>My TPN Profile</span></Link>
                 </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
