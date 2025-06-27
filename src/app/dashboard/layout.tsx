@@ -18,7 +18,6 @@ import {
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Footer } from "@/components/footer"
 
 export default function DashboardLayout({
   children,
@@ -108,7 +107,6 @@ export default function DashboardLayout({
             <div className="p-6 md:p-8 flex-1">{children}</div>
           </SidebarInset>
         </div>
-        <Footer />
       </div>
     </SidebarProvider>
   )
