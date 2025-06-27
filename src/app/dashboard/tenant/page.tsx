@@ -101,20 +101,23 @@ export default function TenantDashboardPage() {
         </Card>
 
         {/* Score Improvement Card */}
-        <Card className="col-span-1 flex flex-col">
-           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
+        <Card className="col-span-1 flex flex-col overflow-hidden">
+           <CardHeader className="bg-gradient-to-r from-red-500 to-orange-400 text-white p-4">
+            <CardTitle className="flex items-center gap-2 text-base font-semibold">
               <TrendingUp className="w-6 h-6" />
               <span>Score Improvement</span>
             </CardTitle>
           </CardHeader>
-          <CardContent className="p-6 flex flex-col justify-between flex-grow">
-             <div className="flex items-center gap-2 text-primary mb-2">
+          <CardContent className="p-6 flex flex-col justify-between flex-grow bg-gradient-to-b from-orange-300 via-yellow-200 to-yellow-300 relative">
+             <div className="flex items-center gap-2 text-red-600 mb-2">
                 <ArrowUpCircle className="w-7 h-7"/>
                 <div>
                     <p className="text-xl font-bold">UP 0 POINTS</p>
-                    <p className="text-xs text-muted-foreground -mt-1">this month</p>
+                    <p className="text-xs text-gray-700 font-medium -mt-1">this month</p>
                 </div>
+            </div>
+            <div className="absolute top-6 right-6 text-right">
+                <p className="text-xl font-bold text-gray-800">Today</p>
             </div>
             <ScoreImprovementChart />
           </CardContent>
@@ -122,8 +125,8 @@ export default function TenantDashboardPage() {
         
         {/* Savings Available Card */}
         <Card className="col-span-1 flex flex-col">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
+          <CardHeader className="bg-gradient-to-r from-orange-400 to-red-500 text-white p-4">
+            <CardTitle className="flex items-center gap-2 text-base font-semibold">
               <PiggyBank className="w-6 h-6" />
               <span>Savings Available</span>
             </CardTitle>
