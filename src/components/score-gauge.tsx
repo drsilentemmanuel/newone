@@ -47,7 +47,7 @@ export function ScoreGauge({ score, maxScore }: ScoreGaugeProps) {
       ) : (
         <div className="h-[100px] w-[200px]" /> // Placeholder to prevent layout shift
       )}
-      <div className="absolute inset-0 flex flex-col items-center justify-end pb-3">
+      <div className="absolute inset-0 flex flex-col items-center justify-end">
         <span className="text-3xl font-bold text-emerald-600">{score}</span>
         <span className="text-xs text-muted-foreground">Credit Score</span>
       </div>
