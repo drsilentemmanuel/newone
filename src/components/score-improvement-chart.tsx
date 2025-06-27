@@ -1,5 +1,7 @@
 "use client"
 
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { TrendingUp, ArrowUpCircle } from 'lucide-react';
 import { AreaChart, Area, XAxis, ResponsiveContainer, ReferenceDot, YAxis, CartesianGrid } from 'recharts';
 
 const data = [
@@ -8,53 +10,68 @@ const data = [
   { name: 'Jun', value: 648 },
 ];
 
-const yellowColor = "#FBBF24"; // tailwind yellow-400
-
 export function ScoreImprovementChart() {
   return (
-    <div className="h-40 w-[calc(100%+3rem)] -ml-6">
-      <ResponsiveContainer width="100%" height="100%">
-        <AreaChart data={data} margin={{ top: 20, right: 30, left: 10, bottom: 5 }}>
-           <defs>
-            <linearGradient id="chartGradientYellow" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor={yellowColor} stopOpacity={0.6}/>
-              <stop offset="95%" stopColor={yellowColor} stopOpacity={0.1}/>
-            </linearGradient>
-          </defs>
-          <CartesianGrid 
-            strokeDasharray="3 3" 
-            stroke="rgba(107, 114, 128, 0.3)" 
-            horizontal={false} 
-            verticalPoints={[115, 205, 295]} // Manual points for grid lines
-          />
-          <XAxis 
-            dataKey="name" 
-            tickLine={false} 
-            axisLine={false} 
-            tick={{ fontSize: 12, fill: 'rgb(55 65 81)' }} 
-            interval={0}
-            padding={{ left: 20, right: 20 }}
-          />
-          <YAxis hide={true} domain={['dataMin - 100', 'dataMax + 100']} />
-          <Area 
-            type="monotone" 
-            dataKey="value" 
-            stroke={yellowColor}
-            strokeWidth={4}
-            fillOpacity={1} 
-            fill="url(#chartGradientYellow)" 
-            dot={false}
-          />
-          <ReferenceDot 
-            x="Jun" 
-            y={648} 
-            r={8} 
-            fill={yellowColor}
-            stroke="white" 
-            strokeWidth={3} 
-          />
-        </AreaChart>
-      </ResponsiveContainer>
-    </div>
-  );
+    <Card className="overflow-hidden shadow-md text-white bg-gradient-to-br from-orange-500 to-yellow-400">
+      <CardHeader className="flex flex-row items-center gap-3 p-4">
+        <TrendingUp className="h-6 w-6" />
+        <CardTitle className="!text-xl font-semibold">Score Improvement</CardTitle>
+      </CardHeader>
+      <CardContent className="p-4 pt-0">
+        <div className="flex items-center gap-2 mb-4">
+          <ArrowUpCircle className="h-6 w-6" />
+          <div>
+            <p className="text-lg font-bold">UP 0 POINTS</p>
+            <p className="text-xs opacity-80">this month</p>
+          </div>
+          <p className="ml-auto text-lg font-semibold">Today</p>
+        </div>
+        <div className="h-32 -ml-4 -mr-4 -mb-4">
+          <ResponsiveContainer width="100%" height="100%">
+            <AreaChart data={data} margin={{ top: 10, right: 20, left: 10, bottom: 0 }}>
+              <YAxis hide={true} domain={['dataMin - 100', 'dataMax + 50']} />
+              <XAxis 
+                dataKey="name" 
+                tickLine={false} 
+                axisLine={false} 
+                tick={{ fill: 'rgba(255,255,255,0.8)', fontSize: 12 }} 
+                interval={0}
+                padding={{ left: 20, right: 20 }}
+              />
+              <CartesianGrid 
+                strokeDasharray="3 3" 
+                stroke="rgba(255, 255, 255, 0.2)" 
+                vertical={true}
+                horizontal={false}
+              />
+              <Area 
+                type="monotone" 
+                dataKey="value" 
+                stroke="#FFFFFF" 
+                strokeWidth={3}
+                fillOpacity={0.2}
+                fill="#FFFFFF"
+                dot={false}
+                activeDot={false}
+              />
+               <ReferenceDot 
+                x="Jun" 
+                y={648} 
+                r={8}
+                fill="white"
+                stroke="none"
+              />
+               <ReferenceDot 
+                x="Jun" 
+                y={648} 
+                r={4}
+                fill="#facc15"
+                stroke="none"
+              />
+            </AreaChart>
+          </ResponsiveContainer>
+        </div>
+      </CardContent>
+    </Card>
+  )
 }

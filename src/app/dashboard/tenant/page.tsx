@@ -1,4 +1,3 @@
-
 "use client"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -8,6 +7,7 @@ import { useUser } from "@/context/user-context"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Badge } from "@/components/ui/badge"
 import { ScoreGauge } from "@/components/score-gauge"
+import { ScoreImprovementChart } from "@/components/score-improvement-chart"
 
 
 // Mock data
@@ -27,19 +27,22 @@ export default function TenantDashboardPage() {
                 <p className="text-muted-foreground">Here's your rental reputation at a glance.</p>
             </div>
 
-            <Card className="overflow-hidden shadow-md">
-                <CardHeader className="bg-gradient-to-r from-orange-400 to-yellow-500 p-4 flex flex-row items-center gap-3">
-                    <FileText className="h-6 w-6 text-white" />
-                    <CardTitle className="text-white !text-xl">Score Report</CardTitle>
-                </CardHeader>
-                <CardContent className="flex flex-col items-center justify-center gap-4 py-8 bg-card">
-                    <Badge variant="outline" className="py-2 px-4 border-gray-200 bg-gray-50 text-gray-700 shadow-sm rounded-full">
-                        <Smile className="h-5 w-5 mr-2 text-green-500" />
-                        <span className="font-semibold">VERY GOOD</span>
-                    </Badge>
-                    <ScoreGauge score={648} maxScore={999} />
-                </CardContent>
-            </Card>
+            <div className="grid md:grid-cols-2 gap-8">
+                <Card className="overflow-hidden shadow-md">
+                    <CardHeader className="bg-gradient-to-r from-orange-400 to-yellow-500 p-4 flex flex-row items-center gap-3">
+                        <FileText className="h-6 w-6 text-white" />
+                        <CardTitle className="text-white !text-xl">Score Report</CardTitle>
+                    </CardHeader>
+                    <CardContent className="flex flex-col items-center justify-center gap-4 py-8 bg-card">
+                        <Badge variant="outline" className="py-2 px-4 border-gray-200 bg-gray-50 text-gray-700 shadow-sm rounded-full">
+                            <Smile className="h-5 w-5 mr-2 text-green-500" />
+                            <span className="font-semibold">VERY GOOD</span>
+                        </Badge>
+                        <ScoreGauge score={648} maxScore={999} />
+                    </CardContent>
+                </Card>
+                <ScoreImprovementChart />
+            </div>
 
             <Card>
                 <CardHeader>
