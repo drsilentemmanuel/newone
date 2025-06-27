@@ -8,6 +8,7 @@ import {
   Sidebar,
   SidebarHeader,
   SidebarContent,
+  SidebarFooter,
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuButton,
@@ -53,6 +54,10 @@ export default function DashboardLayout({
                   <Link href="/dashboard/reports"><BarChart3 /><span>Reports</span></Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarContent>
+          <SidebarFooter>
+            <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/profile') || pathname.startsWith('/dashboard/tenant-profile') || pathname.startsWith('/dashboard/landlord-profile')} tooltip="My Profile">
                   <Link href="/dashboard/profile"><User /><span>My Profile</span></Link>
@@ -64,7 +69,7 @@ export default function DashboardLayout({
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
-          </SidebarContent>
+          </SidebarFooter>
         </Sidebar>
         <SidebarInset className="flex flex-1 flex-col">
           <header className="sticky top-0 z-10 flex h-16 shrink-0 items-center justify-between border-b bg-background/95 p-4 backdrop-blur supports-[backdrop-filter]:bg-background/60">
