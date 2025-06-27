@@ -51,8 +51,8 @@ export function ScoreGauge({ score, maxScore }: ScoreGaugeProps) {
         <span className="text-3xl font-bold text-emerald-600">{score}</span>
         <span className="text-xs text-muted-foreground">Credit Score</span>
       </div>
-      <div className="absolute bottom-1 left-3 text-xs font-medium text-muted-foreground">0</div>
-      <div className="absolute bottom-1 right-3 text-xs font-medium text-muted-foreground">{maxScore}</div>
+      <div className="absolute left-3 text-xs font-medium text-muted-foreground">0</div>
+      <div className="absolute right-3 text-xs font-medium text-muted-foreground">{maxScore}</div>
     </div>
   )
 }
