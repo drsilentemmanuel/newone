@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Home, User, LogOut, FilePlus2, BarChart3, LifeBuoy } from "lucide-react"
+import { Home, User, LogOut, FilePlus2, BarChart3, LifeBuoy, Landmark } from "lucide-react"
 import {
   SidebarProvider,
   Sidebar,
@@ -18,7 +18,7 @@ import {
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Landmark } from "lucide-react"
+import { Footer } from "@/components/footer"
 
 export default function DashboardLayout({
   children,
@@ -33,10 +33,11 @@ export default function DashboardLayout({
       <div className="flex min-h-screen">
         <Sidebar>
           <SidebarHeader>
-            <div className="flex items-center gap-2">
-                <Landmark className="h-8 w-8 text-primary" />
-                <span className="text-lg font-semibold">Zim TPN</span>
-              </div>
+            {/* The logo is now in the main header within SidebarInset to ensure consistency */}
+            <Link href="/dashboard" className="flex items-center gap-2">
+              <Landmark className="h-8 w-8 text-primary" />
+              <span className="text-lg font-semibold">Zim TPN</span>
+            </Link>
           </SidebarHeader>
           <SidebarContent>
             <SidebarMenu>
@@ -77,8 +78,8 @@ export default function DashboardLayout({
             </SidebarMenu>
           </SidebarFooter>
         </Sidebar>
-        <SidebarInset>
-          <header className="sticky top-0 z-10 flex items-center justify-between p-4 border-b bg-background h-16 shrink-0">
+        <SidebarInset className="flex flex-1 flex-col">
+          <header className="sticky top-0 z-10 flex h-16 shrink-0 items-center justify-between border-b bg-background/95 p-4 backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <SidebarTrigger className="md:hidden"/>
             <div className="flex-1" />
             <DropdownMenu>
@@ -112,6 +113,7 @@ export default function DashboardLayout({
           <div className="flex-1 overflow-y-auto">
             <div className="p-6 md:p-8">{children}</div>
           </div>
+          <Footer />
         </SidebarInset>
       </div>
     </SidebarProvider>
