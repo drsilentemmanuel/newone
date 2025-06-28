@@ -3,13 +3,16 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Info, Users, Settings, FileText, CreditCard, Percent, Plus, Search, CheckCircle } from "lucide-react";
+import { Info, Users, Settings, FileText, CreditCard, Percent, Plus, Search, CheckCircle, AlertTriangle } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useUser } from "@/context/user-context";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import Link from "next/link";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
 
 
 export default function LandlordSettingsPage() {
@@ -26,7 +29,7 @@ export default function LandlordSettingsPage() {
         <h2 className="text-2xl font-semibold">Rentbook settings</h2>
 
         <Card>
-            <Tabs defaultValue="users" className="w-full">
+            <Tabs defaultValue="general" className="w-full">
                 <div className="p-4 border-b">
                     <TabsList className="bg-transparent p-0">
                         <TabsTrigger value="info" className="bg-transparent data-[state=active]:bg-muted rounded-md mr-2">
@@ -35,7 +38,7 @@ export default function LandlordSettingsPage() {
                         <TabsTrigger value="users" className="bg-transparent data-[state=active]:bg-muted rounded-md mr-2">
                             <Users className="mr-2 h-4 w-4" /> Users
                         </TabsTrigger>
-                        <TabsTrigger value="general" className="bg-transparent data-[state=active]:bg-muted rounded-md mr-2" disabled>
+                        <TabsTrigger value="general" className="bg-transparent data-[state=active]:bg-muted rounded-md mr-2">
                             <Settings className="mr-2 h-4 w-4" /> General
                         </TabsTrigger>
                         <TabsTrigger value="invoice" className="bg-transparent data-[state=active]:bg-muted rounded-md mr-2" disabled>
@@ -137,6 +140,111 @@ export default function LandlordSettingsPage() {
                         </div>
                         <div className="p-4 border-t flex justify-end text-sm text-muted-foreground">
                             1 items found.
+                        </div>
+                    </CardContent>
+                </TabsContent>
+
+                <TabsContent value="general" className="mt-0">
+                    <CardContent className="p-6 space-y-8">
+                        <Alert className="bg-amber-50 border-amber-200 text-amber-800 dark:bg-amber-950 dark:border-amber-800 dark:text-amber-200">
+                            <AlertTriangle className="h-4 w-4 !text-amber-800 dark:!text-amber-200" />
+                            <AlertDescription>
+                                The dashboard screen makes use of an invoice due graphic and quick access to invoices in various states. This indicates which tenants have not yet been sent an invoice even though the account is due shortly as well as provide access to the invoices. You can edit the below parameters to change when tenants will be displayed in this list.
+                            </AlertDescription>
+                        </Alert>
+                        
+                        <div className="space-y-6">
+                            <div>
+                                <h3 className="text-lg font-semibold text-foreground pb-2 mb-4 border-b border-primary">Invoice due parameters</h3>
+                                <div className="pl-6 border-l-2 border-border space-y-6">
+                                    <div className="flex items-start space-x-3 pt-2">
+                                        <Checkbox id="display-invoices-due" defaultChecked />
+                                        <div className="grid gap-1.5 leading-none">
+                                            <Label htmlFor="display-invoices-due" className="font-normal text-muted-foreground">Display invoices not yet sent within X days of the payment due date on the invoices due dashboard.</Label>
+                                        </div>
+                                    </div>
+                                    <div className="grid sm:grid-cols-2 gap-x-8 gap-y-4 max-w-lg">
+                                        <div className="space-y-1">
+                                            <Label htmlFor="monthly-leases-due">For monthly leases</Label>
+                                            <Select defaultValue="10">
+                                                <SelectTrigger id="monthly-leases-due">
+                                                    <SelectValue />
+                                                </SelectTrigger>
+                                                <SelectContent>
+                                                    <SelectItem value="10">10 days (default)</SelectItem>
+                                                    <SelectItem value="5">5 days</SelectItem>
+                                                    <SelectItem value="15">15 days</SelectItem>
+                                                </SelectContent>
+                                            </Select>
+                                        </div>
+                                        <div className="space-y-1">
+                                            <Label htmlFor="weekly-leases-due">For weekly leases</Label>
+                                            <Select defaultValue="3">
+                                                <SelectTrigger id="weekly-leases-due">
+                                                    <SelectValue />
+                                                </SelectTrigger>
+                                                <SelectContent>
+                                                    <SelectItem value="3">3 days (default)</SelectItem>
+                                                    <SelectItem value="1">1 day</SelectItem>
+                                                    <SelectItem value="5">5 days</SelectItem>
+                                                </SelectContent>
+                                            </Select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex justify-end gap-2">
+                                <Button variant="outline">Cancel</Button>
+                                <Button>Save</Button>
+                            </div>
+                        </div>
+
+                        <div className="space-y-6">
+                            <div>
+                                <h3 className="text-lg font-semibold text-foreground pb-2 mb-4 border-b border-primary">Invoice period parameters</h3>
+                                <div className="pl-6 border-l-2 border-border space-y-6">
+                                    <div className="flex items-start space-x-3 pt-2">
+                                        <Checkbox id="display-invoice-states" defaultChecked />
+                                        <div className="grid gap-1.5 leading-none">
+                                            <Label htmlFor="display-invoice-states" className="font-normal text-muted-foreground">Display invoices states within the current invoice due period on the dashboard.</Label>
+                                        </div>
+                                    </div>
+                                    <div className="grid sm:grid-cols-2 gap-x-8 gap-y-4 max-w-lg">
+                                        <div className="space-y-1">
+                                            <Label htmlFor="start-period">Start period</Label>
+                                            <Select defaultValue="10">
+                                                <SelectTrigger id="start-period">
+                                                    <SelectValue />
+                                                </SelectTrigger>
+                                                <SelectContent>
+                                                    <SelectItem value="10">10th</SelectItem>
+                                                    <SelectItem value="1">1st</SelectItem>
+                                                    <SelectItem value="15">15th</SelectItem>
+                                                    <SelectItem value="25">25th</SelectItem>
+                                                </SelectContent>
+                                            </Select>
+                                        </div>
+                                        <div className="space-y-1">
+                                            <Label htmlFor="end-period">End period</Label>
+                                            <Select defaultValue="7">
+                                                <SelectTrigger id="end-period">
+                                                    <SelectValue />
+                                                </SelectTrigger>
+                                                <SelectContent>
+                                                    <SelectItem value="7">7th</SelectItem>
+                                                    <SelectItem value="1">1st</SelectItem>
+                                                    <SelectItem value="15">15th</SelectItem>
+                                                    <SelectItem value="25">25th</SelectItem>
+                                                </SelectContent>
+                                            </Select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex justify-end gap-2">
+                                <Button variant="outline">Cancel</Button>
+                                <Button>Save</Button>
+                            </div>
                         </div>
                     </CardContent>
                 </TabsContent>
