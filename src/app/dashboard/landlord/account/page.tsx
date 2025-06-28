@@ -160,7 +160,7 @@ export default function AccountPage() {
                         <Separator orientation="vertical" className="h-4" />
                         <Button variant="link" className={financialsView === 'unpaidBills' ? "text-primary p-0 h-auto" : "text-muted-foreground p-0 h-auto"} onClick={() => setFinancialsView('unpaidBills')}>Unpaid Bills</Button>
                         <Separator orientation="vertical" className="h-4" />
-                        <Button variant="link" className="text-muted-foreground p-0 h-auto">Arrears</Button>
+                        <Button variant="link" className={financialsView === 'arrears' ? "text-primary p-0 h-auto" : "text-muted-foreground p-0 h-auto"} onClick={() => setFinancialsView('arrears')}>Arrears</Button>
                         <Separator orientation="vertical" className="h-4" />
                         <Button variant="link" className="text-muted-foreground p-0 h-auto">Bank Account</Button>
                         <Separator orientation="vertical" className="h-4" />
@@ -294,6 +294,30 @@ export default function AccountPage() {
                             <CardFooter className="justify-end p-4 border-t">
                                 <Button variant="outline" onClick={() => setFinancialsView('statement')}>Cancel</Button>
                             </CardFooter>
+                        </Card>
+                    )}
+
+                    {financialsView === 'arrears' && (
+                        <Card className="border shadow-none">
+                            <CardContent className="p-0">
+                                <Table>
+                                    <TableHeader>
+                                        <TableRow>
+                                            <TableHead>Lease</TableHead>
+                                            <TableHead>Last debit</TableHead>
+                                            <TableHead>Last credit</TableHead>
+                                            <TableHead className="text-right">Outstanding</TableHead>
+                                        </TableRow>
+                                    </TableHeader>
+                                    <TableBody>
+                                        <TableRow>
+                                            <TableCell colSpan={4} className="text-center text-muted-foreground py-8">
+                                                No data found
+                                            </TableCell>
+                                        </TableRow>
+                                    </TableBody>
+                                </Table>
+                            </CardContent>
                         </Card>
                     )}
 
