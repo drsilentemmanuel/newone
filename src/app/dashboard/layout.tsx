@@ -13,7 +13,6 @@ import {
     FileText,
     Fingerprint,
     Handshake,
-    HelpCircle,
     Home,
     Landmark,
     Settings,
@@ -22,7 +21,6 @@ import {
 import {
     Sidebar,
     SidebarContent,
-    SidebarFooter,
     SidebarMenu,
     SidebarMenuItem,
     SidebarMenuButton,
@@ -204,20 +202,6 @@ export default function DashboardLayout({
                            {getNavForRole()}
                         </SidebarMenu>
                     </SidebarContent>
-                    <SidebarFooter className="bg-background border-t">
-                        <SidebarMenu>
-                            <SidebarMenuItem>
-                                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/profile')} tooltip="Settings">
-                                    <Link href="/dashboard/profile"><Settings /><span>Settings</span></Link>
-                                </SidebarMenuButton>
-                            </SidebarMenuItem>
-                            <SidebarMenuItem>
-                                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/support')} tooltip="Help">
-                                    <Link href="/dashboard/support"><HelpCircle /><span>Help</span></Link>
-                                </SidebarMenuButton>
-                            </SidebarMenuItem>
-                        </SidebarMenu>
-                    </SidebarFooter>
                 </Sidebar>
                 <div className="flex flex-1 flex-col">
                     <DashboardHeader />
