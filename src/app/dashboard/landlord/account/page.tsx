@@ -7,11 +7,12 @@ import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/componen
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
 import { useUser } from "@/context/user-context";
-import { Info, Landmark, Home, PenSquare, BarChart3, Settings, Pencil, Building2, Wallet, ShoppingCart, CheckCircle, ChevronDown, Banknote, X, AlertTriangle } from "lucide-react";
+import { Info, Landmark, Home, PenSquare, BarChart3, Settings, Pencil, Building2, Wallet, ShoppingCart, CheckCircle, ChevronDown, Banknote, X, AlertTriangle, Search } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Input } from "@/components/ui/input";
 
 
 // Mock data based on the screenshot
@@ -162,7 +163,7 @@ export default function AccountPage() {
                         <Separator orientation="vertical" className="h-4" />
                         <Button variant="link" className={financialsView === 'arrears' ? "text-primary p-0 h-auto" : "text-muted-foreground p-0 h-auto"} onClick={() => setFinancialsView('arrears')}>Arrears</Button>
                         <Separator orientation="vertical" className="h-4" />
-                        <Button variant="link" className="text-muted-foreground p-0 h-auto">Bank Account</Button>
+                        <Button variant="link" className={financialsView === 'bankAccount' ? "text-primary p-0 h-auto" : "text-muted-foreground p-0 h-auto"} onClick={() => setFinancialsView('bankAccount')}>Bank Account</Button>
                         <Separator orientation="vertical" className="h-4" />
                         <Button variant="link" className="text-muted-foreground p-0 h-auto">Deposits Held</Button>
                         <Separator orientation="vertical" className="h-4" />
@@ -321,6 +322,53 @@ export default function AccountPage() {
                         </Card>
                     )}
 
+                    {financialsView === 'bankAccount' && (
+                        <Card className="border shadow-none">
+                            <CardContent className="p-4 space-y-4">
+                                <div className="flex items-center justify-between">
+                                    <div className="flex items-center gap-2">
+                                        <Button variant="outline">Pay owner</Button>
+                                        <Button variant="outline">Owner contribution</Button>
+                                    </div>
+                                    <div className="flex items-center gap-2 w-full max-w-sm">
+                                        <div className="relative flex-grow">
+                                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                                            <Input placeholder="Enter search text" className="pl-9" />
+                                        </div>
+                                        <Select defaultValue="25">
+                                            <SelectTrigger className="w-[80px]">
+                                                <SelectValue />
+                                            </SelectTrigger>
+                                            <SelectContent>
+                                                <SelectItem value="25">25</SelectItem>
+                                                <SelectItem value="50">50</SelectItem>
+                                                <SelectItem value="100">100</SelectItem>
+                                            </SelectContent>
+                                        </Select>
+                                    </div>
+                                </div>
+                                <Table>
+                                    <TableHeader>
+                                        <TableRow>
+                                            <TableHead>Date</TableHead>
+                                            <TableHead className="w-1/2">Description</TableHead>
+                                            <TableHead>To / From</TableHead>
+                                            <TableHead className="text-right">Debit</TableHead>
+                                            <TableHead className="text-right">Credit</TableHead>
+                                        </TableRow>
+                                    </TableHeader>
+                                    <TableBody>
+                                        <TableRow>
+                                            <TableCell colSpan={5} className="text-center text-muted-foreground py-8">
+                                                No data found
+                                            </TableCell>
+                                        </TableRow>
+                                    </TableBody>
+                                </Table>
+                            </CardContent>
+                        </Card>
+                    )}
+
                 </CardContent>
             </Card>
         </TabsContent>
@@ -328,3 +376,5 @@ export default function AccountPage() {
     </div>
   );
 }
+
+    
