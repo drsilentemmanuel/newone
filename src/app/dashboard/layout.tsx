@@ -144,6 +144,11 @@ export default function DashboardLayout({
                     <Link href="/dashboard/landlord/reports"><BarChart3 /><span>Reports</span></Link>
                 </SidebarMenuButton>
             </SidebarMenuItem>
+            <SidebarMenuItem>
+                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/settings')} tooltip="Settings">
+                    <Link href="/dashboard/landlord/settings"><Settings /><span>Settings</span></Link>
+                </SidebarMenuButton>
+            </SidebarMenuItem>
         </>
     );
 
