@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/componen
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
 import { useUser } from "@/context/user-context";
-import { Info, Landmark, Home, PenSquare, BarChart3, Settings, Pencil, Building2, Wallet, ShoppingCart, CheckCircle, ChevronDown, Banknote, X, AlertTriangle, Search } from "lucide-react";
+import { Info, Landmark, Home, PenSquare, BarChart3, Settings, Pencil, Building2, Wallet, ShoppingCart, CheckCircle, ChevronDown, Banknote, X, AlertTriangle, Search, User } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
@@ -48,6 +48,11 @@ const financialsData = {
         may: "R 0.00",
         jun: "R 0.00",
         total: "R 0.00",
+    },
+    deposits: {
+        held: "R 0.00",
+        byLandlord: "R 0.00",
+        outstanding: "R 0.00",
     }
 }
 
@@ -165,39 +170,39 @@ export default function AccountPage() {
                         <Separator orientation="vertical" className="h-4" />
                         <Button variant="link" className={financialsView === 'bankAccount' ? "text-primary p-0 h-auto" : "text-muted-foreground p-0 h-auto"} onClick={() => setFinancialsView('bankAccount')}>Bank Account</Button>
                         <Separator orientation="vertical" className="h-4" />
-                        <Button variant="link" className="text-muted-foreground p-0 h-auto">Deposits Held</Button>
+                        <Button variant="link" className={financialsView === 'depositsHeld' ? "text-primary p-0 h-auto" : "text-muted-foreground p-0 h-auto"} onClick={() => setFinancialsView('depositsHeld')}>Deposits Held</Button>
                         <Separator orientation="vertical" className="h-4" />
                         <Button variant="link" className="text-muted-foreground p-0 h-auto">Bank Import</Button>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                        <Card className="shadow-none border">
-                            <CardContent className="p-3">
-                                <p className="text-lg font-semibold">{financialsData.unpaidRent}</p>
-                                <p className="text-xs text-muted-foreground flex items-center gap-1"><Banknote className="w-3 h-3"/>UNPAID RENT</p>
-                            </CardContent>
-                        </Card>
-                         <Card className="shadow-none border">
-                            <CardContent className="p-3">
-                                <p className="text-lg font-semibold">{financialsData.unpaidBills}</p>
-                                <p className="text-xs text-muted-foreground flex items-center gap-1"><Wallet className="w-3 h-3"/>UNPAID BILLS</p>
-                            </CardContent>
-                        </Card>
-                         <Card className="shadow-none border">
-                            <CardContent className="p-3">
-                                <p className="text-lg font-semibold">{financialsData.inBank}</p>
-                                <p className="text-xs text-muted-foreground flex items-center gap-1"><Landmark className="w-3 h-3"/>IN BANK</p>
-                            </CardContent>
-                        </Card>
-                         <Card className="shadow-none border">
-                            <CardContent className="p-3">
-                                <p className="text-lg font-semibold">{financialsData.surplus}</p>
-                                <p className="text-xs text-emerald-600 font-medium flex items-center gap-1"><CheckCircle className="w-3 h-3"/>SURPLUS</p>
-                            </CardContent>
-                        </Card>
                     </div>
 
                     {financialsView === 'statement' && (
                         <div className="space-y-4">
+                             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                                <Card className="shadow-none border">
+                                    <CardContent className="p-3">
+                                        <p className="text-lg font-semibold">{financialsData.unpaidRent}</p>
+                                        <p className="text-xs text-muted-foreground flex items-center gap-1"><Banknote className="w-3 h-3"/>UNPAID RENT</p>
+                                    </CardContent>
+                                </Card>
+                                 <Card className="shadow-none border">
+                                    <CardContent className="p-3">
+                                        <p className="text-lg font-semibold">{financialsData.unpaidBills}</p>
+                                        <p className="text-xs text-muted-foreground flex items-center gap-1"><Wallet className="w-3 h-3"/>UNPAID BILLS</p>
+                                    </CardContent>
+                                </Card>
+                                 <Card className="shadow-none border">
+                                    <CardContent className="p-3">
+                                        <p className="text-lg font-semibold">{financialsData.inBank}</p>
+                                        <p className="text-xs text-muted-foreground flex items-center gap-1"><Landmark className="w-3 h-3"/>IN BANK</p>
+                                    </CardContent>
+                                </Card>
+                                 <Card className="shadow-none border">
+                                    <CardContent className="p-3">
+                                        <p className="text-lg font-semibold">{financialsData.surplus}</p>
+                                        <p className="text-xs text-emerald-600 font-medium flex items-center gap-1"><CheckCircle className="w-3 h-3"/>SURPLUS</p>
+                                    </CardContent>
+                                </Card>
+                            </div>
                              <div className="flex items-center justify-between">
                                 <Select defaultValue="3m">
                                     <SelectTrigger className="w-[200px]">
@@ -369,6 +374,85 @@ export default function AccountPage() {
                         </Card>
                     )}
 
+                    {financialsView === 'depositsHeld' && (
+                        <div className="space-y-4">
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <Card className="shadow-none border">
+                                    <CardContent className="p-3">
+                                        <p className="text-lg font-semibold">{financialsData.deposits.held}</p>
+                                        <p className="text-xs text-muted-foreground flex items-center gap-1"><Wallet className="w-3 h-3"/>DEPOSIT HELD</p>
+                                    </CardContent>
+                                </Card>
+                                <Card className="shadow-none border">
+                                    <CardContent className="p-3">
+                                        <p className="text-lg font-semibold">{financialsData.deposits.byLandlord}</p>
+                                        <p className="text-xs text-muted-foreground flex items-center gap-1"><User className="w-3 h-3"/>BY LANDLORD</p>
+                                    </CardContent>
+                                </Card>
+                                <Card className="shadow-none border">
+                                    <CardContent className="p-3">
+                                        <p className="text-lg font-semibold">{financialsData.deposits.outstanding}</p>
+                                        <p className="text-xs text-muted-foreground flex items-center gap-1"><AlertTriangle className="w-3 h-3"/>OUTSTANDING</p>
+                                    </CardContent>
+                                </Card>
+                            </div>
+
+                            <Card className="border shadow-none">
+                                <CardContent className="p-4 space-y-4">
+                                    <div className="space-y-2">
+                                        <h2 className="text-lg font-bold text-primary">Deposit Summary</h2>
+                                        <Separator className="bg-primary h-px" />
+                                    </div>
+                                    <div className="flex items-center justify-between">
+                                        <div className="flex items-center gap-2 w-full max-w-sm">
+                                            <div className="relative flex-grow">
+                                                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                                                <Input placeholder="Enter search text" className="pl-9" />
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center gap-2">
+                                            <Select defaultValue="all">
+                                                <SelectTrigger className="w-[180px]">
+                                                    <SelectValue placeholder="(All leases)" />
+                                                </SelectTrigger>
+                                                <SelectContent>
+                                                    <SelectItem value="all">(All leases)</SelectItem>
+                                                </SelectContent>
+                                            </Select>
+                                            <Select defaultValue="25">
+                                                <SelectTrigger className="w-[80px]">
+                                                    <SelectValue />
+                                                </SelectTrigger>
+                                                <SelectContent>
+                                                    <SelectItem value="25">25</SelectItem>
+                                                    <SelectItem value="50">50</SelectItem>
+                                                    <SelectItem value="100">100</SelectItem>
+                                                </SelectContent>
+                                            </Select>
+                                        </div>
+                                    </div>
+                                    <Table>
+                                        <TableHeader>
+                                            <TableRow>
+                                                <TableHead>Property/Tenant</TableHead>
+                                                <TableHead>State</TableHead>
+                                                <TableHead>Held</TableHead>
+                                                <TableHead>Still Due</TableHead>
+                                            </TableRow>
+                                        </TableHeader>
+                                        <TableBody>
+                                            <TableRow>
+                                                <TableCell colSpan={4} className="text-center text-muted-foreground py-8">
+                                                    No data found
+                                                </TableCell>
+                                            </TableRow>
+                                        </TableBody>
+                                    </Table>
+                                </CardContent>
+                            </Card>
+                        </div>
+                    )}
+
                 </CardContent>
             </Card>
         </TabsContent>
@@ -376,5 +460,3 @@ export default function AccountPage() {
     </div>
   );
 }
-
-    
