@@ -102,7 +102,7 @@ export default function AccountPage() {
           <TabsTrigger value="properties" className="data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:shadow-none rounded-none bg-transparent">
             <Home className="mr-2 h-4 w-4" /> Properties
           </TabsTrigger>
-          <TabsTrigger value="notes" disabled className="rounded-none bg-transparent">
+          <TabsTrigger value="notes" className="data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:shadow-none rounded-none bg-transparent">
             <PenSquare className="mr-2 h-4 w-4" /> Notes
           </TabsTrigger>
           <TabsTrigger value="reports" disabled className="rounded-none bg-transparent">
@@ -634,6 +634,60 @@ export default function AccountPage() {
                     {propertiesData.length} items found.
                 </CardFooter>
             </Card>
+        </TabsContent>
+        <TabsContent value="notes" className="mt-6">
+          <Card>
+            <CardContent className="p-4 space-y-4">
+              <div className="flex items-center space-x-4 text-sm font-medium">
+                <Button variant="link" className="text-primary p-0 h-auto">Notes</Button>
+                <Separator orientation="vertical" className="h-4" />
+                <Button variant="link" className="text-muted-foreground p-0 h-auto">Attachments</Button>
+              </div>
+
+              <div className="space-y-4">
+                <h2 className="text-lg font-semibold">Associated notes</h2>
+                <Separator />
+                
+                <div className="flex items-center justify-between">
+                  <Button variant="outline"><Plus className="mr-2 h-4 w-4" /> Add a new note</Button>
+                  <div className="flex items-center gap-2 w-full max-w-sm">
+                    <div className="relative flex-grow">
+                      <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                      <Input placeholder="Enter search text" className="pl-9" />
+                    </div>
+                    <Select defaultValue="25">
+                      <SelectTrigger className="w-[80px]">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="25">25</SelectItem>
+                        <SelectItem value="50">50</SelectItem>
+                        <SelectItem value="100">100</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
+
+                <div className="border rounded-md">
+                    <Table>
+                        <TableHeader>
+                            <TableRow>
+                                <TableHead className="w-1/4">Date Added</TableHead>
+                                <TableHead>Note</TableHead>
+                            </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                            <TableRow>
+                                <TableCell colSpan={2} className="text-center text-muted-foreground py-8">
+                                    No data found
+                                </TableCell>
+                            </TableRow>
+                        </TableBody>
+                    </Table>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </TabsContent>
       </Tabs>
     </div>
