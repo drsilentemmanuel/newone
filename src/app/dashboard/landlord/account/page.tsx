@@ -105,7 +105,7 @@ export default function AccountPage() {
           <TabsTrigger value="notes" className="data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:shadow-none rounded-none bg-transparent">
             <PenSquare className="mr-2 h-4 w-4" /> Notes
           </TabsTrigger>
-          <TabsTrigger value="reports" disabled className="rounded-none bg-transparent">
+          <TabsTrigger value="reports" className="data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:shadow-none rounded-none bg-transparent">
             <BarChart3 className="mr-2 h-4 w-4" /> Reports
           </TabsTrigger>
         </TabsList>
@@ -688,6 +688,66 @@ export default function AccountPage() {
               </div>
             </CardContent>
           </Card>
+        </TabsContent>
+        <TabsContent value="reports" className="mt-6">
+            <Card>
+                <CardContent className="p-6">
+                    <h2 className="text-lg font-semibold text-foreground pb-2 mb-4 border-b border-primary">Select the report from the list below</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+                        <div className="space-y-8">
+                            <div>
+                                <h3 className="font-semibold text-muted-foreground mb-3">Accounting reports</h3>
+                                <ul className="space-y-2">
+                                    <li><Link href="#" className="text-sm text-primary hover:underline">General ledger</Link></li>
+                                    <li><Link href="#" className="text-sm text-primary hover:underline">Profit and loss</Link></li>
+                                    <li><Link href="#" className="text-sm text-primary hover:underline">Trial balance</Link></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 className="font-semibold text-muted-foreground mb-3">Lease reports</h3>
+                                <ul className="space-y-2">
+                                    <li><Link href="#" className="text-sm text-primary hover:underline">Expiry report</Link></li>
+                                    <li><Link href="#" className="text-sm text-primary hover:underline">Tenant arrears</Link></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div className="space-y-8">
+                            <div>
+                                <h3 className="font-semibold text-muted-foreground mb-3">Deposit reports</h3>
+                                <ul className="space-y-2">
+                                    <li><Link href="#" className="text-sm text-primary hover:underline">Deposit summary</Link></li>
+                                    <li><Link href="#" className="text-sm text-primary hover:underline">Held by landlord</Link></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 className="font-semibold text-muted-foreground mb-3">Property reports</h3>
+                                <ul className="space-y-2">
+                                    <li><Link href="#" className="text-sm text-primary hover:underline">Occupancy report</Link></li>
+                                    <li><Link href="#" className="text-sm text-primary hover:underline">Tax report</Link></li>
+                                    <li><Link href="#" className="text-sm text-primary hover:underline">Vacancy report</Link></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div className="space-y-8">
+                            <div>
+                                <h3 className="font-semibold text-muted-foreground mb-3">Landlord reports</h3>
+                                <ul className="space-y-2">
+                                    <li><Link href="#" className="text-sm text-primary hover:underline">Detail by property</Link></li>
+                                    <li><Link href="#" className="text-sm text-primary hover:underline">Income Statement</Link></li>
+                                    <li><Link href="#" className="text-sm text-primary hover:underline">Owner Statement</Link></li>
+                                    <li><Link href="#" className="text-sm text-primary hover:underline">Summary by property</Link></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 className="font-semibold text-muted-foreground mb-3">Vendor reports</h3>
+                                <ul className="space-y-2">
+                                    <li><Link href="#" className="text-sm text-primary hover:underline">Arrears report</Link></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </CardContent>
+            </Card>
         </TabsContent>
       </Tabs>
     </div>
