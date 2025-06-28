@@ -2,12 +2,13 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
 import { useUser } from "@/context/user-context";
-import { Info, Landmark, Home, PenSquare, BarChart3, Settings, Pencil, Building2, Wallet, ShoppingCart, CheckCircle, ChevronDown, Banknote, X, AlertTriangle, Search, User, PlayCircle, Plus } from "lucide-react";
+import { Info, Landmark, Home, PenSquare, BarChart3, Settings, Pencil, Building2, Wallet, ShoppingCart, CheckCircle, ChevronDown, Banknote, X, AlertTriangle, Search, User, PlayCircle, Plus, Ruler } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
@@ -57,6 +58,26 @@ const financialsData = {
     }
 }
 
+const propertiesData = [
+  {
+    id: "PRO000001",
+    name: "34A Bainslodge",
+    type: "Apartment",
+    size: "0.5",
+    address: "34A 69 Bainslodge, Bainsvlei Bloemfontein Free State",
+    state: "Vacant",
+  },
+  {
+    id: "PRO000002",
+    name: "Hawaii St",
+    type: "Apartment",
+    size: "3.0",
+    address: "Hawaii St Germiston Ekurhuleni Gauteng",
+    state: "Vacant",
+  },
+];
+
+
 export default function AccountPage() {
   const { userName, userEmail } = useUser();
   const [financialsView, setFinancialsView] = useState('statement');
@@ -78,7 +99,7 @@ export default function AccountPage() {
           <TabsTrigger value="financials" className="data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:shadow-none rounded-none bg-transparent">
             <Landmark className="mr-2 h-4 w-4" /> Financials
           </TabsTrigger>
-          <TabsTrigger value="properties" disabled className="rounded-none bg-transparent">
+          <TabsTrigger value="properties" className="data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:shadow-none rounded-none bg-transparent">
             <Home className="mr-2 h-4 w-4" /> Properties
           </TabsTrigger>
           <TabsTrigger value="notes" disabled className="rounded-none bg-transparent">
@@ -159,6 +180,7 @@ export default function AccountPage() {
             </Card>
           </div>
         </TabsContent>
+
         <TabsContent value="financials" className="mt-6 space-y-6">
             <Card>
                 <CardContent className="p-4 space-y-4">
@@ -546,6 +568,71 @@ export default function AccountPage() {
 
 
                 </CardContent>
+            </Card>
+        </TabsContent>
+        <TabsContent value="properties" className="mt-6">
+            <Card>
+                <CardContent className="p-4 space-y-4">
+                    <div className="flex items-center justify-between gap-4">
+                        <div className="relative flex-grow max-w-sm">
+                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                            <Input placeholder="Enter search text" className="pl-9" />
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <Select defaultValue="all">
+                                <SelectTrigger className="w-auto sm:w-[180px]">
+                                    <SelectValue placeholder="All Properties" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectItem value="all">All Properties</SelectItem>
+                                    <SelectItem value="vacant">Vacant</SelectItem>
+                                    <SelectItem value="occupied">Occupied</SelectItem>
+                                </SelectContent>
+                            </Select>
+                            <Select defaultValue="25">
+                                <SelectTrigger className="w-[80px]">
+                                    <SelectValue />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectItem value="10">10</SelectItem>
+                                    <SelectItem value="25">25</SelectItem>
+                                    <SelectItem value="50">50</SelectItem>
+                                </SelectContent>
+                            </Select>
+                        </div>
+                    </div>
+                    <div className="border rounded-md">
+                        <Table>
+                            <TableHeader>
+                                <TableRow>
+                                    <TableHead className="w-2/3">Property</TableHead>
+                                    <TableHead>State</TableHead>
+                                </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                                {propertiesData.map((property) => (
+                                    <TableRow key={property.id}>
+                                        <TableCell className="py-2">
+                                          <div className="flex gap-4 items-start">
+                                              <div className="w-[100px] flex-shrink-0 pt-1">
+                                                  <Link href="#" className="text-primary font-medium hover:underline">{property.id}</Link>
+                                              </div>
+                                              <div className="flex-grow">
+                                                  <div className="text-sm">{property.name} <span className="text-muted-foreground font-normal">[{property.type}, {property.size}<Ruler className="inline-block ml-1 h-3 w-3" />]</span></div>
+                                                  <div className="text-xs text-muted-foreground">{property.address}</div>
+                                              </div>
+                                          </div>
+                                        </TableCell>
+                                        <TableCell className="py-2">{property.state}</TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </div>
+                </CardContent>
+                <CardFooter className="flex justify-end text-sm text-muted-foreground p-4 border-t">
+                    {propertiesData.length} items found.
+                </CardFooter>
             </Card>
         </TabsContent>
       </Tabs>
