@@ -1,109 +1,78 @@
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { FileDown, Eye, ArrowRight } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
 
-const mockReports = [
-  {
-    date: "2024-07-29",
-    type: "Consumer Credit Check",
-    reference: "123 Fife Avenue, Harare",
-    status: "Completed",
-    id: "RPT-001"
-  },
-  {
-    date: "2024-07-28",
-    type: "Business Credit Check",
-    reference: "ABC Holdings",
-    status: "Completed",
-    id: "RPT-002"
-  },
-  {
-    date: "2024-07-25",
-    type: "Trace Consumer",
-    reference: "John Doe",
-    status: "In Progress",
-    id: "RPT-003"
-  },
-  {
-    date: "2024-07-22",
-    type: "Consumer Credit Check",
-    reference: "45 Baines Avenue, Harare",
-    status: "Completed",
-    id: "RPT-004"
-  },
-    {
-    date: "2024-07-20",
-    type: "Consumer Credit Check",
-    reference: "88 Milton Park, Harare",
-    status: "Failed",
-    id: "RPT-005"
-  },
-];
-
-const statusVariant = {
-    Completed: 'default',
-    'In Progress': 'secondary',
-    Failed: 'destructive',
-}
-
-export default function ReportsPage() {
-  return (
-    <div className="space-y-6">
-      <h1 className="text-3xl font-bold font-headline">Reports</h1>
-      <p className="text-muted-foreground">View your history of credit checks and other enquiries.</p>
-
-      <Card>
-        <CardHeader>
-            <CardTitle>Enquiry History</CardTitle>
-            <CardDescription>A log of all enquiries performed on your account.</CardDescription>
-        </CardHeader>
-        <CardContent>
-            <Table>
-                <TableHeader>
-                    <TableRow>
-                        <TableHead>Date</TableHead>
-                        <TableHead>Type</TableHead>
-                        <TableHead>Reference</TableHead>
-                        <TableHead>Status</TableHead>
-                        <TableHead className="text-right">Actions</TableHead>
-                    </TableRow>
-                </TableHeader>
-                <TableBody>
-                    {mockReports.map((report) => (
-                        <TableRow key={report.id}>
-                            <TableCell>{report.date}</TableCell>
-                            <TableCell className="font-medium">{report.type}</TableCell>
-                            <TableCell>{report.reference}</TableCell>
-                            <TableCell>
-                                <Badge variant={statusVariant[report.status as keyof typeof statusVariant] || 'outline'}>
-                                    {report.status}
-                                </Badge>
-                            </TableCell>
-                            <TableCell className="text-right space-x-2">
-                                <Button variant="ghost" size="icon">
-                                    <Eye className="h-4 w-4" />
-                                    <span className="sr-only">View Report</span>
-                                </Button>
-                                <Button variant="ghost" size="icon">
-                                    <FileDown className="h-4 w-4" />
-                                    <span className="sr-only">Download Report</span>
-                                </Button>
-                            </TableCell>
-                        </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
-        </CardContent>
-        <CardFooter className="justify-end">
-            <Button variant="outline">
-                Load More <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-        </CardFooter>
-      </Card>
-    </div>
-  )
+export default function GlobalReportsPage() {
+    return (
+        <div className="space-y-6">
+            <h1 className="text-xl text-muted-foreground">
+                <span className="font-bold text-foreground text-2xl">Reports</span> &gt; Global
+            </h1>
+            <Card>
+                <CardHeader className="border-b border-primary">
+                    <CardTitle className="text-lg font-semibold text-primary">Select the report from the list below</CardTitle>
+                </CardHeader>
+                <CardContent className="p-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+                        {/* Column 1 */}
+                        <div className="space-y-8">
+                            <div>
+                                <h3 className="font-semibold text-muted-foreground mb-3">Accounting reports</h3>
+                                <ul className="space-y-2">
+                                    <li><Link href="#" className="text-sm text-primary hover:underline">Bank account</Link></li>
+                                    <li><Link href="#" className="text-sm text-primary hover:underline">Bank Recon Report</Link></li>
+                                    <li><Link href="#" className="text-sm text-primary hover:underline">General ledger</Link></li>
+                                    <li><Link href="#" className="text-sm text-primary hover:underline">Trial balance</Link></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 className="font-semibold text-muted-foreground mb-3">Property reports</h3>
+                                <ul className="space-y-2">
+                                    <li><Link href="#" className="text-sm text-primary hover:underline">Summary report</Link></li>
+                                    <li><Link href="#" className="text-sm text-primary hover:underline">Vacancy report</Link></li>
+                                </ul>
+                            </div>
+                        </div>
+                        {/* Column 2 */}
+                        <div className="space-y-8">
+                            <div>
+                                <h3 className="font-semibold text-muted-foreground mb-3">Deposit reports</h3>
+                                <ul className="space-y-2">
+                                    <li><Link href="#" className="text-sm text-primary hover:underline">Deposit arrears</Link></li>
+                                    <li><Link href="#" className="text-sm text-primary hover:underline">Deposit ledger</Link></li>
+                                    <li><Link href="#" className="text-sm text-primary hover:underline">Deposit summary</Link></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h3 className="font-semibold text-muted-foreground mb-3">System reports</h3>
+                                <ul className="space-y-2">
+                                    <li><Link href="#" className="text-sm text-primary hover:underline">Export contacts</Link></li>
+                                </ul>
+                            </div>
+                        </div>
+                        {/* Column 3 */}
+                        <div className="space-y-8">
+                            <div>
+                                <h3 className="font-semibold text-muted-foreground mb-3">Lease reports</h3>
+                                <ul className="space-y-2">
+                                    <li><Link href="#" className="text-sm text-primary hover:underline">Expiry report</Link></li>
+                                    <li><Link href="#" className="text-sm text-primary hover:underline">Occupancy report</Link></li>
+                                    <li><Link href="#" className="text-sm text-primary hover:underline">Rent roll</Link></li>
+                                    <li><Link href="#" className="text-sm text-primary hover:underline">Tenant arrears</Link></li>
+                                </ul>
+                            </div>
+                             <div>
+                                <h3 className="font-semibold text-muted-foreground mb-3">Vendor reports</h3>
+                                <ul className="space-y-2">
+                                    <li><Link href="#" className="text-sm text-primary hover:underline">Arrears report</Link></li>
+                                    <li><Link href="#" className="text-sm text-primary hover:underline">Payments report</Link></li>
+                                    <li><Link href="#" className="text-sm text-primary hover:underline">Vendor ledger</Link></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </CardContent>
+            </Card>
+        </div>
+    )
 }
