@@ -6,7 +6,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
 import { useUser } from "@/context/user-context";
-import { Info, Landmark, Home, PenSquare, BarChart3, Settings, Pencil, Building2, Wallet, ShoppingCart } from "lucide-react";
+import { Info, Landmark, Home, PenSquare, BarChart3, Settings, Pencil, Building2, Wallet, ShoppingCart, CheckCircle, ChevronDown, Banknote } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
 // Mock data based on the screenshot
 const accountInfo = {
@@ -31,6 +34,19 @@ const expenseStats = {
   availableToPay: "R 0.00",
 };
 
+const financialsData = {
+    unpaidRent: "R 0.00",
+    unpaidBills: "R 0.00",
+    inBank: "R 0.00",
+    surplus: "R 0.00",
+    netIncome: {
+        apr: "R 0.00",
+        may: "R 0.00",
+        jun: "R 0.00",
+        total: "R 0.00",
+    }
+}
+
 export default function AccountPage() {
   const { userName, userEmail } = useUser();
 
@@ -47,7 +63,7 @@ export default function AccountPage() {
           <TabsTrigger value="my-info" className="data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:shadow-none rounded-none bg-transparent">
             <Info className="mr-2 h-4 w-4" /> My Info
           </TabsTrigger>
-          <TabsTrigger value="financials" disabled className="rounded-none bg-transparent">
+          <TabsTrigger value="financials" className="data-[state=active]:border-b-2 data-[state=active]:border-primary data-[state=active]:shadow-none rounded-none bg-transparent">
             <Landmark className="mr-2 h-4 w-4" /> Financials
           </TabsTrigger>
           <TabsTrigger value="properties" disabled className="rounded-none bg-transparent">
@@ -130,6 +146,104 @@ export default function AccountPage() {
               </CardContent>
             </Card>
           </div>
+        </TabsContent>
+        <TabsContent value="financials" className="mt-6 space-y-6">
+            <Card>
+                <CardContent className="p-4 space-y-4">
+                    <div className="flex items-center space-x-4 text-sm font-medium">
+                        <Button variant="link" className="text-primary p-0 h-auto">Statement</Button>
+                        <Separator orientation="vertical" className="h-4" />
+                        <Button variant="link" className="text-muted-foreground p-0 h-auto">Unpaid Bills</Button>
+                        <Separator orientation="vertical" className="h-4" />
+                        <Button variant="link" className="text-muted-foreground p-0 h-auto">Arrears</Button>
+                        <Separator orientation="vertical" className="h-4" />
+                        <Button variant="link" className="text-muted-foreground p-0 h-auto">Bank Account</Button>
+                        <Separator orientation="vertical" className="h-4" />
+                        <Button variant="link" className="text-muted-foreground p-0 h-auto">Deposits Held</Button>
+                        <Separator orientation="vertical" className="h-4" />
+                        <Button variant="link" className="text-muted-foreground p-0 h-auto">Bank Import</Button>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                        <Card className="shadow-none border">
+                            <CardContent className="p-3">
+                                <p className="text-lg font-semibold">{financialsData.unpaidRent}</p>
+                                <p className="text-xs text-muted-foreground flex items-center gap-1"><Banknote className="w-3 h-3"/>UNPAID RENT</p>
+                            </CardContent>
+                        </Card>
+                         <Card className="shadow-none border">
+                            <CardContent className="p-3">
+                                <p className="text-lg font-semibold">{financialsData.unpaidBills}</p>
+                                <p className="text-xs text-muted-foreground flex items-center gap-1"><Wallet className="w-3 h-3"/>UNPAID BILLS</p>
+                            </CardContent>
+                        </Card>
+                         <Card className="shadow-none border">
+                            <CardContent className="p-3">
+                                <p className="text-lg font-semibold">{financialsData.inBank}</p>
+                                <p className="text-xs text-muted-foreground flex items-center gap-1"><Landmark className="w-3 h-3"/>IN BANK</p>
+                            </CardContent>
+                        </Card>
+                         <Card className="shadow-none border">
+                            <CardContent className="p-3">
+                                <p className="text-lg font-semibold">{financialsData.surplus}</p>
+                                <p className="text-xs text-emerald-600 font-medium flex items-center gap-1"><CheckCircle className="w-3 h-3"/>SURPLUS</p>
+                            </CardContent>
+                        </Card>
+                    </div>
+                    <div className="flex items-center justify-between">
+                         <Select defaultValue="3m">
+                            <SelectTrigger className="w-[200px]">
+                                <SelectValue placeholder="Select period" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="3m">Three months to date</SelectItem>
+                                <SelectItem value="6m">Six months to date</SelectItem>
+                                <SelectItem value="12m">Twelve months to date</SelectItem>
+                            </SelectContent>
+                        </Select>
+                        <div className="flex items-center gap-2">
+                            <Button variant="outline">Capture bill</Button>
+                            <Button variant="outline">Pay bill</Button>
+                            <Button variant="outline">Reverse payment</Button>
+                            <DropdownMenu>
+                                <DropdownMenuTrigger asChild>
+                                    <Button variant="outline">Landlord transfer <ChevronDown className="ml-2 h-4 w-4" /></Button>
+                                </DropdownMenuTrigger>
+                                <DropdownMenuContent align="end">
+                                    <DropdownMenuItem>Transfer to Landlord</DropdownMenuItem>
+                                    <DropdownMenuItem>Transfer from Landlord</DropdownMenuItem>
+                                </DropdownMenuContent>
+                            </DropdownMenu>
+                        </div>
+                    </div>
+                    <Card className="border shadow-none">
+                        <CardHeader>
+                            <CardTitle className="text-base font-bold bg-muted p-2 rounded-sm">LANDLORD INCOME STATEMENT</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <Table>
+                                <TableHeader>
+                                    <TableRow>
+                                        <TableHead className="w-[200px]"></TableHead>
+                                        <TableHead className="text-right">Apr 2025</TableHead>
+                                        <TableHead className="text-right">May 2025</TableHead>
+                                        <TableHead className="text-right">Jun 2025</TableHead>
+                                        <TableHead className="text-right font-bold">Total</TableHead>
+                                    </TableRow>
+                                </TableHeader>
+                                <TableBody>
+                                    <TableRow>
+                                        <TableCell className="font-medium">Net income</TableCell>
+                                        <TableCell className="text-right">{financialsData.netIncome.apr}</TableCell>
+                                        <TableCell className="text-right">{financialsData.netIncome.may}</TableCell>
+                                        <TableCell className="text-right">{financialsData.netIncome.jun}</TableCell>
+                                        <TableCell className="text-right font-bold">{financialsData.netIncome.total}</TableCell>
+                                    </TableRow>
+                                </TableBody>
+                            </Table>
+                        </CardContent>
+                    </Card>
+                </CardContent>
+            </Card>
         </TabsContent>
       </Tabs>
     </div>
