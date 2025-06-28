@@ -3,10 +3,12 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import React, { useState } from 'react';
 import {
     BarChart3,
     Briefcase,
     Building2,
+    ChevronDown,
     FileClock,
     FileText,
     Fingerprint,
@@ -26,7 +28,11 @@ import {
     SidebarMenuButton,
     SidebarProvider,
     SidebarMenuSkeleton,
+    SidebarMenuSub,
+    SidebarMenuSubItem,
+    SidebarMenuSubButton,
 } from '@/components/ui/sidebar';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { DashboardHeader } from '@/components/dashboard-header';
 import { useUser } from '@/context/user-context';
 
@@ -37,6 +43,8 @@ export default function DashboardLayout({
 }) {
     const pathname = usePathname();
     const { role, isLoaded } = useUser();
+    const [isVendorsOpen, setIsVendorsOpen] = useState(pathname.startsWith('/dashboard/landlord/vendors'));
+
 
     // Tenant specific navigation
     const tenantNav = (
@@ -97,11 +105,35 @@ export default function DashboardLayout({
                     <Link href="/dashboard/landlord/leases"><FileText /><span>Leases</span></Link>
                 </SidebarMenuButton>
             </SidebarMenuItem>
-             <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/vendors')} tooltip="Vendors">
-                    <Link href="/dashboard/landlord/vendors"><Briefcase /><span>Vendors</span></Link>
-                </SidebarMenuButton>
-            </SidebarMenuItem>
+             <Collapsible asChild open={isVendorsOpen} onOpenChange={setIsVendorsOpen}>
+                <SidebarMenuItem>
+                    <CollapsibleTrigger asChild>
+                        <SidebarMenuButton
+                            className="w-full justify-start pr-2"
+                            isActive={pathname.startsWith('/dashboard/landlord/vendors')}
+                            tooltip="Vendors"
+                        >
+                            <Briefcase />
+                            <span>Vendors</span>
+                            <ChevronDown className="ml-auto h-4 w-4 transition-transform data-[state=open]:rotate-180" />
+                        </SidebarMenuButton>
+                    </CollapsibleTrigger>
+                    <CollapsibleContent asChild>
+                        <SidebarMenuSub>
+                            <SidebarMenuSubItem>
+                                <SidebarMenuSubButton asChild isActive={pathname === '/dashboard/landlord/vendors'}>
+                                    <Link href="/dashboard/landlord/vendors">Vendors</Link>
+                                </SidebarMenuSubButton>
+                            </SidebarMenuSubItem>
+                            <SidebarMenuSubItem>
+                                <SidebarMenuSubButton asChild isActive={pathname === '/dashboard/landlord/vendors/bills'}>
+                                <Link href="/dashboard/landlord/vendors/bills">Bills</Link>
+                                </SidebarMenuSubButton>
+                            </SidebarMenuSubItem>
+                        </SidebarMenuSub>
+                    </CollapsibleContent>
+                </SidebarMenuItem>
+            </Collapsible>
              <SidebarMenuItem>
                 <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/tenants')} tooltip="Tenants">
                     <Link href="/dashboard/landlord/tenants"><Users /><span>Tenants</span></Link>
