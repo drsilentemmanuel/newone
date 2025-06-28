@@ -3,7 +3,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Info, Users, Settings, FileText, CreditCard, Percent, Plus, Search, CheckCircle, AlertTriangle, X } from "lucide-react";
+import { Info, Users, Settings, FileText, CreditCard, Percent, Plus, Search, CheckCircle, AlertTriangle, X, Minus } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useUser } from "@/context/user-context";
 import { Button } from "@/components/ui/button";
@@ -14,6 +14,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import Image from "next/image";
+import { Slider } from "@/components/ui/slider";
 
 
 export default function LandlordSettingsPage() {
@@ -30,7 +31,7 @@ export default function LandlordSettingsPage() {
         <h2 className="text-2xl font-semibold">Rentbook settings</h2>
 
         <Card>
-            <Tabs defaultValue="invoice" className="w-full">
+            <Tabs defaultValue="rpp" className="w-full">
                 <div className="p-4 border-b">
                     <TabsList className="bg-transparent p-0">
                         <TabsTrigger value="info" className="bg-transparent data-[state=active]:bg-muted rounded-md mr-2">
@@ -45,7 +46,7 @@ export default function LandlordSettingsPage() {
                         <TabsTrigger value="invoice" className="bg-transparent data-[state=active]:bg-muted rounded-md mr-2">
                             <FileText className="mr-2 h-4 w-4" /> Invoice
                         </TabsTrigger>
-                        <TabsTrigger value="rpp" className="bg-transparent data-[state=active]:bg-muted rounded-md mr-2" disabled>
+                        <TabsTrigger value="rpp" className="bg-transparent data-[state=active]:bg-muted rounded-md mr-2">
                             <CreditCard className="mr-2 h-4 w-4" /> RPP
                         </TabsTrigger>
                         <TabsTrigger value="tpn-account" className="bg-transparent data-[state=active]:bg-muted rounded-md" disabled>
@@ -330,8 +331,82 @@ export default function LandlordSettingsPage() {
                         </div>
                     </CardContent>
                 </TabsContent>
+                <TabsContent value="rpp" className="mt-0">
+                    <CardContent className="p-6 space-y-6">
+                        <Alert className="bg-amber-50 border-amber-200 text-amber-800 dark:bg-amber-950 dark:border-amber-800 dark:text-amber-200">
+                            <AlertTriangle className="h-4 w-4 !text-amber-800 dark:!text-amber-200" />
+                            <AlertDescription>
+                                Rental payment information is exported from the TPN Rentbook database to the TPN Credit Bureau database for TPN members in order to reduce the amount of capturing required between the systems. The following parameters can be set in order to customize how you would like the payment information to display.
+                            </AlertDescription>
+                        </Alert>
+
+                        <Card className="border shadow-none">
+                            <CardHeader className="flex flex-row items-center justify-between border-b border-primary/20 pb-4">
+                                <CardTitle className="text-base font-semibold text-primary">Rental payment profile parameters</CardTitle>
+                                <Button variant="ghost" size="icon" className="h-6 w-6">
+                                    <X className="h-4 w-4" />
+                                </Button>
+                            </CardHeader>
+                            <CardContent className="p-6 space-y-10">
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-2">
+                                    <Label className="pt-2 font-semibold">Grace Amount</Label>
+                                    <div className="md:col-span-2 space-y-2">
+                                        <div className="flex items-center gap-2">
+                                            <div className="relative">
+                                                <span className="absolute inset-y-0 left-0 flex items-center pl-3 font-semibold text-muted-foreground">R</span>
+                                                <Input type="number" defaultValue={0} className="w-48 pl-8 pr-4 text-right" />
+                                            </div>
+                                            <Button variant="outline" size="icon" className="h-10 w-10 shrink-0"><Minus className="h-4 w-4" /></Button>
+                                            <Button variant="outline" size="icon" className="h-10 w-10 shrink-0"><Plus className="h-4 w-4" /></Button>
+                                        </div>
+                                        <p className="text-xs text-muted-foreground max-w-md">
+                                            Hint: Amount of money which can be outstanding by the tenant at the end of the period and the credit profile will still be updated as paid in full.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-2">
+                                    <Label className="pt-2 font-semibold">Grace Days</Label>
+                                    <div className="md:col-span-2 space-y-2">
+                                        <div className="flex items-center gap-4">
+                                           <Input type="number" defaultValue={4} className="w-16 text-center" readOnly />
+                                           <Input type="number" defaultValue={7} className="w-16 text-center" readOnly />
+                                        </div>
+                                        <div className="relative pt-2">
+                                            <Slider
+                                                defaultValue={[4, 7]}
+                                                max={21}
+                                                step={1}
+                                                className="my-2"
+                                            />
+                                            <div className="flex justify-between text-xs text-muted-foreground mt-2">
+                                                <span>0</span>
+                                                <span>3</span>
+                                                <span>6</span>
+                                                <span>9</span>
+                                                <span>12</span>
+                                                <span>15</span>
+                                                <span>18</span>
+                                                <span>21</span>
+                                            </div>
+                                        </div>
+                                        <p className="text-xs text-muted-foreground max-w-md">
+                                            Hint: Date range where payment will reflect as paid within the grace period. eg: Payments made on or before the 3rd will reflect as paid on time, payments between the 3rd and 7th as grace period payments, and payments in full after the 7th will reflect as paid late.
+                                        </p>
+                                    </div>
+                                </div>
+                            </CardContent>
+                            <CardFooter className="justify-end gap-2 border-t p-4">
+                                <Button>Save RPP Settings</Button>
+                                <Button variant="outline">Cancel</Button>
+                            </CardFooter>
+                        </Card>
+                    </CardContent>
+                </TabsContent>
             </Tabs>
         </Card>
     </div>
   );
 }
+
+    
