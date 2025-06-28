@@ -7,12 +7,13 @@ import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/componen
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
 import { useUser } from "@/context/user-context";
-import { Info, Landmark, Home, PenSquare, BarChart3, Settings, Pencil, Building2, Wallet, ShoppingCart, CheckCircle, ChevronDown, Banknote, X, AlertTriangle, Search, User } from "lucide-react";
+import { Info, Landmark, Home, PenSquare, BarChart3, Settings, Pencil, Building2, Wallet, ShoppingCart, CheckCircle, ChevronDown, Banknote, X, AlertTriangle, Search, User, PlayCircle, Plus } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 
 // Mock data based on the screenshot
@@ -172,7 +173,7 @@ export default function AccountPage() {
                         <Separator orientation="vertical" className="h-4" />
                         <Button variant="link" className={financialsView === 'depositsHeld' ? "text-primary p-0 h-auto" : "text-muted-foreground p-0 h-auto"} onClick={() => setFinancialsView('depositsHeld')}>Deposits Held</Button>
                         <Separator orientation="vertical" className="h-4" />
-                        <Button variant="link" className="text-muted-foreground p-0 h-auto">Bank Import</Button>
+                        <Button variant="link" className={financialsView === 'bankImport' ? "text-primary p-0 h-auto" : "text-muted-foreground p-0 h-auto"} onClick={() => setFinancialsView('bankImport')}>Bank Import</Button>
                     </div>
 
                     {financialsView === 'statement' && (
@@ -452,6 +453,97 @@ export default function AccountPage() {
                             </Card>
                         </div>
                     )}
+                    
+                    {financialsView === 'bankImport' && (
+                      <Card className="border shadow-none">
+                        <CardContent className="p-4 space-y-4">
+                            <h2 className="text-xl font-bold">Bank Account</h2>
+                            <Alert className="bg-cyan-50 border-cyan-200 text-cyan-800 dark:bg-cyan-950 dark:border-cyan-800 dark:text-cyan-200">
+                                <Info className="h-4 w-4 !text-cyan-800 dark:!text-cyan-200" />
+                                <Button variant="ghost" size="icon" className="absolute top-2 right-2 h-6 w-6 text-cyan-800 dark:text-cyan-200 hover:bg-cyan-100 dark:hover:bg-cyan-800">
+                                    <X className="h-4 w-4" />
+                                </Button>
+                                <AlertDescription>
+                                    <p>
+                                        <strong>Tips:</strong> Select the required bank account. if you only have one bank account it will be selected by default.
+                                    </p>
+                                    <p className="mt-2">
+                                        It is recommended to upload a <strong>full</strong> day, week or month at a time to ensure you upload all bank transactions. Once you have processed and <strong>categorised</strong> a transaction you can mark it as reviewed which will remove it from your active work list the next time you refresh or upload transactions.
+                                    </p>
+                                    <div className="flex justify-end mt-2">
+                                        <a href="#" className="flex items-center gap-2 text-sm font-semibold text-cyan-900 dark:text-cyan-100 hover:underline">
+                                            Watch our training video
+                                            <PlayCircle className="h-5 w-5" />
+                                        </a>
+                                    </div>
+                                </AlertDescription>
+                            </Alert>
+
+                            <div className="flex items-center gap-4">
+                                <div className="flex-grow space-y-1">
+                                    <Label htmlFor="bank-account-select">Select bank account</Label>
+                                    <Select defaultValue="fnb">
+                                        <SelectTrigger id="bank-account-select">
+                                            <SelectValue placeholder="Select bank account" />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            <SelectItem value="fnb">FNB, 63058501222</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                </div>
+                                <Button variant="outline" className="self-end"><Plus className="mr-2 h-4 w-4"/> Import Transactions</Button>
+                            </div>
+
+                            <div className="flex items-center justify-between">
+                                <div className="relative flex-grow max-w-sm">
+                                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                                    <Input placeholder="Enter search text" className="pl-9" />
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <Select defaultValue="new">
+                                        <SelectTrigger className="w-[120px]">
+                                            <SelectValue placeholder="New" />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            <SelectItem value="new">New</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                    <Select defaultValue="25">
+                                        <SelectTrigger className="w-[80px]">
+                                            <SelectValue placeholder="25" />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            <SelectItem value="25">25</SelectItem>
+                                            <SelectItem value="50">50</SelectItem>
+                                            <SelectItem value="100">100</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                </div>
+                            </div>
+
+                            <Table>
+                                <TableHeader>
+                                    <TableRow>
+                                        <TableHead>Date</TableHead>
+                                        <TableHead>Statement Reference</TableHead>
+                                        <TableHead>Amount</TableHead>
+                                        <TableHead>Action</TableHead>
+                                        <TableHead>Status</TableHead>
+                                        <TableHead>Note</TableHead>
+                                    </TableRow>
+                                </TableHeader>
+                                <TableBody>
+                                    <TableRow>
+                                        <TableCell colSpan={6} className="text-center text-muted-foreground py-8">
+                                            No data found
+                                        </TableCell>
+                                    </TableRow>
+                                </TableBody>
+                            </Table>
+                        </CardContent>
+                      </Card>
+                    )}
+
 
                 </CardContent>
             </Card>
