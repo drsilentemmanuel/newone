@@ -5,15 +5,17 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
     BarChart3,
+    Briefcase,
+    Building2,
     FileClock,
     FileText,
     Fingerprint,
     Handshake,
+    HelpCircle,
     Home,
     Landmark,
-    LifeBuoy,
-    User,
-    FilePlus2,
+    Settings,
+    Users,
 } from 'lucide-react';
 import {
     Sidebar,
@@ -81,13 +83,28 @@ export default function DashboardLayout({
                 </SidebarMenuButton>
             </SidebarMenuItem>
              <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/profile')} tooltip="My TPN Profile">
-                    <Link href="/dashboard/landlord/profile"><FileText /><span>My TPN Profile</span></Link>
+                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/account')} tooltip="My Account">
+                    <Link href="/dashboard/landlord/account"><Landmark /><span>My Account</span></Link>
                 </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/new-enquiry')} tooltip="New Enquiry">
-                    <Link href="/dashboard/landlord/new-enquiry"><FilePlus2 /><span>New Enquiry</span></Link>
+                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/properties')} tooltip="Properties">
+                    <Link href="/dashboard/landlord/properties"><Building2 /><span>Properties</span></Link>
+                </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/leases')} tooltip="Leases">
+                    <Link href="/dashboard/landlord/leases"><FileText /><span>Leases</span></Link>
+                </SidebarMenuButton>
+            </SidebarMenuItem>
+             <SidebarMenuItem>
+                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/vendors')} tooltip="Vendors">
+                    <Link href="/dashboard/landlord/vendors"><Briefcase /><span>Vendors</span></Link>
+                </SidebarMenuButton>
+            </SidebarMenuItem>
+             <SidebarMenuItem>
+                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/tenants')} tooltip="Tenants">
+                    <Link href="/dashboard/landlord/tenants"><Users /><span>Tenants</span></Link>
                 </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
@@ -111,6 +128,9 @@ export default function DashboardLayout({
 
     const loadingNav = (
         <>
+            <SidebarMenuSkeleton showIcon />
+            <SidebarMenuSkeleton showIcon />
+            <SidebarMenuSkeleton showIcon />
             <SidebarMenuSkeleton showIcon />
             <SidebarMenuSkeleton showIcon />
             <SidebarMenuSkeleton showIcon />
@@ -150,13 +170,13 @@ export default function DashboardLayout({
                     <SidebarFooter className="bg-background border-t">
                         <SidebarMenu>
                             <SidebarMenuItem>
-                                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/profile')} tooltip="My Settings">
-                                    <Link href="/dashboard/profile"><User /><span>My Settings</span></Link>
+                                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/profile')} tooltip="Settings">
+                                    <Link href="/dashboard/profile"><Settings /><span>Settings</span></Link>
                                 </SidebarMenuButton>
                             </SidebarMenuItem>
                             <SidebarMenuItem>
-                                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/support')} tooltip="Support">
-                                    <Link href="/dashboard/support"><LifeBuoy /><span>Support</span></Link>
+                                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/support')} tooltip="Help">
+                                    <Link href="/dashboard/support"><HelpCircle /><span>Help</span></Link>
                                 </SidebarMenuButton>
                             </SidebarMenuItem>
                         </SidebarMenu>
