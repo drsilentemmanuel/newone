@@ -3,14 +3,14 @@
 
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Info, Users, Settings, FileText, CreditCard, Percent, Plus, Search, CheckCircle, AlertTriangle, X, Minus } from "lucide-react";
+import { Info, Users, Settings, FileText, CreditCard, Percent, Plus, Search, CheckCircle, AlertTriangle, X, Minus, Ban } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useUser } from "@/context/user-context";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import Link from "next/link";
-import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import Image from "next/image";
@@ -31,7 +31,7 @@ export default function LandlordSettingsPage() {
         <h2 className="text-2xl font-semibold">Rentbook settings</h2>
 
         <Card>
-            <Tabs defaultValue="rpp" className="w-full">
+            <Tabs defaultValue="tpn-account" className="w-full">
                 <div className="p-4 border-b">
                     <TabsList className="bg-transparent p-0">
                         <TabsTrigger value="info" className="bg-transparent data-[state=active]:bg-muted rounded-md mr-2">
@@ -49,7 +49,7 @@ export default function LandlordSettingsPage() {
                         <TabsTrigger value="rpp" className="bg-transparent data-[state=active]:bg-muted rounded-md mr-2">
                             <CreditCard className="mr-2 h-4 w-4" /> RPP
                         </TabsTrigger>
-                        <TabsTrigger value="tpn-account" className="bg-transparent data-[state=active]:bg-muted rounded-md" disabled>
+                        <TabsTrigger value="tpn-account" className="bg-transparent data-[state=active]:bg-muted rounded-md">
                             <Percent className="mr-2 h-4 w-4" /> TPN Account
                         </TabsTrigger>
                     </TabsList>
@@ -90,7 +90,7 @@ export default function LandlordSettingsPage() {
 
                 <TabsContent value="users" className="mt-0">
                     <CardContent className="p-0">
-                        <div className="border-b border-primary p-4">
+                        <div className="border-b p-4">
                             <h3 className="text-lg font-semibold">Associated users</h3>
                         </div>
                         <div className="p-4 space-y-4">
@@ -403,10 +403,62 @@ export default function LandlordSettingsPage() {
                         </Card>
                     </CardContent>
                 </TabsContent>
+                <TabsContent value="tpn-account" className="mt-0">
+                    <CardContent className="p-6 space-y-6">
+                        <Alert className="bg-amber-50 border-amber-200 text-amber-800 dark:bg-amber-950 dark:border-amber-800 dark:text-amber-200">
+                            <Info className="h-4 w-4 !text-amber-800 dark:!text-amber-200" />
+                            <AlertDescription>
+                                If you are a member of TPN credit bureau, you can enter your TPN account details here so that they are automatically stored and applied when you perform a credit check or any other functions which integrate into the bureau.
+                            </AlertDescription>
+                        </Alert>
+                        <Alert className="bg-amber-50 border-amber-200 text-amber-800 dark:bg-amber-950 dark:border-amber-800 dark:text-amber-200">
+                            <Info className="h-4 w-4 !text-amber-800 dark:!text-amber-200" />
+                            <AlertDescription>
+                                If not, please <a href="#" className="underline font-semibold">register</a> for your free TPN credit bureau account in order to perform credit checks and receive free tenant monitoring.
+                            </AlertDescription>
+                        </Alert>
+                        <Alert variant="destructive">
+                            <AlertTriangle className="h-4 w-4" />
+                            <AlertTitle>TPN account link error: [32237] The user [sdzikit01] or company [31521] specified is not active</AlertTitle>
+                        </Alert>
+                        
+                        <Card className="border shadow-none">
+                            <CardHeader className="flex flex-row items-center justify-between border-b border-primary/20 pb-4">
+                                <CardTitle className="text-base font-semibold text-primary">TPN account login details</CardTitle>
+                                <Button variant="ghost" size="icon" className="h-6 w-6">
+                                    <X className="h-4 w-4" />
+                                </Button>
+                            </CardHeader>
+                            <CardContent className="p-6 space-y-4">
+                                <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-4">
+                                    <Label htmlFor="login-code" className="text-right">Login code</Label>
+                                    <div className="md:col-span-2">
+                                        <Input id="login-code" defaultValue="sdzikit01" />
+                                    </div>
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-4">
+                                    <Label htmlFor="password-tpn" className="text-right">Password</Label>
+                                    <div className="md:col-span-2">
+                                        <Input id="password-tpn" type="password" />
+                                    </div>
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-4">
+                                    <Label htmlFor="confirm-password-tpn" className="text-right">Confirm password</Label>
+                                    <div className="md:col-span-2">
+                                        <Input id="confirm-password-tpn" type="password" />
+                                    </div>
+                                </div>
+                            </CardContent>
+                             <CardFooter className="justify-end gap-2 border-t p-4">
+                                <Button>Save</Button>
+                                <Button variant="outline">Test</Button>
+                                <Button variant="outline">Cancel</Button>
+                            </CardFooter>
+                        </Card>
+                    </CardContent>
+                </TabsContent>
             </Tabs>
         </Card>
     </div>
   );
 }
-
-    
