@@ -1,15 +1,18 @@
 
 "use client";
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
 import { useUser } from "@/context/user-context";
-import { Info, Landmark, Home, PenSquare, BarChart3, Settings, Pencil, Building2, Wallet, ShoppingCart, CheckCircle, ChevronDown, Banknote } from "lucide-react";
+import { Info, Landmark, Home, PenSquare, BarChart3, Settings, Pencil, Building2, Wallet, ShoppingCart, CheckCircle, ChevronDown, Banknote, X, AlertTriangle } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+
 
 // Mock data based on the screenshot
 const accountInfo = {
@@ -49,6 +52,8 @@ const financialsData = {
 
 export default function AccountPage() {
   const { userName, userEmail } = useUser();
+  const [financialsView, setFinancialsView] = useState('statement');
+
 
   return (
     <div className="space-y-6">
@@ -151,9 +156,9 @@ export default function AccountPage() {
             <Card>
                 <CardContent className="p-4 space-y-4">
                     <div className="flex items-center space-x-4 text-sm font-medium">
-                        <Button variant="link" className="text-primary p-0 h-auto">Statement</Button>
+                        <Button variant="link" className={financialsView === 'statement' ? "text-primary p-0 h-auto" : "text-muted-foreground p-0 h-auto"} onClick={() => setFinancialsView('statement')}>Statement</Button>
                         <Separator orientation="vertical" className="h-4" />
-                        <Button variant="link" className="text-muted-foreground p-0 h-auto">Unpaid Bills</Button>
+                        <Button variant="link" className={financialsView === 'unpaidBills' ? "text-primary p-0 h-auto" : "text-muted-foreground p-0 h-auto"} onClick={() => setFinancialsView('unpaidBills')}>Unpaid Bills</Button>
                         <Separator orientation="vertical" className="h-4" />
                         <Button variant="link" className="text-muted-foreground p-0 h-auto">Arrears</Button>
                         <Separator orientation="vertical" className="h-4" />
@@ -189,59 +194,109 @@ export default function AccountPage() {
                             </CardContent>
                         </Card>
                     </div>
-                    <div className="flex items-center justify-between">
-                         <Select defaultValue="3m">
-                            <SelectTrigger className="w-[200px]">
-                                <SelectValue placeholder="Select period" />
-                            </SelectTrigger>
-                            <SelectContent>
-                                <SelectItem value="3m">Three months to date</SelectItem>
-                                <SelectItem value="6m">Six months to date</SelectItem>
-                                <SelectItem value="12m">Twelve months to date</SelectItem>
-                            </SelectContent>
-                        </Select>
-                        <div className="flex items-center gap-2">
-                            <Button variant="outline">Capture bill</Button>
-                            <Button variant="outline">Pay bill</Button>
-                            <Button variant="outline">Reverse payment</Button>
-                            <DropdownMenu>
-                                <DropdownMenuTrigger asChild>
-                                    <Button variant="outline">Landlord transfer <ChevronDown className="ml-2 h-4 w-4" /></Button>
-                                </DropdownMenuTrigger>
-                                <DropdownMenuContent align="end">
-                                    <DropdownMenuItem>Transfer to Landlord</DropdownMenuItem>
-                                    <DropdownMenuItem>Transfer from Landlord</DropdownMenuItem>
-                                </DropdownMenuContent>
-                            </DropdownMenu>
+
+                    {financialsView === 'statement' && (
+                        <div className="space-y-4">
+                             <div className="flex items-center justify-between">
+                                <Select defaultValue="3m">
+                                    <SelectTrigger className="w-[200px]">
+                                        <SelectValue placeholder="Select period" />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        <SelectItem value="3m">Three months to date</SelectItem>
+                                        <SelectItem value="6m">Six months to date</SelectItem>
+                                        <SelectItem value="12m">Twelve months to date</SelectItem>
+                                    </SelectContent>
+                                </Select>
+                                <div className="flex items-center gap-2">
+                                    <Button variant="outline">Capture bill</Button>
+                                    <Button variant="outline">Pay bill</Button>
+                                    <Button variant="outline">Reverse payment</Button>
+                                    <DropdownMenu>
+                                        <DropdownMenuTrigger asChild>
+                                            <Button variant="outline">Landlord transfer <ChevronDown className="ml-2 h-4 w-4" /></Button>
+                                        </DropdownMenuTrigger>
+                                        <DropdownMenuContent align="end">
+                                            <DropdownMenuItem>Transfer to Landlord</DropdownMenuItem>
+                                            <DropdownMenuItem>Transfer from Landlord</DropdownMenuItem>
+                                        </DropdownMenuContent>
+                                    </DropdownMenu>
+                                </div>
+                            </div>
+                            <Card className="border shadow-none">
+                                <CardHeader>
+                                    <CardTitle className="text-base font-bold bg-muted p-2 rounded-sm">LANDLORD INCOME STATEMENT</CardTitle>
+                                </CardHeader>
+                                <CardContent>
+                                    <Table>
+                                        <TableHeader>
+                                            <TableRow>
+                                                <TableHead className="w-[200px]"></TableHead>
+                                                <TableHead className="text-right">Apr 2025</TableHead>
+                                                <TableHead className="text-right">May 2025</TableHead>
+                                                <TableHead className="text-right">Jun 2025</TableHead>
+                                                <TableHead className="text-right font-bold">Total</TableHead>
+                                            </TableRow>
+                                        </TableHeader>
+                                        <TableBody>
+                                            <TableRow>
+                                                <TableCell className="font-medium">Net income</TableCell>
+                                                <TableCell className="text-right">{financialsData.netIncome.apr}</TableCell>
+                                                <TableCell className="text-right">{financialsData.netIncome.may}</TableCell>
+                                                <TableCell className="text-right">{financialsData.netIncome.jun}</TableCell>
+                                                <TableCell className="text-right font-bold">{financialsData.netIncome.total}</TableCell>
+                                            </TableRow>
+                                        </TableBody>
+                                    </Table>
+                                </CardContent>
+                            </Card>
                         </div>
-                    </div>
-                    <Card className="border shadow-none">
-                        <CardHeader>
-                            <CardTitle className="text-base font-bold bg-muted p-2 rounded-sm">LANDLORD INCOME STATEMENT</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <Table>
-                                <TableHeader>
-                                    <TableRow>
-                                        <TableHead className="w-[200px]"></TableHead>
-                                        <TableHead className="text-right">Apr 2025</TableHead>
-                                        <TableHead className="text-right">May 2025</TableHead>
-                                        <TableHead className="text-right">Jun 2025</TableHead>
-                                        <TableHead className="text-right font-bold">Total</TableHead>
-                                    </TableRow>
-                                </TableHeader>
-                                <TableBody>
-                                    <TableRow>
-                                        <TableCell className="font-medium">Net income</TableCell>
-                                        <TableCell className="text-right">{financialsData.netIncome.apr}</TableCell>
-                                        <TableCell className="text-right">{financialsData.netIncome.may}</TableCell>
-                                        <TableCell className="text-right">{financialsData.netIncome.jun}</TableCell>
-                                        <TableCell className="text-right font-bold">{financialsData.netIncome.total}</TableCell>
-                                    </TableRow>
-                                </TableBody>
-                            </Table>
-                        </CardContent>
-                    </Card>
+                    )}
+
+                    {financialsView === 'unpaidBills' && (
+                        <Card className="border shadow-none">
+                            <CardHeader className="flex flex-row items-center justify-between p-4 border-b">
+                                <CardTitle className="text-base font-semibold">Select the account to pay:</CardTitle>
+                                <Button variant="ghost" size="icon" className="h-6 w-6" onClick={() => setFinancialsView('statement')}>
+                                    <X className="h-4 w-4" />
+                                    <span className="sr-only">Close</span>
+                                </Button>
+                            </CardHeader>
+                            <CardContent className="p-4 space-y-4">
+                                <Alert className="bg-amber-50 border-amber-200 text-amber-800 dark:bg-amber-950 dark:border-amber-800 dark:text-amber-200">
+                                    <AlertTriangle className="h-4 w-4 !text-amber-800 dark:!text-amber-200" />
+                                    <AlertDescription>
+                                        There are no funds available to pay towards the below expenses. By making payments at this time you will be paying the expenses out of your cashflow and will have to recover the money spent at a later date.
+                                    </AlertDescription>
+                                </Alert>
+                                <Table>
+                                    <TableHeader>
+                                        <TableRow>
+                                            <TableHead>Property</TableHead>
+                                            <TableHead>Account</TableHead>
+                                            <TableHead>Due to</TableHead>
+                                            <TableHead>Days outstanding</TableHead>
+                                            <TableHead className="text-right">Amount still due</TableHead>
+                                        </TableRow>
+                                    </TableHeader>
+                                    <TableBody>
+                                        <TableRow>
+                                            <TableCell colSpan={5} className="text-center text-muted-foreground py-8">
+                                                No data found
+                                            </TableCell>
+                                        </TableRow>
+                                    </TableBody>
+                                </Table>
+                                <div className="text-right font-semibold">
+                                    Total expenses not yet paid: R 0.00
+                                </div>
+                            </CardContent>
+                            <CardFooter className="justify-end p-4 border-t">
+                                <Button variant="outline" onClick={() => setFinancialsView('statement')}>Cancel</Button>
+                            </CardFooter>
+                        </Card>
+                    )}
+
                 </CardContent>
             </Card>
         </TabsContent>
