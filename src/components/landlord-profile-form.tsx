@@ -17,9 +17,12 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/hooks/use-toast"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { useUser } from "@/context/user-context"
 
 const formSchema = z.object({
   fullName: z.string().min(2, "Full name or company name is required."),
+  email: z.string().email("Please enter a valid email address."),
+  phone: z.string().min(10, "Please enter a valid phone number.").optional().or(z.literal('')),
   propertyDescription: z.string().min(50, "Please provide a detailed description of your properties.").max(2000),
   idealTenantDescription: z.string().min(20, "Please describe your ideal tenant.").max(1000),
 });
@@ -32,11 +35,14 @@ interface LandlordProfileFormProps {
 
 export function LandlordProfileForm({ onProfileUpdate }: LandlordProfileFormProps) {
   const { toast } = useToast()
+  const { userName, userEmail } = useUser();
 
   const form = useForm<LandlordProfileData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      fullName: "",
+      fullName: userName ?? "",
+      email: userEmail ?? "",
+      phone: "",
       propertyDescription: "",
       idealTenantDescription: "",
     },
@@ -56,19 +62,47 @@ export function LandlordProfileForm({ onProfileUpdate }: LandlordProfileFormProp
       <CardContent>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-            <FormField
-              control={form.control}
-              name="fullName"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Full Name or Company Name</FormLabel>
-                  <FormControl>
-                    <Input placeholder="e.g. John Doe Properties" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+            <div className="grid md:grid-cols-2 gap-8">
+                <FormField
+                control={form.control}
+                name="fullName"
+                render={({ field }) => (
+                    <FormItem>
+                    <FormLabel>Full Name or Company Name</FormLabel>
+                    <FormControl>
+                        <Input placeholder="e.g. John Doe Properties" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                    </FormItem>
+                )}
+                />
+                 <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                    <FormItem>
+                    <FormLabel>Contact Email</FormLabel>
+                    <FormControl>
+                        <Input type="email" placeholder="e.g. contact@johndoe.com" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                    </FormItem>
+                )}
+                />
+                 <FormField
+                control={form.control}
+                name="phone"
+                render={({ field }) => (
+                    <FormItem>
+                    <FormLabel>Contact Phone (Optional)</FormLabel>
+                    <FormControl>
+                        <Input type="tel" placeholder="+263 12 345 6789" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                    </FormItem>
+                )}
+                />
+            </div>
             <FormField
               control={form.control}
               name="propertyDescription"
