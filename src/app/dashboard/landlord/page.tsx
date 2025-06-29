@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useUser } from "@/context/user-context";
@@ -47,16 +48,11 @@ export default function LandlordDashboardPage() {
                 <p className="text-muted-foreground">Select an option below to get started.</p>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 <ServiceCard icon={<Coins />} title="Credit Bureau" href="/dashboard/landlord/new-enquiry" />
-                <ServiceCard icon={<UserCheck />} title="Tenant Risk Monitor" />
-                <ServiceCard icon={<Webhook />} title="Dataweb" />
                 <ServiceCard icon={<ShoppingCart />} title="Shop" />
-                <ServiceCard icon={<Feather />} title="eSign" />
-                <ServiceCard icon={<Code />} title="POPI-Portal" subtitle="No Access" disabled />
                 <ServiceCard icon={<PieChart />} title="Property Reports" href="/dashboard/landlord/reports" />
                 <ServiceCard icon={<BookOpen />} title="Rentbook" href="/dashboard/landlord/rentbook" />
-                <ServiceCard icon={<Mails />} title="SafeSend" />
             </div>
 
             <div>
