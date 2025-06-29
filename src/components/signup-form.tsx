@@ -81,9 +81,45 @@ export function SignupForm() {
     }, 1000)
   }
 
+  const GoogleIcon = () => (
+    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="mr-2 h-4 w-4">
+      <title>Google</title>
+      <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.85 3.18-1.73 4.1-1.05 1.05-2.36 1.84-4.33 1.84-3.61 0-6.52-3.01-6.52-6.72s2.91-6.72 6.52-6.72c2.03 0 3.36.85 4.17 1.62l2.52-2.52C17.66 2.69 15.25 1.5 12.48 1.5c-4.97 0-9 4.01-9 9s4.03 9 9 9c2.85 0 5.22-1.02 6.95-2.72 1.78-1.66 2.6-4.2 2.6-6.52v-.92h-9.55z" />
+    </svg>
+  );
+
+  const FacebookIcon = () => (
+    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="mr-2 h-4 w-4">
+      <title>Facebook</title>
+      <path d="M23.998 12c0-6.628-5.372-12-11.999-12C5.372 0 0 5.372 0 12c0 5.988 4.388 10.952 10.124 11.854v-8.385H7.078v-3.469h3.046V9.356c0-3.008 1.792-4.669 4.532-4.669 1.312 0 2.688.235 2.688.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.61 22.952 23.998 17.988 23.998 12z" />
+    </svg>
+  );
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-4">
+        <div className="grid grid-cols-2 gap-4">
+            <Button variant="outline" type="button" disabled={isLoading}>
+                <GoogleIcon />
+                Gmail
+            </Button>
+            <Button variant="outline" type="button" disabled={isLoading}>
+                <FacebookIcon />
+                Facebook
+            </Button>
+        </div>
+
+        <div className="relative">
+          <div className="absolute inset-0 flex items-center">
+            <span className="w-full border-t" />
+          </div>
+          <div className="relative flex justify-center text-xs uppercase">
+            <span className="bg-background px-2 text-muted-foreground">
+              Or continue with email
+            </span>
+          </div>
+        </div>
+
         <FormField
           control={form.control}
           name="fullName"
