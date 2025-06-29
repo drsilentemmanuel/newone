@@ -16,12 +16,12 @@ import { LogOut, User } from 'lucide-react';
 import Link from 'next/link';
 import { useUser } from '@/context/user-context';
 
-export function DashboardHeader() {
+export function DashboardHeader({ showSidebarTrigger = true }: { showSidebarTrigger?: boolean }) {
     const { avatar, userName, userEmail } = useUser();
 
     return (
         <header className="sticky top-0 z-10 flex h-16 shrink-0 items-center justify-between border-b bg-background/95 p-4 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-            <SidebarTrigger className="md:hidden" />
+            {showSidebarTrigger && <SidebarTrigger className="md:hidden" />}
             <div className="flex-1" />
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>

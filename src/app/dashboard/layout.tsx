@@ -44,7 +44,8 @@ export default function DashboardLayout({
     const pathname = usePathname();
     const { role, isLoaded } = useUser();
     const [isVendorsOpen, setIsVendorsOpen] = useState(pathname.startsWith('/dashboard/landlord/vendors'));
-
+    
+    const isWelcomePage = pathname === '/dashboard/landlord/welcome';
 
     // Tenant specific navigation
     const tenantNav = (
@@ -197,6 +198,17 @@ export default function DashboardLayout({
             default:
                 return loadingNav;
         }
+    }
+
+    if (role === 'landlord' && isWelcomePage) {
+         return (
+             <div className="flex min-h-screen w-full bg-secondary/50">
+                <div className="flex flex-1 flex-col">
+                    <DashboardHeader showSidebarTrigger={false} />
+                    <main className="flex-1 overflow-y-auto p-6 md:p-8">{children}</main>
+                </div>
+            </div>
+        )
     }
 
     return (
