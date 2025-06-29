@@ -31,7 +31,7 @@ const formSchema = z.object({
 
 const mockUsers = {
   "tenant@example.com": { password: "password123", role: 'tenant', userName: 'Jane Tenant', redirect: "/dashboard/tenant" },
-  "landlord@example.com": { password: "password123", role: 'landlord', userName: 'John Landlord', redirect: "/dashboard/landlord/welcome" },
+  "landlord@example.com": { password: "password123", role: 'landlord', userName: 'John Landlord', redirect: "/dashboard/landlord" },
   "prof@example.com": { password: "password123", role: 'professional', userName: 'Peter Professional', redirect: "/dashboard/professional" },
 };
 

@@ -45,7 +45,7 @@ export default function DashboardLayout({
     const { role, isLoaded } = useUser();
     const [isVendorsOpen, setIsVendorsOpen] = useState(pathname.startsWith('/dashboard/landlord/vendors'));
     
-    const isWelcomePage = pathname === '/dashboard/landlord/welcome';
+    const isWelcomePage = pathname === '/dashboard/landlord';
 
     // Tenant specific navigation
     const tenantNav = (
@@ -87,13 +87,13 @@ export default function DashboardLayout({
     const landlordNav = (
         <>
             <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname === '/dashboard/landlord/welcome'} tooltip="Welcome">
-                    <Link href="/dashboard/landlord/welcome"><Home /><span>Welcome</span></Link>
+                <SidebarMenuButton asChild isActive={pathname === '/dashboard/landlord'} tooltip="Welcome">
+                    <Link href="/dashboard/landlord"><Home /><span>Welcome</span></Link>
                 </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname === '/dashboard/landlord'} tooltip="Dashboard">
-                    <Link href="/dashboard/landlord"><LayoutDashboard /><span>Dashboard</span></Link>
+                <SidebarMenuButton asChild isActive={pathname === '/dashboard/landlord/welcome'} tooltip="Dashboard">
+                    <Link href="/dashboard/landlord/welcome"><LayoutDashboard /><span>Dashboard</span></Link>
                 </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
