@@ -14,6 +14,7 @@ import {
     FileText,
     Fingerprint,
     Handshake,
+    HelpCircle,
     Home,
     Landmark,
     LayoutDashboard,
@@ -148,6 +149,11 @@ export default function DashboardLayout({
             <SidebarMenuItem>
                 <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/settings')} tooltip="Settings">
                     <Link href="/dashboard/landlord/settings"><Settings /><span>Settings</span></Link>
+                </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/help')} tooltip="Help">
+                    <Link href="/dashboard/landlord/help"><HelpCircle /><span>Help</span></Link>
                 </SidebarMenuButton>
             </SidebarMenuItem>
         </>
