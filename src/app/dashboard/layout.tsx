@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useState } from 'react';
 import {
+    Activity,
     BarChart3,
     Briefcase,
     Building2,
@@ -86,6 +87,11 @@ export default function DashboardLayout({
             <SidebarMenuItem>
                 <SidebarMenuButton asChild isActive={pathname === '/dashboard/landlord'} tooltip="Dashboard">
                     <Link href="/dashboard/landlord"><Home /><span>Dashboard</span></Link>
+                </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/rentbook')} tooltip="Rentbook Dashboard">
+                    <Link href="/dashboard/landlord/rentbook"><Activity /><span>Rentbook Dashboard</span></Link>
                 </SidebarMenuButton>
             </SidebarMenuItem>
              <SidebarMenuItem>
