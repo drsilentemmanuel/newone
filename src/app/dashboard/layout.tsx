@@ -16,6 +16,7 @@ import {
     Handshake,
     Home,
     Landmark,
+    LayoutDashboard,
     Settings,
     Users,
 } from 'lucide-react';
@@ -85,8 +86,13 @@ export default function DashboardLayout({
     const landlordNav = (
         <>
             <SidebarMenuItem>
+                <SidebarMenuButton asChild isActive={pathname === '/dashboard/landlord/welcome'} tooltip="Welcome">
+                    <Link href="/dashboard/landlord/welcome"><Home /><span>Welcome</span></Link>
+                </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
                 <SidebarMenuButton asChild isActive={pathname === '/dashboard/landlord'} tooltip="Dashboard">
-                    <Link href="/dashboard/landlord"><Home /><span>Dashboard</span></Link>
+                    <Link href="/dashboard/landlord"><LayoutDashboard /><span>Dashboard</span></Link>
                 </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
