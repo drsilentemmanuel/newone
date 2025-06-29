@@ -87,11 +87,6 @@ export default function DashboardLayout({
     const landlordNav = (
         <>
             <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname === '/dashboard/landlord'} tooltip="Welcome">
-                    <Link href="/dashboard/landlord"><Home /><span>Welcome</span></Link>
-                </SidebarMenuButton>
-            </SidebarMenuItem>
-            <SidebarMenuItem>
                 <SidebarMenuButton asChild isActive={pathname === '/dashboard/landlord/welcome'} tooltip="Dashboard">
                     <Link href="/dashboard/landlord/welcome"><LayoutDashboard /><span>Dashboard</span></Link>
                 </SidebarMenuButton>
