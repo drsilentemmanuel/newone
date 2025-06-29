@@ -55,7 +55,7 @@ export default function LandlordDashboardPage() {
                 <ServiceCard icon={<Feather />} title="eSign" />
                 <ServiceCard icon={<Code />} title="POPI-Portal" subtitle="No Access" disabled />
                 <ServiceCard icon={<PieChart />} title="Property Reports" href="/dashboard/landlord/reports" />
-                <ServiceCard icon={<BookOpen />} title="Rentbook" href="/dashboard/landlord/welcome" />
+                <ServiceCard icon={<BookOpen />} title="Rentbook" href="/dashboard/landlord/rentbook" />
                 <ServiceCard icon={<Mails />} title="SafeSend" />
             </div>
 
