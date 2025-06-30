@@ -139,7 +139,7 @@ export default function Home() {
                     <ScreeningFeatureCard
                         icon={<CreditCard className="h-6 w-6 text-muted-foreground" />}
                         title="Credit report"
-                        description={<>Review a <Link href="#" className="font-semibold text-primary underline">TPN Score®</Link> and credit history, including payments, trade lines, inquiries, collections, and more.</>}
+                        description={<>Review a <span className="font-semibold text-primary">TPN Score®</span> and credit history, including payments, trade lines, inquiries, collections, and more.</>}
                     />
                     <ScreeningFeatureCard
                         icon={<UserCheck className="h-6 w-6 text-muted-foreground" />}
