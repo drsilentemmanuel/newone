@@ -15,12 +15,11 @@ export default function Home() {
           <div className="container px-4 md:px-6 text-center">
             <div className="mx-auto max-w-4xl">
               <Image
-                src="https://placehold.co/1200x400.png"
+                src="/pictures/greatandbad.jpg"
                 width="1200"
                 height="400"
                 alt="A comparison of a dilapidated living room and a clean, well-maintained living room."
                 className="w-full rounded-lg shadow-md"
-                data-ai-hint="living room before after"
               />
             </div>
             <div className="mt-6">
