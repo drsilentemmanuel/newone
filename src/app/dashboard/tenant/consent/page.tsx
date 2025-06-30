@@ -2,7 +2,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const consentItems = [
     { id: "c1", enquirer: "Seef Properties", logo: "/partners/seef.png", reason: "Rental Application", granted: true },
@@ -28,10 +27,6 @@ export default function ConsentManagementPage() {
                         {consentItems.map((item, index) => (
                            <div key={item.id} className={`flex items-center justify-between p-4 ${index < consentItems.length - 1 ? 'border-b' : ''}`}>
                                 <div className="flex items-center gap-4">
-                                     <Avatar>
-                                        <AvatarImage src={item.logo} alt={item.enquirer} data-ai-hint="company logo" />
-                                        <AvatarFallback>{item.enquirer.substring(0,2)}</AvatarFallback>
-                                    </Avatar>
                                     <div>
                                         <p className="font-semibold">{item.enquirer}</p>
                                         <p className="text-sm text-muted-foreground">{item.reason}</p>
