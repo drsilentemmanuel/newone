@@ -13,7 +13,7 @@ export default function Home() {
         {/* New Social Proof Section */}
         <section className="w-full bg-background">
           <div className="container mx-auto flex flex-col items-center text-center space-y-4 px-4 md:px-6 py-8 md:py-12">
-            <div className="relative w-full">
+            <div className="relative w-full max-w-4xl">
               <Image
                 src="/greatandbad.jpg"
                 width={1200}
@@ -46,62 +46,6 @@ export default function Home() {
             <p className="text-xs text-muted-foreground">
                 *ZimStats survey
             </p>
-          </div>
-        </section>
-
-        {/* Problem/Solution Section */}
-        <section id="problem-solution" className="w-full py-12 md:py-20 lg:py-24">
-          <div className="container px-4 md:px-6">
-            <div className="text-center space-y-3 mb-12">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
-                From Rental Stress to Success
-              </h2>
-            </div>
-            <div className="grid md:grid-cols-2 gap-8 items-stretch">
-              <Card className="flex flex-col justify-between">
-                <Image
-                  src="https://placehold.co/600x400.png"
-                  width={600}
-                  height={400}
-                  alt="Stressed landlord with paperwork"
-                  className="aspect-video w-full overflow-hidden rounded-t-lg object-cover"
-                  data-ai-hint="man frustrated paperwork"
-                />
-                 <CardHeader>
-                  <CardTitle>The Problem</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4 flex-grow">
-                  <p className="text-muted-foreground">
-                    Grappling with the stress of managing rentals? The worry of finding good tenants, complex vetting, and rent collection can be overwhelming.
-                  </p>
-                   <blockquote className="border-l-4 border-border pl-4 italic text-muted-foreground">
-                    "A bad tenant can mean months of lost rent and countless headaches. Who wants to inherit that problem?"
-                  </blockquote>
-                </CardContent>
-              </Card>
-              
-              <Card className="flex flex-col justify-between border-primary/50 bg-primary/5">
-                <Image
-                  src="https://placehold.co/600x400.png"
-                  width={600}
-                  height={400}
-                  alt="Confident property manager using Zim TPN"
-                  className="aspect-video w-full overflow-hidden rounded-t-lg object-cover"
-                  data-ai-hint="man report tablet"
-                />
-                 <CardHeader>
-                    <CardTitle className="text-primary">The Solution</CardTitle>
-                  </CardHeader>
-                <CardContent className="space-y-4 flex-grow">
-                  <p className="text-muted-foreground">
-                    Zim TPN brings simplicity and confidence with AI-powered tools to streamline tenant screening, secure cash flow, and ensure effortless compliance.
-                  </p>
-                  <blockquote className="border-l-4 border-primary pl-4 italic text-muted-foreground">
-                    "A comprehensive Zim TPN report instantly flags payment history, saving you from a potential financial loss."
-                  </blockquote>
-                </CardContent>
-              </Card>
-            </div>
           </div>
         </section>
 
