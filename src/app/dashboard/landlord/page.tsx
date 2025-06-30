@@ -50,7 +50,7 @@ export default function LandlordDashboardPage() {
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 <ServiceCard icon={<Coins />} title="Credit Bureau" href="/dashboard/landlord/new-enquiry" />
-                <ServiceCard icon={<ShoppingCart />} title="Shop" />
+                <ServiceCard icon={<ShoppingCart />} title="Shop" href="/dashboard/landlord/shop" />
                 <ServiceCard icon={<PieChart />} title="Property Reports" href="/dashboard/landlord/reports" />
                 <ServiceCard icon={<BookOpen />} title="Rentbook" href="/dashboard/landlord/rentbook" />
             </div>
