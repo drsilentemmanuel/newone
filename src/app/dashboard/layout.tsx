@@ -46,7 +46,19 @@ export default function DashboardLayout({
     const { role, isLoaded } = useUser();
     const [isVendorsOpen, setIsVendorsOpen] = useState(pathname.startsWith('/dashboard/landlord/vendors'));
     
-    const isWelcomePage = pathname === '/dashboard/landlord';
+    const fullWidthPages = ['/dashboard/landlord', '/dashboard/landlord/shop'];
+    const isFullWidthPage = role === 'landlord' && fullWidthPages.includes(pathname);
+
+    if (isFullWidthPage) {
+         return (
+             <div className="flex min-h-screen w-full bg-secondary/50">
+                <div className="flex flex-1 flex-col">
+                    <DashboardHeader showSidebarTrigger={false} />
+                    <main className="flex-1 overflow-y-auto p-6 md:p-8">{children}</main>
+                </div>
+            </div>
+        )
+    }
 
     // Tenant specific navigation
     const tenantNav = (
@@ -87,7 +99,7 @@ export default function DashboardLayout({
     // Landlord specific navigation
     const landlordNav = (
         <>
-            <SidebarMenuItem>
+             <SidebarMenuItem>
                 <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/rentbook')} tooltip="Dashboard">
                     <Link href="/dashboard/landlord/rentbook"><LayoutDashboard /><span>Dashboard</span></Link>
                 </SidebarMenuButton>
@@ -196,16 +208,6 @@ export default function DashboardLayout({
         }
     }
 
-    if (role === 'landlord' && isWelcomePage) {
-         return (
-             <div className="flex min-h-screen w-full bg-secondary/50">
-                <div className="flex flex-1 flex-col">
-                    <DashboardHeader showSidebarTrigger={false} />
-                    <main className="flex-1 overflow-y-auto p-6 md:p-8">{children}</main>
-                </div>
-            </div>
-        )
-    }
 
     return (
         <SidebarProvider>
