@@ -60,13 +60,15 @@ export default function Home() {
                 <div className="mx-auto grid max-w-5xl items-stretch gap-8 sm:grid-cols-1 md:grid-cols-2">
                 {/* Property Owner Card */}
                 <Card className="flex flex-col items-center text-center p-6">
-                    <Image
-                    src="/unnamed.jpg"
-                    width={128}
-                    height={128}
-                    alt="Benefits as a Property Owner"
-                    className="rounded-full mb-4"
-                    />
+                    <div className="w-32 h-32 rounded-full overflow-hidden mb-4">
+                        <Image
+                        src="/unnamed.jpg"
+                        width={128}
+                        height={128}
+                        alt="Benefits as a Property Owner"
+                        className="w-full h-full object-cover"
+                        />
+                    </div>
                     <CardHeader className="p-0 mb-4">
                     <CardTitle>Benefits As Property Owner</CardTitle>
                     </CardHeader>
@@ -91,14 +93,16 @@ export default function Home() {
 
                 {/* Tenant Card */}
                 <Card className="flex flex-col items-center text-center p-6">
-                    <Image
-                    src="/silent.jpg"
-                    width={128}
-                    height={128}
-                    alt="Benefits For Your Tenant"
-                    className="rounded-full mb-4"
-                    data-ai-hint="woman portrait"
-                    />
+                    <div className="w-32 h-32 rounded-full overflow-hidden mb-4">
+                        <Image
+                        src="/silent.jpg"
+                        width={128}
+                        height={128}
+                        alt="Benefits For Your Tenant"
+                        className="w-full h-full object-cover"
+                        data-ai-hint="woman portrait"
+                        />
+                    </div>
                     <CardHeader className="p-0 mb-4">
                     <CardTitle>Benefits For Your Tenant</CardTitle>
                     </CardHeader>
