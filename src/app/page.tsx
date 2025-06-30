@@ -128,6 +128,18 @@ export default function Home() {
             </div>
         </section>
         
+        {/* CTA Section */}
+        <section id="cta" className="w-full py-12 md:py-20 lg:py-24 bg-sky-900 text-white">
+          <div className="container flex flex-col items-center justify-center gap-6 px-4 md:px-6 text-center">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
+              Confidently choose a tenant.
+            </h2>
+            <Button asChild size="lg" className="bg-yellow-400 text-black hover:bg-yellow-500 rounded-full px-8">
+              <Link href="/dashboard/landlord/new-enquiry">Screen Today</Link>
+            </Button>
+          </div>
+        </section>
+
         {/* How It Works Section */}
         <section id="how-it-works" className="w-full py-12 md:py-20 lg:py-24">
           <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6">
@@ -154,18 +166,6 @@ export default function Home() {
                   description="Search, find, and connect with your perfect match. Securely manage applications and agreements."
                 />
             </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section id="cta" className="w-full py-12 md:py-20 lg:py-24 bg-sky-900 text-white">
-          <div className="container flex flex-col items-center justify-center gap-6 px-4 md:px-6 text-center">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
-              Confidently choose a tenant.
-            </h2>
-            <Button asChild size="lg" className="bg-yellow-400 text-black hover:bg-yellow-500 rounded-full px-8">
-              <Link href="/dashboard/landlord/new-enquiry">Screen Today</Link>
-            </Button>
           </div>
         </section>
 
