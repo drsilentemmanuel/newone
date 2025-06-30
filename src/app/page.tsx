@@ -53,7 +53,7 @@ export default function Home() {
                 </div>
               </div>
               <Image
-                src="/Gemini_Generated_Image_swidg9swidg9swid.png"
+                src="https://placehold.co/600x600.png"
                 width="600"
                 height="600"
                 alt="A confident property manager reviewing a report"
@@ -75,7 +75,7 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-8 items-stretch">
               <Card className="flex flex-col justify-between">
                 <Image
-                  src="/Gemini_Generated_Image_9i81uk9i81uk9i81.png"
+                  src="https://placehold.co/600x400.png"
                   width={600}
                   height={400}
                   alt="Stressed landlord with paperwork"
@@ -97,7 +97,7 @@ export default function Home() {
               
               <Card className="flex flex-col justify-between border-primary/50 bg-primary/5">
                 <Image
-                  src="/Gemini_Generated_Image_i83g6ei83g6ei83g.png"
+                  src="https://placehold.co/600x400.png"
                   width={600}
                   height={400}
                   alt="Confident property manager using Zim TPN"
