@@ -1,6 +1,20 @@
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Download, FileText } from "lucide-react";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import Link from "next/link";
+
+const purchasedReports = [
+    {
+        name: "Company Enquiry: ABC Corp",
+        date: "2024-07-29",
+    },
+    {
+        name: "Consumer Trace: John Smith",
+        date: "2024-07-25",
+    }
+];
 
 export default function GlobalReportsPage() {
     return (
@@ -8,9 +22,53 @@ export default function GlobalReportsPage() {
             <h1 className="text-xl text-muted-foreground">
                 <span className="font-bold text-foreground text-2xl">Reports</span> &gt; Global
             </h1>
+            
+            <Card>
+                <CardHeader>
+                    <CardTitle>My Purchased Reports</CardTitle>
+                    <CardDescription>Reports you have purchased from the shop. <Link href="/dashboard/landlord/shop" className="text-primary underline">Visit the shop to purchase more.</Link></CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <Table>
+                        <TableHeader>
+                            <TableRow>
+                                <TableHead>Item</TableHead>
+                                <TableHead className="hidden sm:table-cell">Date Purchased</TableHead>
+                                <TableHead className="text-right">Action</TableHead>
+                            </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                            {purchasedReports.length > 0 ? (
+                                purchasedReports.map((report) => (
+                                <TableRow key={report.name}>
+                                    <TableCell className="font-medium flex items-center gap-2">
+                                        <FileText className="h-4 w-4 text-muted-foreground" />
+                                        {report.name}
+                                    </TableCell>
+                                    <TableCell className="hidden sm:table-cell">{report.date}</TableCell>
+                                    <TableCell className="text-right">
+                                        <Button variant="outline" size="sm">
+                                            <Download className="mr-2 h-4 w-4" />
+                                            Download
+                                        </Button>
+                                    </TableCell>
+                                </TableRow>
+                                ))
+                            ) : (
+                                <TableRow>
+                                    <TableCell colSpan={3} className="h-24 text-center">
+                                        You have not purchased any reports yet.
+                                    </TableCell>
+                                </TableRow>
+                            )}
+                        </TableBody>
+                    </Table>
+                </CardContent>
+            </Card>
+
             <Card>
                 <CardHeader className="border-b border-primary">
-                    <CardTitle className="text-lg font-semibold text-primary">Select the report from the list below</CardTitle>
+                    <CardTitle className="text-lg font-semibold text-primary">Generate a New Report</CardTitle>
                 </CardHeader>
                 <CardContent className="p-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">

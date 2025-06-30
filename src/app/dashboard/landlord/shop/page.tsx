@@ -48,7 +48,7 @@ export default function ShopPage() {
       <div className="flex items-center justify-between">
          <h1 className="text-3xl font-bold font-headline">Shop</h1>
          <Button asChild variant="outline">
-            <Link href="/dashboard/landlord/shop/reports">View My Purchases</Link>
+            <Link href="/dashboard/landlord/reports">View My Purchases</Link>
          </Button>
       </div>
 
