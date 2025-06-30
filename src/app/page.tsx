@@ -57,7 +57,7 @@ export default function Home() {
                     ZimTPN benefits property managers and tenants
                 </h2>
                 </div>
-                <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-1 md:grid-cols-2">
+                <div className="mx-auto grid max-w-5xl items-stretch gap-8 sm:grid-cols-1 md:grid-cols-2">
                 {/* Property Owner Card */}
                 <Card className="flex flex-col items-center text-center p-6">
                     <Image
@@ -71,7 +71,7 @@ export default function Home() {
                     <CardHeader className="p-0 mb-4">
                     <CardTitle>Benefits As Property Owner</CardTitle>
                     </CardHeader>
-                    <CardContent className="text-left space-y-3 p-0">
+                    <CardContent className="flex flex-col flex-grow text-left p-0">
                     <ul className="space-y-3">
                         <li className="flex items-start gap-3">
                         <CheckCircle2 className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
@@ -86,7 +86,7 @@ export default function Home() {
                         <span>Our ResidentScore® predicts rental eviction risk 15% better than traditional credit scores.*</span>
                         </li>
                     </ul>
-                     <p className="text-xs text-muted-foreground mt-4">*Based on TransUnion 2016 Study</p>
+                     <p className="mt-auto pt-4 text-xs text-muted-foreground">*Based on TransUnion 2016 Study</p>
                     </CardContent>
                 </Card>
 
@@ -103,7 +103,7 @@ export default function Home() {
                     <CardHeader className="p-0 mb-4">
                     <CardTitle>Benefits For Your Tenant</CardTitle>
                     </CardHeader>
-                    <CardContent className="text-left space-y-3 p-0">
+                    <CardContent className="flex-grow text-left p-0">
                     <ul className="space-y-3">
                         <li className="flex items-start gap-3">
                         <CheckCircle2 className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
