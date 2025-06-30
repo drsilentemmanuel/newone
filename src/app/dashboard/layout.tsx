@@ -12,7 +12,6 @@ import {
     ChevronDown,
     FileClock,
     FileText,
-    Fingerprint,
     Handshake,
     HelpCircle,
     Home,
@@ -20,6 +19,7 @@ import {
     LayoutDashboard,
     Settings,
     Users,
+    ShoppingCart,
 } from 'lucide-react';
 import {
     Sidebar,
@@ -75,8 +75,8 @@ export default function DashboardLayout({
                 </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/tenant/enquiries-log')} tooltip="TPN Enquiries">
-                    <Link href="/dashboard/tenant/enquiries-log"><Fingerprint /><span>TPN Enquiries</span></Link>
+                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/tenant/enquiries-log')} tooltip="My Purchases">
+                    <Link href="/dashboard/tenant/enquiries-log"><ShoppingCart /><span>My Purchases</span></Link>
                 </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
