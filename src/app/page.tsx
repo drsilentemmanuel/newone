@@ -61,12 +61,11 @@ export default function Home() {
                 {/* Property Owner Card */}
                 <Card className="flex flex-col items-center text-center p-6">
                     <Image
-                    src="https://placehold.co/128x128.png"
+                    src="/unnamed.jpg"
                     width={128}
                     height={128}
-                    alt="Property Owner"
+                    alt="Benefits as a Property Owner"
                     className="rounded-full mb-4"
-                    data-ai-hint="man portrait"
                     />
                     <CardHeader className="p-0 mb-4">
                     <CardTitle>Benefits As Property Owner</CardTitle>
@@ -93,7 +92,7 @@ export default function Home() {
                 {/* Tenant Card */}
                 <Card className="flex flex-col items-center text-center p-6">
                     <Image
-                    src="https://placehold.co/128x128.png"
+                    src="/tenant.jpg"
                     width={128}
                     height={128}
                     alt="Tenant"
