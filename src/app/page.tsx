@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ShieldCheck, TrendingUp, ClipboardCheck, CheckCircle2 } from "lucide-react";
+import { ShieldCheck, TrendingUp, ClipboardCheck, CheckCircle2, CreditCard, UserCheck, History, BadgeDollarSign } from "lucide-react";
 import Image from 'next/image';
 import Link from 'next/link';
 import { PartnerCarousel } from "@/components/partner-carousel";
@@ -83,7 +83,7 @@ export default function Home() {
                         </li>
                         <li className="flex items-start gap-3">
                         <CheckCircle2 className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                        <span>Our ResidentScore® predicts rental eviction risk 15% better than traditional credit scores.*</span>
+                        <span>Our TPN Score® predicts rental eviction risk 15% better than traditional credit scores.*</span>
                         </li>
                     </ul>
                      <p className="mt-auto pt-4 text-xs text-muted-foreground">*Based on TransUnion 2016 Study</p>
@@ -124,8 +124,41 @@ export default function Home() {
             </div>
         </section>
 
+        {/* Screening Features Section */}
+        <section id="screening-features" className="w-full py-12 md:py-20 lg:py-24 bg-secondary/50">
+            <div className="container px-4 md:px-6">
+                <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
+                        Screen and lease with confidence
+                    </h2>
+                </div>
+                <div className="mx-auto grid max-w-5xl items-stretch gap-8 sm:grid-cols-2 md:grid-cols-4">
+                    <ScreeningFeatureCard
+                        icon={<CreditCard className="h-6 w-6 text-muted-foreground" />}
+                        title="Credit report"
+                        description={<>Review a <Link href="#" className="font-semibold text-primary underline">TPN Score®</Link> and credit history, including payments, trade lines, inquiries, collections, and more.</>}
+                    />
+                    <ScreeningFeatureCard
+                        icon={<UserCheck className="h-6 w-6 text-muted-foreground" />}
+                        title="Background check"
+                        description="Rest easy and reduce risk of criminal activities with a complete picture of your applicant."
+                    />
+                    <ScreeningFeatureCard
+                        icon={<History className="h-6 w-6 text-muted-foreground" />}
+                        title="Eviction history"
+                        description="Access any eviction-related proceedings with resources from our extensive database."
+                    />
+                    <ScreeningFeatureCard
+                        icon={<BadgeDollarSign className="h-6 w-6 text-muted-foreground" />}
+                        title="Income verification"
+                        description="Choose a tenant you can trust with bank-verified proof of income and employment."
+                    />
+                </div>
+            </div>
+        </section>
+
         {/* Features Section */}
-        <section id="features" className="w-full py-12 md:py-20 lg:py-24 bg-secondary/50">
+        <section id="features" className="w-full py-12 md:py-20 lg:py-24">
             <div className="container px-4 md:px-6">
                 <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
                   <div className="space-y-3">
@@ -241,6 +274,18 @@ function FeatureCard({ icon, title, description }: { icon: React.ReactNode; titl
       </CardContent>
     </Card>
   );
+}
+
+function ScreeningFeatureCard({ icon, title, description }: { icon: React.ReactNode; title: string; description: React.ReactNode; }) {
+    return (
+        <div className="flex flex-col gap-4 rounded-lg bg-card p-6 text-left shadow-sm border h-full transition-shadow hover:shadow-md">
+            {icon}
+            <div>
+                <h3 className="text-lg font-bold">{title}</h3>
+                <p className="text-sm text-muted-foreground mt-1">{description}</p>
+            </div>
+        </div>
+    );
 }
 
 function StatItem({ value, label }: { value: string; label: string; }) {
