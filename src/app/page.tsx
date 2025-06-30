@@ -15,7 +15,7 @@ export default function Home() {
           <div className="container px-4 md:px-6 text-center">
             <div className="mx-auto max-w-4xl">
               <Image
-                src="/pictures/greatandbad.jpg"
+                src="/greatandbad.jpg"
                 width="1200"
                 height="400"
                 alt="A comparison of a dilapidated living room and a clean, well-maintained living room."
