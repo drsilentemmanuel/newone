@@ -46,7 +46,7 @@ export default function DashboardLayout({
     const { role, isLoaded } = useUser();
     const [isVendorsOpen, setIsVendorsOpen] = useState(pathname.startsWith('/dashboard/landlord/vendors'));
     
-    const fullWidthPages = ['/dashboard/landlord', '/dashboard/landlord/shop'];
+    const fullWidthPages = ['/dashboard/landlord', '/dashboard/landlord/shop', '/dashboard/landlord/shop/reports'];
     const isFullWidthPage = role === 'landlord' && fullWidthPages.includes(pathname);
 
     if (isFullWidthPage) {
