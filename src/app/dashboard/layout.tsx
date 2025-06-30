@@ -44,12 +44,8 @@ export default function DashboardLayout({
 }) {
     const pathname = usePathname();
     const { role, isLoaded } = useUser();
-    const [isVendorsOpen, setIsVendorsOpen] = useState(pathname.startsWith('/dashboard/landlord/vendors'));
     
-    const fullWidthPages = ['/dashboard/landlord', '/dashboard/landlord/shop'];
-    const isFullWidthPage = role === 'landlord' && fullWidthPages.includes(pathname);
-
-    if (isFullWidthPage) {
+    if (role === 'landlord') {
          return (
              <div className="flex min-h-screen w-full bg-secondary/50">
                 <div className="flex flex-1 flex-col">
@@ -96,81 +92,6 @@ export default function DashboardLayout({
         </>
     );
 
-    // Landlord specific navigation
-    const landlordNav = (
-        <>
-             <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/rentbook')} tooltip="Dashboard">
-                    <Link href="/dashboard/landlord/rentbook"><LayoutDashboard /><span>Dashboard</span></Link>
-                </SidebarMenuButton>
-            </SidebarMenuItem>
-             <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/account')} tooltip="My Account">
-                    <Link href="/dashboard/landlord/account"><Landmark /><span>My Account</span></Link>
-                </SidebarMenuButton>
-            </SidebarMenuItem>
-            <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/properties')} tooltip="Properties">
-                    <Link href="/dashboard/landlord/properties"><Building2 /><span>Properties</span></Link>
-                </SidebarMenuButton>
-            </SidebarMenuItem>
-            <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/leases')} tooltip="Leases">
-                    <Link href="/dashboard/landlord/leases"><FileText /><span>Leases</span></Link>
-                </SidebarMenuButton>
-            </SidebarMenuItem>
-             <Collapsible asChild open={isVendorsOpen} onOpenChange={setIsVendorsOpen}>
-                <SidebarMenuItem>
-                    <CollapsibleTrigger asChild>
-                        <SidebarMenuButton
-                            className="w-full justify-start pr-2"
-                            isActive={pathname.startsWith('/dashboard/landlord/vendors')}
-                            tooltip="Vendors"
-                        >
-                            <Briefcase />
-                            <span>Vendors</span>
-                            <ChevronDown className="ml-auto h-4 w-4 transition-transform data-[state=open]:rotate-180" />
-                        </SidebarMenuButton>
-                    </CollapsibleTrigger>
-                    <CollapsibleContent asChild>
-                        <SidebarMenuSub>
-                            <SidebarMenuSubItem>
-                                <SidebarMenuSubButton asChild isActive={pathname === '/dashboard/landlord/vendors'}>
-                                    <Link href="/dashboard/landlord/vendors">Vendors</Link>
-                                </SidebarMenuSubButton>
-                            </SidebarMenuSubItem>
-                            <SidebarMenuSubItem>
-                                <SidebarMenuSubButton asChild isActive={pathname === '/dashboard/landlord/vendors/bills'}>
-                                <Link href="/dashboard/landlord/vendors/bills">Bills</Link>
-                                </SidebarMenuSubButton>
-                            </SidebarMenuSubItem>
-                        </SidebarMenuSub>
-                    </CollapsibleContent>
-                </SidebarMenuItem>
-            </Collapsible>
-             <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/tenants')} tooltip="Tenants">
-                    <Link href="/dashboard/landlord/tenants"><Users /><span>Tenants</span></Link>
-                </SidebarMenuButton>
-            </SidebarMenuItem>
-            <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/reports')} tooltip="Reports">
-                    <Link href="/dashboard/landlord/reports"><BarChart3 /><span>Reports</span></Link>
-                </SidebarMenuButton>
-            </SidebarMenuItem>
-            <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/settings')} tooltip="Settings">
-                    <Link href="/dashboard/landlord/settings"><Settings /><span>Settings</span></Link>
-                </SidebarMenuButton>
-            </SidebarMenuItem>
-            <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/help')} tooltip="Help">
-                    <Link href="/dashboard/landlord/help"><HelpCircle /><span>Help</span></Link>
-                </SidebarMenuButton>
-            </SidebarMenuItem>
-        </>
-    );
-
     // Navigation for Professionals
     const professionalNav = (
         <>
@@ -199,8 +120,6 @@ export default function DashboardLayout({
         switch (role) {
             case 'tenant':
                 return tenantNav;
-            case 'landlord':
-                return landlordNav;
             case 'professional':
                 return professionalNav;
             default:

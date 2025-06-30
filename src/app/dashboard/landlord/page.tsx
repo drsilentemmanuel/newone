@@ -6,17 +6,19 @@ import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
 import {
   Coins,
-  UserCheck,
-  Webhook,
   ShoppingCart,
-  Feather,
-  Code,
   PieChart,
   BookOpen,
-  Mails,
   Newspaper,
   Info,
   Clapperboard,
+  Landmark,
+  Building2,
+  FileText,
+  Briefcase,
+  Users,
+  Settings,
+  HelpCircle,
 } from "lucide-react";
 import React from "react";
 import { cn } from "@/lib/utils";
@@ -48,17 +50,33 @@ export default function LandlordDashboardPage() {
                 <p className="text-muted-foreground">Select an option below to get started.</p>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                <ServiceCard icon={<Coins />} title="Credit Bureau" href="/dashboard/landlord/new-enquiry" />
-                <ServiceCard icon={<ShoppingCart />} title="Shop" href="/dashboard/landlord/shop" />
-                <ServiceCard icon={<PieChart />} title="Property Reports" href="/dashboard/landlord/reports" />
-                <ServiceCard icon={<BookOpen />} title="Rentbook" href="/dashboard/landlord/rentbook" />
+             <div>
+                <h2 className="text-2xl font-bold mb-4 font-headline text-primary">Key Services</h2>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <ServiceCard icon={<Coins />} title="Credit Bureau" href="/dashboard/landlord/new-enquiry" />
+                    <ServiceCard icon={<ShoppingCart />} title="Shop" href="/dashboard/landlord/shop" />
+                    <ServiceCard icon={<PieChart />} title="Property Reports" href="/dashboard/landlord/reports" />
+                    <ServiceCard icon={<BookOpen />} title="Rentbook" href="/dashboard/landlord/rentbook" />
+                </div>
             </div>
 
             <div>
-                <h2 className="text-2xl font-bold mb-4 font-headline text-primary">Helpful resources</h2>
+                <h2 className="text-2xl font-bold mb-4 font-headline text-primary">Manage Your Portfolio</h2>
+                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+                    <ServiceCard icon={<Landmark />} title="My Account" href="/dashboard/landlord/account" />
+                    <ServiceCard icon={<Building2 />} title="Properties" href="/dashboard/landlord/properties" />
+                    <ServiceCard icon={<FileText />} title="Leases" href="/dashboard/landlord/leases" />
+                    <ServiceCard icon={<Briefcase />} title="Vendors" href="/dashboard/landlord/vendors" />
+                    <ServiceCard icon={<Users />} title="Tenants" href="/dashboard/landlord/tenants" />
+                    <ServiceCard icon={<Settings />} title="Settings" href="/dashboard/landlord/settings" />
+                </div>
+            </div>
+
+            <div>
+                <h2 className="text-2xl font-bold mb-4 font-headline text-primary">Helpful Resources</h2>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
                     <ServiceCard icon={<Newspaper />} title="Blog" href="/blog" />
+                    <ServiceCard icon={<HelpCircle />} title="Help Topics" href="/dashboard/landlord/help" />
                     <ServiceCard icon={<Info />} title="Wiki/FAQ" />
                     <ServiceCard icon={<Clapperboard />} title="YouTube Channel" />
                 </div>
