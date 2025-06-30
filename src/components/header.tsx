@@ -9,6 +9,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 const navLinks = [
   { href: '/blog', label: 'Blog' },
+  { href: '/dashboard/landlord/shop', label: 'Shop' },
 ];
 
 export function Header() {
