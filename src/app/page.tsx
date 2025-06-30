@@ -10,6 +10,30 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
+        {/* New Social Proof Section */}
+        <section className="w-full bg-background py-8 md:py-12">
+          <div className="container px-4 md:px-6 text-center">
+            <div className="mx-auto max-w-4xl">
+              <Image
+                src="https://placehold.co/1200x400.png"
+                width="1200"
+                height="400"
+                alt="A comparison of a dilapidated living room and a clean, well-maintained living room."
+                className="w-full rounded-lg shadow-md"
+                data-ai-hint="living room before after"
+              />
+            </div>
+            <div className="mt-6">
+              <p className="text-lg md:text-xl font-medium text-foreground">
+                7 out of 10 landlords recommend ZimTPN® to identify great tenants*
+              </p>
+              <p className="text-xs text-muted-foreground mt-1">
+                *ZimStats survey
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Hero Section */}
         <section className="w-full py-12 md:py-20 lg:py-24 bg-secondary/50">
           <div className="container px-4 md:px-6">
