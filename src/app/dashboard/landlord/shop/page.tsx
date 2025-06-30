@@ -8,42 +8,53 @@ import Image from "next/image";
 import Link from "next/link";
 import { useToast } from "@/hooks/use-toast";
 import { Badge } from "@/components/ui/badge";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Label } from "@/components/ui/label";
 
 const products = [
   {
     name: "Residential Lease Pack",
-    subtitle: "Legal Documents",
+    category: "Legal Documents",
     price: "R 250.00",
-    imageUrl: "https://placehold.co/350/450.png",
+    imageUrl: "https://placehold.co/350x450.png",
     aiHint: "document contract",
     bestSeller: true,
   },
   {
     name: "Property Dealer",
-    subtitle: "ANTHONY DIXON",
+    category: "Books",
     price: "R 313.00",
     imageUrl: "https://placehold.co/350x450.png",
     aiHint: "book property deal",
   },
   {
     name: "Commercial Lease Pack",
-    subtitle: "Legal Documents",
+    category: "Legal Documents",
     price: "R 450.00",
     imageUrl: "https://placehold.co/350x450.png",
     aiHint: "office building",
   },
   {
     name: "Company Enquiry Report",
-    subtitle: "Business Intelligence",
+    category: "Business Intelligence",
     price: "R 150.00",
     imageUrl: "https://placehold.co/350x450.png",
     aiHint: "business report",
   },
 ];
 
+const categories = ["All Categories", ...new Set(products.map((p) => p.category))];
+
 export default function ShopPage() {
   const [cartCount, setCartCount] = useState(0);
   const { toast } = useToast();
+  const [selectedCategory, setSelectedCategory] = useState("All Categories");
 
   const handleAddToCart = () => {
     setCartCount((prevCount) => prevCount + 1);
@@ -52,6 +63,11 @@ export default function ShopPage() {
       description: "The item has been successfully added to your cart.",
     });
   };
+  
+  const filteredProducts =
+    selectedCategory === "All Categories"
+      ? products
+      : products.filter((p) => p.category === selectedCategory);
 
   return (
     <div className="space-y-6">
@@ -77,9 +93,26 @@ export default function ShopPage() {
         </div>
       </div>
 
-      <div className="container px-0">
+      <div className="container px-0 space-y-6">
+        <div className="flex justify-end">
+          <div className="flex items-center gap-2">
+            <Label htmlFor="category-filter" className="text-sm font-medium">Filter by:</Label>
+            <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+              <SelectTrigger id="category-filter" className="w-[200px]">
+                <SelectValue placeholder="Select a category" />
+              </SelectTrigger>
+              <SelectContent>
+                {categories.map((category) => (
+                  <SelectItem key={category} value={category}>
+                    {category}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+        </div>
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {products.map((product) => (
+          {filteredProducts.map((product) => (
             <div key={product.name} className="group">
               <div className="relative overflow-hidden rounded-md border">
                 <Image
@@ -107,7 +140,7 @@ export default function ShopPage() {
               <div className="pt-4 text-left">
                 <h3 className="font-semibold">{product.name}</h3>
                 <p className="text-sm text-muted-foreground">
-                  {product.subtitle}
+                  {product.category}
                 </p>
                 <div className="flex justify-between items-center mt-4">
                   <p className="text-2xl font-black">{product.price}</p>
