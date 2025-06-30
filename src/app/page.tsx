@@ -92,10 +92,10 @@ export default function Home() {
                 {/* Tenant Card */}
                 <Card className="flex flex-col items-center text-center p-6">
                     <Image
-                    src="/tenant.jpg"
+                    src="/silent.jpg"
                     width={128}
                     height={128}
-                    alt="Tenant"
+                    alt="Benefits For Your Tenant"
                     className="rounded-full mb-4"
                     data-ai-hint="woman portrait"
                     />
