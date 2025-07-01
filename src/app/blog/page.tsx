@@ -35,7 +35,7 @@ const blogPosts = [
 
 export default function BlogPage() {
   return (
-    <div className="container py-12 md:py-16">
+    <div className="container mx-auto py-12 md:py-16">
       <div className="text-center space-y-4 mb-12">
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl font-headline">
           Our Blog

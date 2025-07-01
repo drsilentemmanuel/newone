@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -72,7 +71,7 @@ export default function ShopPage() {
   return (
     <div className="space-y-6">
       <div className="sticky top-0 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 z-10 py-4 border-b">
-        <div className="container px-0 flex items-center justify-between">
+        <div className="container mx-auto px-0 flex items-center justify-between">
           <h1 className="text-3xl font-bold font-headline">Shop</h1>
           <div className="flex items-center gap-4">
             <Button asChild variant="outline">
@@ -93,7 +92,7 @@ export default function ShopPage() {
         </div>
       </div>
 
-      <div className="container px-0 space-y-6">
+      <div className="container mx-auto px-0 space-y-6">
         <div className="flex justify-end">
           <div className="flex items-center gap-2">
             <Label htmlFor="category-filter" className="text-sm font-medium">Filter by:</Label>

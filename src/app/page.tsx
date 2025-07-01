@@ -51,7 +51,7 @@ export default function Home() {
 
         {/* Benefits Section */}
         <section id="benefits" className="w-full py-12 md:py-20 lg:py-24">
-            <div className="container px-4 md:px-6">
+            <div className="container mx-auto px-4 md:px-6">
                 <div className="text-center space-y-3 mb-12">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
                     ZimTPN benefits property managers and tenants
@@ -129,7 +129,7 @@ export default function Home() {
 
         {/* Screening Features Section */}
         <section id="screening-features" className="w-full py-12 md:py-20 lg:py-24 bg-secondary/50">
-            <div className="container px-4 md:px-6">
+            <div className="container mx-auto px-4 md:px-6">
                 <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
                     <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
                         Screen and lease with confidence
@@ -162,7 +162,7 @@ export default function Home() {
 
         {/* Features Section */}
         <section id="features" className="w-full py-12 md:py-20 lg:py-24">
-            <div className="container px-4 md:px-6">
+            <div className="container mx-auto px-4 md:px-6">
                 <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
                   <div className="space-y-3">
                       <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">A Comprehensive Toolkit for the Rental Market</h2>
@@ -193,7 +193,7 @@ export default function Home() {
         
         {/* CTA Section */}
         <section id="cta" className="w-full py-12 md:py-20 lg:py-24 bg-primary text-primary-foreground">
-          <div className="container flex flex-col items-center justify-center gap-6 px-4 md:px-6 text-center">
+          <div className="container mx-auto flex flex-col items-center justify-center gap-6 px-4 md:px-6 text-center">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
               Confidently choose a tenant.
             </h2>
@@ -205,7 +205,7 @@ export default function Home() {
 
         {/* How It Works Section */}
         <section id="how-it-works" className="w-full py-12 md:py-20 lg:py-24">
-          <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6">
+          <div className="container mx-auto grid items-center justify-center gap-4 px-4 text-center md:px-6">
             <div className="space-y-3">
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight font-headline">How It Works</h2>
               <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -234,9 +234,9 @@ export default function Home() {
 
         {/* Trust & Social Proof Section */}
         <section id="trust" className="w-full py-12 md:py-20 lg:py-24 bg-secondary/50">
-          <div className="container px-4 md:px-6">
+          <div className="container mx-auto px-4 md:px-6">
             <div className="w-full py-12 md:py-16 bg-primary text-primary-foreground rounded-lg">
-                <div className="container px-4 md:px-6">
+                <div className="container mx-auto px-4 md:px-6">
                     <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
                         <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">
                         The Trusted Source of Specialised Data
