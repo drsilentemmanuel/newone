@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { Landmark } from 'lucide-react';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 
 export function Footer() {
   return (
@@ -7,16 +9,19 @@ export function Footer() {
       <div className="container py-12 md:py-16 px-4 md:px-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           <div className="space-y-4 sm:col-span-2 md:col-span-1">
-            <Link href="/" className="flex items-center gap-2">
-              <Landmark className="h-8 w-8" />
-              <span className="text-xl font-bold">Zim TPN</span>
-            </Link>
             <p className="text-sm text-primary-foreground/80 max-w-xs">
-              Connecting landlords and tenants in Zimbabwe.
+                Stay up to date on the latest features and releases by joining our newsletter.
             </p>
-            <p className="text-sm text-primary-foreground/80">
-              &copy; 2025. All rights reserved.
-            </p>
+             <form className="flex w-full items-center space-x-2">
+              <Input
+                type="email"
+                placeholder="Enter your email address*"
+                className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/60 focus:bg-primary-foreground/20 focus-visible:ring-primary-foreground"
+              />
+              <Button type="submit" variant="secondary" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 shrink-0">
+                Submit
+              </Button>
+            </form>
           </div>
 
           <div className="space-y-2">
