@@ -8,7 +8,7 @@ export function Footer() {
     <footer className="bg-primary text-primary-foreground">
       <div className="container py-12 md:py-16 px-4 md:px-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-          <div className="space-y-4 sm:col-span-2 md:col-span-1">
+          <div className="space-y-4">
             <p className="text-sm text-primary-foreground/80 max-w-xs">
                 Stay up to date on the latest features and releases by joining our newsletter.
             </p>
