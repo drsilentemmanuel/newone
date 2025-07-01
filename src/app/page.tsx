@@ -59,7 +59,7 @@ export default function Home() {
                 </div>
                 <div className="mx-auto grid max-w-5xl items-stretch gap-8 sm:grid-cols-1 md:grid-cols-2">
                 {/* Property Owner Card */}
-                <Card className="flex flex-col p-6">
+                <Card className="flex flex-col p-6 items-center text-center">
                     <div className="mx-auto w-32 h-32 rounded-full overflow-hidden mb-4">
                         <Image
                         src="/unnamed.jpg"
@@ -69,10 +69,10 @@ export default function Home() {
                         className="w-full h-full object-cover"
                         />
                     </div>
-                    <CardHeader className="p-0 mb-4 text-center">
+                    <CardHeader className="p-0 mb-4">
                         <CardTitle>Benefits As Property Owner</CardTitle>
                     </CardHeader>
-                    <CardContent className="flex flex-col flex-grow p-0">
+                    <CardContent className="flex flex-col flex-grow p-0 text-left">
                         <ul className="space-y-3">
                             <li className="flex items-start gap-3">
                             <CheckCircle2 className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
@@ -92,7 +92,7 @@ export default function Home() {
                 </Card>
 
                 {/* Tenant Card */}
-                <Card className="flex flex-col p-6">
+                <Card className="flex flex-col p-6 items-center text-center">
                     <div className="mx-auto w-32 h-32 rounded-full overflow-hidden mb-4">
                         <Image
                         src="/silent.jpg"
@@ -103,10 +103,10 @@ export default function Home() {
                         data-ai-hint="woman portrait"
                         />
                     </div>
-                    <CardHeader className="p-0 mb-4 text-center">
+                    <CardHeader className="p-0 mb-4">
                         <CardTitle>Benefits For Your Tenant</CardTitle>
                     </CardHeader>
-                    <CardContent className="flex-grow p-0">
+                    <CardContent className="flex-grow p-0 text-left">
                         <ul className="space-y-3">
                             <li className="flex items-start gap-3">
                             <CheckCircle2 className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
@@ -233,31 +233,29 @@ export default function Home() {
         </section>
 
         {/* Trust & Social Proof Section */}
-        <section id="trust" className="w-full py-12 md:py-20 lg:py-24 bg-secondary/50">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="w-full py-12 md:py-16 bg-primary text-primary-foreground rounded-lg">
-                <div className="container mx-auto px-4 md:px-6">
-                    <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-                        <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">
-                        The Trusted Source of Specialised Data
-                        </h2>
-                    </div>
-                    <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 text-center md:grid-cols-3 md:gap-12">
-                        <StatItem value="23K+" label="Users" />
-                        <StatItem value="3.4M+" label="Leases" />
-                        <StatItem value="150K" label="Landlords" />
-                    </div>
-                </div>
-            </div>
-
-            <div className="mt-16">
-                 <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
-                        Trusted by Leading Organizations
+        <section id="trust" className="w-full py-12 md:py-20 lg:py-24 bg-primary text-primary-foreground">
+            <div className="container mx-auto px-4 md:px-6">
+                <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+                    <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">
+                    The Trusted Source of Specialised Data
                     </h2>
                 </div>
-                <PartnerCarousel />
+                <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 text-center md:grid-cols-3 md:gap-12">
+                    <StatItem value="23K+" label="Users" />
+                    <StatItem value="3.4M+" label="Leases" />
+                    <StatItem value="150K" label="Landlords" />
+                </div>
             </div>
+        </section>
+        
+        <section id="partners" className="w-full py-12 md:py-16 bg-secondary/50">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
+                    Trusted by Leading Organizations
+                </h2>
+            </div>
+            <PartnerCarousel />
           </div>
         </section>
       </main>
