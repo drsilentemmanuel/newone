@@ -59,8 +59,8 @@ export default function Home() {
                 </div>
                 <div className="mx-auto grid max-w-5xl items-stretch gap-8 sm:grid-cols-1 md:grid-cols-2">
                 {/* Property Owner Card */}
-                <Card className="flex flex-col items-center text-center p-6">
-                    <div className="w-32 h-32 rounded-full overflow-hidden mb-4">
+                <Card className="flex flex-col p-6">
+                    <div className="mx-auto w-32 h-32 rounded-full overflow-hidden mb-4">
                         <Image
                         src="/unnamed.jpg"
                         width={128}
@@ -69,31 +69,31 @@ export default function Home() {
                         className="w-full h-full object-cover"
                         />
                     </div>
-                    <CardHeader className="p-0 mb-4">
-                    <CardTitle>Benefits As Property Owner</CardTitle>
+                    <CardHeader className="p-0 mb-4 text-center">
+                        <CardTitle>Benefits As Property Owner</CardTitle>
                     </CardHeader>
-                    <CardContent className="flex flex-col flex-grow text-left p-0">
-                    <ul className="space-y-3">
-                        <li className="flex items-start gap-3">
-                        <CheckCircle2 className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                        <span>See a fuller picture of your tenant.</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                        <CheckCircle2 className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                        <span>Start screening quickly – no waiting periods or setup fees.</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                        <CheckCircle2 className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                        <span>Our TPN Score® predicts rental eviction risk 15% better than traditional credit scores.*</span>
-                        </li>
-                    </ul>
-                     <p className="mt-auto pt-4 text-xs text-muted-foreground">*Based on TransUnion 2016 Study</p>
+                    <CardContent className="flex flex-col flex-grow p-0">
+                        <ul className="space-y-3">
+                            <li className="flex items-start gap-3">
+                            <CheckCircle2 className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                            <span>See a fuller picture of your tenant.</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                            <CheckCircle2 className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                            <span>Start screening quickly – no waiting periods or setup fees.</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                            <CheckCircle2 className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                            <span>Our TPN Score® predicts rental eviction risk 15% better than traditional credit scores.*</span>
+                            </li>
+                        </ul>
+                        <p className="mt-auto pt-4 text-xs text-muted-foreground">*Based on TransUnion 2016 Study</p>
                     </CardContent>
                 </Card>
 
                 {/* Tenant Card */}
-                <Card className="flex flex-col items-center text-center p-6">
-                    <div className="w-32 h-32 rounded-full overflow-hidden mb-4">
+                <Card className="flex flex-col p-6">
+                    <div className="mx-auto w-32 h-32 rounded-full overflow-hidden mb-4">
                         <Image
                         src="/silent.jpg"
                         width={128}
@@ -103,24 +103,24 @@ export default function Home() {
                         data-ai-hint="woman portrait"
                         />
                     </div>
-                    <CardHeader className="p-0 mb-4">
-                    <CardTitle>Benefits For Your Tenant</CardTitle>
+                    <CardHeader className="p-0 mb-4 text-center">
+                        <CardTitle>Benefits For Your Tenant</CardTitle>
                     </CardHeader>
-                    <CardContent className="flex-grow text-left p-0">
-                    <ul className="space-y-3">
-                        <li className="flex items-start gap-3">
-                        <CheckCircle2 className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                        <span>Most reports delivered same day.</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                        <CheckCircle2 className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                        <span>They consent online to share the reports with the property owner.</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                        <CheckCircle2 className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                        <span>No impact to their credit score.</span>
-                        </li>
-                    </ul>
+                    <CardContent className="flex-grow p-0">
+                        <ul className="space-y-3">
+                            <li className="flex items-start gap-3">
+                            <CheckCircle2 className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                            <span>Most reports delivered same day.</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                            <CheckCircle2 className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                            <span>They consent online to share the reports with the property owner.</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                            <CheckCircle2 className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                            <span>No impact to their credit score.</span>
+                            </li>
+                        </ul>
                     </CardContent>
                 </Card>
                 </div>
@@ -267,11 +267,11 @@ export default function Home() {
 
 function FeatureCard({ icon, title, description }: { icon: React.ReactNode; title: string; description: string; }) {
   return (
-    <Card className="text-left flex flex-col bg-card p-4 items-center text-center">
-      <CardHeader className="p-2">
+    <Card className="flex flex-col p-6 items-center text-center">
+      <CardHeader className="p-0 pb-4">
         {icon}
       </CardHeader>
-      <CardContent className="flex flex-col flex-grow p-2">
+      <CardContent className="flex flex-col flex-grow p-0">
         <CardTitle className="text-xl mb-2">{title}</CardTitle>
         <p className="text-muted-foreground flex-grow">{description}</p>
       </CardContent>
