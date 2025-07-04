@@ -1,9 +1,9 @@
 
 "use client";
 
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Calculator, DollarSign, PiggyBank, FileText } from "lucide-react";
+import { Calculator, DollarSign, PiggyBank, FileText, TrendingUp, Landmark } from "lucide-react";
 import Link from "next/link";
 
 const ReportCard = ({ title, description }: { title: string, description: string }) => (
@@ -89,6 +89,48 @@ export default function ProfessionalReportsPage() {
                          <ReportCard
                             title="Cash Flows By Property"
                             description="Shows all incoming and outgoing cash for each property."
+                        />
+                    </div>
+                </section>
+
+                <section>
+                    <div className="flex items-center gap-3 mb-4">
+                        <TrendingUp className="h-7 w-7 text-primary" />
+                        <h2 className="text-2xl font-bold font-headline">Performance</h2>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <ReportCard
+                            title="Net Operating Income (NOI)"
+                            description="Helps show profitability before financing and taxes."
+                        />
+                        <ReportCard
+                            title="Cash on Cash"
+                            description="Comparing the cash earned from your rental property to the cash invested."
+                        />
+                        <ReportCard
+                            title="Cap Rate"
+                            description="Calculates the rate of return on your rental property by comparing its net operating income to its market value."
+                        />
+                        <ReportCard
+                            title="Operating Expense Ratio"
+                            description="Shows the percentage of your rental income spent on operating expenses."
+                        />
+                    </div>
+                </section>
+
+                <section>
+                    <div className="flex items-center gap-3 mb-4">
+                        <Landmark className="h-7 w-7 text-primary" />
+                        <h2 className="text-2xl font-bold font-headline">Assets</h2>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <ReportCard
+                            title="Portfolio Value By Property"
+                            description="Tracks the value of each property within a portfolio."
+                        />
+                        <ReportCard
+                            title="Balance Sheet"
+                            description="Snapshot of assets, liabilities, and equity at a specific point in time."
                         />
                     </div>
                 </section>
