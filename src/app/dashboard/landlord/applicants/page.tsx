@@ -7,13 +7,13 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Link from "next/link";
 import {
   CalendarDays,
+  Cigarette,
   Dog,
-  HomeOff,
+  Home,
   Landmark,
   PiggyBank,
   PlayCircle,
   ShieldX,
-  Smoking,
   Users,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -67,7 +67,7 @@ export default function ApplicantsPage() {
                         </div>
                         <div className="grid grid-cols-2 gap-4 text-center">
                             <InfoCard icon={<ShieldX className="text-red-600 h-7 w-7"/>} label="Criminal History" value="1" />
-                            <InfoCard icon={<HomeOff className="text-green-600 h-7 w-7"/>} label="Evictions" value="0" />
+                            <InfoCard icon={<Home className="text-green-600 h-7 w-7"/>} label="Evictions" value="0" />
                             <InfoCard icon={<PiggyBank className="text-red-600 h-7 w-7"/>} label="Collections" value="1" />
                             <InfoCard icon={<Landmark className="text-red-600 h-7 w-7"/>} label="Public Records" value="1" />
                         </div>
@@ -92,7 +92,7 @@ export default function ApplicantsPage() {
                         <CompatibilityCard icon={<CalendarDays className="text-muted-foreground h-7 w-7" />} label="DESIRED MOVE-IN" />
                         <CompatibilityCard icon={<Dog className="text-muted-foreground h-7 w-7" />} label="PETS" />
                         <CompatibilityCard icon={<Users className="text-muted-foreground h-7 w-7" />} label="TOTAL OCCUPANTS" />
-                        <CompatibilityCard icon={<Smoking className="text-muted-foreground h-7 w-7" />} label="SMOKING" />
+                        <CompatibilityCard icon={<Cigarette className="text-muted-foreground h-7 w-7" />} label="SMOKING" />
                     </div>
                 </CardContent>
             </Card>
