@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const FeatureListItem = ({ children }: { children: React.ReactNode }) => (
     <li className="flex items-start gap-3">
@@ -40,7 +41,9 @@ export default function ExpensesPage() {
                             <FeatureListItem>Quick set up saves you hours later</FeatureListItem>
                         </ul>
                         <div>
-                            <Button className="w-full bg-slate-800 hover:bg-slate-900 text-white" size="lg">GET STARTED</Button>
+                            <Button asChild className="w-full bg-slate-800 hover:bg-slate-900 text-white" size="lg">
+                                <Link href="/dashboard/landlord/accounting">GET STARTED</Link>
+                            </Button>
                             <div className="relative aspect-[16/9] w-full mt-4">
                                 <Image
                                     src="https://placehold.co/600x338.png"
