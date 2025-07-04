@@ -1,98 +1,68 @@
 
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
-import { Plus, Search } from 'lucide-react';
+"use client";
+
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { FileText, Star } from "lucide-react";
 
 export default function LeasesPage() {
-  return (
-    <div className="space-y-4">
-      <h1 className="text-xl text-muted-foreground">
-        <span className="font-bold text-foreground text-2xl">Leases</span> &gt; List
-      </h1>
-
-      <Card>
-        <CardHeader className="border-b">
-          <CardTitle className="text-xl">List of leases</CardTitle>
-        </CardHeader>
-        <CardContent className="p-4 space-y-4">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <Button>
-              <Plus className="mr-2 h-4 w-4" /> Add a lease
-            </Button>
-            <div className="flex flex-1 items-center justify-end gap-2 w-full">
-              <div className="relative flex-grow max-w-sm">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input placeholder="Enter search text" className="pl-9" />
-              </div>
-              <Select defaultValue="active">
-                <SelectTrigger className="w-auto sm:w-[180px]">
-                  <SelectValue placeholder="(Active leases)" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="active">(Active leases)</SelectItem>
-                  <SelectItem value="inactive">(Inactive leases)</SelectItem>
-                  <SelectItem value="all">(All leases)</SelectItem>
-                </SelectContent>
-              </Select>
-              <Select defaultValue="25">
-                <SelectTrigger className="w-[80px]">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="10">10</SelectItem>
-                  <SelectItem value="25">25</SelectItem>
-                  <SelectItem value="50">50</SelectItem>
-                </SelectContent>
-              </Select>
+    return (
+        <div className="space-y-6">
+            <div className="flex items-center justify-between">
+                <h1 className="text-3xl font-bold font-headline">Leases</h1>
+                <Button variant="outline">ADD NEW LEASE</Button>
             </div>
-          </div>
-
-          <div className="border rounded-md">
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>Property/Tenant</TableHead>
-                  <TableHead>Lease details</TableHead>
-                  <TableHead>Financials</TableHead>
-                  <TableHead>State</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                <TableRow>
-                  <TableCell colSpan={4} className="text-center text-muted-foreground py-8">
-                    No data found
-                  </TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
-          </div>
-        </CardContent>
-        <CardFooter className="flex justify-end text-sm text-muted-foreground p-4 border-t">
-          0 items found.
-        </CardFooter>
-      </Card>
-    </div>
-  );
+            
+            <Card className="bg-cyan-50 border-cyan-200 dark:bg-cyan-950/50 dark:border-cyan-800">
+                <CardContent className="p-6 flex flex-col md:flex-row items-center gap-6">
+                    <div className="relative">
+                        <div className="p-3 bg-white rounded-full border-4 border-cyan-100 dark:bg-cyan-900 dark:border-cyan-700">
+                           <FileText className="h-8 w-8 text-cyan-700 dark:text-cyan-300" />
+                        </div>
+                         <div className="absolute -top-1 -right-1 bg-primary p-1 rounded-full text-primary-foreground">
+                            <Star className="h-3 w-3" />
+                         </div>
+                    </div>
+                    <div className="flex-grow text-center md:text-left">
+                        <h3 className="text-lg font-semibold">Build Your Own State-Specific Lease Agreements</h3>
+                        <p className="text-sm text-muted-foreground">Our lease agreements were drafted by legal professionals to keep you compliant and covered.</p>
+                    </div>
+                    <Button>GET A LEASE AGREEMENT</Button>
+                </CardContent>
+            </Card>
+            
+            <Tabs defaultValue="active">
+                <TabsList>
+                    <TabsTrigger value="active">Active</TabsTrigger>
+                    <TabsTrigger value="past">Past</TabsTrigger>
+                </TabsList>
+                <TabsContent value="active" className="mt-4">
+                    <Card>
+                        <CardContent className="p-4 grid md:grid-cols-3 items-center gap-4">
+                            <div className="md:col-span-2">
+                                <p className="text-xs font-semibold text-muted-foreground uppercase">DRAFT LEASE</p>
+                                <p className="font-bold text-lg">117 thurston avenue - June 2025</p>
+                                <p className="text-sm text-muted-foreground">117 thurston avenue</p>
+                            </div>
+                            <div>
+                                <p className="text-xs font-semibold text-muted-foreground uppercase">LEASE TERM</p>
+                                <p className="text-sm text-muted-foreground">No lease term added yet</p>
+                            </div>
+                        </CardContent>
+                         <CardFooter className="bg-muted/50 p-4 flex justify-between items-center">
+                            <Button variant="link" className="text-destructive p-0 h-auto hover:no-underline">DELETE DRAFT LEASE</Button>
+                            <Button variant="link" className="p-0 h-auto hover:no-underline">FINISH LEASE SETUP</Button>
+                        </CardFooter>
+                    </Card>
+                </TabsContent>
+                <TabsContent value="past" className="mt-4">
+                   <Card className="flex items-center justify-center h-32">
+                        <p className="text-muted-foreground">No past leases found.</p>
+                   </Card>
+                </TabsContent>
+            </Tabs>
+        </div>
+    );
 }
+
