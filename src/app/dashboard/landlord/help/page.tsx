@@ -1,124 +1,128 @@
 
-"use client"
+"use client";
+
 import {
   Card,
   CardContent,
-  CardFooter,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+} from "@/components/ui/card";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Search, Info, Video, FileText } from 'lucide-react';
-import Link from 'next/link';
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
+import { HelpCircle, MessageSquare, Phone, Star } from "lucide-react";
+import Link from "next/link";
 
-const helpTopics = [
-    { section: "Properties", title: "How to add a property", icon: <Video className="h-4 w-4 text-muted-foreground" /> },
-    { section: "Leases", title: "How to add a lease", icon: <Video className="h-4 w-4 text-muted-foreground" /> },
-    { section: "Leases", title: "How to cancel a lease", icon: <Video className="h-4 w-4 text-muted-foreground" /> },
-    { section: "Leases", title: "How to escalate or extend lease", icon: <Video className="h-4 w-4 text-muted-foreground" /> },
-    { section: "Leases", title: "How to send a single invoice", icon: <Video className="h-4 w-4 text-muted-foreground" /> },
-    { section: "Leases", title: "How to send bulk invoices", icon: <Video className="h-4 w-4 text-muted-foreground" /> },
-    { section: "Leases", title: "How to use a deposit towards outstanding expenses", icon: <Video className="h-4 w-4 text-muted-foreground" /> },
-    { section: "Leases", title: "How to add interest on a deposit", icon: <Video className="h-4 w-4 text-muted-foreground" /> },
-    { section: "Leases", title: "MRIFLIX - Closing Off/ Finalising a Lease", icon: <FileText className="h-4 w-4 text-muted-foreground" /> },
-    { section: "Leases", title: "MRIFLIX - Extending a Lease/ Increasing the Rental", icon: <FileText className="h-4 w-4 text-muted-foreground" /> },
-    { section: "Tenants", title: "How to add a tenant", icon: <Video className="h-4 w-4 text-muted-foreground" /> },
-    { section: "Tenants", title: "How to create your first invoice for tenant", icon: <Video className="h-4 w-4 text-muted-foreground" /> },
-    { section: "Tenants", title: "How to capture a tenant payment", icon: <Video className="h-4 w-4 text-muted-foreground" /> },
-    { section: "Tenants", title: "How to return a deposit to a tenant", icon: <Video className="h-4 w-4 text-muted-foreground" /> },
-    { section: "Vendors", title: "How to add a vendor", icon: <Video className="h-4 w-4 text-muted-foreground" /> },
-    { section: "Vendors", title: "How to add an expense for vendor", icon: <Video className="h-4 w-4 text-muted-foreground" /> },
-    { section: "Vendors", title: "How to pay a vendor", icon: <Video className="h-4 w-4 text-muted-foreground" /> },
-    { section: "Vendors", title: "How to reverse a payment on a vendor", icon: <Video className="h-4 w-4 text-muted-foreground" /> },
-    { section: "Vendors", title: "How to reverse an expense on a vendor", icon: <Video className="h-4 w-4 text-muted-foreground" /> },
-    { section: "General", title: "What browser am I using?", icon: <FileText className="h-4 w-4 text-muted-foreground" /> },
-    { section: "General", title: "Contact TPN for support", icon: <FileText className="h-4 w-4 text-muted-foreground" /> },
+const faqs = [
+  {
+    question: "Does using ZimTPN cost money?",
+    answer: "ZimTPN offers both free and premium features. Basic profile creation and searching is free for all users. Advanced features like detailed credit checks, e-signing, and premium support may require a subscription or a one-time fee.",
+  },
+  {
+    question: "What is the timeline to receive a payment deposit?",
+    answer: "Payment processing times can vary depending on the payment method and banking institutions involved. Typically, ACH transfers take 3-5 business days to appear in your account.",
+  },
+  {
+    question: "How do I turn off marketing for my property?",
+    answer: "You can manage your property listings from the 'Properties' section in your dashboard. Simply select the property and toggle the 'Marketing' status to off.",
+  },
+  {
+    question: "How long does it take to post on 3rd party sites?",
+    answer: "When you market a property through ZimTPN, it is typically syndicated to our partner sites within 24-48 hours. However, the exact time can vary depending on the third-party platform.",
+  },
+  {
+    question: "What is included in Premium?",
+    answer: "Our Premium plan includes advanced features such as unlimited tenant screening reports, state-specific lease agreements, e-signing capabilities, priority support, and detailed financial reporting tools.",
+  },
 ];
+
+const guides = [
+    { title: "Rent Payments Guide", href: "#"},
+    { title: "How to Create a Lease Agreement", href: "#"},
+    { title: "Learn About Your Tenant's Portal", href: "#"},
+    { title: "Maintenance Request Guide", href: "#"},
+    { title: "Lead Management Guide", href: "#"},
+];
+
+const HelpOptionCard = ({ icon, title, description, buttonText, buttonLink, isFeatured }: { icon: React.ReactNode, title: string, description: string, buttonText: string, buttonLink: string, isFeatured?: boolean }) => (
+    <Card className="flex flex-col text-center items-center p-6 relative">
+        {isFeatured && <Star className="absolute top-3 right-3 h-5 w-5 text-yellow-400 fill-yellow-400" />}
+        <div className="p-3 bg-muted rounded-full mb-4">
+            {icon}
+        </div>
+        <CardHeader className="p-0">
+            <CardTitle className="text-lg">{title}</CardTitle>
+        </CardHeader>
+        <CardContent className="p-0 mt-2 flex-grow">
+            <p className="text-sm text-muted-foreground">{description}</p>
+        </CardContent>
+        <div className="mt-4 w-full">
+            <Button variant="outline" className="w-full" asChild>
+                <Link href={buttonLink}>{buttonText}</Link>
+            </Button>
+        </div>
+    </Card>
+);
 
 export default function HelpPage() {
   return (
-    <div className="space-y-4">
-       <h1 className="text-xl text-muted-foreground">
-        <Link href="/dashboard/landlord" className="text-primary hover:underline">Dashboard</Link>
-        <span className="mx-2 text-muted-foreground/50">&gt;</span>
-        <span>Help topics</span>
-        <span className="mx-2 text-muted-foreground/50">&gt;</span>
-        <span>List</span>
-      </h1>
-      <Card>
-        <CardHeader>
-          <CardTitle>Help topics</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-            <Alert className="bg-yellow-50 border-yellow-200 text-yellow-800 dark:bg-yellow-950 dark:border-yellow-800 dark:text-yellow-200">
-                <Info className="h-4 w-4 !text-yellow-800 dark:!text-yellow-200" />
-                <AlertDescription>
-                    Help: If you can&apos;t find the information you need below, <Link href="#" className="underline font-semibold">click here to schedule an online training session with our experts team</Link>.
-                </AlertDescription>
-            </Alert>
+    <div className="space-y-8">
+      <h1 className="text-3xl font-bold font-headline">Need Help?</h1>
 
-            <div className="flex justify-end items-center gap-4">
-                <div className="relative flex-grow max-w-sm">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                    <Input placeholder="Enter search text" className="pl-9" />
-                </div>
-                <Select defaultValue="25">
-                    <SelectTrigger className="w-[80px]">
-                        <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                        <SelectItem value="25">25</SelectItem>
-                        <SelectItem value="50">50</SelectItem>
-                        <SelectItem value="100">100</SelectItem>
-                    </SelectContent>
-                </Select>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <HelpOptionCard
+            icon={<HelpCircle className="h-7 w-7 text-primary" />}
+            title="Visit The Help Center"
+            description="Figure out the answer faster with helpful articles from our team."
+            buttonText="VISIT HELP CENTER"
+            buttonLink="/dashboard/support"
+           />
+          <HelpOptionCard
+            icon={<MessageSquare className="h-7 w-7 text-primary" />}
+            title="Send Us a Message"
+            description="Our Zim TPN-based team is here to help! Start a chat or send us an email."
+            buttonText="CHAT WITH US"
+            buttonLink="/dashboard/support"
+           />
+           <HelpOptionCard
+            icon={<Phone className="h-7 w-7 text-primary" />}
+            title="Still Need Help? Call Us!"
+            description="Upgrade to call our support team directly."
+            buttonText="LEARN MORE"
+            buttonLink="#"
+            isFeatured={true}
+           />
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-x-16 gap-y-8 pt-8">
+        <div>
+            <h2 className="text-xl font-bold mb-4 font-headline">FAQs</h2>
+            <Accordion type="single" collapsible className="w-full">
+                {faqs.map((faq, index) => (
+                    <AccordionItem key={index} value={`item-${index}`}>
+                        <AccordionTrigger>{faq.question}</AccordionTrigger>
+                        <AccordionContent>
+                            {faq.answer}
+                        </AccordionContent>
+                    </AccordionItem>
+                ))}
+            </Accordion>
+        </div>
+        <div>
+            <h2 className="text-xl font-bold mb-4 font-headline">Guides</h2>
+            <div className="space-y-3">
+                {guides.map((guide, index) => (
+                    <Link key={index} href={guide.href} className="block text-primary hover:underline">
+                        {guide.title} &raquo;
+                    </Link>
+                ))}
             </div>
-            
-            <div className="border rounded-md">
-                <Table>
-                    <TableHeader>
-                        <TableRow>
-                            <TableHead className="w-[200px]">Section</TableHead>
-                            <TableHead>Title</TableHead>
-                        </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                        {helpTopics.map((topic, index) => (
-                            <TableRow key={index}>
-                                <TableCell>{topic.section}</TableCell>
-                                <TableCell>
-                                    <Link href="#" className="flex items-center gap-2 text-primary hover:underline">
-                                        {topic.icon}
-                                        <span>{topic.title}</span>
-                                    </Link>
-                                </TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </div>
-        </CardContent>
-        <CardFooter className="flex justify-end text-sm text-muted-foreground p-4 border-t">
-          {helpTopics.length} items found.
-        </CardFooter>
-      </Card>
+        </div>
+      </div>
     </div>
   );
 }
