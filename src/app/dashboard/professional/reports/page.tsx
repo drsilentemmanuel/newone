@@ -92,6 +92,31 @@ export default function ProfessionalReportsPage() {
                         />
                     </div>
                 </section>
+
+                <section>
+                    <div className="flex items-center gap-3 mb-4">
+                        <Calculator className="h-7 w-7 text-primary" />
+                        <h2 className="text-2xl font-bold font-headline">Taxes</h2>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <ReportCard
+                            title="Tax Packet Export"
+                            description="A comprehensive export of tax-related documents and data."
+                        />
+                        <ReportCard
+                            title="Tax Review"
+                            description="Reviews tax-related information for accuracy and compliance."
+                        />
+                        <ReportCard
+                            title="Schedule E"
+                            description="Details income and expenses for rental properties and real estate investments."
+                        />
+                         <ReportCard
+                            title="Form 8825"
+                            description="Reports income and expenses for rental real estate activities required by Form 8825."
+                        />
+                    </div>
+                </section>
             </div>
         </div>
     );
