@@ -45,9 +45,8 @@ export default function ExpensesPage() {
                                 <Image
                                     src="https://placehold.co/600x338.png"
                                     alt="Expense tracking report with charts"
-                                    layout="fill"
-                                    objectFit="contain"
-                                    className="p-4"
+                                    fill
+                                    className="p-4 object-contain"
                                     data-ai-hint="chart report"
                                 />
                             </div>
@@ -75,9 +74,8 @@ export default function ExpensesPage() {
                                 <Image
                                     src="https://placehold.co/600x338.png"
                                     alt="Manual expense entry form"
-                                    layout="fill"
-                                    objectFit="contain"
-                                    className="p-4"
+                                    fill
+                                    className="p-4 object-contain"
                                     data-ai-hint="form ui"
                                 />
                             </div>
