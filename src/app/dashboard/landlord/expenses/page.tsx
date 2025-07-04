@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -188,15 +189,17 @@ export default function ExpensesPage() {
                                             <Label htmlFor="description" className="text-right pt-2">Description</Label>
                                             <Textarea id="description" placeholder="e.g., Replaced kitchen faucet" className="col-span-3" rows={3} />
                                         </div>
-                                        <div className="grid grid-cols-4 items-center gap-4">
-                                            <Label htmlFor="receipt" className="text-right">Receipt</Label>
-                                            <Button asChild variant="outline" className="col-span-3 font-normal">
-                                                <label htmlFor="receipt-upload" className="cursor-pointer flex items-center w-full">
-                                                    <Upload className="mr-2 h-4 w-4" />
-                                                    Upload File
-                                                    <input id="receipt-upload" type="file" className="sr-only" />
-                                                </label>
-                                            </Button>
+                                        <div className="grid grid-cols-4 items-start gap-4">
+                                            <Label className="text-right pt-2">Receipts &amp; Documents</Label>
+                                            <div className="col-span-3">
+                                                <Label htmlFor="receipt-upload" className="flex flex-col items-center justify-center w-full h-24 border-2 border-dashed rounded-lg cursor-pointer bg-muted hover:bg-muted/80">
+                                                    <div className="flex flex-col items-center justify-center">
+                                                        <Upload className="w-6 h-6 mb-2 text-muted-foreground" />
+                                                        <p className="text-xs text-muted-foreground"><span className="font-semibold">Click or drag</span> to upload</p>
+                                                    </div>
+                                                    <Input id="receipt-upload" type="file" className="hidden" />
+                                                </Label>
+                                            </div>
                                         </div>
                                     </div>
                                     <DialogFooter>
