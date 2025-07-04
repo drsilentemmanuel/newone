@@ -22,12 +22,15 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { Search } from 'lucide-react';
+import Link from 'next/link';
 
 export default function BillsPage() {
   return (
     <div className="space-y-4">
       <h1 className="text-xl text-muted-foreground">
-        <span className="font-bold text-foreground text-2xl">Vendors</span> &gt; Unpaid Bills
+        <Link href="/dashboard/landlord/vendors" className='text-primary hover:underline'>Vendors</Link>
+         <span className="mx-2 text-muted-foreground/50">&gt;</span>
+        <span>Unpaid Bills</span>
       </h1>
 
       <Card>

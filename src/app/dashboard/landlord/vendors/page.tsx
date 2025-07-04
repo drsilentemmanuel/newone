@@ -23,6 +23,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { Plus, Search } from 'lucide-react';
+import Link from 'next/link';
 
 export default function VendorsPage() {
   return (
@@ -37,9 +38,16 @@ export default function VendorsPage() {
         </CardHeader>
         <CardContent className="p-4 space-y-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <Button>
-              <Plus className="mr-2 h-4 w-4" /> Add a vendor
-            </Button>
+            <div className='flex gap-2'>
+              <Button>
+                <Plus className="mr-2 h-4 w-4" /> Add a vendor
+              </Button>
+              <Button variant="outline" asChild>
+                <Link href="/dashboard/landlord/vendors/bills">
+                  Unpaid Bills
+                </Link>
+              </Button>
+            </div>
             <div className="flex flex-1 items-center justify-end gap-2 w-full">
               <div className="relative flex-grow max-w-sm">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />

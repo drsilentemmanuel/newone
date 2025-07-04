@@ -66,6 +66,91 @@ export default function DashboardLayout({
         router.push('/');
     }
 
+    const landlordNav = (
+         <>
+            <SidebarMenuItem>
+                <SidebarMenuButton asChild isActive={pathname === '/dashboard/landlord'} tooltip="Dashboard">
+                    <Link href="/dashboard/landlord"><LayoutGrid /><span>Dashboard</span></Link>
+                </SidebarMenuButton>
+            </SidebarMenuItem>
+            
+            <SidebarGroup className="p-0">
+                 <SidebarGroupLabel className="px-2">FINANCIAL</SidebarGroupLabel>
+                 <SidebarMenuItem>
+                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/account')} tooltip="My Account">
+                        <Link href="/dashboard/landlord/account"><Landmark /><span>My Account</span></Link>
+                    </SidebarMenuButton>
+                </SidebarMenuItem>
+            </SidebarGroup>
+            
+            <SidebarGroup className="p-0">
+                 <SidebarGroupLabel className="px-2">ACTIONS</SidebarGroupLabel>
+                 <SidebarMenuItem>
+                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/new-enquiry')} tooltip="New Enquiry">
+                        <Link href="/dashboard/landlord/new-enquiry"><UserSearch /><span>New Enquiry</span></Link>
+                    </SidebarMenuButton>
+                </SidebarMenuItem>
+            </SidebarGroup>
+            
+             <SidebarGroup className="p-0">
+                 <SidebarGroupLabel className="px-2">RENTBOOK</SidebarGroupLabel>
+                 <SidebarMenuItem>
+                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/rentbook')} tooltip="Rentbook">
+                        <Link href="/dashboard/landlord/rentbook"><Briefcase /><span>Rentbook</span></Link>
+                    </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/properties')} tooltip="Properties">
+                        <Link href="/dashboard/landlord/properties"><Building /><span>Properties</span></Link>
+                    </SidebarMenuButton>
+                </SidebarMenuItem>
+                 <SidebarMenuItem>
+                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/tenants')} tooltip="Tenants">
+                        <Link href="/dashboard/landlord/tenants"><Users /><span>Tenants</span></Link>
+                    </SidebarMenuButton>
+                </SidebarMenuItem>
+                 <SidebarMenuItem>
+                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/leases')} tooltip="Leases">
+                        <Link href="/dashboard/landlord/leases"><FileText /><span>Leases</span></Link>
+                    </SidebarMenuButton>
+                </SidebarMenuItem>
+                 <SidebarMenuItem>
+                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/vendors')} tooltip="Vendors">
+                        <Link href="/dashboard/landlord/vendors"><ShoppingCart /><span>Vendors</span></Link>
+                    </SidebarMenuButton>
+                </SidebarMenuItem>
+                 <SidebarMenuItem>
+                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/reports')} tooltip="Reports">
+                        <Link href="/dashboard/landlord/reports"><BarChart3 /><span>Reports</span></Link>
+                    </SidebarMenuButton>
+                </SidebarMenuItem>
+                 <SidebarMenuItem>
+                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/settings')} tooltip="Settings">
+                        <Link href="/dashboard/landlord/settings"><Wrench /><span>Settings</span></Link>
+                    </SidebarMenuButton>
+                </SidebarMenuItem>
+            </SidebarGroup>
+            
+            <SidebarGroup className="p-0">
+                <SidebarGroupLabel className="px-2">SHOP</SidebarGroupLabel>
+                 <SidebarMenuItem>
+                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/shop')} tooltip="Shop">
+                        <Link href="/dashboard/landlord/shop"><ShoppingCart /><span>Shop</span></Link>
+                    </SidebarMenuButton>
+                </SidebarMenuItem>
+            </SidebarGroup>
+
+             <SidebarGroup className="p-0">
+                <SidebarGroupLabel className="px-2">SUPPORT</SidebarGroupLabel>
+                 <SidebarMenuItem>
+                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/help')} tooltip="Help">
+                        <Link href="/dashboard/landlord/help"><HelpCircle /><span>Help</span></Link>
+                    </SidebarMenuButton>
+                </SidebarMenuItem>
+            </SidebarGroup>
+        </>
+    );
+
     const professionalNav = (
         <>
             <SidebarMenuItem>
@@ -77,51 +162,51 @@ export default function DashboardLayout({
                 </Button>
             </SidebarMenuItem>
             <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname === '/dashboard/professional' || pathname === '/dashboard/landlord'} tooltip="Dashboard">
-                    <Link href="/dashboard"><LayoutGrid /><span>Dashboard</span></Link>
+                <SidebarMenuButton asChild isActive={pathname === '/dashboard/professional'} tooltip="Dashboard">
+                    <Link href="/dashboard/professional"><LayoutGrid /><span>Dashboard</span></Link>
                 </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/messages')} tooltip="Messages">
-                    <Link href="#"><MessageSquare /><span>Messages</span></Link>
+                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/professional/messages')} tooltip="Messages">
+                    <Link href="/dashboard/professional/messages"><MessageSquare /><span>Messages</span></Link>
                 </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/properties')} tooltip="Properties">
-                    <Link href="#"><Building /><span>Properties</span></Link>
+                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/professional/properties')} tooltip="Properties">
+                    <Link href="/dashboard/professional/properties"><Building /><span>Properties</span></Link>
                 </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/maintenance')} tooltip="Maintenance">
-                    <Link href="#"><Wrench /><span>Maintenance</span></Link>
+                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/professional/maintenance')} tooltip="Maintenance">
+                    <Link href="/dashboard/professional/maintenance"><Wrench /><span>Maintenance</span></Link>
                 </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/leases')} tooltip="Leases">
-                    <Link href="#"><FileText /><span>Leases</span></Link>
+                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/professional/leases')} tooltip="Leases">
+                    <Link href="/dashboard/professional/leases"><FileText /><span>Leases</span></Link>
                 </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/docs')} tooltip="Docs & E-Sign">
-                    <Link href="#"><FileSignature /><span>Docs & E-Sign</span></Link>
+                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/professional/docs')} tooltip="Docs & E-Sign">
+                    <Link href="/dashboard/professional/docs"><FileSignature /><span>Docs & E-Sign</span></Link>
                 </SidebarMenuButton>
             </SidebarMenuItem>
             
             <SidebarGroup className="p-0">
                 <SidebarGroupLabel className="px-2">RENTERS</SidebarGroupLabel>
                 <SidebarMenuItem>
-                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/leads')} tooltip="Leads">
-                        <Link href="#"><UserSearch /><span>Leads</span></Link>
+                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/professional/leads')} tooltip="Leads">
+                        <Link href="/dashboard/professional/leads"><UserSearch /><span>Leads</span></Link>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
                  <SidebarMenuItem>
-                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/applicants')} tooltip="Applicants">
-                        <Link href="#"><Users /><span>Applicants</span></Link>
+                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/professional/applicants')} tooltip="Applicants">
+                        <Link href="/dashboard/professional/applicants"><Users /><span>Applicants</span></Link>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
                  <SidebarMenuItem>
-                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/tenants')} tooltip="Tenants">
-                        <Link href="#"><Users /><span>Tenants</span></Link>
+                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/professional/tenants')} tooltip="Tenants">
+                        <Link href="/dashboard/professional/tenants"><Users /><span>Tenants</span></Link>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
             </SidebarGroup>
@@ -129,23 +214,23 @@ export default function DashboardLayout({
             <SidebarGroup className="p-0">
                 <SidebarGroupLabel className="px-2">FINANCIAL</SidebarGroupLabel>
                  <SidebarMenuItem>
-                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/payments')} tooltip="Payments">
-                        <Link href="#"><CreditCard /><span>Payments</span></Link>
+                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/professional/payments')} tooltip="Payments">
+                        <Link href="/dashboard/professional/payments"><CreditCard /><span>Payments</span></Link>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
                  <SidebarMenuItem>
-                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/expenses')} tooltip="Expenses">
-                        <Link href="#"><ShoppingCart /><span>Expenses</span></Link>
+                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/professional/expenses')} tooltip="Expenses">
+                        <Link href="/dashboard/professional/expenses"><ShoppingCart /><span>Expenses</span></Link>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
                  <SidebarMenuItem>
-                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/accounting')} tooltip="Accounting">
-                        <Link href="#"><Calculator /><span>Accounting</span></Link>
+                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/professional/accounting')} tooltip="Accounting">
+                        <Link href="/dashboard/professional/accounting"><Calculator /><span>Accounting</span></Link>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
                  <SidebarMenuItem>
-                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/reports')} tooltip="Reports">
-                        <Link href="#"><BarChart3 /><span>Reports</span></Link>
+                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/professional/reports')} tooltip="Reports">
+                        <Link href="/dashboard/professional/reports"><BarChart3 /><span>Reports</span></Link>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
             </SidebarGroup>
@@ -153,25 +238,23 @@ export default function DashboardLayout({
             <SidebarGroup className="p-0">
                 <SidebarGroupLabel className="px-2">RESOURCES</SidebarGroupLabel>
                  <SidebarMenuItem>
-                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/toolbox')} tooltip="Toolbox">
-                        <Link href="#"><Briefcase /><span>Toolbox</span></Link>
+                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/professional/toolbox')} tooltip="Toolbox">
+                        <Link href="/dashboard/professional/toolbox"><Briefcase /><span>Toolbox</span></Link>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
                  <SidebarMenuItem>
-                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/community')} tooltip="Community">
-                        <Link href="#"><Users /><span>Community</span></Link>
+                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/professional/community')} tooltip="Community">
+                        <Link href="/dashboard/professional/community"><Users /><span>Community</span></Link>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
                  <SidebarMenuItem>
-                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/help')} tooltip="Need Help?">
-                        <Link href="#"><HelpCircle /><span>Need Help?</span></Link>
+                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/professional/help')} tooltip="Need Help?">
+                        <Link href="/dashboard/professional/help"><HelpCircle /><span>Need Help?</span></Link>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
             </SidebarGroup>
         </>
     );
-
-    const landlordNav = professionalNav;
 
     const loadingNav = (
         <>
