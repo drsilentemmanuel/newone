@@ -329,7 +329,7 @@ export default function DashboardLayout({
                             <SidebarSeparator />
                             <SidebarMenuItem>
                                 <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/give')} tooltip="Referral">
-                                    <Link href={getGiveLink()}><Gift /><span>Give $25, Get $25</span></Link>
+                                    <Link href={getGiveLink()}><Gift /><span>Give $5, Get $5</span></Link>
                                 </SidebarMenuButton>
                             </SidebarMenuItem>
                             <SidebarMenuItem>
