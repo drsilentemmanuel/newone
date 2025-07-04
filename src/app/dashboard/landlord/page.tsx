@@ -69,7 +69,7 @@ export default function LandlordDashboardPage() {
                   <CardContent className="p-4 flex flex-col md:flex-row items-center gap-4">
                       <div className="flex-grow">
                           <p className="font-semibold">Finish adding your rentals</p>
-                          <Progress value={1/7 * 100} className="mt-2" />
+                          <Progress value={1/7 * 100} className="h-2 mt-2" />
                           <p className="text-xs text-muted-foreground mt-1">1 of 7 units added.</p>
                       </div>
                       <Button>ADD A RENTAL</Button>

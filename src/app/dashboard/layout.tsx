@@ -67,41 +67,56 @@ export default function DashboardLayout({
     }
 
     const landlordNav = (
-         <>
+        <>
+            <SidebarMenuItem>
+                <Button variant="secondary" className="w-full justify-start h-auto p-3 mb-2">
+                    <div className="flex flex-col items-start">
+                        <span>Upgrade</span>
+                        <span className="text-xs font-normal text-emerald-500">Save $50</span>
+                    </div>
+                </Button>
+            </SidebarMenuItem>
             <SidebarMenuItem>
                 <SidebarMenuButton asChild isActive={pathname === '/dashboard/landlord'} tooltip="Dashboard">
                     <Link href="/dashboard/landlord"><LayoutGrid /><span>Dashboard</span></Link>
                 </SidebarMenuButton>
             </SidebarMenuItem>
+            <SidebarMenuItem>
+                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/messages')} tooltip="Messages">
+                    <Link href="/dashboard/landlord/messages"><MessageSquare /><span>Messages</span></Link>
+                </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/properties')} tooltip="Properties">
+                    <Link href="/dashboard/landlord/properties"><Building /><span>Properties</span></Link>
+                </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/maintenance')} tooltip="Maintenance">
+                    <Link href="/dashboard/landlord/maintenance"><Wrench /><span>Maintenance</span></Link>
+                </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/leases')} tooltip="Leases">
+                    <Link href="/dashboard/landlord/leases"><FileText /><span>Leases</span></Link>
+                </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/docs')} tooltip="Docs & E-Sign">
+                    <Link href="/dashboard/landlord/docs"><FileSignature /><span>Docs & E-Sign</span></Link>
+                </SidebarMenuButton>
+            </SidebarMenuItem>
             
             <SidebarGroup className="p-0">
-                 <SidebarGroupLabel className="px-2">FINANCIAL</SidebarGroupLabel>
-                 <SidebarMenuItem>
-                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/account')} tooltip="My Account">
-                        <Link href="/dashboard/landlord/account"><Landmark /><span>My Account</span></Link>
-                    </SidebarMenuButton>
-                </SidebarMenuItem>
-            </SidebarGroup>
-            
-            <SidebarGroup className="p-0">
-                 <SidebarGroupLabel className="px-2">ACTIONS</SidebarGroupLabel>
-                 <SidebarMenuItem>
-                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/new-enquiry')} tooltip="New Enquiry">
-                        <Link href="/dashboard/landlord/new-enquiry"><UserSearch /><span>New Enquiry</span></Link>
-                    </SidebarMenuButton>
-                </SidebarMenuItem>
-            </SidebarGroup>
-            
-             <SidebarGroup className="p-0">
-                 <SidebarGroupLabel className="px-2">RENTBOOK</SidebarGroupLabel>
-                 <SidebarMenuItem>
-                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/rentbook')} tooltip="Rentbook">
-                        <Link href="/dashboard/landlord/rentbook"><Briefcase /><span>Rentbook</span></Link>
-                    </SidebarMenuButton>
-                </SidebarMenuItem>
+                <SidebarGroupLabel className="px-2">RENTERS</SidebarGroupLabel>
                 <SidebarMenuItem>
-                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/properties')} tooltip="Properties">
-                        <Link href="/dashboard/landlord/properties"><Building /><span>Properties</span></Link>
+                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/leads')} tooltip="Leads">
+                        <Link href="/dashboard/landlord/leads"><UserSearch /><span>Leads</span></Link>
+                    </SidebarMenuButton>
+                </SidebarMenuItem>
+                 <SidebarMenuItem>
+                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/applicants')} tooltip="Applicants">
+                        <Link href="/dashboard/landlord/applicants"><Users /><span>Applicants</span></Link>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
                  <SidebarMenuItem>
@@ -109,14 +124,23 @@ export default function DashboardLayout({
                         <Link href="/dashboard/landlord/tenants"><Users /><span>Tenants</span></Link>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
+            </SidebarGroup>
+
+            <SidebarGroup className="p-0">
+                <SidebarGroupLabel className="px-2">FINANCIAL</SidebarGroupLabel>
                  <SidebarMenuItem>
-                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/leases')} tooltip="Leases">
-                        <Link href="/dashboard/landlord/leases"><FileText /><span>Leases</span></Link>
+                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/payments')} tooltip="Payments">
+                        <Link href="/dashboard/landlord/payments"><CreditCard /><span>Payments</span></Link>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
                  <SidebarMenuItem>
-                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/vendors')} tooltip="Vendors">
-                        <Link href="/dashboard/landlord/vendors"><ShoppingCart /><span>Vendors</span></Link>
+                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/expenses')} tooltip="Expenses">
+                        <Link href="/dashboard/landlord/expenses"><ShoppingCart /><span>Expenses</span></Link>
+                    </SidebarMenuButton>
+                </SidebarMenuItem>
+                 <SidebarMenuItem>
+                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/accounting')} tooltip="Accounting">
+                        <Link href="/dashboard/landlord/accounting"><Calculator /><span>Accounting</span></Link>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
                  <SidebarMenuItem>
@@ -124,27 +148,23 @@ export default function DashboardLayout({
                         <Link href="/dashboard/landlord/reports"><BarChart3 /><span>Reports</span></Link>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
-                 <SidebarMenuItem>
-                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/settings')} tooltip="Settings">
-                        <Link href="/dashboard/landlord/settings"><Wrench /><span>Settings</span></Link>
-                    </SidebarMenuButton>
-                </SidebarMenuItem>
             </SidebarGroup>
             
             <SidebarGroup className="p-0">
-                <SidebarGroupLabel className="px-2">SHOP</SidebarGroupLabel>
+                <SidebarGroupLabel className="px-2">RESOURCES</SidebarGroupLabel>
                  <SidebarMenuItem>
-                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/shop')} tooltip="Shop">
-                        <Link href="/dashboard/landlord/shop"><ShoppingCart /><span>Shop</span></Link>
+                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/toolbox')} tooltip="Toolbox">
+                        <Link href="/dashboard/landlord/toolbox"><Briefcase /><span>Toolbox</span></Link>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
-            </SidebarGroup>
-
-             <SidebarGroup className="p-0">
-                <SidebarGroupLabel className="px-2">SUPPORT</SidebarGroupLabel>
                  <SidebarMenuItem>
-                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/help')} tooltip="Help">
-                        <Link href="/dashboard/landlord/help"><HelpCircle /><span>Help</span></Link>
+                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/community')} tooltip="Community">
+                        <Link href="/dashboard/landlord/community"><Users /><span>Community</span></Link>
+                    </SidebarMenuButton>
+                </SidebarMenuItem>
+                 <SidebarMenuItem>
+                    <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/help')} tooltip="Need Help?">
+                        <Link href="/dashboard/landlord/help"><HelpCircle /><span>Need Help?</span></Link>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
             </SidebarGroup>
@@ -278,6 +298,19 @@ export default function DashboardLayout({
     }
 
 
+    const getGiveLink = () => {
+        if (!isLoaded) return "#";
+        switch (role) {
+            case 'professional':
+                return '/dashboard/professional/give';
+            case 'landlord':
+                return '/dashboard/landlord/give';
+            default:
+                return '#';
+        }
+    }
+
+
     return (
         <SidebarProvider>
             <div className="flex min-h-screen w-full bg-secondary/50">
@@ -296,7 +329,7 @@ export default function DashboardLayout({
                             <SidebarSeparator />
                             <SidebarMenuItem>
                                 <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/give')} tooltip="Referral">
-                                    <Link href="#"><Gift /><span>Give $25, Get $25</span></Link>
+                                    <Link href={getGiveLink()}><Gift /><span>Give $25, Get $25</span></Link>
                                 </SidebarMenuButton>
                             </SidebarMenuItem>
                             <SidebarMenuItem>
