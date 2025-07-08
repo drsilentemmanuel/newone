@@ -92,11 +92,21 @@ export default function Home() {
                 </Card>
 
                 {/* Tenant Card */}
-                <Card className="flex flex-col p-6">
+                <Card className="flex flex-col p-6 items-center text-center">
+                    <div className="mx-auto w-32 h-32 rounded-full overflow-hidden mb-4">
+                        <Image
+                        src="https://placehold.co/128x128.png"
+                        width={128}
+                        height={128}
+                        alt="Benefits For Your Tenant"
+                        className="w-full h-full object-cover"
+                        data-ai-hint="happy tenant"
+                        />
+                    </div>
                     <CardHeader className="p-0 mb-4">
                         <CardTitle>Benefits For Your Tenant</CardTitle>
                     </CardHeader>
-                    <CardContent className="flex-grow p-0 text-left">
+                    <CardContent className="flex flex-col flex-grow p-0 text-left">
                         <ul className="space-y-3">
                             <li className="flex items-start gap-3">
                             <CheckCircle2 className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
