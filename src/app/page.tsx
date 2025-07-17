@@ -23,12 +23,12 @@ export default function Home() {
             <div className="absolute inset-0 grid grid-cols-2 items-center text-white font-bold p-4 md:p-8">
               <div className="text-center">
                   <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
-                      Tenants
+                      Maroja
                   </h2>
               </div>
               <div className="text-center">
                   <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
-                      Great Tenants
+                      Maroja Manyama
                   </h2>
               </div>
             </div>
