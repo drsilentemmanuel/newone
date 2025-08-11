@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Landmark } from 'lucide-react';
+import { TrustStampLogo } from '@/components/trust-stamp-logo';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 
