@@ -8,7 +8,7 @@ import { Download, FileText } from "lucide-react";
 const purchasedItems = [
     {
         id: "p1",
-        item: "My TPN Profile Report (PDF)",
+        item: "My Trust Stamp Profile Report (PDF)",
         date: "2024-07-30",
         type: "Report"
     },

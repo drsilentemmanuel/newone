@@ -36,7 +36,7 @@ export default function Home() {
           
           <div className="container mx-auto flex flex-col items-center text-center space-y-4 px-4 md:px-6 py-8 md:py-12">
             <p className="text-lg md:text-xl font-medium text-gray-800 bg-yellow-400 px-4 py-2 rounded-md inline-block">
-                7 out of 10 landlords recommend ZimTPN® to identify great tenants*
+                7 out of 10 landlords recommend Trust Stamp® to identify great tenants*
             </p>
             <div className="pt-2">
                 <Button asChild size="lg" className="bg-yellow-400 text-yellow-900 hover:bg-yellow-500 rounded-full px-10 h-14 text-lg font-bold shadow-md transition-transform hover:scale-105">
@@ -54,7 +54,7 @@ export default function Home() {
             <div className="container mx-auto px-4 md:px-6">
                 <div className="text-center space-y-3 mb-12">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
-                    ZimTPN benefits property managers and tenants
+                    Trust Stamp benefits property managers and tenants
                 </h2>
                 </div>
                 <div className="mx-auto grid max-w-5xl items-stretch gap-8 sm:grid-cols-1 md:grid-cols-2">
@@ -62,7 +62,8 @@ export default function Home() {
                 <Card className="flex flex-col p-6 items-center text-center">
                     <div className="mx-auto w-32 h-32 rounded-full overflow-hidden mb-4">
                         <Image
-                        src="/unnamed.jpg"
+                        src="https://placehold.co/128x128.png"
+                        data-ai-hint="happy person"
                         width={128}
                         height={128}
                         alt="Benefits as a Property Owner"
@@ -93,9 +94,10 @@ export default function Home() {
 
                 {/* Tenant Card */}
                 <Card className="flex flex-col p-6 items-center text-center">
-                    <div className="mx-auto w-32 h-32 rounded-full overflow-hidden mb-4">
+                     <div className="mx-auto w-32 h-32 rounded-full overflow-hidden mb-4">
                         <Image
-                        src="/unnamed.jpg"
+                        src="https://placehold.co/128x128.png"
+                        data-ai-hint="happy person"
                         width={128}
                         height={128}
                         alt="Benefits For Your Tenant"
@@ -138,7 +140,7 @@ export default function Home() {
                     <ScreeningFeatureCard
                         icon={<CreditCard className="h-6 w-6 text-muted-foreground" />}
                         title="Credit report"
-                        description={<>Review a <span className="font-semibold text-primary">TPN Score®</span> and credit history, including payments, trade lines, inquiries, collections, and more.</>}
+                        description={<>Review a <span className="font-semibold text-primary">Trust Score®</span> and credit history, including payments, trade lines, inquiries, collections, and more.</>}
                     />
                     <ScreeningFeatureCard
                         icon={<UserCheck className="h-6 w-6 text-muted-foreground" />}

@@ -52,7 +52,7 @@ export function Footer() {
           </div>
         </div>
         <div className="border-t border-primary-foreground/10 py-6">
-            <p className="text-center text-sm text-primary-foreground/70">© 2025 Zim TPN. All rights reserved.</p>
+            <p className="text-center text-sm text-primary-foreground/70">© 2025 Trust Stamp. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -3,9 +3,10 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { Landmark, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { TrustStampLogo } from './trust-stamp-logo';
 
 const navLinks = [
   { href: '/blog', label: 'Blog' },
@@ -20,8 +21,8 @@ export function Header() {
       <div className="container mx-auto flex h-16 items-center">
         <div className="mr-4 flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
-            <Landmark className="h-6 w-6 text-primary" />
-            <span className="font-bold">Zim TPN</span>
+            <TrustStampLogo className="h-8 w-8 text-primary" />
+            <span className="font-bold">Trust Stamp</span>
           </Link>
           <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
             {navLinks.map((link) => (
@@ -55,8 +56,8 @@ export function Header() {
               <div className="flex flex-col h-full">
                 <div className="flex justify-between items-center mb-6">
                    <Link href="/" className="mr-6 flex items-center space-x-2" onClick={() => setIsOpen(false)}>
-                      <Landmark className="h-6 w-6 text-primary" />
-                      <span className="font-bold">Zim TPN</span>
+                      <TrustStampLogo className="h-8 w-8 text-primary" />
+                      <span className="font-bold">Trust Stamp</span>
                     </Link>
                 </div>
                 <nav className="flex flex-col space-y-4">

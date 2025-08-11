@@ -15,7 +15,7 @@ export default function SignupPage() {
         <CardHeader>
           <CardTitle className="text-2xl">Register</CardTitle>
           <CardDescription>
-            Create an account to get started with Zim TPN
+            Create an account to get started with Trust Stamp
           </CardDescription>
         </CardHeader>
         <CardContent>

@@ -6,7 +6,6 @@ import { usePathname } from 'next/navigation';
 import React from 'react';
 import {
     LayoutGrid,
-    Landmark,
     MessageSquare,
     Building,
     Wrench,
@@ -40,6 +39,7 @@ import { DashboardHeader } from '@/components/dashboard-header';
 import { useUser } from '@/context/user-context';
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
+import { TrustStampLogo } from '@/components/trust-stamp-logo';
 
 export default function DashboardLayout({
     children,
@@ -317,8 +317,8 @@ export default function DashboardLayout({
                 <Sidebar>
                     <div className="flex h-16 shrink-0 items-center border-b px-4 bg-background">
                         <Link href="/dashboard" className="flex items-center gap-2">
-                            <Landmark className="h-8 w-8 text-primary" />
-                            <span className="text-lg font-semibold">Zim TPN</span>
+                            <TrustStampLogo className="h-8 w-8 text-primary" />
+                            <span className="text-lg font-semibold">Trust Stamp</span>
                         </Link>
                     </div>
                     <SidebarContent className="bg-background">

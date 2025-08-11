@@ -12,9 +12,10 @@ import {
 import { SidebarTrigger } from '@/components/ui/sidebar';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
-import { LogOut, User, Landmark } from 'lucide-react';
+import { LogOut, User } from 'lucide-react';
 import Link from 'next/link';
 import { useUser } from '@/context/user-context';
+import { TrustStampLogo } from './trust-stamp-logo';
 
 export function DashboardHeader({ showSidebarTrigger = true }: { showSidebarTrigger?: boolean }) {
     const { avatar, userName, userEmail } = useUser();
@@ -26,8 +27,8 @@ export function DashboardHeader({ showSidebarTrigger = true }: { showSidebarTrig
                     <SidebarTrigger className="md:hidden" />
                 ) : (
                     <Link href="/dashboard" className="flex items-center gap-2">
-                        <Landmark className="h-8 w-8 text-primary" />
-                        <span className="hidden text-lg font-semibold sm:inline-block">Zim TPN</span>
+                        <TrustStampLogo className="h-8 w-8 text-primary" />
+                        <span className="hidden text-lg font-semibold sm:inline-block">Trust Stamp</span>
                     </Link>
                 )}
             </div>
