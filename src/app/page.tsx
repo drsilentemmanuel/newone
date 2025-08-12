@@ -62,7 +62,7 @@ export default function Home() {
                 <Card className="flex flex-col p-6 items-center text-center">
                     <div className="mx-auto w-32 h-32 rounded-full overflow-hidden mb-4">
                         <Image
-                        src="https://placehold.co/128x128.png"
+                        src="/silent.jpg"
                         data-ai-hint="happy person"
                         width={128}
                         height={128}
