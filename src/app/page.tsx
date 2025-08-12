@@ -129,7 +129,7 @@ export default function Home() {
         </section>
 
         {/* Screening Features Section */}
-        <section id="screening-features" className="w-full py-12 md:py-20 lg:py-24 bg-secondary/50">
+        <section id="screening-features" className="w-full py-12 md:py-20 lg:py-24 bg-primary text-primary-foreground">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
                     <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
@@ -138,22 +138,22 @@ export default function Home() {
                 </div>
                 <div className="mx-auto grid max-w-5xl items-stretch gap-8 sm:grid-cols-2 md:grid-cols-4">
                     <ScreeningFeatureCard
-                        icon={<CreditCard className="h-6 w-6 text-muted-foreground" />}
+                        icon={<CreditCard className="h-6 w-6 text-primary-foreground/80" />}
                         title="Credit report"
-                        description={<>Review a <span className="font-semibold text-primary">Trust Score®</span> and credit history, including payments, trade lines, inquiries, collections, and more.</>}
+                        description={<>Review a <span className="font-semibold text-white">Trust Score®</span> and credit history, including payments, trade lines, inquiries, collections, and more.</>}
                     />
                     <ScreeningFeatureCard
-                        icon={<UserCheck className="h-6 w-6 text-muted-foreground" />}
+                        icon={<UserCheck className="h-6 w-6 text-primary-foreground/80" />}
                         title="Background check"
                         description="Rest easy and reduce risk of criminal activities with a complete picture of your applicant."
                     />
                     <ScreeningFeatureCard
-                        icon={<History className="h-6 w-6 text-muted-foreground" />}
+                        icon={<History className="h-6 w-6 text-primary-foreground/80" />}
                         title="Eviction history"
                         description="Access any eviction-related proceedings with resources from our extensive database."
                     />
                     <ScreeningFeatureCard
-                        icon={<BadgeDollarSign className="h-6 w-6 text-muted-foreground" />}
+                        icon={<BadgeDollarSign className="h-6 w-6 text-primary-foreground/80" />}
                         title="Income verification"
                         description="Choose a tenant you can trust with bank-verified proof of income and employment."
                     />
@@ -280,11 +280,11 @@ function FeatureCard({ icon, title, description }: { icon: React.ReactNode; titl
 
 function ScreeningFeatureCard({ icon, title, description }: { icon: React.ReactNode; title: string; description: React.ReactNode; }) {
     return (
-        <div className="flex flex-col gap-4 rounded-lg bg-card p-6 text-left shadow-sm border h-full transition-shadow hover:shadow-md">
+        <div className="flex flex-col gap-4 rounded-lg bg-primary-foreground/10 p-6 text-left shadow-sm h-full transition-shadow hover:shadow-md">
             {icon}
             <div>
                 <h3 className="text-lg font-bold">{title}</h3>
-                <p className="text-sm text-muted-foreground mt-1">{description}</p>
+                <p className="text-sm text-primary-foreground/80 mt-1">{description}</p>
             </div>
         </div>
     );
