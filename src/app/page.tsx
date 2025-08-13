@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ShieldCheck, TrendingUp, ClipboardCheck, CheckCircle2, CreditCard, UserCheck, History, BadgeDollarSign } from "lucide-react";
+import { ShieldCheck, TrendingUp, ClipboardCheck, CheckCircle2, Search, Users, FileText, Blocks, FileCheck2, CreditCard, UserCheck, History, BadgeDollarSign } from "lucide-react";
 import Image from 'next/image';
 import Link from 'next/link';
 import { PartnerCarousel } from "@/components/partner-carousel";
@@ -96,7 +96,7 @@ export default function Home() {
                 <Card className="flex flex-col p-6 items-center text-center">
                      <div className="mx-auto w-32 h-32 rounded-full overflow-hidden mb-4">
                         <Image
-                        src="https://placehold.co/128x128.png"
+                        src="/silent.jpg"
                         data-ai-hint="happy person"
                         width={128}
                         height={128}
@@ -138,24 +138,24 @@ export default function Home() {
                 </div>
                 <div className="mx-auto grid max-w-5xl items-stretch gap-8 sm:grid-cols-2 md:grid-cols-4">
                     <ScreeningFeatureCard
-                        icon={<CreditCard className="h-6 w-6 text-primary-foreground/80" />}
-                        title="Credit report"
-                        description={<>Review a <span className="font-semibold text-white">Trust Score®</span> and credit history, including payments, trade lines, inquiries, collections, and more.</>}
+                        icon={<Search className="h-6 w-6 text-primary-foreground/80" />}
+                        title="Deeds Search"
+                        description="Verify property ownership and legal details before committing to any transaction."
                     />
                     <ScreeningFeatureCard
-                        icon={<UserCheck className="h-6 w-6 text-primary-foreground/80" />}
-                        title="Background check"
-                        description="Rest easy and reduce risk of criminal activities with a complete picture of your applicant."
+                        icon={<Users className="h-6 w-6 text-primary-foreground/80" />}
+                        title="Credit Bureau Services"
+                        description="Comprehensive risk profiling for tenants, schools, and businesses to make informed, data-driven decisions."
                     />
                     <ScreeningFeatureCard
-                        icon={<History className="h-6 w-6 text-primary-foreground/80" />}
-                        title="Eviction history"
-                        description="Access any eviction-related proceedings with resources from our extensive database."
+                        icon={<FileText className="h-6 w-6 text-primary-foreground/80" />}
+                        title="Toolkits & Documentation Packs"
+                        description="Legally compliant templates for leases, reports, property sales, and more — saving time and ensuring accuracy."
                     />
                     <ScreeningFeatureCard
-                        icon={<BadgeDollarSign className="h-6 w-6 text-primary-foreground/80" />}
-                        title="Income verification"
-                        description="Choose a tenant you can trust with bank-verified proof of income and employment."
+                        icon={<Blocks className="h-6 w-6 text-primary-foreground/80" />}
+                        title="Collections & Compliance Platforms"
+                        description="Streamlined systems for rental and school fee collections, secure e-signing, and POPIA compliance management."
                     />
                 </div>
             </div>
