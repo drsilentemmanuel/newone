@@ -10,44 +10,27 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
-        {/* New Social Proof Section */}
-        <section className="w-full bg-background">
-          <div className="relative w-full">
-            <Image
-              src="/greatandbad.jpg"
-              width={1920}
-              height={600}
-              alt="A comparison of a dilapidated living room and a clean, well-maintained living room."
-              className="w-full h-auto object-cover max-h-[600px]"
-            />
-            <div className="absolute inset-0 grid grid-cols-2 items-center text-white font-bold p-4 md:p-8">
-              <div className="text-center">
-                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
-                      Maroja
-                  </h2>
-              </div>
-              <div className="text-center">
-                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
-                      Maroja Manyama
-                  </h2>
-              </div>
+        {/* New Hero Section */}
+        <section className="relative h-[60vh] min-h-[500px] w-full flex items-center justify-center text-center text-white bg-cover bg-center" style={{backgroundImage: "url('/hero-background.jpg')"}}>
+            <div className="absolute inset-0 bg-black/50" />
+            <div className="relative z-10 container mx-auto px-4 md:px-6 space-y-6">
+                <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl !leading-tight font-headline" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}>
+                    Find Your Ideal Tenant, Faster.
+                </h1>
+                <p className="max-w-3xl mx-auto text-lg md:text-xl text-primary-foreground/90" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.8)' }}>
+                    Trust Stamp provides the most comprehensive tenant screening service, giving you the confidence to make smarter leasing decisions.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <Button asChild size="lg" className="rounded-full px-8 h-12 text-lg font-semibold shadow-lg transition-transform hover:scale-105">
+                        <Link href="/signup">Get Started for Free</Link>
+                    </Button>
+                    <Button asChild size="lg" variant="secondary" className="rounded-full px-8 h-12 text-lg font-semibold shadow-lg transition-transform hover:scale-105 bg-white/20 text-white hover:bg-white/30 border-white/50 border">
+                        <Link href="/dashboard/landlord/new-enquiry">Screen a Tenant</Link>
+                    </Button>
+                </div>
             </div>
-          </div>
-          
-          <div className="container mx-auto flex flex-col items-center text-center space-y-4 px-4 md:px-6 py-8 md:py-12">
-            <p className="text-lg md:text-xl font-medium text-gray-800 bg-yellow-400 px-4 py-2 rounded-md inline-block">
-                7 out of 10 landlords recommend Trust Stamp® to identify great tenants*
-            </p>
-            <div className="pt-2">
-                <Button asChild size="lg" className="bg-yellow-400 text-yellow-900 hover:bg-yellow-500 rounded-full px-10 h-14 text-lg font-bold shadow-md transition-transform hover:scale-105">
-                <Link href="/dashboard/landlord/new-enquiry">Screen Today</Link>
-                </Button>
-            </div>
-            <p className="text-xs text-muted-foreground">
-                *ZimStats survey
-            </p>
-          </div>
         </section>
+
 
         {/* Benefits Section */}
         <section id="benefits" className="w-full py-12 md:py-20 lg:py-24">
@@ -199,7 +182,7 @@ export default function Home() {
               Confidently choose a tenant.
             </h2>
             <Button asChild size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 rounded-full px-8">
-              <Link href="/dashboard/landlord/new-enquiry">Screen Today</Link>
+              <Link href="/signup">Get Started</Link>
             </Button>
           </div>
         </section>
