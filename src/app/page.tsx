@@ -96,8 +96,8 @@ export default function Home() {
                 <Card className="flex flex-col p-6 items-center text-center">
                      <div className="mx-auto w-32 h-32 rounded-full overflow-hidden mb-4">
                         <Image
-                        src="/greatandbad.jpg"
-                        data-ai-hint="contrasting rooms"
+                        src="/man.jpg"
+                        data-ai-hint="happy person"
                         width={128}
                         height={128}
                         alt="Benefits For Your Tenant"
