@@ -7,12 +7,12 @@ export function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 gap-8 py-12 sm:grid-cols-2 md:grid-cols-4 md:py-16">
-          <div className="space-y-4">
+        <div className="grid grid-cols-1 gap-8 py-12 text-center sm:text-left sm:grid-cols-2 md:grid-cols-4 md:py-16">
+          <div className="space-y-4 flex flex-col items-center sm:items-start">
             <p className="text-sm text-primary-foreground/80 max-w-xs">
               Subscribe for the latest news and features. We respect your privacy.
             </p>
-             <form className="flex w-full items-center space-x-2">
+             <form className="flex w-full max-w-sm items-center space-x-2">
               <Input
                 type="email"
                 placeholder="Enter your email address*"
