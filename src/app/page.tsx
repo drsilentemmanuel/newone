@@ -1,10 +1,11 @@
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { ShieldCheck, TrendingUp, ClipboardCheck, CheckCircle2, Search, Users, FileText, Blocks, FileCheck2, CreditCard, UserCheck, History, BadgeDollarSign } from "lucide-react";
 import Image from 'next/image';
 import Link from 'next/link';
 import { PartnerCarousel } from "@/components/partner-carousel";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 export default function Home() {
   return (
@@ -216,6 +217,36 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Testimonial Section */}
+        <section id="testimonials" className="w-full py-12 md:py-20 lg:py-24 bg-secondary/50">
+            <div className="container mx-auto px-4 md:px-6">
+                <div className="text-center space-y-3 mb-12">
+                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
+                        What Our Landlords Are Saying
+                    </h2>
+                    <p className="max-w-[600px] mx-auto text-muted-foreground md:text-xl/relaxed">
+                        Thousands of landlords trust our platform to find the best tenants.
+                    </p>
+                </div>
+                <div className="mx-auto grid max-w-5xl items-stretch gap-8 sm:grid-cols-1 md:grid-cols-2">
+                    <TestimonialCard
+                        quote="Trust Stamp has revolutionized how I manage my properties. The tenant screening process is fast, thorough, and has saved me from countless potential headaches. I found a fantastic, reliable tenant in under a week."
+                        author="Sarah D."
+                        role="Property Manager, Harare"
+                        avatarSrc="https://placehold.co/100x100.png"
+                        avatarHint="woman portrait"
+                    />
+                    <TestimonialCard
+                        quote="As a first-time landlord, I was nervous about finding the right person for my flat. Trust Stamp made it so easy. Their reports are detailed and easy to understand. I highly recommend it to any landlord in Zimbabwe."
+                        author="Mike P."
+                        role="Landlord, Bulawayo"
+                        avatarSrc="https://placehold.co/100x100.png"
+                        avatarHint="man portrait"
+                    />
+                </div>
+            </div>
+        </section>
+
         {/* Trust & Social Proof Section */}
         <section id="trust" className="w-full py-12 md:py-20 lg:py-24 bg-primary text-primary-foreground">
             <div className="container mx-auto px-4 md:px-6">
@@ -292,4 +323,24 @@ function HowItWorksStep({ step, title, description }: { step: string; title: str
       <p className="text-muted-foreground">{description}</p>
     </div>
   );
+}
+
+function TestimonialCard({ quote, author, role, avatarSrc, avatarHint }: { quote: string, author: string, role: string, avatarSrc: string, avatarHint: string }) {
+    return (
+        <Card className="flex flex-col p-6 items-center text-center bg-card">
+            <CardContent className="p-0">
+                <blockquote className="text-lg italic text-foreground">"{quote}"</blockquote>
+            </CardContent>
+            <CardFooter className="p-0 mt-4 flex items-center gap-3">
+                <Avatar className="h-12 w-12">
+                    <AvatarImage src={avatarSrc} alt={author} data-ai-hint={avatarHint} />
+                    <AvatarFallback>{author.split(" ").map(n => n[0]).join("")}</AvatarFallback>
+                </Avatar>
+                <div>
+                    <p className="font-semibold text-left">{author}</p>
+                    <p className="text-sm text-muted-foreground text-left">{role}</p>
+                </div>
+            </CardFooter>
+        </Card>
+    );
 }
