@@ -19,7 +19,7 @@ export default function Home() {
                     Find Your Ideal Tenant, Faster.
                 </h1>
                 <p className="max-w-3xl mx-auto text-lg md:text-xl text-primary-foreground/90" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.8)' }}>
-                    Trust Stamp provides the most comprehensive tenant screening service, giving you the confidence to make smarter leasing decisions.
+                    Zimbabwe Rent Book provides the most comprehensive tenant screening service, giving you the confidence to make smarter leasing decisions.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Button asChild size="lg" className="rounded-full px-8 h-12 text-lg font-semibold shadow-lg transition-transform hover:scale-105">
@@ -38,7 +38,7 @@ export default function Home() {
             <div className="container mx-auto px-4 md:px-6">
                 <div className="text-center space-y-3 mb-12">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
-                    Trust Stamp benefits property managers and tenants
+                    Zimbabwe Rent Book benefits property managers and tenants
                 </h2>
                 </div>
                 <div className="mx-auto grid max-w-5xl items-stretch gap-8 sm:grid-cols-1 md:grid-cols-2">
@@ -230,14 +230,14 @@ export default function Home() {
                 </div>
                 <div className="mx-auto grid max-w-5xl items-stretch gap-8 sm:grid-cols-1 md:grid-cols-2">
                     <TestimonialCard
-                        quote="Trust Stamp has revolutionized how I manage my properties. The tenant screening process is fast, thorough, and has saved me from countless potential headaches. I found a fantastic, reliable tenant in under a week."
+                        quote="Zimbabwe Rent Book has revolutionized how I manage my properties. The tenant screening process is fast, thorough, and has saved me from countless potential headaches. I found a fantastic, reliable tenant in under a week."
                         author="Sarah D."
                         role="Property Manager, Harare"
                         avatarSrc="https://placehold.co/100x100.png"
                         avatarHint="woman portrait"
                     />
                     <TestimonialCard
-                        quote="As a first-time landlord, I was nervous about finding the right person for my flat. Trust Stamp made it so easy. Their reports are detailed and easy to understand. I highly recommend it to any landlord in Zimbabwe."
+                        quote="As a first-time landlord, I was nervous about finding the right person for my flat. Zimbabwe Rent Book made it so easy. Their reports are detailed and easy to understand. I highly recommend it to any landlord in Zimbabwe."
                         author="Mike P."
                         role="Landlord, Bulawayo"
                         avatarSrc="https://placehold.co/100x100.png"

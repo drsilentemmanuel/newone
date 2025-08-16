@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { TrustStampLogo } from '@/components/trust-stamp-logo';
+import { ZimbabweRentBookLogo } from '@/components/zimbabwe-rent-book-logo';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 
@@ -52,7 +52,7 @@ export function Footer() {
           </div>
         </div>
         <div className="border-t border-primary-foreground/10 py-6">
-            <p className="text-center text-sm text-primary-foreground/70">© 2025 Trust Stamp. All rights reserved.</p>
+            <p className="text-center text-sm text-primary-foreground/70">© 2025 Zimbabwe Rent Book. All rights reserved.</p>
         </div>
       </div>
     </footer>

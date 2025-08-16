@@ -53,7 +53,7 @@ export default function TenantDashboardPage() {
                     <Button asChild variant="outline" className="h-auto p-4 flex flex-col gap-2 items-start text-left">
                         <Link href="/dashboard/tenant-profile">
                             <ShieldCheck className="h-6 w-6 text-primary" />
-                            <span className="font-semibold">View My Trust Stamp Profile</span>
+                            <span className="font-semibold">View My Profile</span>
                             <span className="text-xs text-muted-foreground">See your detailed report and score.</span>
                         </Link>
                     </Button>
@@ -68,7 +68,7 @@ export default function TenantDashboardPage() {
                         <Link href="/dashboard/tenant/consent">
                             <Handshake className="h-6 w-6 text-primary" />
                             <span className="font-semibold">Manage Consent</span>
-                            <span className="text-xs text-muted-foreground">Control who can see your Trust Stamp profile.</span>
+                            <span className="text-xs text-muted-foreground">Control who can see your profile.</span>
                         </Link>
                     </Button>
                 </CardContent>
@@ -77,7 +77,7 @@ export default function TenantDashboardPage() {
             <Card>
                 <CardHeader>
                     <CardTitle>Recent Enquiries About Me</CardTitle>
-                    <CardDescription>This is a log of recent credit and Trust Stamp checks performed on your profile.</CardDescription>
+                    <CardDescription>This is a log of recent credit and profile checks performed on your profile.</CardDescription>
                 </CardHeader>
                 <CardContent>
                     <Table>

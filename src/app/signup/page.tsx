@@ -15,7 +15,7 @@ export default function SignupPage() {
         <CardHeader>
           <CardTitle className="text-2xl">Register</CardTitle>
           <CardDescription>
-            Create an account to get started with Trust Stamp
+            Create an account to get started with Zimbabwe Rent Book
           </CardDescription>
         </CardHeader>
         <CardContent>

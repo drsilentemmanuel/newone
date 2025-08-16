@@ -14,7 +14,7 @@ export default function DisputeDataPage() {
             <Card>
                 <CardHeader>
                     <CardTitle>Submit a New Dispute</CardTitle>
-                    <CardDescription>If you believe there is an error on your Trust Stamp profile, please let us know.</CardDescription>
+                    <CardDescription>If you believe there is an error on your profile, please let us know.</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
                     <div className="space-y-2">

@@ -39,7 +39,7 @@ import { DashboardHeader } from '@/components/dashboard-header';
 import { useUser } from '@/context/user-context';
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
-import { TrustStampLogo } from '@/components/trust-stamp-logo';
+import { ZimbabweRentBookLogo } from '@/components/zimbabwe-rent-book-logo';
 
 export default function DashboardLayout({
     children,
@@ -317,8 +317,8 @@ export default function DashboardLayout({
                 <Sidebar>
                     <div className="flex h-16 shrink-0 items-center border-b px-4 bg-background">
                         <Link href="/dashboard" className="flex items-center gap-2">
-                            <TrustStampLogo className="h-8 w-8 text-primary" />
-                            <span className="text-lg font-semibold">Trust Stamp</span>
+                            <ZimbabweRentBookLogo className="h-8 w-8 text-primary" />
+                            <span className="text-lg font-semibold">Zimbabwe Rent Book</span>
                         </Link>
                     </div>
                     <SidebarContent className="bg-background">

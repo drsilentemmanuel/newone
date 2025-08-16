@@ -6,7 +6,7 @@ import { ConditionalLayout } from '@/components/conditional-layout';
 import { UserProvider } from '@/context/user-context';
 
 export const metadata: Metadata = {
-  title: 'Trust Stamp - Tenant & Landlord Network',
+  title: 'Zimbabwe Rent Book - Tenant & Landlord Network',
   description: 'Connecting landlords and tenants in Zimbabwe.',
 };
 

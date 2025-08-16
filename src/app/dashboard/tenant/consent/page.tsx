@@ -16,7 +16,7 @@ export default function ConsentManagementPage() {
             <Card>
                 <CardHeader>
                     <CardTitle>Manage Data Sharing</CardTitle>
-                    <CardDescription>You have full control over which verified agents and landlords can view your Trust Stamp profile.</CardDescription>
+                    <CardDescription>You have full control over which verified agents and landlords can view your profile.</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
                      <div className="space-y-2">

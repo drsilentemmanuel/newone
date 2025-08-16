@@ -19,8 +19,8 @@ import Link from "next/link";
 
 const faqs = [
   {
-    question: "Does using ZimTPN cost money?",
-    answer: "ZimTPN offers both free and premium features. Basic profile creation and searching is free for all users. Advanced features like detailed credit checks, e-signing, and premium support may require a subscription or a one-time fee.",
+    question: "Does using Zimbabwe Rent Book cost money?",
+    answer: "Zimbabwe Rent Book offers both free and premium features. Basic profile creation and searching is free for all users. Advanced features like detailed credit checks, e-signing, and premium support may require a subscription or a one-time fee.",
   },
   {
     question: "What is the timeline to receive a payment deposit?",
@@ -32,7 +32,7 @@ const faqs = [
   },
   {
     question: "How long does it take to post on 3rd party sites?",
-    answer: "When you market a property through ZimTPN, it is typically syndicated to our partner sites within 24-48 hours. However, the exact time can vary depending on the third-party platform.",
+    answer: "When you market a property through Zimbabwe Rent Book, it is typically syndicated to our partner sites within 24-48 hours. However, the exact time can vary depending on the third-party platform.",
   },
   {
     question: "What is included in Premium?",
@@ -84,7 +84,7 @@ export default function HelpPage() {
           <HelpOptionCard
             icon={<MessageSquare className="h-7 w-7 text-primary" />}
             title="Send Us a Message"
-            description="Our Zim TPN-based team is here to help! Start a chat or send us an email."
+            description="Our team is here to help! Start a chat or send us an email."
             buttonText="CHAT WITH US"
             buttonLink="/dashboard/support"
            />

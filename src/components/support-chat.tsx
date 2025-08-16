@@ -83,7 +83,7 @@ export function SupportChat() {
     <Card className="flex flex-col h-[70vh] w-full max-w-2xl mx-auto">
       <CardHeader>
         <CardTitle>Chat Support</CardTitle>
-        <CardDescription>Get help with your Trust Stamp account. Ask me anything!</CardDescription>
+        <CardDescription>Get help with your Zimbabwe Rent Book account. Ask me anything!</CardDescription>
       </CardHeader>
       <CardContent className="flex-grow overflow-hidden">
         <ScrollArea className="h-full pr-4" ref={scrollAreaRef}>

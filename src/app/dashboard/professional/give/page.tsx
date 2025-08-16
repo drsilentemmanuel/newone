@@ -24,7 +24,7 @@ const HowItWorksStep = ({ icon, title, description }: { icon: React.ReactNode, t
 
 export default function GivePage() {
     const { toast } = useToast();
-    const referralLink = "https://www.zimtpn.com/r/P4r0-1d"; // Mock link
+    const referralLink = "https://www.zimbabwerentbook.com/r/P4r0-1d"; // Mock link
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
 
@@ -78,7 +78,7 @@ export default function GivePage() {
                              <ul className="space-y-6">
                                 <HowItWorksStep
                                     icon={<Mail className="h-8 w-8" />}
-                                    title="1. Invite Them to ZimTPN"
+                                    title="1. Invite Them to Zimbabwe Rent Book"
                                     description="Share your link or enter their email."
                                 />
                                 <HowItWorksStep
@@ -136,7 +136,7 @@ export default function GivePage() {
                              <form onSubmit={handleSendInvite} className="space-y-4">
                                 <div>
                                     <Label htmlFor="email" className="font-semibold">Invite Landlords by Email</Label>
-                                    <p className="text-sm text-muted-foreground mb-2">We'll send them an email inviting them to sign up for ZimTPN.</p>
+                                    <p className="text-sm text-muted-foreground mb-2">We'll send them an email inviting them to sign up for Zimbabwe Rent Book.</p>
                                     <Input 
                                         id="email" 
                                         type="email" 

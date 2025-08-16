@@ -51,7 +51,7 @@ const TenantTpnReport = () => (
         <Card>
             <CardHeader className="flex flex-row items-center justify-between">
                 <div>
-                    <CardTitle>My Trust Stamp Profile Report</CardTitle>
+                    <CardTitle>My Profile Report</CardTitle>
                     <CardDescription>A summary of your rental and credit history.</CardDescription>
                 </div>
                 <Button variant="outline"><Download className="mr-2 h-4 w-4" /> Download PDF</Button>
@@ -141,10 +141,10 @@ const TenantTpnReport = () => (
 export default function TenantProfilePage() {
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-6 font-headline">My Trust Stamp Profile</h1>
+      <h1 className="text-3xl font-bold mb-6 font-headline">My Profile</h1>
       <Tabs defaultValue="report">
         <TabsList className="grid w-full grid-cols-2">
-          <TabsTrigger value="report">My Trust Stamp Report</TabsTrigger>
+          <TabsTrigger value="report">My Report</TabsTrigger>
           <TabsTrigger value="insights">AI Insights</TabsTrigger>
         </TabsList>
         <TabsContent value="report" className="mt-6">
