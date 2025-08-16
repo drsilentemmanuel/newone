@@ -12,7 +12,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
         {/* New Hero Section */}
-        <section className="relative h-[60vh] min-h-[500px] w-full flex items-center justify-center text-center text-white bg-cover bg-center" style={{backgroundImage: "url('/banner1.jpg')"}}>
+        <section className="relative h-[60vh] min-h-[500px] w-full flex items-center justify-center text-center text-white bg-cover bg-center" style={{backgroundImage: "url('/drone.jpg')"}}>
             <div className="absolute inset-0 bg-black/50" />
             <div className="relative z-10 container mx-auto px-4 md:px-6 space-y-6">
                 <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl !leading-tight font-headline" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}>
