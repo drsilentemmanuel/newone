@@ -1,4 +1,3 @@
-
 import Link from 'next/link';
 import { ZimbabweRentBookLogo } from '@/components/zimbabwe-rent-book-logo';
 import { Input } from '@/components/ui/input';
@@ -11,7 +10,7 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-8 py-12 text-center sm:text-left sm:grid-cols-2 md:grid-cols-4 md:py-16">
           <div className="space-y-4 flex flex-col items-center sm:items-start">
             <p className="text-sm text-primary-foreground/80 max-w-xs">
-              Subscribe for the latest news and features. We respect your privacy.
+              Subscribe for the latest news and features. We won't share your email with anyone.
             </p>
              <form className="flex w-full max-w-sm items-center space-x-2">
               <Input
@@ -44,7 +43,7 @@ export function Footer() {
           </div>
 
           <div className="space-y-2">
-            <h3 className="font-semibold tracking-wider uppercase text-primary-foreground/70">TERMS OF USE</h3>
+            <h3 className="font-semibold tracking-wider uppercase text-primary-foreground/70">Legal</h3>
             <ul className="space-y-2 text-sm">
               <li><Link href="/terms" className="hover:text-primary-foreground/80 transition-colors">Terms and conditions</Link></li>
               <li><Link href="#" className="hover:text-primary-foreground/80 transition-colors">Fees</Link></li>
