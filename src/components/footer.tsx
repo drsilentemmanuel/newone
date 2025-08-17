@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ZimbabweRentBookLogo } from '@/components/zimbabwe-rent-book-logo';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Phone } from 'lucide-react';
+import { Facebook, Linkedin, Phone } from 'lucide-react';
 
 const WhatsAppIcon = () => (
     <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="currentColor">
@@ -40,6 +40,18 @@ export function Footer() {
               <li><Link href="#" className="hover:text-primary-foreground/80 transition-colors">Mission</Link></li>
               <li><Link href="#" className="hover:text-primary-foreground/80 transition-colors">Vision</Link></li>
               <li><Link href="#" className="hover:text-primary-foreground/80 transition-colors">Our Team</Link></li>
+              <li>
+                <a href="https://www.facebook.com/truststampzim/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center sm:justify-start gap-2 hover:text-primary-foreground/80 transition-colors">
+                    <Facebook className="h-4 w-4" />
+                    <span>Facebook</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/company/101651553/admin/dashboard/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center sm:justify-start gap-2 hover:text-primary-foreground/80 transition-colors">
+                    <Linkedin className="h-4 w-4" />
+                    <span>LinkedIn</span>
+                </a>
+              </li>
             </ul>
           </div>
 
