@@ -39,6 +39,8 @@ export function Footer() {
               <li><Link href="/dashboard/support" className="hover:text-primary-foreground/80 transition-colors">Support</Link></li>
               <li><Link href="#" className="hover:text-primary-foreground/80 transition-colors">FAQs</Link></li>
               <li><Link href="#" className="hover:text-primary-foreground/80 transition-colors">Contact Us</Link></li>
+              <li><a href="tel:+263771501737" className="hover:text-primary-foreground/80 transition-colors">Phone: +263 771 501 737</a></li>
+              <li><a href="https://wa.me/263771501737" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground/80 transition-colors">WhatsApp Chat</a></li>
             </ul>
           </div>
 
@@ -52,7 +54,7 @@ export function Footer() {
           </div>
         </div>
         <div className="border-t border-primary-foreground/10 py-6 text-center text-sm text-primary-foreground/70">
-            <p className="font-bold text-base">Zimbabwe Rent Book</p>
+            <p className="font-bold text-base">Trust Stamp: Zimbabwe Rent Book</p>
             <p>Powered by Trust Stamp</p>
             <p className="mt-4 text-xs">© 2025 Zimbabwe Rent Book. All rights reserved.</p>
         </div>
