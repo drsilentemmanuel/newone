@@ -185,7 +185,7 @@ export default function Home() {
               Confidently choose a tenant.
             </h2>
             <Button asChild size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 rounded-full px-8">
-              <Link href="/signup">Get Started</Link>
+              <Link href="/signup">Get Started for Free</Link>
             </Button>
           </div>
         </section>
