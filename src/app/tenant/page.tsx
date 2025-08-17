@@ -1,18 +1,26 @@
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export default function TenantPage() {
   return (
-    <div className="container mx-auto py-12 md:py-16">
-      <Card>
+    <div className="container mx-auto py-12 md:py-24 flex items-center justify-center">
+      <Card className="max-w-2xl text-center">
         <CardHeader>
-          <CardTitle className="text-3xl font-bold font-headline">
-            Tenant Resources
+          <CardTitle className="text-3xl font-bold font-headline md:text-4xl">
+            Get Approved Faster. Build Your Rental Reputation.
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <p>This is the landing page for Tenants. Content specific to tenants will be displayed here.</p>
+          <p className="text-lg text-muted-foreground">Create a verified profile that proves your reliability to landlords and agents. Stand out from the crowd.</p>
         </CardContent>
+        <CardFooter className="justify-center">
+            <Button asChild size="lg">
+                <Link href="/signup">Create Your Profile Today <ArrowRight className="ml-2 h-5 w-5" /></Link>
+            </Button>
+        </CardFooter>
       </Card>
     </div>
   );
