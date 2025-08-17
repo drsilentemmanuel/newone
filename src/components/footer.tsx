@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import { ZimbabweRentBookLogo } from '@/components/zimbabwe-rent-book-logo';
 import { Input } from '@/components/ui/input';
@@ -51,8 +52,10 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <div className="border-t border-primary-foreground/10 py-6">
-            <p className="text-center text-sm text-primary-foreground/70">© 2025 Zimbabwe Rent Book. All rights reserved.</p>
+        <div className="border-t border-primary-foreground/10 py-6 text-center text-sm text-primary-foreground/70">
+            <p className="font-bold text-base">Zimbabwe Rent Book</p>
+            <p>Powered by Trust Stamp</p>
+            <p className="mt-4 text-xs">© 2025 Zimbabwe Rent Book. All rights reserved.</p>
         </div>
       </div>
     </footer>
