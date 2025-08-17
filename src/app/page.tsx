@@ -41,7 +41,7 @@ export default function Home() {
             <div className="container mx-auto px-4 md:px-6">
                 <div className="text-center space-y-3 mb-12">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
-                    A Better Alternative for Zimbabwe Rent Book
+                    Built for Landlords, Agents, and Tenants
                 </h2>
                 </div>
                 <div className="mx-auto grid max-w-5xl items-stretch gap-8 sm:grid-cols-1 md:grid-cols-2">
