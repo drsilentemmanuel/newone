@@ -41,7 +41,7 @@ export default function Home() {
             <div className="container mx-auto px-4 md:px-6">
                 <div className="text-center space-y-3 mb-12">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
-                    Zimbabwe Rent Book benefits property managers and tenants
+                    A Better Alternative for Zimbabwe Rent Book
                 </h2>
                 </div>
                 <div className="mx-auto grid max-w-5xl items-stretch gap-8 sm:grid-cols-1 md:grid-cols-2">
@@ -58,24 +58,23 @@ export default function Home() {
                         />
                     </div>
                     <CardHeader className="p-0 mb-4">
-                        <CardTitle>Benefits As Property Owner</CardTitle>
+                        <CardTitle>Benefits for Landlords & Agents</CardTitle>
                     </CardHeader>
                     <CardContent className="flex flex-col flex-grow p-0 text-left">
                         <ul className="space-y-3">
                             <li className="flex items-start gap-3">
                             <CheckCircle2 className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                            <span>See a fuller picture of your tenant.</span>
+                            <span>Screen tenants instantly – no more chasing references.</span>
                             </li>
                             <li className="flex items-start gap-3">
                             <CheckCircle2 className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                            <span>Start screening quickly – no waiting periods or setup fees.</span>
+                            <span>Protect your income – reduce the risk of defaults & evictions.</span>
                             </li>
                             <li className="flex items-start gap-3">
                             <CheckCircle2 className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                            <span>Our TPN Score® predicts rental eviction risk 15% better than traditional credit scores.*</span>
+                            <span>All-in-one management – rent tracking, lease management, and reminders.</span>
                             </li>
                         </ul>
-                        <p className="mt-auto pt-4 text-xs text-muted-foreground">*Based on TransUnion 2016 Study</p>
                     </CardContent>
                 </Card>
 
@@ -92,21 +91,21 @@ export default function Home() {
                         />
                     </div>
                     <CardHeader className="p-0 mb-4">
-                        <CardTitle>Benefits For Your Tenant</CardTitle>
+                        <CardTitle>Benefits for Tenants</CardTitle>
                     </CardHeader>
                     <CardContent className="flex flex-col flex-grow p-0 text-left">
                         <ul className="space-y-3">
                             <li className="flex items-start gap-3">
                             <CheckCircle2 className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                            <span>Most reports delivered same day.</span>
+                            <span>Get approved faster – stand out with a verified rental profile.</span>
                             </li>
                             <li className="flex items-start gap-3">
                             <CheckCircle2 className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                            <span>They consent online to share the reports with the property owner.</span>
+                            <span>Full transparency – you control which landlords see your profile.</span>
                             </li>
                             <li className="flex items-start gap-3">
                             <CheckCircle2 className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                            <span>No impact to their credit score.</span>
+                            <span>Build trust over time – a good rental history makes your next lease easier.</span>
                             </li>
                         </ul>
                     </CardContent>
