@@ -230,19 +230,19 @@ export default function Home() {
                         What Our Landlords Are Saying
                     </h2>
                     <p className="max-w-[600px] mx-auto text-muted-foreground md:text-xl/relaxed">
-                        Thousands of landlords trust our platform to find the best tenants.
+                        Thousands of landlords are finding success on our platform.
                     </p>
                 </div>
                 <div className="mx-auto grid max-w-5xl items-stretch gap-8 sm:grid-cols-1 md:grid-cols-2">
                     <TestimonialCard
-                        quote="Zimbabwe Rent Book has revolutionized how I manage my properties. The tenant screening process is fast, thorough, and has saved me from countless potential headaches. I found a fantastic, reliable tenant in under a week."
+                        quote="Zimbabwe Rent Book has completely changed how I manage my properties. The screening process is fast and thorough, and it saved me from countless potential headaches. I found a fantastic, reliable tenant in just 4 days."
                         author="Sarah D."
                         role="Property Manager, Harare"
                         avatarSrc="https://placehold.co/100x100.png"
                         avatarHint="woman portrait"
                     />
                     <TestimonialCard
-                        quote="As a first-time landlord, I was nervous about finding the right person for my flat. Zimbabwe Rent Book made it so easy. Their reports are detailed and easy to understand. I highly recommend it to any landlord in Zimbabwe."
+                        quote="As a first-time landlord, I was nervous about finding the right person for my flat. Zimbabwe Rent Book made it so easy. Their reports are detailed and easy to understand, and I saved weeks of stress. I highly recommend it to any landlord in Zimbabwe."
                         author="Mike P."
                         role="Landlord, Bulawayo"
                         avatarSrc="https://placehold.co/100x100.png"
@@ -332,8 +332,8 @@ function HowItWorksStep({ step, title, description }: { step: string; title: str
 
 function TestimonialCard({ quote, author, role, avatarSrc, avatarHint }: { quote: string, author: string, role: string, avatarSrc: string, avatarHint: string }) {
     return (
-        <Card className="flex flex-col p-6 items-center text-center bg-card">
-            <CardContent className="p-0">
+        <Card className="flex flex-col p-6 items-start text-left bg-card h-full">
+            <CardContent className="p-0 flex-grow">
                 <blockquote className="text-lg italic text-foreground">"{quote}"</blockquote>
             </CardContent>
             <CardFooter className="p-0 mt-4 flex items-center gap-3">
@@ -342,8 +342,8 @@ function TestimonialCard({ quote, author, role, avatarSrc, avatarHint }: { quote
                     <AvatarFallback>{author.split(" ").map(n => n[0]).join("")}</AvatarFallback>
                 </Avatar>
                 <div>
-                    <p className="font-semibold text-left">{author}</p>
-                    <p className="text-sm text-muted-foreground text-left">{role}</p>
+                    <p className="font-semibold">{author}</p>
+                    <p className="text-sm text-muted-foreground">{role}</p>
                 </div>
             </CardFooter>
         </Card>
