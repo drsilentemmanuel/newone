@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
-import { ShieldCheck, TrendingUp, ClipboardCheck, CheckCircle2, Search, Users, FileText, Blocks, FileCheck2, CreditCard, UserCheck, History, BadgeDollarSign } from "lucide-react";
+import { ShieldCheck, TrendingUp, ClipboardCheck, CheckCircle2, Search, Users, FileText, Blocks } from "lucide-react";
 import Image from 'next/image';
 import Link from 'next/link';
 import { PartnerCarousel } from "@/components/partner-carousel";
@@ -16,17 +16,20 @@ export default function Home() {
             <div className="absolute inset-0 bg-black/50" />
             <div className="relative z-10 container mx-auto px-4 md:px-6 space-y-6">
                 <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl !leading-tight font-headline" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}>
-                    Find Your Ideal Tenant, Faster.
+                    The Smarter Way to Rent in Zimbabwe.
                 </h1>
                 <p className="max-w-3xl mx-auto text-lg md:text-xl text-primary-foreground/90" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.8)' }}>
-                    Zimbabwe Rent Book provides the most comprehensive tenant screening service, giving you the confidence to make smarter leasing decisions.
+                    Tools for Landlords, Agents, and Tenants — built to make renting safe, simple, and fair.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Button asChild size="lg" className="rounded-full px-8 h-12 text-lg font-semibold shadow-lg transition-transform hover:scale-105">
-                        <Link href="/signup">Get Started for Free</Link>
+                        <Link href="/landlord">I’m a Landlord</Link>
                     </Button>
                     <Button asChild size="lg" variant="secondary" className="rounded-full px-8 h-12 text-lg font-semibold shadow-lg transition-transform hover:scale-105 bg-white/20 text-white hover:bg-white/30 border-white/50 border">
-                        <Link href="/dashboard/landlord/new-enquiry">Screen a Tenant</Link>
+                        <Link href="/agent">I’m an Agent</Link>
+                    </Button>
+                     <Button asChild size="lg" className="rounded-full px-8 h-12 text-lg font-semibold shadow-lg transition-transform hover:scale-105">
+                        <Link href="/tenant">I’m a Tenant</Link>
                     </Button>
                 </div>
             </div>
