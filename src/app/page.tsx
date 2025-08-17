@@ -119,29 +119,29 @@ export default function Home() {
             <div className="container mx-auto px-4 md:px-6">
                 <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
                     <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
-                        Screen and lease with confidence
+                        Screen & Lease with Confidence
                     </h2>
                 </div>
                 <div className="mx-auto grid max-w-5xl items-stretch gap-8 sm:grid-cols-2 md:grid-cols-4">
                     <ScreeningFeatureCard
                         icon={<Search className="h-6 w-6 text-primary-foreground/80" />}
-                        title="Deeds Search"
-                        description="Verify property ownership and legal details before committing to any transaction."
+                        title="Tenant Screening"
+                        description="Run background and risk checks to ensure you’re renting to reliable tenants."
                     />
                     <ScreeningFeatureCard
                         icon={<Users className="h-6 w-6 text-primary-foreground/80" />}
-                        title="Credit Bureau Services"
-                        description="Comprehensive risk profiling for tenants, schools, and businesses to make informed, data-driven decisions."
+                        title="Lease Management"
+                        description="Use compliant lease templates and digital signing to streamline agreements."
                     />
                     <ScreeningFeatureCard
                         icon={<FileText className="h-6 w-6 text-primary-foreground/80" />}
-                        title="Toolkits & Documentation Packs"
-                        description="Legally compliant templates for leases, reports, property sales, and more — saving time and ensuring accuracy."
+                        title="Rent Tracking & Collections"
+                        description="Track rent payments, send reminders, and manage collections seamlessly."
                     />
                     <ScreeningFeatureCard
                         icon={<Blocks className="h-6 w-6 text-primary-foreground/80" />}
-                        title="Collections & Compliance Platforms"
-                        description="Streamlined systems for rental and school fee collections, secure e-signing, and POPIA compliance management."
+                        title="Ownership Verification (Optional Add-on)"
+                        description="Confirm property ownership details with Deeds Office search before transacting."
                     />
                 </div>
             </div>
