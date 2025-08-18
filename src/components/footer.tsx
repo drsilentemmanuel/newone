@@ -88,7 +88,7 @@ export function Footer() {
 
           <div className="space-y-4 flex flex-col items-center sm:items-start">
              <div className="mb-2">
-                <Image src="/Trust Stamp Logo.png" alt="Trust Stamp Logo" width={80} height={80} />
+                <Image src="/truststamplogoblue.png" alt="Trust Stamp Logo" width={80} height={80} />
              </div>
              <div className="flex justify-center sm:justify-start space-x-4">
                   <a href="https://www.linkedin.com/company/101651553/admin/dashboard/" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground/80 transition-colors">
