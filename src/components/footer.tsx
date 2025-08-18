@@ -21,7 +21,7 @@ const AppStoreButton = () => (
 
 const GooglePlayButton = () => (
     <a href="#" className="inline-block">
-        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" className="h-[3.75rem]"/>
+        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" className="h-10"/>
     </a>
 )
 
@@ -101,9 +101,9 @@ export function Footer() {
                     <Youtube className="h-5 w-5" />
                   </a>
               </div>
-              <div className="flex flex-col space-y-4 items-center sm:items-start">
-                    <AppStoreButton />
-                    <GooglePlayButton />
+              <div className="space-y-4">
+                <AppStoreButton />
+                <GooglePlayButton />
               </div>
           </div>
         </div>
