@@ -30,7 +30,7 @@ export function Footer() {
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 gap-8 py-12 text-center sm:text-left sm:grid-cols-2 md:grid-cols-5 md:py-16">
-          <div className="space-y-4 flex flex-col items-center sm:items-start col-span-1">
+          <div className="space-y-4 flex flex-col items-center sm:items-start col-span-1 md:col-span-1">
             <p className="text-sm text-primary-foreground/80 max-w-xs">
               Subscribe for the latest news and features. We won't share your email with anyone.
             </p>
