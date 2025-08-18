@@ -21,7 +21,7 @@ const AppStoreButton = () => (
 
 const GooglePlayButton = () => (
     <a href="#" className="inline-block">
-        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" className="h-10"/>
+        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" className="h-[3.75rem]"/>
     </a>
 )
 
