@@ -14,13 +14,13 @@ const WhatsAppIcon = () => (
 );
 
 const AppStoreButton = () => (
-    <a href="#" className="inline-block">
+    <a href="https://www.apple.com/app-store/" target="_blank" rel="noopener noreferrer" className="inline-block">
         <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" className="h-10"/>
     </a>
 )
 
 const GooglePlayButton = () => (
-    <a href="#" className="inline-block">
+    <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer" className="inline-block">
         <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" className="h-[3.75rem] -ml-2"/>
     </a>
 )
@@ -88,7 +88,9 @@ export function Footer() {
 
           <div className="space-y-4 flex flex-col items-center sm:items-start">
              <div className="mb-2">
-                <Image src="/truststamplogoblue.png" alt="Trust Stamp Logo" width={64} height={64} />
+                <Link href="https://www.truststamp.co.zw/" target="_blank" rel="noopener noreferrer">
+                    <Image src="/truststamplogoblue.png" alt="Trust Stamp Logo" width={64} height={64} />
+                </Link>
              </div>
              <div className="flex justify-center sm:justify-start space-x-4">
                   <a href="https://www.linkedin.com/company/101651553/admin/dashboard/" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground/80 transition-colors">
