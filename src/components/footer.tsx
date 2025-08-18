@@ -101,7 +101,7 @@ export function Footer() {
                     <Youtube className="h-5 w-5" />
                   </a>
               </div>
-              <div className="space-y-2">
+              <div className="flex flex-col items-center sm:items-start gap-2">
                 <AppStoreButton />
                 <GooglePlayButton />
               </div>
