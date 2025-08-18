@@ -4,6 +4,7 @@ import { ZimbabweRentBookLogo } from '@/components/zimbabwe-rent-book-logo';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Facebook, Linkedin, Phone, Instagram, Youtube } from 'lucide-react';
+import Image from 'next/image';
 
 const WhatsAppIcon = () => (
     <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="currentColor">
@@ -86,6 +87,9 @@ export function Footer() {
           </div>
 
           <div className="space-y-4 flex flex-col items-center sm:items-start">
+             <div className="mb-2">
+                <Image src="/Trust Stamp Logo.png" alt="Trust Stamp Logo" width={100} height={100} />
+             </div>
              <div className="flex justify-center sm:justify-start space-x-4">
                   <a href="https://www.linkedin.com/company/101651553/admin/dashboard/" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground/80 transition-colors">
                     <Linkedin className="h-5 w-5" />
