@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ZimbabweRentBookLogo } from '@/components/zimbabwe-rent-book-logo';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Facebook, Linkedin, Phone } from 'lucide-react';
+import { Facebook, Linkedin, Phone, Instagram, Youtube } from 'lucide-react';
 
 const WhatsAppIcon = () => (
     <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="currentColor">
@@ -19,13 +19,39 @@ const YouTubeIcon = () => (
     </svg>
 );
 
+const TikTokIcon = () => (
+    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="currentColor">
+        <title>TikTok</title>
+        <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-2.43.05-4.84-.95-6.43-2.8-1.59-1.87-2.32-4.2-1.86-6.45.54-2.66 2.75-4.72 5.5-5.37.58-.14 1.16-.22 1.75-.28v4.02c-1.14.02-2.28.05-3.42.08.06.87.24 1.73.54 2.54.51 1.38 1.66 2.49 3.04 2.96.95.31 1.95.37 2.92.2.85-.14 1.67-.47 2.39-.94.01-1.92.01-3.84.01-5.76-.01-1.19-.42-2.34-1.12-3.29-.81-1.09-2.02-1.74-3.34-1.91v-4.15c.44.02.88.04 1.32.06z" />
+    </svg>
+)
+
+const XIcon = () => (
+     <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="currentColor">
+        <title>X</title>
+        <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.931ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+    </svg>
+)
+
+
+const AppStoreButton = () => (
+    <a href="#" className="inline-block">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" className="h-10"/>
+    </a>
+)
+
+const GooglePlayButton = () => (
+    <a href="#" className="inline-block">
+        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" className="h-10"/>
+    </a>
+)
 
 export function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 gap-8 py-12 text-center sm:text-left sm:grid-cols-2 md:grid-cols-4 md:py-16">
-          <div className="space-y-4 flex flex-col items-center sm:items-start">
+        <div className="grid grid-cols-1 gap-8 py-12 text-center sm:text-left sm:grid-cols-2 md:grid-cols-5 md:py-16">
+          <div className="space-y-4 flex flex-col items-center sm:items-start col-span-1 md:col-span-2">
             <p className="text-sm text-primary-foreground/80 max-w-xs">
               Subscribe for the latest news and features. We won't share your email with anyone.
             </p>
@@ -47,24 +73,7 @@ export function Footer() {
               <li><Link href="#" className="hover:text-primary-foreground/80 transition-colors">Mission</Link></li>
               <li><Link href="#" className="hover:text-primary-foreground/80 transition-colors">Vision</Link></li>
               <li><Link href="#" className="hover:text-primary-foreground/80 transition-colors">Our Team</Link></li>
-              <li>
-                <a href="https://www.facebook.com/truststampzim/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center sm:justify-start gap-2 hover:text-primary-foreground/80 transition-colors">
-                    <Facebook className="h-4 w-4" />
-                    <span>Facebook</span>
-                </a>
-              </li>
-              <li>
-                <a href="https://www.linkedin.com/company/101651553/admin/dashboard/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center sm:justify-start gap-2 hover:text-primary-foreground/80 transition-colors">
-                    <Linkedin className="h-4 w-4" />
-                    <span>LinkedIn</span>
-                </a>
-              </li>
-               <li>
-                <a href="https://www.youtube.com/@TrustStamp" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center sm:justify-start gap-2 hover:text-primary-foreground/80 transition-colors">
-                    <YouTubeIcon />
-                    <span>YouTube</span>
-                </a>
-              </li>
+              
             </ul>
           </div>
 
@@ -97,7 +106,35 @@ export function Footer() {
               <li><Link href="/privacy" className="hover:text-primary-foreground/80 transition-colors">Privacy Policy</Link></li>
             </ul>
           </div>
+
+          <div className="space-y-4 flex flex-col items-center sm:items-start col-span-full md:col-span-1">
+             <div className="flex justify-center sm:justify-start space-x-4">
+                  <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground/80 transition-colors">
+                    <Instagram className="h-5 w-5" />
+                  </a>
+                  <a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground/80 transition-colors">
+                     <TikTokIcon />
+                  </a>
+                  <a href="https://www.linkedin.com/company/101651553/admin/dashboard/" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground/80 transition-colors">
+                    <Linkedin className="h-5 w-5" />
+                  </a>
+                  <a href="https://www.facebook.com/truststampzim/" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground/80 transition-colors">
+                    <Facebook className="h-5 w-5" />
+                  </a>
+                  <a href="https://www.youtube.com/@TrustStamp" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground/80 transition-colors">
+                    <Youtube className="h-5 w-5" />
+                  </a>
+                   <a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground/80 transition-colors">
+                    <XIcon />
+                  </a>
+              </div>
+              <div className="flex flex-col space-y-4 items-center sm:items-start">
+                    <AppStoreButton />
+                    <GooglePlayButton />
+              </div>
+          </div>
         </div>
+
         <div className="border-t border-primary-foreground/10 py-6 text-center text-sm text-primary-foreground/70">
             <p className="font-bold text-base">Trust Stamp: Zimbabwe Rent Book</p>
             <p>Powered by Trust Stamp</p>
