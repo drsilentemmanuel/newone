@@ -21,7 +21,7 @@ const AppStoreButton = () => (
 
 const GooglePlayButton = () => (
     <a href="#" className="inline-block">
-        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" className="h-[3.75rem]"/>
+        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" className="h-[3.75rem] -ml-2"/>
     </a>
 )
 
@@ -52,7 +52,7 @@ export function Footer() {
               <li><Link href="#" className="hover:text-primary-foreground/80 transition-colors">Mission</Link></li>
               <li><Link href="#" className="hover:text-primary-foreground/80 transition-colors">Vision</Link></li>
               <li><Link href="#" className="hover:text-primary-foreground/80 transition-colors">Our Team</Link></li>
-              
+              <li><Link href="#" className="hover:text-primary-foreground/80 transition-colors">Career</Link></li>
             </ul>
           </div>
 
@@ -88,7 +88,7 @@ export function Footer() {
 
           <div className="space-y-4 flex flex-col items-center sm:items-start">
              <div className="mb-2">
-                <Image src="/truststamplogoblue.png" alt="Trust Stamp Logo" width={80} height={80} />
+                <Image src="/truststamplogoblue.png" alt="Trust Stamp Logo" width={64} height={64} />
              </div>
              <div className="flex justify-center sm:justify-start space-x-4">
                   <a href="https://www.linkedin.com/company/101651553/admin/dashboard/" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground/80 transition-colors">
@@ -101,7 +101,7 @@ export function Footer() {
                     <Youtube className="h-5 w-5" />
                   </a>
               </div>
-              <div className="flex flex-col items-center sm:items-start gap-2">
+              <div className="flex flex-col items-center sm:items-start">
                 <AppStoreButton />
                 <GooglePlayButton />
               </div>
