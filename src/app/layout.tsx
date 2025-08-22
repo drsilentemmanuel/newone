@@ -5,10 +5,43 @@ import { Toaster } from "@/components/ui/toaster";
 import { ConditionalLayout } from '@/components/conditional-layout';
 import { UserProvider } from '@/context/user-context';
 
+const siteConfig = {
+  name: "Zimbabwe Rent Book",
+  description: "Connecting landlords and tenants in Zimbabwe with tools for tenant screening, rent collection, and legal compliance.",
+  url: "https://www.truststamp.co.zw/",
+  ogImage: "https://www.truststamp.co.zw/og.png",
+};
+
 export const metadata: Metadata = {
-  title: 'Zimbabwe Rent Book - Tenant & Landlord Network',
-  description: 'Connecting landlords and tenants in Zimbabwe.',
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
   manifest: '/manifest.json',
+  metadataBase: new URL(siteConfig.url),
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteConfig.url,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+        alt: siteConfig.name,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
+  },
 };
 
 export default function RootLayout({

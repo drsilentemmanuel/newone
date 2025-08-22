@@ -6,6 +6,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { PartnerCarousel } from "@/components/partner-carousel";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Zimbabwe Rent Book - The Smarter Way to Rent',
+  description: 'Connecting landlords, agents, and tenants in Zimbabwe. We offer tools for tenant screening, lease management, and secure rent collection to make renting simple and fair.',
+  alternates: {
+    canonical: '/',
+  },
+};
+
 
 export default function Home() {
   return (
