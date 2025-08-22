@@ -1,3 +1,4 @@
+
 import Link from "next/link"
 import {
   Card,
@@ -15,7 +16,7 @@ export default function SignupPage() {
         <CardHeader>
           <CardTitle className="text-2xl">Register</CardTitle>
           <CardDescription>
-            Create an account to get started with Zimbabwe Rent Book
+            Create an account to get started with Zimbabwe Landlord and tenants network
           </CardDescription>
         </CardHeader>
         <CardContent>

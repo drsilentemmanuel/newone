@@ -14,7 +14,7 @@ export default function LandlordPage() {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-lg text-muted-foreground">Screen tenants instantly, verify payment history, and protect your property income with Zimbabwe Rent Book.</p>
+          <p className="text-lg text-muted-foreground">Screen tenants instantly, verify payment history, and protect your property income with Zimbabwe Landlord and tenants network.</p>
         </CardContent>
         <CardFooter className="justify-center">
             <Button asChild size="lg">

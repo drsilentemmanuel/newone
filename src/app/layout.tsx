@@ -6,7 +6,7 @@ import { ConditionalLayout } from '@/components/conditional-layout';
 import { UserProvider } from '@/context/user-context';
 
 const siteConfig = {
-  name: "Zimbabwe Rent Book",
+  name: "Zimbabwe Landlord and tenants network",
   description: "Connecting landlords and tenants in Zimbabwe with tools for tenant screening, rent collection, and legal compliance.",
   url: "https://www.truststamp.co.zw/",
   ogImage: "https://www.truststamp.co.zw/og.png",

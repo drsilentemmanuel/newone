@@ -22,7 +22,7 @@ export function Header() {
         <div className="mr-4 flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
             <ZimbabweRentBookLogo className="h-8 w-8 text-primary" />
-            <span className="font-bold">Trust Stamp: Zimbabwe Rent Book</span>
+            <span className="font-bold">Zimbabwe Landlord and tenants network</span>
           </Link>
           <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
             {navLinks.map((link) => (
@@ -57,7 +57,7 @@ export function Header() {
                 <div className="flex justify-between items-center mb-6">
                    <Link href="/" className="mr-6 flex items-center space-x-2" onClick={() => setIsOpen(false)}>
                       <ZimbabweRentBookLogo className="h-8 w-8 text-primary" />
-                      <span className="font-bold">Trust Stamp: Zimbabwe Rent Book</span>
+                      <span className="font-bold">Zimbabwe Landlord and tenants network</span>
                     </Link>
                 </div>
                 <nav className="flex flex-col space-y-4">

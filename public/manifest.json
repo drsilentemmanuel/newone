@@ -1,30 +1,19 @@
+
 {
-  "theme_color": "#2E5A88",
-  "background_color": "#F5F5F5",
-  "display": "standalone",
-  "scope": "/",
+  "name": "Zimbabwe Landlord and tenants network",
+  "short_name": "ZimL&T",
   "start_url": "/",
-  "name": "Zim TPN - Tenant Profiling Network",
-  "short_name": "Zim TPN",
-  "description": "The Tenant & Landlord Network for Zimbabwe. Connecting landlords and tenants with trust and confidence.",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0066FF",
   "icons": [
     {
-      "src": "/icon-192x192.png",
+      "src": "/Trust Stamp Logo.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/icon-256x256.png",
-      "sizes": "256x256",
-      "type": "image/png"
-    },
-    {
-      "src": "/icon-384x384.png",
-      "sizes": "384x384",
-      "type": "image/png"
-    },
-    {
-      "src": "/icon-512x512.png",
+      "src": "/Trust Stamp Logo.png",
       "sizes": "512x512",
       "type": "image/png"
     }
