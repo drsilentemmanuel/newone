@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Facebook, Linkedin, Phone, Instagram, Youtube } from 'lucide-react';
 import Image from 'next/image';
+import { TrustStampLogo } from './trust-stamp-logo';
 
 const WhatsAppIcon = () => (
     <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="currentColor">
@@ -90,7 +91,7 @@ export function Footer() {
           <div className="space-y-4 flex flex-col items-center sm:items-start">
              <div className="mb-2">
                 <Link href="https://www.truststamp.co.zw/" target="_blank" rel="noopener noreferrer">
-                    <Image src="/logo.png" alt="Trust Stamp Logo" width={64} height={64} />
+                    <TrustStampLogo className="h-16 w-16" />
                 </Link>
              </div>
              <div className="flex justify-center sm:justify-start space-x-4">
