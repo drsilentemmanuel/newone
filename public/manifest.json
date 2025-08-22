@@ -1,15 +1,26 @@
 {
-  "name": "Zimbabwe Rent Book",
-  "short_name": "Rent Book",
-  "description": "The Tenant & Landlord Network of Zimbabwe",
-  "start_url": "/",
+  "theme_color": "#2E5A88",
+  "background_color": "#F5F5F5",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#0066FF",
+  "scope": "/",
+  "start_url": "/",
+  "name": "Zim TPN - Tenant Profiling Network",
+  "short_name": "Zim TPN",
+  "description": "The Tenant & Landlord Network for Zimbabwe. Connecting landlords and tenants with trust and confidence.",
   "icons": [
     {
       "src": "/icon-192x192.png",
       "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-384x384.png",
+      "sizes": "384x384",
       "type": "image/png"
     },
     {
