@@ -59,7 +59,7 @@ export default function CommunityPage() {
                             </li>
                             <li className="flex items-start gap-3">
                                 <CheckSquare className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                                <span>Stay up to date on the latest education from Zimbabwe Rent Book and its partners.</span>
+                                <span>Stay up to date on the latest education from Zimbabwe Landlord and Tenants Network and its partners.</span>
                             </li>
                         </ul>
                         <Button size="lg" asChild>

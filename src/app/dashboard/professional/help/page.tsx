@@ -19,8 +19,8 @@ import Link from "next/link";
 
 const faqs = [
   {
-    question: "Does using Zimbabwe Landlord and tenants network cost money?",
-    answer: "Zimbabwe Landlord and tenants network offers both free and premium features. Basic profile creation and searching is free for all users. Advanced features like detailed credit checks, e-signing, and premium support may require a subscription or a one-time fee.",
+    question: "Does using Zimbabwe Landlord and Tenants Network cost money?",
+    answer: "Zimbabwe Landlord and Tenants Network offers both free and premium features. Basic profile creation and searching is free for all users. Advanced features like detailed credit checks, e-signing, and premium support may require a subscription or a one-time fee.",
   },
   {
     question: "What is the timeline to receive a payment deposit?",
@@ -32,7 +32,7 @@ const faqs = [
   },
   {
     question: "How long does it take to post on 3rd party sites?",
-    answer: "When you market a property through Zimbabwe Landlord and tenants network, it is typically syndicated to our partner sites within 24-48 hours. However, the exact time can vary depending on the third-party platform.",
+    answer: "When you market a property through Zimbabwe Landlord and Tenants Network, it is typically syndicated to our partner sites within 24-48 hours. However, the exact time can vary depending on the third-party platform.",
   },
   {
     question: "What is included in Premium?",

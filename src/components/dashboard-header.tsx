@@ -28,7 +28,7 @@ export function DashboardHeader({ showSidebarTrigger = true }: { showSidebarTrig
                 ) : (
                     <Link href="/dashboard" className="flex items-center gap-2">
                         <ZimbabweRentBookLogo className="h-8 w-8 text-primary" />
-                        <span className="hidden text-lg font-semibold sm:inline-block">Zimbabwe Landlord and tenants network</span>
+                        <span className="hidden text-lg font-semibold sm:inline-block">Zimbabwe Landlord and Tenants Network</span>
                     </Link>
                 )}
             </div>

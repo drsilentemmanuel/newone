@@ -16,7 +16,7 @@ export default function SignupPage() {
         <CardHeader>
           <CardTitle className="text-2xl">Register</CardTitle>
           <CardDescription>
-            Create an account to get started with Zimbabwe Landlord and tenants network
+            Create an account to get started with Zimbabwe Landlord and Tenants Network
           </CardDescription>
         </CardHeader>
         <CardContent>

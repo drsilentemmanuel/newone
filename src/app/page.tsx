@@ -9,7 +9,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Zimbabwe Landlord and tenants network - The Smarter Way to Rent',
+  title: 'Zimbabwe Landlord and Tenants Network - The Smarter Way to Rent',
   description: 'Connecting landlords, agents, and tenants in Zimbabwe. We offer tools for tenant screening, lease management, and secure rent collection to make renting simple and fair.',
   alternates: {
     canonical: '/',
@@ -245,14 +245,14 @@ export default function Home() {
                 </div>
                 <div className="mx-auto grid max-w-5xl items-stretch gap-8 sm:grid-cols-1 md:grid-cols-2">
                     <TestimonialCard
-                        quote="Zimbabwe Landlord and tenants network has completely changed how I manage my properties. The screening process is fast and thorough, and it saved me from countless potential headaches. I found a fantastic, reliable tenant in just 4 days."
+                        quote="Zimbabwe Landlord and Tenants Network has completely changed how I manage my properties. The screening process is fast and thorough, and it saved me from countless potential headaches. I found a fantastic, reliable tenant in just 4 days."
                         author="Sarah D."
                         role="Property Manager, Harare"
                         avatarSrc="https://placehold.co/100x100.png"
                         avatarHint="woman portrait"
                     />
                     <TestimonialCard
-                        quote="As a first-time landlord, I was nervous about finding the right person for my flat. Zimbabwe Landlord and tenants network made it so easy. Their reports are detailed and easy to understand, and I saved weeks of stress. I highly recommend it to any landlord in Zimbabwe."
+                        quote="As a first-time landlord, I was nervous about finding the right person for my flat. Zimbabwe Landlord and Tenants Network made it so easy. Their reports are detailed and easy to understand, and I saved weeks of stress. I highly recommend it to any landlord in Zimbabwe."
                         author="Mike P."
                         role="Landlord, Bulawayo"
                         avatarSrc="https://placehold.co/100x100.png"

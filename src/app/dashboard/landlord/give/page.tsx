@@ -78,7 +78,7 @@ export default function GivePage() {
                              <ul className="space-y-6">
                                 <HowItWorksStep
                                     icon={<Mail className="h-8 w-8" />}
-                                    title="1. Invite Them to Zimbabwe Landlord and tenants network"
+                                    title="1. Invite Them to Zimbabwe Landlord and Tenants Network"
                                     description="Share your link or enter their email."
                                 />
                                 <HowItWorksStep
@@ -136,7 +136,7 @@ export default function GivePage() {
                              <form onSubmit={handleSendInvite} className="space-y-4">
                                 <div>
                                     <Label htmlFor="email" className="font-semibold">Invite Landlords by Email</Label>
-                                    <p className="text-sm text-muted-foreground mb-2">We'll send them an email inviting them to sign up for Zimbabwe Landlord and tenants network.</p>
+                                    <p className="text-sm text-muted-foreground mb-2">We'll send them an email inviting them to sign up for Zimbabwe Landlord and Tenants Network.</p>
                                     <Input 
                                         id="email" 
                                         type="email" 

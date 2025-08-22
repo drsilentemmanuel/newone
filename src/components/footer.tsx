@@ -112,9 +112,9 @@ export function Footer() {
         </div>
 
         <div className="border-t border-primary-foreground/10 py-6 text-center text-sm text-primary-foreground/70">
-            <p className="font-bold text-base">Zimbabwe Landlord and tenants network</p>
+            <p className="font-bold text-base">Zimbabwe Landlord and Tenants Network</p>
             <p>Powered by Trust Stamp</p>
-            <p className="mt-4 text-xs">© 2025 Zimbabwe Landlord and tenants network. All rights reserved.</p>
+            <p className="mt-4 text-xs">© 2025 Zimbabwe Landlord and Tenants Network. All rights reserved.</p>
         </div>
       </div>
     </footer>
