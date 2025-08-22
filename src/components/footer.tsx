@@ -90,7 +90,7 @@ export function Footer() {
           <div className="space-y-4 flex flex-col items-center sm:items-start">
              <div className="mb-2">
                 <Link href="https://www.truststamp.co.zw/" target="_blank" rel="noopener noreferrer">
-                    <Image src="/truststamplogoblue.png" alt="Trust Stamp Logo" width={64} height={64} />
+                    <Image src="/logo.png" alt="Trust Stamp Logo" width={64} height={64} />
                 </Link>
              </div>
              <div className="flex justify-center sm:justify-start space-x-4">
