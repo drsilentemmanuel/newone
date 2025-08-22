@@ -8,6 +8,7 @@ import { UserProvider } from '@/context/user-context';
 export const metadata: Metadata = {
   title: 'Zimbabwe Rent Book - Tenant & Landlord Network',
   description: 'Connecting landlords and tenants in Zimbabwe.',
+  manifest: '/manifest.json',
 };
 
 export default function RootLayout({
