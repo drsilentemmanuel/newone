@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   manifest: '/manifest.json',
   metadataBase: new URL(siteConfig.url),
+  icons: {
+    icon: '/zimbabwe-landlord-tenants-network-logo-fixed.png',
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
