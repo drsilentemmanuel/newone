@@ -9,7 +9,7 @@ const siteConfig = {
   name: "Zimbabwe Landlord and Tenants Network",
   description: "Connecting landlords and tenants in Zimbabwe with tools for tenant screening, rent collection, and legal compliance.",
   url: "https://www.truststamp.co.zw/",
-  ogImage: "https://www.truststamp.co.zw/new-logo.png",
+  ogImage: "https://www.truststamp.co.zw/new logo.png",
 };
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   manifest: '/manifest.json',
   metadataBase: new URL(siteConfig.url),
   icons: {
-    icon: '/new-logo.png',
+    icon: '/new logo.png',
   },
   openGraph: {
     type: "website",
