@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 export const TrustStampLogo = ({ className, ...props }: React.ComponentProps<"div">) => (
-  <div className={cn("h-8 w-8 text-primary", className)} {...props}>
-    <Image src="/logo.png" alt="Trust Stamp Logo" width={32} height={32} />
+  <div className={cn("h-16 w-auto text-primary", className)} {...props}>
+    <Image src="/zimbabwe-landlord-tenants-network-logo-fixed.png" alt="Trust Stamp Logo" width={160} height={32} className="h-16 w-auto" />
   </div>
 );
