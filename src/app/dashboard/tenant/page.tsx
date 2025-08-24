@@ -24,7 +24,7 @@ export default function TenantDashboardPage() {
     return (
         <div className="grid gap-8">
             <div className="space-y-2">
-                <h1 className="text-3xl font-bold font-headline">Welcome, {userName}!</h1>
+                <h1 className="text-3xl font-bold font-headline">Hello, {userName}, Welcome back! You look nice today.</h1>
                 <p className="text-muted-foreground">Here's your rental reputation at a glance.</p>
             </div>
 

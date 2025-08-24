@@ -59,7 +59,7 @@ export default function ProfessionalDashboardPage() {
     return (
         <div className="space-y-6 relative">
              <div className="space-y-2">
-                <h1 className="text-3xl font-bold font-headline">Hello, {userName}</h1>
+                <h1 className="text-3xl font-bold font-headline">Hello, {userName}, Welcome back! You look nice today.</h1>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
