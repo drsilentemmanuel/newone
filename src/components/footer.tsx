@@ -124,7 +124,7 @@ export function Footer() {
             </div>
             <div>
                 <p>Zimbabwe Landlord and Tenants Network, © 2025</p>
-                <p>Created in Sunny Colorado</p>
+                <p>Created with Love by Silent Emmanuel</p>
             </div>
         </div>
       </div>
