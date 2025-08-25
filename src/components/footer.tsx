@@ -90,11 +90,6 @@ export function Footer() {
           </div>
 
           <div className="space-y-4 flex flex-col items-center sm:items-start">
-             <div className="mb-2">
-                <Link href="https://www.truststamp.co.zw/" target="_blank" rel="noopener noreferrer">
-                    <TrustStampLogo className="h-16 w-16" />
-                </Link>
-             </div>
              <div className="flex justify-center sm:justify-start space-x-4">
                   <a href="https://www.linkedin.com/company/101651553/admin/dashboard/" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground/80 transition-colors">
                     <Linkedin className="h-5 w-5" />
