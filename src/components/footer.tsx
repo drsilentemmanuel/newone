@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ZimbabweRentBookLogo } from '@/components/zimbabwe-rent-book-logo';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Facebook, Linkedin, Phone, Instagram, Youtube } from 'lucide-react';
+import { Facebook, Linkedin, Phone, Instagram, Youtube, Home } from 'lucide-react';
 import Image from 'next/image';
 import { TrustStampLogo } from './trust-stamp-logo';
 
@@ -82,9 +82,10 @@ export function Footer() {
           <div className="space-y-2">
             <h3 className="font-semibold tracking-wider uppercase text-primary-foreground/70">Legal</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/terms" className="hover:text-primary-foreground/80 transition-colors">Terms and conditions</Link></li>
-              <li><Link href="#" className="hover:text-primary-foreground/80 transition-colors">Fees</Link></li>
+              <li><Link href="/terms" className="hover:text-primary-foreground/80 transition-colors">Terms of Use</Link></li>
               <li><Link href="/privacy" className="hover:text-primary-foreground/80 transition-colors">Privacy Policy</Link></li>
+              <li><Link href="#" className="hover:text-primary-foreground/80 transition-colors">Don't Sell My Personal Info</Link></li>
+              <li><Link href="#" className="hover:text-primary-foreground/80 transition-colors">Sitemap</Link></li>
             </ul>
           </div>
 
@@ -112,10 +113,19 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/10 py-6 text-center text-sm text-primary-foreground/70">
-            <p className="font-bold text-base">Zimbabwe Landlord and Tenants Network</p>
-            <p>Powered by Trust Stamp</p>
-            <p className="mt-4 text-xs">© 2025 Zimbabwe Landlord and Tenants Network. All rights reserved.</p>
+        <div className="border-t border-primary-foreground/10 py-6 text-center text-sm text-primary-foreground/70 space-y-4">
+            <div className="flex flex-wrap justify-center gap-x-4 gap-y-2">
+                <Link href="#" className="flex items-center gap-2 hover:text-primary-foreground/80 transition-colors">
+                    <Home className="h-4 w-4" />
+                    <span>Equal Housing Opportunity</span>
+                </Link>
+                <span className="hidden md:inline">|</span>
+                <Link href="#" className="hover:text-primary-foreground/80 transition-colors">Avoid Scams in Rental Housing</Link>
+            </div>
+            <div>
+                <p>Zimbabwe Landlord and Tenants Network, © 2025</p>
+                <p>Created in Sunny Colorado</p>
+            </div>
         </div>
       </div>
     </footer>
