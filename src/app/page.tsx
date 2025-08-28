@@ -240,7 +240,7 @@ export default function Home() {
                         What Our Landlords Are Saying
                     </h2>
                     <p className="max-w-[600px] mx-auto text-muted-foreground md:text-xl/relaxed">
-                        Thousands of landlords are finding success on our platform.
+                        Trusted by early adopters in Harare, Bulawayo, and beyond.
                     </p>
                 </div>
                 <div className="mx-auto grid max-w-5xl items-stretch gap-8 sm:grid-cols-1 md:grid-cols-2">
