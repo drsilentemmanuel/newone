@@ -1,4 +1,6 @@
 
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { ShieldCheck, TrendingUp, ClipboardCheck, CheckCircle2, Search, Users, FileText, Blocks } from "lucide-react";
@@ -7,15 +9,8 @@ import Link from 'next/link';
 import { PartnerCarousel } from "@/components/partner-carousel";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Zimbabwe Landlord and Tenants Network - The Smarter Way to Rent',
-  description: 'Connecting landlords, agents, and tenants in Zimbabwe. We offer tools for tenant screening, lease management, and secure rent collection to make renting simple and fair.',
-  alternates: {
-    canonical: '/',
-  },
-};
-
+import { useState, useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 export default function Home() {
   return (
@@ -267,13 +262,13 @@ export default function Home() {
             <div className="container mx-auto px-4 md:px-6">
                 <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
                     <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">
-                    The Trusted Source of Specialised Data
+                      Growing every day — join hundreds of landlords and tenants building trust together.
                     </h2>
                 </div>
                 <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 text-center md:grid-cols-3 md:gap-12">
-                    <StatItem value="23K+" label="Users" />
-                    <StatItem value="3.4M+" label="Leases" />
-                    <StatItem value="150K" label="Landlords" />
+                    <StatItem start={100} end={23000} label="Users" suffix="+" duration={2} />
+                    <StatItem start={300} end={3400000} label="Leases" suffix="M+" isMoney={false} duration={3} />
+                    <StatItem start={500} end={150000} label="Landlords" suffix="K" duration={2.5} />
                 </div>
             </div>
         </section>
@@ -319,13 +314,43 @@ function ScreeningFeatureCard({ icon, title, description }: { icon: React.ReactN
     );
 }
 
-function StatItem({ value, label }: { value: string; label: string; }) {
-  return (
-    <div className="flex flex-col items-center space-y-1">
-      <p className="text-5xl font-extrabold tracking-tighter">{value}</p>
-      <p className="text-lg font-medium text-primary-foreground/80">{label}</p>
-    </div>
-  );
+function StatItem({ start, end, duration, label, suffix = '', isMoney = false }: { start: number; end: number; duration: number; label: string; suffix?: string; isMoney?: boolean; }) {
+    const [count, setCount] = useState(start);
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+        threshold: 0.1,
+    });
+
+    useEffect(() => {
+        if (!inView) return;
+
+        let startTime: number | null = null;
+        const animation = (currentTime: number) => {
+            if (!startTime) startTime = currentTime;
+            const progress = Math.min((currentTime - startTime) / (duration * 1000), 1);
+            const currentVal = Math.floor(progress * (end - start) + start);
+            setCount(currentVal);
+            if (progress < 1) {
+                requestAnimationFrame(animation);
+            }
+        };
+        requestAnimationFrame(animation);
+
+    }, [inView, start, end, duration]);
+    
+    const formatNumber = (num: number) => {
+      if (suffix === "K") return (num / 1000).toFixed(0) + "K";
+      if (suffix === "M+") return (num / 1000000).toFixed(1) + "M+";
+      return new Intl.NumberFormat('en-US').format(num) + suffix;
+    }
+
+
+    return (
+        <div ref={ref} className="flex flex-col items-center space-y-1">
+            <p className="text-5xl font-extrabold tracking-tighter">{formatNumber(count)}</p>
+            <p className="text-lg font-medium text-primary-foreground/80">{label}</p>
+        </div>
+    );
 }
 
 function HowItWorksStep({ step, title, description }: { step: string; title: string; description: string; }) {
