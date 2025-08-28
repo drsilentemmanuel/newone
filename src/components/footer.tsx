@@ -34,7 +34,7 @@ export function Footer() {
             <p className="text-sm text-primary-foreground/80 max-w-xs">
               Subscribe for the latest news and features. We won't share your email with anyone.
             </p>
-             <form className="flex w-full max-w-sm items-center space-x-2">
+             <form className="flex flex-col w-full max-w-sm space-y-2">
               <Input
                 type="email"
                 placeholder="Enter your email address*"
