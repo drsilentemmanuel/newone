@@ -261,9 +261,12 @@ export default function Home() {
         <section id="trust" className="w-full py-12 md:py-20 lg:py-24 bg-primary text-primary-foreground">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-                    <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">
-                        The Trusted Source of Specialised Data
-                    </h2>
+                    <div className="flex items-center gap-2">
+                        <ShieldCheck className="h-8 w-8" />
+                        <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">
+                            The Trusted Source of Specialised Data
+                        </h2>
+                    </div>
                 </div>
                 <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 text-center sm:grid-cols-2 md:grid-cols-4 md:gap-12">
                     <div className="flex flex-col items-center space-y-1">
