@@ -266,9 +266,9 @@ export default function Home() {
                     </h2>
                 </div>
                 <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 text-center md:grid-cols-3 md:gap-12">
-                    <StatItem start={100} end={23000} label="Users" suffix="K+" duration={2} />
-                    <StatItem start={300} end={3400000} label="Leases" suffix="M+" duration={3} />
-                    <StatItem start={500} end={150000} label="Landlords" suffix="K+" duration={2.5} />
+                    <StatItem start={100} end={23000} label="Users" duration={2} />
+                    <StatItem start={300} end={3400000} label="Leases" duration={3} />
+                    <StatItem start={500} end={150000} label="Landlords" duration={2.5} />
                 </div>
             </div>
         </section>
