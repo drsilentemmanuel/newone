@@ -262,13 +262,26 @@ export default function Home() {
             <div className="container mx-auto px-4 md:px-6">
                 <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
                     <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">
-                      Growing every day — join hundreds of landlords and tenants building trust together.
+                        The Trusted Source of Specialised Data
                     </h2>
                 </div>
-                <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 text-center md:grid-cols-3 md:gap-12">
-                    <StatItem start={100} end={23000} label="Users" duration={2} />
-                    <StatItem start={300} end={3400000} label="Leases" duration={3} />
-                    <StatItem start={500} end={150000} label="Landlords" duration={2.5} />
+                <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 text-center sm:grid-cols-2 md:grid-cols-4 md:gap-12">
+                    <div className="flex flex-col items-center space-y-1">
+                        <p className="text-5xl font-extrabold tracking-tighter">2,000+</p>
+                        <p className="text-lg font-medium text-primary-foreground/80">Tenants Verified</p>
+                    </div>
+                    <div className="flex flex-col items-center space-y-1">
+                        <p className="text-5xl font-extrabold tracking-tighter">500+</p>
+                        <p className="text-lg font-medium text-primary-foreground/80">Landlords Registered</p>
+                    </div>
+                    <div className="flex flex-col items-center space-y-1">
+                        <p className="text-5xl font-extrabold tracking-tighter">95%</p>
+                        <p className="text-lg font-medium text-primary-foreground/80">of Reports Delivered Same Day</p>
+                    </div>
+                    <div className="flex flex-col items-center space-y-1">
+                        <p className="text-5xl font-extrabold tracking-tighter">30%</p>
+                        <p className="text-lg font-medium text-primary-foreground/80">Lower Default Rate with Screened Tenants</p>
+                    </div>
                 </div>
             </div>
         </section>
