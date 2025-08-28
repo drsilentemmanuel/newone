@@ -278,8 +278,8 @@ export default function Home() {
                         <p className="text-lg font-medium text-primary-foreground/80">Landlords Registered</p>
                     </div>
                     <div className="flex flex-col items-center space-y-1">
-                        <p className="text-5xl font-extrabold tracking-tighter">95%</p>
-                        <p className="text-lg font-medium text-primary-foreground/80">of Reports Delivered Same Day</p>
+                        <p className="text-5xl font-extrabold tracking-tighter">1,200+</p>
+                        <p className="text-lg font-medium text-primary-foreground/80">Number of Deeds search</p>
                     </div>
                     <div className="flex flex-col items-center space-y-1">
                         <p className="text-5xl font-extrabold tracking-tighter">30%</p>
