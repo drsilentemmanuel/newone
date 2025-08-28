@@ -266,9 +266,9 @@ export default function Home() {
                     </h2>
                 </div>
                 <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 text-center md:grid-cols-3 md:gap-12">
-                    <StatItem start={100} end={23000} label="Users" suffix="+" duration={2} />
-                    <StatItem start={300} end={3400000} label="Leases" suffix="M+" isMoney={false} duration={3} />
-                    <StatItem start={500} end={150000} label="Landlords" suffix="K" duration={2.5} />
+                    <StatItem start={100} end={23000} label="Users" suffix="K+" duration={2} />
+                    <StatItem start={300} end={3400000} label="Leases" suffix="M+" duration={3} />
+                    <StatItem start={500} end={150000} label="Landlords" suffix="K+" duration={2.5} />
                 </div>
             </div>
         </section>
@@ -314,7 +314,7 @@ function ScreeningFeatureCard({ icon, title, description }: { icon: React.ReactN
     );
 }
 
-function StatItem({ start, end, duration, label, suffix = '', isMoney = false }: { start: number; end: number; duration: number; label: string; suffix?: string; isMoney?: boolean; }) {
+function StatItem({ start, end, duration, label, suffix = '' }: { start: number; end: number; duration: number; label: string; suffix?: string; }) {
     const [count, setCount] = useState(start);
     const { ref, inView } = useInView({
         triggerOnce: true,
@@ -339,9 +339,13 @@ function StatItem({ start, end, duration, label, suffix = '', isMoney = false }:
     }, [inView, start, end, duration]);
     
     const formatNumber = (num: number) => {
-      if (suffix === "K") return (num / 1000).toFixed(0) + "K";
-      if (suffix === "M+") return (num / 1000000).toFixed(1) + "M+";
-      return new Intl.NumberFormat('en-US').format(num) + suffix;
+      if (num >= 1000000) {
+        return (num / 1000000).toFixed(1) + 'M+';
+      }
+      if (num >= 1000) {
+        return (num / 1000).toFixed(0) + 'K+';
+      }
+      return new Intl.NumberFormat('en-US').format(num) + (suffix.includes('+') ? '+' : '');
     }
 
 
