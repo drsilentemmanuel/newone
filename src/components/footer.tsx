@@ -5,7 +5,6 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Facebook, Linkedin, Phone, Instagram, Youtube, Home } from 'lucide-react';
 import Image from 'next/image';
-import { TrustStampLogo } from './trust-stamp-logo';
 
 const WhatsAppIcon = () => (
     <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="currentColor">
@@ -90,6 +89,7 @@ export function Footer() {
           </div>
 
           <div className="space-y-4 flex flex-col items-center sm:items-start">
+            <h3 className="font-semibold tracking-wider uppercase text-primary-foreground/70">Connect</h3>
              <div className="flex justify-center sm:justify-start space-x-4">
                   <a href="https://www.linkedin.com/company/101651553/admin/dashboard/" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground/80 transition-colors">
                     <Linkedin className="h-5 w-5" />
