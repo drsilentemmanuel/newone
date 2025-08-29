@@ -62,7 +62,7 @@ export function Footer() {
             <h3 className="font-semibold tracking-wider uppercase text-primary-foreground/70">GET HELP</h3>
             <ul className="space-y-2 text-sm">
               <li><Link href="/dashboard/support" className="hover:text-primary-foreground/80 transition-colors">Support</Link></li>
-              <li><Link href="#" className="hover:text-primary-foreground/80 transition-colors">FAQs</Link></li>
+              <li><Link href="/dashboard/landlord/help" className="hover:text-primary-foreground/80 transition-colors">FAQs</Link></li>
               <li><Link href="#" className="hover:text-primary-foreground/80 transition-colors">Contact Us</Link></li>
               <li>
                   <a href="tel:+263771501737" className="flex items-center justify-center sm:justify-start gap-2 hover:text-primary-foreground/80 transition-colors">
