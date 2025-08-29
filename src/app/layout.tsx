@@ -4,6 +4,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { ConditionalLayout } from '@/components/conditional-layout';
 import { UserProvider } from '@/context/user-context';
+import GoogleAnalytics from '@/components/google-analytics';
 
 const siteConfig = {
   name: "Zimbabwe Landlord and Tenants Network",
@@ -60,6 +61,9 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased bg-background">
+        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+          <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+        )}
         <UserProvider>
           <ConditionalLayout>
               {children}
