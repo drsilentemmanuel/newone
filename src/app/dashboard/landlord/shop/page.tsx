@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -20,7 +21,7 @@ const products = [
   {
     name: "Residential Lease Pack",
     category: "Legal Documents",
-    price: "R 250.00",
+    price: "$ 250.00",
     imageUrl: "https://placehold.co/350x450.png",
     aiHint: "document contract",
     bestSeller: true,
@@ -28,21 +29,21 @@ const products = [
   {
     name: "Property Dealer",
     category: "Books",
-    price: "R 313.00",
+    price: "$ 313.00",
     imageUrl: "https://placehold.co/350x450.png",
     aiHint: "book property deal",
   },
   {
     name: "Commercial Lease Pack",
     category: "Legal Documents",
-    price: "R 450.00",
+    price: "$ 450.00",
     imageUrl: "https://placehold.co/350x450.png",
     aiHint: "office building",
   },
   {
     name: "Company Enquiry Report",
     category: "Business Intelligence",
-    price: "R 150.00",
+    price: "$ 150.00",
     imageUrl: "https://placehold.co/350x450.png",
     aiHint: "business report",
   },
