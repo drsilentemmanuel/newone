@@ -1,10 +1,14 @@
 
+"use client";
+
 import Link from 'next/link';
 import { ZimbabweRentBookLogo } from '@/components/zimbabwe-rent-book-logo';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Facebook, Linkedin, Phone, Instagram, Youtube, Home } from 'lucide-react';
-import Image from 'next/image';
+import { Facebook, Linkedin, Phone, Instagram, Youtube, Home, Loader2 } from 'lucide-react';
+import { useState } from 'react';
+import { useToast } from '@/hooks/use-toast';
+
 
 const WhatsAppIcon = () => (
     <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="currentColor">
@@ -13,19 +17,41 @@ const WhatsAppIcon = () => (
     </svg>
 );
 
-const AppStoreButton = () => (
-    <a href="https://www.apple.com/app-store/" target="_blank" rel="noopener noreferrer" className="inline-block">
-        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" className="h-10"/>
-    </a>
-)
-
-const GooglePlayButton = () => (
-    <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer" className="inline-block">
-        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" className="h-[3.75rem] -ml-2"/>
-    </a>
-)
-
 export function Footer() {
+  const { toast } = useToast();
+  const [email, setEmail] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    setIsLoading(true);
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.error || 'Something went wrong');
+      }
+      toast({
+        title: "Subscription Successful!",
+        description: "Thanks for subscribing. You're on the list!",
+      });
+      setEmail('');
+    } catch (error: any) {
+      toast({
+        variant: "destructive",
+        title: "Subscription Failed",
+        description: error.message || "Please try again later.",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 md:px-6">
@@ -34,13 +60,18 @@ export function Footer() {
             <p className="text-sm text-primary-foreground/80 max-w-xs">
               Subscribe for the latest news and features. We won't share your email with anyone.
             </p>
-             <form className="flex flex-col w-full max-w-sm space-y-2">
+             <form onSubmit={handleSubmit} className="flex flex-col w-full max-w-sm space-y-2">
               <Input
                 type="email"
                 placeholder="Enter your email address*"
                 className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/60 focus:bg-primary-foreground/20 focus-visible:ring-primary-foreground"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={isLoading}
+                required
               />
-              <Button type="submit" variant="secondary" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 shrink-0">
+              <Button type="submit" variant="secondary" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 shrink-0" disabled={isLoading}>
+                {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                 Submit
               </Button>
             </form>
