@@ -110,8 +110,15 @@ export function Footer() {
         <div className="border-t border-primary-foreground/10 py-6 space-y-6">
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 text-center">
                 <h4 className="font-semibold text-primary-foreground/70">Payment Methods</h4>
-                <div className="flex flex-wrap items-center justify-center gap-4">
+                 <div className="flex flex-wrap items-center justify-center gap-4">
+                    <Image src="https://placehold.co/100x50.png?text=Visa" alt="Visa Logo" width={100} height={50} data-ai-hint="Visa logo" />
+                    <Image src="https://placehold.co/100x50.png?text=Mastercard" alt="Mastercard Logo" width={100} height={50} data-ai-hint="Mastercard logo" />
+                    <Image src="https://placehold.co/100x50.png?text=Zimswitch" alt="Zimswitch Logo" width={100} height={50} data-ai-hint="Zimswitch logo" />
                     <Image src="https://placehold.co/100x50.png?text=InnBucks" alt="InnBucks Logo" width={100} height={50} data-ai-hint="InnBucks logo" />
+                    <Image src="https://placehold.co/100x50.png?text=O'mari" alt="O'mari Logo" width={100} height={50} data-ai-hint="Omari logo" />
+                    <Image src="https://placehold.co/100x50.png?text=Ecocash" alt="Ecocash Logo" width={100} height={50} data-ai-hint="Ecocash logo" />
+                    <Image src="https://placehold.co/100x50.png?text=OneMoney" alt="OneMoney Logo" width={100} height={50} data-ai-hint="OneMoney logo" />
+                    <Image src="https://placehold.co/100x50.png?text=Telecash" alt="Telecash Logo" width={100} height={50} data-ai-hint="Telecash logo" />
                 </div>
             </div>
 
