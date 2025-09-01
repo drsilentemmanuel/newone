@@ -33,8 +33,14 @@ export function ProductDetailClient({ product }: { product: Product }) {
 
   return (
       <div className="grid md:grid-cols-2 gap-12 items-start">
-        <div className="sticky top-28">
+        <div className="sticky top-28 space-y-6">
             <ProductImage product={product} />
+            <Button variant="outline" className="w-full justify-center text-center py-6">
+              <div>
+                <p className="text-base font-semibold">Learn about</p>
+                <p className="text-lg font-bold text-primary">Trust Stamp eSign</p>
+              </div>
+           </Button>
         </div>
 
         <div className="space-y-6">
@@ -59,13 +65,6 @@ export function ProductDetailClient({ product }: { product: Product }) {
             </Button>
           </div>
           
-           <Button variant="outline" className="w-full justify-center text-center py-6">
-            <div>
-              <p className="text-base font-semibold">Learn about</p>
-              <p className="text-lg font-bold text-primary">Trust Stamp eSign</p>
-            </div>
-           </Button>
-
           <div>
             <h2 className="text-xl font-semibold mb-2">QUICK OVERVIEW</h2>
             <div className="prose prose-sm text-muted-foreground space-y-4">
