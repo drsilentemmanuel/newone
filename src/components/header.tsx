@@ -11,7 +11,7 @@ import { ZimbabweRentBookLogo } from '@/components/zimbabwe-rent-book-logo';
 const navLinks = [
   { href: '/pricing', label: 'Pricing' },
   { href: '/blog', label: 'Blog' },
-  { href: '/dashboard/landlord/shop', label: 'Shop' },
+  { href: '/shop', label: 'Shop' },
 ];
 
 export function Header() {
