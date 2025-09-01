@@ -62,7 +62,7 @@ export function ProductDetailClient({ product }: { product: Product }) {
            <Button variant="outline" className="w-full justify-center text-center py-6">
             <div>
               <p className="text-base font-semibold">Learn about</p>
-              <p className="text-lg font-bold text-primary">tpn esign</p>
+              <p className="text-lg font-bold text-primary">Trust Stamp eSign</p>
             </div>
            </Button>
 

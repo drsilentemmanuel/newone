@@ -31,7 +31,7 @@ export default function LandlordSettingsPage() {
         <h2 className="text-2xl font-semibold">Rentbook settings</h2>
 
         <Card>
-            <Tabs defaultValue="tpn-account" className="w-full">
+            <Tabs defaultValue="trust-stamp-account" className="w-full">
                 <div className="p-4 border-b">
                     <TabsList className="bg-transparent p-0">
                         <TabsTrigger value="info" className="bg-transparent data-[state=active]:bg-muted rounded-md mr-2">
@@ -49,8 +49,8 @@ export default function LandlordSettingsPage() {
                         <TabsTrigger value="rpp" className="bg-transparent data-[state=active]:bg-muted rounded-md mr-2">
                             <CreditCard className="mr-2 h-4 w-4" /> RPP
                         </TabsTrigger>
-                        <TabsTrigger value="tpn-account" className="bg-transparent data-[state=active]:bg-muted rounded-md">
-                            <Percent className="mr-2 h-4 w-4" /> TPN Account
+                        <TabsTrigger value="trust-stamp-account" className="bg-transparent data-[state=active]:bg-muted rounded-md">
+                            <Percent className="mr-2 h-4 w-4" /> Trust Stamp Account
                         </TabsTrigger>
                     </TabsList>
                 </div>
@@ -306,7 +306,7 @@ export default function LandlordSettingsPage() {
                                 <CardContent className="p-4 space-y-2">
                                     <p className="text-sm text-muted-foreground">The logo below will be displayed on the top of all reports</p>
                                     <div className="border-2 border-dashed rounded-md p-4 flex justify-center items-center bg-muted/50">
-                                        <Image src="https://placehold.co/790x100.png" alt="TPN RentBook Logo" width={790} height={100} data-ai-hint="company logo" />
+                                        <Image src="https://placehold.co/790x100.png" alt="Trust Stamp RentBook Logo" width={790} height={100} data-ai-hint="company logo" />
                                     </div>
                                 </CardContent>
                             </Card>
@@ -336,7 +336,7 @@ export default function LandlordSettingsPage() {
                         <Alert className="bg-amber-50 border-amber-200 text-amber-800 dark:bg-amber-950 dark:border-amber-800 dark:text-amber-200">
                             <AlertTriangle className="h-4 w-4 !text-amber-800 dark:!text-amber-200" />
                             <AlertDescription>
-                                Rental payment information is exported from the TPN Rentbook database to the TPN Credit Bureau database for TPN members in order to reduce the amount of capturing required between the systems. The following parameters can be set in order to customize how you would like the payment information to display.
+                                Rental payment information is exported from the Trust Stamp Rentbook database to the Trust Stamp Credit Bureau database for Trust Stamp members in order to reduce the amount of capturing required between the systems. The following parameters can be set in order to customize how you would like the payment information to display.
                             </AlertDescription>
                         </Alert>
 
@@ -403,28 +403,28 @@ export default function LandlordSettingsPage() {
                         </Card>
                     </CardContent>
                 </TabsContent>
-                <TabsContent value="tpn-account" className="mt-0">
+                <TabsContent value="trust-stamp-account" className="mt-0">
                     <CardContent className="p-6 space-y-6">
                         <Alert className="bg-amber-50 border-amber-200 text-amber-800 dark:bg-amber-950 dark:border-amber-800 dark:text-amber-200">
                             <Info className="h-4 w-4 !text-amber-800 dark:!text-amber-200" />
                             <AlertDescription>
-                                If you are a member of TPN credit bureau, you can enter your TPN account details here so that they are automatically stored and applied when you perform a credit check or any other functions which integrate into the bureau.
+                                If you are a member of Trust Stamp credit bureau, you can enter your Trust Stamp account details here so that they are automatically stored and applied when you perform a credit check or any other functions which integrate into the bureau.
                             </AlertDescription>
                         </Alert>
                         <Alert className="bg-amber-50 border-amber-200 text-amber-800 dark:bg-amber-950 dark:border-amber-800 dark:text-amber-200">
                             <Info className="h-4 w-4 !text-amber-800 dark:!text-amber-200" />
                             <AlertDescription>
-                                If not, please <a href="#" className="underline font-semibold">register</a> for your free TPN credit bureau account in order to perform credit checks and receive free tenant monitoring.
+                                If not, please <a href="#" className="underline font-semibold">register</a> for your free Trust Stamp credit bureau account in order to perform credit checks and receive free tenant monitoring.
                             </AlertDescription>
                         </Alert>
                         <Alert variant="destructive">
                             <AlertTriangle className="h-4 w-4" />
-                            <AlertTitle>TPN account link error: [32237] The user [sdzikit01] or company [31521] specified is not active</AlertTitle>
+                            <AlertTitle>Trust Stamp account link error: [32237] The user [sdzikit01] or company [31521] specified is not active</AlertTitle>
                         </Alert>
                         
                         <Card className="border shadow-none">
                             <CardHeader className="flex flex-row items-center justify-between border-b border-primary/20 pb-4">
-                                <CardTitle className="text-base font-semibold text-primary">TPN account login details</CardTitle>
+                                <CardTitle className="text-base font-semibold text-primary">Trust Stamp account login details</CardTitle>
                                 <Button variant="ghost" size="icon" className="h-6 w-6">
                                     <X className="h-4 w-4" />
                                 </Button>

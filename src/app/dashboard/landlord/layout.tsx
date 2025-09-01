@@ -90,7 +90,7 @@ export default function DashboardLayout({
             </SidebarMenuItem>
             
             <SidebarGroup className="p-0">
-                <SidebarGroupLabel className="px-2">TPN</SidebarGroupLabel>
+                <SidebarGroupLabel className="px-2">Trust Stamp</SidebarGroupLabel>
                  <SidebarMenuItem>
                     <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/landlord/new-enquiry')} tooltip="New Enquiry">
                         <Link href="/dashboard/landlord/new-enquiry"><Search /><span>New Enquiry</span></Link>

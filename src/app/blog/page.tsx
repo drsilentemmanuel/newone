@@ -17,7 +17,7 @@ const blogPosts = [
   },
   {
     title: "Building a Strong Tenant Profile: Your Key to a Better Rental",
-    description: "Discover how a comprehensive TPN profile can help you stand out and secure your dream rental property.",
+    description: "Discover how a comprehensive Trust Stamp profile can help you stand out and secure your dream rental property.",
     imageUrl: "/Gemini_Generated_Image_swidg9swidg9swid.png",
     link: "#",
     date: "July 22, 2024",

@@ -19,7 +19,7 @@ const tenantReportData = {
         phone: "+263 77 123 4567",
         email: "tenant@example.com",
     },
-    tpnScore: 850,
+    trustStampScore: 850,
     scoreCategory: "Excellent",
     paymentHistory: [
         { month: "July 2024", status: "On-time" },
@@ -46,7 +46,7 @@ const tenantReportData = {
     }
 };
 
-const TenantTpnReport = () => (
+const TenantTrustStampReport = () => (
     <div className="space-y-6">
         <Card>
             <CardHeader className="flex flex-row items-center justify-between">
@@ -64,7 +64,7 @@ const TenantTpnReport = () => (
                                 <CardTitle className="text-lg">Smart Score</CardTitle>
                             </CardHeader>
                              <CardContent className="text-center">
-                                <p className="text-6xl font-bold text-emerald-600">{tenantReportData.tpnScore}</p>
+                                <p className="text-6xl font-bold text-emerald-600">{tenantReportData.trustStampScore}</p>
                                 <Badge variant="outline" className="mt-2 text-emerald-600 border-emerald-300">{tenantReportData.scoreCategory}</Badge>
                             </CardContent>
                         </Card>
@@ -148,7 +148,7 @@ export default function TenantProfilePage() {
           <TabsTrigger value="insights">AI Insights</TabsTrigger>
         </TabsList>
         <TabsContent value="report" className="mt-6">
-          <TenantTpnReport />
+          <TenantTrustStampReport />
         </TabsContent>
         <TabsContent value="insights" className="mt-6">
           <AiInsights profileType="tenant" data={tenantReportData.aiProfileData as any} />
