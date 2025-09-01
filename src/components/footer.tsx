@@ -106,21 +106,31 @@ export function Footer() {
           </div>
 
         </div>
-
-        <div className="border-t border-primary-foreground/10 py-6 text-center text-sm text-primary-foreground/70 space-y-4">
-            <div className="flex flex-wrap justify-center gap-x-4 gap-y-2">
-                <Link href="#" className="flex items-center gap-2 hover:text-primary-foreground/80 transition-colors">
-                    <Home className="h-4 w-4" />
-                    <span>Equal Housing Opportunity</span>
-                </Link>
-                <span className="hidden md:inline">|</span>
-                <Link href="#" className="hover:text-primary-foreground/80 transition-colors">Avoid Scams in Rental Housing</Link>
+        
+        <div className="border-t border-primary-foreground/10 py-6 space-y-6">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 text-center">
+                <h4 className="font-semibold text-primary-foreground/70">Payment Methods</h4>
+                <div className="flex flex-wrap items-center justify-center gap-4">
+                    <Image src="https://placehold.co/100x50.png?text=InnBucks" alt="InnBucks Logo" width={100} height={50} data-ai-hint="InnBucks logo" />
+                </div>
             </div>
-            <div>
-                <p>Zimbabwe Landlord and Tenants Network, © 2025</p>
-                <p>Created with Love by Silent Emmanuel</p>
+
+            <div className="text-center text-sm text-primary-foreground/70 space-y-4">
+                <div className="flex flex-wrap justify-center gap-x-4 gap-y-2">
+                    <Link href="#" className="flex items-center gap-2 hover:text-primary-foreground/80 transition-colors">
+                        <Home className="h-4 w-4" />
+                        <span>Equal Housing Opportunity</span>
+                    </Link>
+                    <span className="hidden md:inline">|</span>
+                    <Link href="#" className="hover:text-primary-foreground/80 transition-colors">Avoid Scams in Rental Housing</Link>
+                </div>
+                <div>
+                    <p>Zimbabwe Landlord and Tenants Network, © 2025</p>
+                    <p>Created with Love by Silent Emmanuel</p>
+                </div>
             </div>
         </div>
+
       </div>
     </footer>
   );
