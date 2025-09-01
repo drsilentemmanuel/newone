@@ -1,24 +1,16 @@
 
 "use client";
 
-import { useState } from "react";
+import { notFound } from "next/navigation";
+import type { Product } from "@/app/shop/page";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { ChevronRight, ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import { useToast } from "@/hooks/use-toast";
-import { Badge } from "@/components/ui/badge";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Label } from "@/components/ui/label";
 import { ShopProductCard } from "@/components/shop-product-card";
-import type { Product } from "@/app/shop/page";
 
-
+// In a real app, this data would likely come from a CMS or database
 const products: Product[] = [
   {
     name: "Residential Lease Pack",
@@ -76,72 +68,86 @@ const products: Product[] = [
 ];
 
 
-const categories = ["All Categories", ...new Set(products.map((p) => p.category))];
+const ProductImage = ({ product }: { product: Product }) => {
+    const { toast } = useToast();
+    const handleAddToCart = () => {
+        toast({
+        title: "Item Added to Cart",
+        description: `${product.name} has been successfully added to your cart.`,
+        });
+    };
+    // Re-use the ShopProductCard for the main image to keep it consistent
+    return <ShopProductCard product={product} onAddToCart={handleAddToCart} />;
+};
 
-export default function ShopPage() {
-  const [cartCount, setCartCount] = useState(0);
+
+export default function ProductDetailPage({ params }: { params: { productName: string } }) {
   const { toast } = useToast();
-  const [selectedCategory, setSelectedCategory] = useState("All Categories");
+  const product = products.find((p) => p.slug === params.productName);
+
+  if (!product) {
+    notFound();
+  }
 
   const handleAddToCart = () => {
-    setCartCount((prevCount) => prevCount + 1);
     toast({
       title: "Item Added to Cart",
-      description: "The item has been successfully added to your cart.",
+      description: `${product.name} has been successfully added to your cart.`,
     });
   };
-  
-  const filteredProducts =
-    selectedCategory === "All Categories"
-      ? products
-      : products.filter((p) => p.category === selectedCategory);
 
   return (
-    <div className="space-y-6">
-      <div className="sticky top-0 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 z-10 py-4 border-b">
-        <div className="container mx-auto px-0 flex items-center justify-between">
-          <h1 className="text-3xl font-bold font-headline">Shop</h1>
-          <div className="flex items-center gap-4">
-            <Button asChild variant="outline">
-              <Link href="/dashboard/landlord/reports">View My Purchases</Link>
-            </Button>
-            <div className="relative">
-              <ShoppingCart className="h-6 w-6" />
-              {cartCount > 0 && (
-                <Badge
-                  variant="destructive"
-                  className="absolute -top-2 -right-3 h-5 w-5 justify-center p-0 rounded-full text-xs"
-                >
-                  {cartCount}
-                </Badge>
-              )}
-            </div>
-          </div>
-        </div>
+    <div className="container mx-auto py-12">
+      <div className="flex items-center text-sm mb-8 text-muted-foreground">
+        <Link href="/" className="hover:text-primary">Home</Link>
+        <ChevronRight className="h-4 w-4 mx-1" />
+        <Link href="/shop" className="hover:text-primary">Shop</Link>
+        <ChevronRight className="h-4 w-4 mx-1" />
+        <span className="font-medium text-foreground">{product.name}</span>
       </div>
 
-      <div className="container mx-auto px-0 space-y-6">
-        <div className="flex justify-end">
-          <div className="flex items-center gap-2">
-            <Label htmlFor="category-filter" className="text-sm font-medium">Filter by:</Label>
-            <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-              <SelectTrigger id="category-filter" className="w-[200px]">
-                <SelectValue placeholder="Select a category" />
-              </SelectTrigger>
-              <SelectContent>
-                {categories.map((category) => (
-                  <SelectItem key={category} value={category}>
-                    {category}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
+      <div className="grid md:grid-cols-2 gap-12 items-start">
+        <div className="sticky top-28">
+            <ProductImage product={product} />
         </div>
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {filteredProducts.map((product) => (
-            <ShopProductCard key={product.name} product={product} onAddToCart={handleAddToCart} />
-          ))}
+
+        <div className="space-y-6">
+          <div className="space-y-2">
+            <h1 className="text-3xl font-bold tracking-tight">{product.name}</h1>
+            {product.partner && (
+              <p className="text-sm text-muted-foreground">
+                IN PARTNERSHIP WITH {product.partner.toUpperCase()}
+              </p>
+            )}
+          </div>
+
+          <div className="flex items-center gap-4">
+            <Badge variant="secondary" className="text-2xl font-bold py-2 px-6 rounded-lg bg-amber-100 text-amber-800 border-amber-200">
+              {product.price.split('.')[0]}
+              <span className="text-lg font-semibold text-amber-700">.{product.price.split('.')[1]}</span>
+              <span className="text-sm font-normal ml-2 text-amber-600">/ YEAR</span>
+            </Badge>
+            <Button size="lg" onClick={handleAddToCart} className="bg-sky-500 hover:bg-sky-600 text-white rounded-full">
+              <ShoppingCart className="mr-2 h-5 w-5" />
+              ADD TO CART
+            </Button>
+          </div>
+          
+           <Button variant="outline" className="w-full justify-center text-center py-6">
+            <div>
+              <p className="text-base font-semibold">Learn about</p>
+              <p className="text-lg font-bold text-primary">tpn esign</p>
+            </div>
+           </Button>
+
+          <div>
+            <h2 className="text-xl font-semibold mb-2">QUICK OVERVIEW</h2>
+            <div className="prose prose-sm text-muted-foreground space-y-4">
+                <p>{product.description}</p>
+                <p>{product.subscriptionInfo}</p>
+                <p>{product.format}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -2,15 +2,12 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ShoppingCart, Heart, ShieldCheck, BadgeCheck, Home, Building, FileSearch, Search, BookOpen } from "lucide-react";
+import { ShoppingCart, Heart } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Home, Building, BookOpen, Search, FileSearch } from "lucide-react";
+import Link from "next/link";
+import type { Product } from "@/app/shop/page";
 
-type Product = {
-  name: string;
-  category: string;
-  price: string;
-  bestSeller?: boolean;
-};
 
 const productThemes: { [key: string]: { card: string; icon: React.ReactNode } } = {
   "Residential Lease Pack": {
@@ -45,33 +42,35 @@ export function ShopProductCard({ product, onAddToCart }: ShopProductCardProps) 
 
   return (
     <div className="group">
-      <div className={cn(
-        "relative overflow-hidden rounded-md border text-white aspect-[3/4] flex flex-col p-4 bg-gradient-to-br transition-transform duration-300 ease-in-out group-hover:-translate-y-1 group-hover:shadow-xl",
-        theme.card
-      )}>
-        <div className="flex justify-between items-start">
-            <div className="font-bold text-sm bg-white/20 px-3 py-1 rounded-full">Trust Stamp</div>
-            {product.bestSeller && (
-              <div className="text-xs font-semibold bg-amber-400 text-amber-900 px-2 py-0.5 rounded-full">
-                Best Seller
-              </div>
-            )}
-        </div>
-        <div className="flex-grow flex flex-col items-center justify-center text-center">
-            <h3 className="text-2xl font-bold text-shadow-md leading-tight">{product.name}</h3>
-            <p className="text-sm mt-1 opacity-80">{product.category}</p>
-        </div>
-        <div className="absolute bottom-0 right-0 opacity-10">
-            {theme.icon}
-        </div>
-         <Button
-          size="icon"
-          variant="secondary"
-          className="absolute top-3 right-3 bg-white/20 hover:bg-white/30 text-white border-0"
-        >
-          <Heart className="h-5 w-5" />
-        </Button>
-      </div>
+        <Link href={`/shop/${product.slug}`}>
+            <div className={cn(
+                "relative overflow-hidden rounded-md border text-white aspect-[3/4] flex flex-col p-4 bg-gradient-to-br transition-transform duration-300 ease-in-out group-hover:-translate-y-1 group-hover:shadow-xl",
+                theme.card
+            )}>
+                <div className="flex justify-between items-start">
+                    <div className="font-bold text-sm bg-white/20 px-3 py-1 rounded-full">Trust Stamp</div>
+                    {product.bestSeller && (
+                    <div className="text-xs font-semibold bg-amber-400 text-amber-900 px-2 py-0.5 rounded-full">
+                        Best Seller
+                    </div>
+                    )}
+                </div>
+                <div className="flex-grow flex flex-col items-center justify-center text-center">
+                    <h3 className="text-2xl font-bold text-shadow-md leading-tight">{product.name}</h3>
+                    <p className="text-sm mt-1 opacity-80">{product.category}</p>
+                </div>
+                <div className="absolute bottom-0 right-0 opacity-10">
+                    {theme.icon}
+                </div>
+                <Button
+                size="icon"
+                variant="secondary"
+                className="absolute top-3 right-3 bg-white/20 hover:bg-white/30 text-white border-0"
+                >
+                <Heart className="h-5 w-5" />
+                </Button>
+            </div>
+      </Link>
 
       <div className="pt-4 text-left">
         <div className="flex justify-between items-center mt-1">
@@ -80,18 +79,7 @@ export function ShopProductCard({ product, onAddToCart }: ShopProductCardProps) 
             <ShoppingCart className="mr-2 h-4 w-4" /> Add to cart
           </Button>
         </div>
-        <div className="flex items-center justify-start gap-4 mt-3 text-xs text-muted-foreground">
-          <div className="flex items-center gap-1">
-            <ShieldCheck className="h-4 w-4 text-emerald-500" />
-            <span>Secure Checkout</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <BadgeCheck className="h-4 w-4 text-emerald-500" />
-            <span>Instant Download</span>
-          </div>
-        </div>
       </div>
     </div>
   );
 }
-
