@@ -55,6 +55,8 @@ export function Footer() {
               <li><Link href="#" className="hover:text-primary-foreground/80 transition-colors">Career</Link></li>
               <li><Link href="/blog" className="hover:text-primary-foreground/80 transition-colors">Blog</Link></li>
               <li><Link href="/affiliate-program" className="hover:text-primary-foreground/80 transition-colors">Affiliate Program</Link></li>
+              <li><Link href="/sponsorship" className="hover:text-primary-foreground/80 transition-colors">Sponsorship</Link></li>
+              <li><Link href="/partnership" className="hover:text-primary-foreground/80 transition-colors">Partnership</Link></li>
             </ul>
           </div>
 
@@ -84,6 +86,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li><Link href="/terms" className="hover:text-primary-foreground/80 transition-colors">Terms of Use</Link></li>
               <li><Link href="/privacy" className="hover:text-primary-foreground/80 transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/data-ethics-integrity" className="hover:text-primary-foreground/80 transition-colors">Data Ethics & Integrity</Link></li>
               <li><Link href="#" className="hover:text-primary-foreground/80 transition-colors">Don't Sell My Personal Info</Link></li>
               <li><Link href="#" className="hover:text-primary-foreground/80 transition-colors">Sitemap</Link></li>
             </ul>
