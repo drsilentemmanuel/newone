@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { ZimbabweRentBookLogo } from '@/components/zimbabwe-rent-book-logo';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Facebook, Linkedin, Phone, Instagram, Youtube, Home, Loader2 } from 'lucide-react';
+import { Phone, Loader2, Home } from 'lucide-react';
 import { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 
@@ -80,10 +80,6 @@ export function Footer() {
           <div className="space-y-2">
             <h3 className="font-semibold tracking-wider uppercase text-primary-foreground/70">About Us</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="#" className="hover:text-primary-foreground/80 transition-colors">Mission</Link></li>
-              <li><Link href="#" className="hover:text-primary-foreground/80 transition-colors">Vision</Link></li>
-              <li><Link href="#" className="hover:text-primary-foreground/80 transition-colors">Our Team</Link></li>
-              <li><Link href="#" className="hover:text-primary-foreground/80 transition-colors">Career</Link></li>
               <li><Link href="/blog" className="hover:text-primary-foreground/80 transition-colors">Blog</Link></li>
               <li><Link href="/affiliate-program" className="hover:text-primary-foreground/80 transition-colors">Affiliate Program</Link></li>
               <li><Link href="/sponsorship" className="hover:text-primary-foreground/80 transition-colors">Sponsorship</Link></li>
@@ -107,7 +103,7 @@ export function Footer() {
               <li><Link href="/dashboard/support" className="hover:text-primary-foreground/80 transition-colors">Support</Link></li>
               <li><Link href="/dashboard/landlord/help" className="hover:text-primary-foreground/80 transition-colors">FAQs</Link></li>
               <li><Link href="/tutorials-guides" className="hover:text-primary-foreground/80 transition-colors">Tutorials & Guides</Link></li>
-              <li><Link href="#" className="hover:text-primary-foreground/80 transition-colors">Contact Us</Link></li>
+              <li><Link href="/contact" className="hover:text-primary-foreground/80 transition-colors">Contact Us</Link></li>
               <li>
                   <a href="tel:+263771501737" className="flex items-center justify-center sm:justify-start gap-2 hover:text-primary-foreground/80 transition-colors">
                       <Phone className="h-4 w-4" />
@@ -131,8 +127,6 @@ export function Footer() {
               <li><Link href="/cookie-policy" className="hover:text-primary-foreground/80 transition-colors">Cookie Policy</Link></li>
               <li><Link href="/data-ethics-integrity" className="hover:text-primary-foreground/80 transition-colors">Data Ethics & Integrity</Link></li>
               <li><Link href="/accessibility-statement" className="hover:text-primary-foreground/80 transition-colors">Accessibility Statement</Link></li>
-              <li><Link href="#" className="hover:text-primary-foreground/80 transition-colors">Don't Sell My Personal Info</Link></li>
-              <li><Link href="#" className="hover:text-primary-foreground/80 transition-colors">Sitemap</Link></li>
             </ul>
           </div>
 
@@ -145,8 +139,6 @@ export function Footer() {
                         <Home className="h-4 w-4" />
                         <span>Equal Housing Opportunity</span>
                     </Link>
-                    <span className="hidden md:inline">|</span>
-                    <Link href="#" className="hover:text-primary-foreground/80 transition-colors">Avoid Scams in Rental Housing</Link>
                 </div>
                 <div>
                     <p>Zimbabwe Landlord and Tenants Network, © 2025</p>
