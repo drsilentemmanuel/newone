@@ -324,7 +324,7 @@ function ScreeningFeatureCard({ icon, title, description }: { icon: React.ReactN
             {icon}
             <div>
                 <h3 className="text-lg font-bold">{title}</h3>
-                <p className="text-sm text-primary-foreground/80 mt-1">{description}</p>
+                <div className="text-sm text-primary-foreground/80 mt-1">{description}</div>
             </div>
         </div>
     );
