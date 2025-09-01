@@ -1,9 +1,9 @@
+
 "use client";
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart, Heart, ShieldCheck, BadgeCheck } from "lucide-react";
-import Image from "next/image";
+import { ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import { useToast } from "@/hooks/use-toast";
 import { Badge } from "@/components/ui/badge";
@@ -15,43 +15,34 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
+import { ShopProductCard } from "@/components/shop-product-card";
 
 const products = [
   {
     name: "Residential Lease Pack",
     category: "Legal Documents",
     price: "$ 250.00",
-    imageUrl: "https://placehold.co/350x450.png",
-    aiHint: "document contract",
     bestSeller: true,
   },
   {
     name: "Property Dealer",
     category: "Books",
     price: "$ 313.00",
-    imageUrl: "https://placehold.co/350x450.png",
-    aiHint: "book property deal",
   },
   {
     name: "Commercial Lease Pack",
     category: "Legal Documents",
     price: "$ 450.00",
-    imageUrl: "https://placehold.co/350x450.png",
-    aiHint: "office building",
   },
   {
     name: "Company Enquiry Report",
     category: "Business Intelligence",
     price: "$ 150.00",
-    imageUrl: "https://placehold.co/350x450.png",
-    aiHint: "business report",
   },
   {
     name: "Deeds Search",
     category: "Verification Services",
     price: "$ 50.00",
-    imageUrl: "https://placehold.co/350x450.png",
-    aiHint: "property deed document",
   },
 ];
 
@@ -119,53 +110,7 @@ export default function ShopPage() {
         </div>
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {filteredProducts.map((product) => (
-            <div key={product.name} className="group">
-              <div className="relative overflow-hidden rounded-md border">
-                <Image
-                  src={product.imageUrl}
-                  width={350}
-                  height={450}
-                  alt={product.name}
-                  className="w-full object-cover aspect-[3/4]"
-                  data-ai-hint={product.aiHint}
-                />
-                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-                {product.bestSeller && (
-                  <Badge className="absolute top-3 left-3 bg-amber-400 text-amber-900 hover:bg-amber-400">
-                    Best Seller
-                  </Badge>
-                )}
-                <Button
-                  size="icon"
-                  variant="secondary"
-                  className="absolute top-3 right-3 bg-white/80 hover:bg-white text-black"
-                >
-                  <Heart className="h-5 w-5" />
-                </Button>
-              </div>
-              <div className="pt-4 text-left">
-                <h3 className="font-semibold">{product.name}</h3>
-                <p className="text-sm text-muted-foreground">
-                  {product.category}
-                </p>
-                <div className="flex justify-between items-center mt-4">
-                  <p className="text-2xl font-black">{product.price}</p>
-                  <Button onClick={handleAddToCart}>
-                    <ShoppingCart className="mr-2 h-4 w-4" /> Add to cart
-                  </Button>
-                </div>
-                <div className="flex items-center justify-start gap-4 mt-3 text-xs text-muted-foreground">
-                  <div className="flex items-center gap-1">
-                    <ShieldCheck className="h-4 w-4 text-emerald-500" />
-                    <span>Secure Checkout</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <BadgeCheck className="h-4 w-4 text-emerald-500" />
-                    <span>Instant Download</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+             <ShopProductCard key={product.name} product={product} onAddToCart={handleAddToCart} />
           ))}
         </div>
       </div>
