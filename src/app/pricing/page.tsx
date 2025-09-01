@@ -6,32 +6,32 @@ import { Check, Star, Building, Briefcase } from "lucide-react";
 import Link from "next/link";
 
 const PlanFeature = ({ children }: { children: React.ReactNode }) => (
-    <li className="flex items-center gap-2">
-        <Check className="h-4 w-4 text-primary" />
+    <li className="flex items-start gap-3">
+        <Check className="h-4 w-4 text-primary mt-1 flex-shrink-0" />
         <span className="text-muted-foreground">{children}</span>
     </li>
 );
 
-const pricingPlans = [
+const landlordPlans = [
     {
         icon: <Building className="h-8 w-8 text-primary" />,
         title: "Landlord",
-        price: "$10",
-        priceDescription: "per month",
+        price: "Free",
+        priceDescription: "",
         description: "For independent landlords managing their own properties.",
         features: [
             "Up to 5 Properties",
-            "Tenant Screening",
-            "Online Rent Collection (ACH)",
+            "Basic Tenant Screening",
+            "Online Rent Collection",
             "Lease Agreement Templates",
             "Maintenance Tracking",
             "Standard Support",
         ],
-        ctaText: "Choose Landlord",
-        ctaLink: "/signup?plan=landlord"
+        ctaText: "Get Started for Free",
+        ctaLink: "/signup?plan=landlord-free"
     },
     {
-        icon: <Briefcase className="h-8 w-8 text-primary" />,
+        icon: <Building className="h-8 w-8 text-primary" />,
         title: "Landlord Pro",
         price: "$25",
         priceDescription: "per month",
@@ -46,42 +46,63 @@ const pricingPlans = [
             "Priority Support",
         ],
         ctaText: "Choose Pro",
-        ctaLink: "/signup?plan=pro"
-    },
+        ctaLink: "/signup?plan=landlord-pro"
+    }
+];
+
+const agentPlans = [
     {
-        icon: <Building className="h-8 w-8 text-primary" />,
+        icon: <Briefcase className="h-8 w-8 text-primary" />,
         title: "Agent",
-        price: "$50",
-        priceDescription: "per month",
-        description: "For property managers and real estate agents.",
+        price: "Free",
+        priceDescription: "",
+        description: "A strategic entry point for real estate agents and small property management firms.",
         features: [
             "Unlimited Properties",
-            "Everything in Pro, plus:",
-            "Agent-level dashboard",
+            "Basic Agent-Level Dashboard",
+            "Tenant Screening",
+            "Online Rent Collection",
+            "Standard Support",
+        ],
+        ctaText: "Get Started for Free",
+        ctaLink: "/signup?plan=agent-free"
+    },
+    {
+        icon: <Briefcase className="h-8 w-8 text-primary" />,
+        title: "Agent Pro",
+        price: "$50",
+        priceDescription: "per month",
+        description: "Premium, paid option for agents and property managers who require enterprise-level features.",
+        isFeatured: true,
+        features: [
+            "Unlimited Properties",
+            "Everything in Agent, plus:",
+            "Advanced Reporting & Analytics",
+            "AI Profile Insights & Matching",
             "Client & Vendor Management",
             "Custom Branding on Reports",
-            "Dedicated Account Manager",
+            "Dedicated Account Manager"
         ],
-        ctaText: "Choose Agent",
-        ctaLink: "/signup?plan=agent"
+        ctaText: "Choose Agent Pro",
+        ctaLink: "/signup?plan=agent-pro"
     }
 ];
 
 const faqs = [
     {
         question: "Can I try the platform before committing to a plan?",
-        answer: "Yes, all new accounts start with a 14-day free trial of our Landlord Pro plan, no credit card required. This allows you to explore all our features and see which plan is right for you."
+        answer: "Yes, all new accounts start with a 14-day free trial of our Pro plans, no credit card required. This allows you to explore all our features and see which plan is right for you."
     },
     {
-        question: "What happens if I need to manage more properties than my plan allows?",
-        answer: "You can easily upgrade your plan at any time from your dashboard settings. Your billing will be pro-rated for the current cycle."
+        question: "What happens if I need to manage more properties than the Landlord plan allows?",
+        answer: "You can easily upgrade to Landlord Pro at any time from your dashboard settings to manage more properties and access advanced features. Your billing will be pro-rated for the current cycle."
     },
     {
         question: "Is there a discount for paying annually?",
-        answer: "Yes! We offer a 20% discount on all plans if you choose to pay annually. You can select this option during checkout."
+        answer: "Yes! We offer a 20% discount on all paid plans if you choose to pay annually. You can select this option during checkout."
     },
     {
-        question: "What types of payment do you accept?",
+        question: "What types of payment do you accept for Pro plans?",
         answer: "We accept all major credit and debit cards, including Visa, Mastercard, and American Express."
     }
 ];
@@ -99,9 +120,13 @@ export default function PricingPage() {
             </p>
         </section>
 
+        {/* Landlord Plans */}
         <section className="container mx-auto max-w-5xl">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
-                {pricingPlans.map((plan) => (
+             <div className="text-center space-y-2 mb-12">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline">For Landlords</h2>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8 items-stretch max-w-3xl mx-auto">
+                {landlordPlans.map((plan) => (
                     <Card key={plan.title} className={`flex flex-col ${plan.isFeatured ? 'border-primary shadow-lg' : ''}`}>
                          {plan.isFeatured && (
                             <div className="relative">
@@ -109,6 +134,50 @@ export default function PricingPage() {
                                     <div className="flex items-center gap-1 bg-primary text-primary-foreground text-xs font-semibold px-3 py-1 rounded-full">
                                         <Star className="h-3 w-3"/>
                                         Most Popular
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                        <CardHeader className="text-center">
+                            <div className="flex justify-center mb-4">{plan.icon}</div>
+                            <CardTitle className="text-2xl font-bold">{plan.title}</CardTitle>
+                            <div className="flex items-baseline justify-center gap-1">
+                                <span className="text-4xl font-extrabold tracking-tight">{plan.price}</span>
+                                <span className="text-muted-foreground">{plan.priceDescription}</span>
+                            </div>
+                            <CardDescription>{plan.description}</CardDescription>
+                        </CardHeader>
+                        <CardContent className="flex-grow">
+                             <ul className="space-y-3">
+                                {plan.features.map((feature, index) => (
+                                    <PlanFeature key={index}>{feature}</PlanFeature>
+                                ))}
+                            </ul>
+                        </CardContent>
+                        <CardFooter>
+                            <Button asChild className="w-full" size="lg" variant={plan.isFeatured ? 'default' : 'outline'}>
+                                <Link href={plan.ctaLink}>{plan.ctaText}</Link>
+                            </Button>
+                        </CardFooter>
+                    </Card>
+                ))}
+            </div>
+        </section>
+
+         {/* Agent Plans */}
+        <section className="container mx-auto max-w-5xl">
+             <div className="text-center space-y-2 mb-12">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline">For Agents & Property Managers</h2>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8 items-stretch max-w-3xl mx-auto">
+                {agentPlans.map((plan) => (
+                    <Card key={plan.title} className={`flex flex-col ${plan.isFeatured ? 'border-primary shadow-lg' : ''}`}>
+                         {plan.isFeatured && (
+                            <div className="relative">
+                                <div className="absolute top-0 right-4 -mt-4">
+                                    <div className="flex items-center gap-1 bg-primary text-primary-foreground text-xs font-semibold px-3 py-1 rounded-full">
+                                        <Star className="h-3 w-3"/>
+                                        Recommended
                                     </div>
                                 </div>
                             </div>
