@@ -81,8 +81,9 @@ const ProductImage = ({ product }: { product: Product }) => {
 };
 
 
-export default function ProductDetailPage({ params: { productName } }: { params: { productName: string } }) {
+export default function ProductDetailPage({ params }: { params: { productName: string } }) {
   const { toast } = useToast();
+  const { productName } = params;
   const product = products.find((p) => p.slug === productName);
 
   if (!product) {
