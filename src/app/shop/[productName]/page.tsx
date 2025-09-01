@@ -62,7 +62,7 @@ const products: Product[] = [
   },
 ];
 
-export default function ProductDetailPage({ params }: { params: { productName: string } }) {
+export default async function ProductDetailPage({ params }: { params: { productName: string } }) {
   const { productName } = params;
   const product = products.find((p) => p.slug === productName);
 
