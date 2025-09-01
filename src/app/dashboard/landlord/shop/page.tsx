@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -46,6 +45,13 @@ const products = [
     price: "$ 150.00",
     imageUrl: "https://placehold.co/350x450.png",
     aiHint: "business report",
+  },
+  {
+    name: "Deeds Search",
+    category: "Verification Services",
+    price: "$ 50.00",
+    imageUrl: "https://placehold.co/350x450.png",
+    aiHint: "property deed document",
   },
 ];
 
