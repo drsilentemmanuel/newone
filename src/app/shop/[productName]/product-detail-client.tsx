@@ -4,69 +4,85 @@
 import type { Product } from "@/app/shop/page";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, Plus, Minus } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { ShopProductCard } from "@/components/shop-product-card";
-
-const ProductImage = ({ product }: { product: Product }) => {
-    const { toast } = useToast();
-    const handleAddToCart = () => {
-        toast({
-        title: "Item Added to Cart",
-        description: `${product.name} has been successfully added to your cart.`,
-        });
-    };
-    // Re-use the ShopProductCard for the main image to keep it consistent
-    return <ShopProductCard product={product} onAddToCart={handleAddToCart} />;
-};
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { useState } from "react";
+import { Input } from "@/components/ui/input";
 
 
 export function ProductDetailClient({ product }: { product: Product }) {
   const { toast } = useToast();
+  const [quantity, setQuantity] = useState(1);
   
   const handleAddToCart = () => {
     toast({
       title: "Item Added to Cart",
-      description: `${product.name} has been successfully added to your cart.`,
+      description: `${quantity} x ${product.name} has been successfully added to your cart.`,
     });
   };
+
+  const handleQuantityChange = (amount: number) => {
+    setQuantity(prev => Math.max(1, prev + amount));
+  }
 
   return (
       <div className="grid md:grid-cols-2 gap-12 items-start">
         <div className="sticky top-28 space-y-6">
-            <ProductImage product={product} />
+            <ShopProductCard product={product} onAddToCart={() => {}} />
         </div>
 
         <div className="space-y-6">
-          <div className="space-y-2">
-            <h1 className="text-3xl font-bold tracking-tight">{product.name}</h1>
-            {product.partner && (
-              <p className="text-sm text-muted-foreground">
-                IN PARTNERSHIP WITH {product.partner.toUpperCase()}
-              </p>
-            )}
-          </div>
+          <Card className="shadow-lg">
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <Badge variant="outline">{product.category}</Badge>
+                {product.bestSeller && <Badge variant="destructive">Best Seller</Badge>}
+              </div>
+              <CardTitle className="!mt-4 text-3xl font-bold tracking-tight">{product.name}</CardTitle>
+              {product.partner && (
+                <CardDescription>
+                  In partnership with {product.partner}
+                </CardDescription>
+              )}
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <Separator />
+               <div className="space-y-4">
+                  <h3 className="text-base font-semibold text-muted-foreground">About this product</h3>
+                  <div className="prose prose-sm text-foreground space-y-4">
+                      <p>{product.description}</p>
+                      <p>{product.subscriptionInfo}</p>
+                      <p>{product.format}</p>
+                  </div>
+              </div>
 
-          <div className="flex items-center gap-4">
-            <Badge variant="secondary" className="text-2xl font-bold py-2 px-6 rounded-lg bg-amber-100 text-amber-800 border-amber-200">
-              {product.price.split('.')[0]}
-              <span className="text-lg font-semibold text-amber-700">.{product.price.split('.')[1]}</span>
-              <span className="text-sm font-normal ml-2 text-amber-600">/ YEAR</span>
-            </Badge>
-            <Button size="lg" onClick={handleAddToCart} className="bg-sky-500 hover:bg-sky-600 text-white rounded-full">
-              <ShoppingCart className="mr-2 h-5 w-5" />
-              ADD TO CART
-            </Button>
-          </div>
-          
-          <div>
-            <h2 className="text-xl font-semibold mb-2">QUICK OVERVIEW</h2>
-            <div className="prose prose-sm text-muted-foreground space-y-4">
-                <p>{product.description}</p>
-                <p>{product.subscriptionInfo}</p>
-                <p>{product.format}</p>
-            </div>
-          </div>
+              <Separator />
+
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                  <div className="flex items-center gap-2">
+                    <p className="text-3xl font-bold">{product.price}</p>
+                    <p className="text-sm text-muted-foreground">/ YEAR</p>
+                  </div>
+                   <div className="flex items-center gap-2">
+                    <Button variant="outline" size="icon" onClick={() => handleQuantityChange(-1)} disabled={quantity <= 1}>
+                        <Minus className="h-4 w-4" />
+                    </Button>
+                    <Input type="number" value={quantity} readOnly className="w-16 text-center" />
+                    <Button variant="outline" size="icon" onClick={() => handleQuantityChange(1)}>
+                        <Plus className="h-4 w-4" />
+                    </Button>
+                </div>
+              </div>
+             
+              <Button size="lg" onClick={handleAddToCart} className="w-full text-lg h-12 rounded-full">
+                <ShoppingCart className="mr-2 h-5 w-5" />
+                Add to Cart
+              </Button>
+            </CardContent>
+          </Card>
         </div>
       </div>
   );
