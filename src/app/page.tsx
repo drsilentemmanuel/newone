@@ -189,9 +189,9 @@ export default function Home() {
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-headline">
               Invite a Tenant to Get Screened
             </h2>
-            <p className="max-w-xl text-lg text-primary-foreground/80">
+            <div className="max-w-xl text-lg text-primary-foreground/80">
               Simply enter your tenant's what's app number, and we’ll handle the screening process for you. Get the results you need in minutes.
-            </p>
+            </div>
             <Button asChild size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 rounded-full px-8">
               <Link href="/signup">Invite Now</Link>
             </Button>
