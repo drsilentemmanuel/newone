@@ -1,4 +1,3 @@
-New Site
-test deployment
+Demo Site
 
 https://www.truststamp.co.zw/
