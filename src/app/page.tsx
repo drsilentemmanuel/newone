@@ -248,10 +248,10 @@ export default function Home() {
                     />
                     <TestimonialCard
                         quote="As a first-time landlord, I was nervous about finding the right person for my flat. Zimbabwe Landlord and Tenants Network made it so easy. Their reports are detailed and easy to understand, and I saved weeks of stress. I highly recommend it to any landlord in Zimbabwe."
-                        author="Mike P."
+                        author="Sukuluhle"
                         role="Landlord, Bulawayo"
                         avatarSrc="https://placehold.co/100x100.png"
-                        avatarHint="man portrait"
+                        avatarHint="person portrait"
                     />
                 </div>
             </div>
