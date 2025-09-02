@@ -18,7 +18,6 @@ export default function AccessibilityStatementPage() {
         <h2>Feedback</h2>
         <p>We welcome your feedback on the accessibility of Zimbabwe Landlord and Tenants Network. Please let us know if you encounter accessibility barriers:</p>
         <ul>
-            <li>Phone: <a href="tel:+263771501737">+263 771 501 737</a></li>
             <li>E-mail: <a href="mailto:support@truststamp.co.zw">support@truststamp.co.zw</a></li>
             <li>Postal Address: 123 Fife Avenue, Harare, Zimbabwe</li>
         </ul>

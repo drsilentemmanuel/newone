@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { ZimbabweRentBookLogo } from '@/components/zimbabwe-rent-book-logo';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Phone, Loader2, Home } from 'lucide-react';
+import { Loader2, Home } from 'lucide-react';
 import { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 
@@ -104,12 +104,6 @@ export function Footer() {
               <li><Link href="/dashboard/landlord/help" className="hover:text-primary-foreground/80 transition-colors">FAQs</Link></li>
               <li><Link href="/tutorials-guides" className="hover:text-primary-foreground/80 transition-colors">Tutorials & Guides</Link></li>
               <li><Link href="/contact" className="hover:text-primary-foreground/80 transition-colors">Contact Us</Link></li>
-              <li>
-                  <a href="tel:+263771501737" className="flex items-center justify-center sm:justify-start gap-2 hover:text-primary-foreground/80 transition-colors">
-                      <Phone className="h-4 w-4" />
-                      <span>+263 771 501 737</span>
-                    </a>
-              </li>
               <li>
                 <a href="https://wa.me/263771501737" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center sm:justify-start gap-2 hover:text-primary-foreground/80 transition-colors">
                     <WhatsAppIcon />
