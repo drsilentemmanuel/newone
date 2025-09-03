@@ -1,3 +1,1 @@
-Demo Site
-
-https://www.truststamp.co.zw/
+Demo Site: https://www.truststamp.co.zw/
