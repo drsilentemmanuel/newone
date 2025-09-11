@@ -118,6 +118,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li><Link href="/terms" className="hover:text-primary-foreground/80 transition-colors">Terms of Use</Link></li>
               <li><Link href="/privacy" className="hover:text-primary-foreground/80 transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/data-privacy" className="hover:text-primary-foreground/80 transition-colors">Data Privacy</Link></li>
               <li><Link href="/cookie-policy" className="hover:text-primary-foreground/80 transition-colors">Cookie Policy</Link></li>
               <li><Link href="/data-ethics-integrity" className="hover:text-primary-foreground/80 transition-colors">Data Ethics & Integrity</Link></li>
               <li><Link href="/accessibility-statement" className="hover:text-primary-foreground/80 transition-colors">Accessibility Statement</Link></li>
