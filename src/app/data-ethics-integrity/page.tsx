@@ -22,7 +22,7 @@ export default function DataEthicsIntegrityPage() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
                  <Image
-                    src="https://placehold.co/600x600.png"
+                    src="/Data Privacy.png"
                     width={600}
                     height={600}
                     alt="Abstract data security concept"
