@@ -1,5 +1,6 @@
 
-import { Handshake, Scale, ThumbsUp, ShieldCheck } from "lucide-react";
+import { Handshake, Scale, ThumbsUp, ShieldCheck, CheckCircle } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const Principle = ({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) => (
     <div className="flex flex-col items-center text-center gap-4 p-4 border rounded-lg bg-card">
@@ -20,39 +21,46 @@ export default function DataEthicsIntegrityPage() {
       <div className="space-y-6 text-center">
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl font-headline">Data Ethics & Integrity</h1>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-          Our commitment to handling data responsibly is the cornerstone of the trust our users place in us. We are dedicated to upholding the highest standards of data ethics and integrity.
+          Customer data is sacrosanct. We cherish the trust that is placed in us to protect the data owned by lenders and customers.
         </p>
       </div>
       
-      <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        <Principle 
-            icon={<Handshake className="h-8 w-8" />}
-            title="User Control & Consent"
-            description="You are the owner of your data. We provide clear, transparent controls for you to manage your information and decide who it's shared with. Consent is always explicit and can be revoked at any time."
-        />
-        <Principle 
-            icon={<Scale className="h-8 w-8" />}
-            title="Fairness & Impartiality"
-            description="We design our algorithms to be as unbiased as possible. We actively work to identify and mitigate biases in our data and models to ensure fair and equitable outcomes for all users."
-        />
-        <Principle 
-            icon={<ThumbsUp className="h-8 w-8" />}
-            title="Purpose & Proportionality"
-            description="We only collect data that is necessary for providing and improving our services. Your data is used for the purposes you've agreed to, and we never sell your personal information to third parties."
-        />
-        <Principle 
-            icon={<ShieldCheck className="h-8 w-8" />}
-            title="Security & Accountability"
-            description="We employ robust security measures to protect your data from unauthorized access. We are accountable for our data practices and are committed to resolving any issues promptly and transparently."
-        />
-      </div>
+      <Card className="mt-16">
+        <CardContent className="p-8 prose prose-lg dark:prose-invert max-w-none mx-auto space-y-8">
+            <section>
+                <h2 className="flex items-center gap-3"><Handshake className="text-primary"/>Consent-driven Access</h2>
+                <p>We believe that the alternative lending ecosystem can only be scaled up in an environment of trust between stakeholders, which calls for transparency. Consumers are presented with a prominent disclosure screen, and detailed information on why, how and what data is being collected and used. Conscious consent is a mandatory step to proceed with our service.</p>
+            </section>
 
-       <div className="mt-20 text-center space-y-4 max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold font-headline">Our Pledge</h2>
-          <p className="text-muted-foreground text-lg">
-            At Zimbabwe Landlord and Tenants Network, we pledge to be responsible stewards of the data entrusted to us. We continuously review our policies and practices to ensure they align with our ethical principles and the best interests of our community. Trust is not given, it's earned, and we are committed to earning yours every day.
-          </p>
-      </div>
+            <section>
+                <h2 className="flex items-center gap-3"><ShieldCheck className="text-primary"/>Security by design</h2>
+                 <p>Proactive, preventive, ‘end-to-end’ security is the default setting of our products. Keeping data secure is a priority for us, and this is reflected in the design of our products, from the start.</p>
+                 <ul className="space-y-2">
+                    <li className="flex items-start gap-2"><CheckCircle className="h-5 w-5 text-emerald-500 mt-1.5 shrink-0"/>Data is collected, transmitted, stored and eventually purged in a highly secure manner.</li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-5 w-5 text-emerald-500 mt-1.5 shrink-0"/>We are proactive. We conduct vulnerability assessments periodically and have robust threat detection systems.</li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-5 w-5 text-emerald-500 mt-1.5 shrink-0"/>We take prevention seriously. Our multi-layered security architecture with multi-factor authentication ensures that risks are addressed before a potential security breach.</li>
+                </ul>
+                <div className="p-6 rounded-lg bg-muted/50 border mt-4">
+                  <h3 className="font-semibold not-prose">Our products are equipped with the following features right from conception:</h3>
+                  <ul className="mt-2 space-y-1">
+                      <li><strong>Confidentiality</strong> - allowing access to authorized users only</li>
+                      <li><strong>Integrity</strong> - ensuring data is not tampered with</li>
+                      <li><strong>Availability</strong> - ensuring data is available to each user as and when they need it</li>
+                  </ul>
+                </div>
+            </section>
+
+             <section>
+                <h2 className="flex items-center gap-3"><ThumbsUp className="text-primary"/>Adherence</h2>
+                 <p>We believe that a commitment to privacy mandates that we maintain the highest global standards and protocols.</p>
+                 <ul className="space-y-2">
+                    <li className="flex items-start gap-2"><CheckCircle className="h-5 w-5 text-emerald-500 mt-1.5 shrink-0"/>We adhere to the Data protection act and the Information Technology.</li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-5 w-5 text-emerald-500 mt-1.5 shrink-0"/>We adhere to Google’s policy guidelines regarding data collection, processing and management.</li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-5 w-5 text-emerald-500 mt-1.5 shrink-0"/>We are a member of the Data Security Council of Zimbabwe.</li>
+                </ul>
+            </section>
+        </CardContent>
+      </Card>
 
     </div>
   );
