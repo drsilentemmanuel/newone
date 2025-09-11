@@ -55,7 +55,7 @@ export function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 gap-8 py-12 text-center sm:text-left sm:grid-cols-2 md:grid-cols-6 md:py-16">
+        <div className="grid grid-cols-1 gap-8 py-12 text-center sm:text-left sm:grid-cols-2 md:grid-cols-5 md:py-16">
           <div className="space-y-4 flex flex-col items-center sm:items-start col-span-1 md:col-span-2">
             <p className="text-sm text-primary-foreground/80 max-w-xs">
               Subscribe for the latest news and features. We won't share your email with anyone.
@@ -78,27 +78,17 @@ export function Footer() {
           </div>
 
           <div className="space-y-2">
-            <h3 className="font-semibold tracking-wider uppercase text-primary-foreground/70">About Us</h3>
+            <h3 className="font-semibold tracking-wider uppercase text-primary-foreground/70">Company</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/blog" className="hover:text-primary-foreground/80 transition-colors">Blog</Link></li>
-              <li><Link href="/affiliate-program" className="hover:text-primary-foreground/80 transition-colors">Affiliate Program</Link></li>
+              <li><Link href="/blog" className="hover:text-primary-foreground/80 transition-colors">About Us</Link></li>
+              <li><Link href="/partnership" className="hover:text-primary-foreground/80 transition-colors">Partnerships</Link></li>
               <li><Link href="/sponsorship" className="hover:text-primary-foreground/80 transition-colors">Sponsorship</Link></li>
-              <li><Link href="/partnership" className="hover:text-primary-foreground/80 transition-colors">Partnership</Link></li>
+              <li><Link href="/affiliate-program" className="hover:text-primary-foreground/80 transition-colors">Affiliate Program</Link></li>
             </ul>
           </div>
           
           <div className="space-y-2">
-            <h3 className="font-semibold tracking-wider uppercase text-primary-foreground/70">Features</h3>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="/features/tenant-screening" className="hover:text-primary-foreground/80 transition-colors">Tenant Screening</Link></li>
-              <li><Link href="/features/rent-collection" className="hover:text-primary-foreground/80 transition-colors">Rent Collection</Link></li>
-              <li><Link href="/features/lease-agreements" className="hover:text-primary-foreground/80 transition-colors">Lease Agreements</Link></li>
-              <li><Link href="/features/ai-insights" className="hover:text-primary-foreground/80 transition-colors">AI Insights</Link></li>
-            </ul>
-          </div>
-
-          <div className="space-y-2">
-            <h3 className="font-semibold tracking-wider uppercase text-primary-foreground/70">Get Help</h3>
+            <h3 className="font-semibold tracking-wider uppercase text-primary-foreground/70">Help & Support</h3>
             <ul className="space-y-2 text-sm">
               <li><Link href="/dashboard/support" className="hover:text-primary-foreground/80 transition-colors">Support</Link></li>
               <li><Link href="/dashboard/landlord/help" className="hover:text-primary-foreground/80 transition-colors">FAQs</Link></li>
@@ -114,14 +104,13 @@ export function Footer() {
           </div>
 
           <div className="space-y-2">
-            <h3 className="font-semibold tracking-wider uppercase text-primary-foreground/70">Legal</h3>
+            <h3 className="font-semibold tracking-wider uppercase text-primary-foreground/70">Legal & Compliance</h3>
             <ul className="space-y-2 text-sm">
               <li><Link href="/terms" className="hover:text-primary-foreground/80 transition-colors">Terms of Use</Link></li>
               <li><Link href="/privacy" className="hover:text-primary-foreground/80 transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/data-privacy" className="hover:text-primary-foreground/80 transition-colors">Data Privacy</Link></li>
               <li><Link href="/cookie-policy" className="hover:text-primary-foreground/80 transition-colors">Cookie Policy</Link></li>
-              <li><Link href="/data-ethics-integrity" className="hover:text-primary-foreground/80 transition-colors">Data Ethics & Integrity</Link></li>
               <li><Link href="/accessibility-statement" className="hover:text-primary-foreground/80 transition-colors">Accessibility Statement</Link></li>
+              <li><Link href="/data-ethics-integrity" className="hover:text-primary-foreground/80 transition-colors">Data Ethics & Integrity</Link></li>
             </ul>
           </div>
 
