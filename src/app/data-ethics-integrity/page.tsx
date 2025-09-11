@@ -2,19 +2,6 @@
 import { Handshake, Scale, ThumbsUp, ShieldCheck, CheckCircle } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-const Principle = ({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) => (
-    <div className="flex flex-col items-center text-center gap-4 p-4 border rounded-lg bg-card">
-        <div className="flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary">
-            {icon}
-        </div>
-        <div className="space-y-1">
-            <h3 className="text-xl font-semibold">{title}</h3>
-            <p className="text-muted-foreground">{description}</p>
-        </div>
-    </div>
-);
-
-
 export default function DataEthicsIntegrityPage() {
   return (
     <div className="container mx-auto max-w-5xl py-12 md:py-24">
